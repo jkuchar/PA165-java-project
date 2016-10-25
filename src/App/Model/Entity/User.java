@@ -4,7 +4,6 @@ import App.Model.Role;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.PersistenceProperty;
 import java.util.UUID;
 
 @Entity
