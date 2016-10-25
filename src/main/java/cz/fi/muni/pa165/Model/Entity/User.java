@@ -1,6 +1,6 @@
-package App.Model.Entity;
+package cz.fi.muni.pa165.Model.Entity;
 
-import App.Model.Role;
+import cz.fi.muni.pa165.Model.Role;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
