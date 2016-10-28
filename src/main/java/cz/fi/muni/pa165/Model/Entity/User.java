@@ -11,10 +11,12 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
 
+@SuppressWarnings("WeakerAccess")
 @Entity
 class User {
 
-    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
     protected User() {
     }
 
@@ -37,6 +39,11 @@ class User {
         this.created = created;
     }
 
+    /**
+     * Create user with current date created
+     * @return created user
+     */
+    @org.jetbrains.annotations.Contract("!null, !null, !null, !null -> !null")
     public static User create(String firstName, String lastName, Role role, String email) {
         return new User(firstName, lastName, role, email, new Date());
     }
