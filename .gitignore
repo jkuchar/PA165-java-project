@@ -15,3 +15,4 @@ lib/*
 .idea/*
 *.log
 *.swp
+*.iml
