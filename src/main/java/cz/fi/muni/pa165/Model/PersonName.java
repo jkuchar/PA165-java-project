@@ -3,7 +3,9 @@ package cz.fi.muni.pa165.Model;
 import org.jetbrains.annotations.Contract;
 import org.springframework.util.Assert;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
@@ -15,7 +17,12 @@ import java.util.Objects;
 @Embeddable
 final public class PersonName {
 
+    @NotNull
+    @Column(name = "name_first")
     private String first;
+
+    @NotNull
+    @Column(name = "name_last")
     private String last;
 
     // Hibernate Hack
