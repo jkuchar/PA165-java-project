@@ -51,8 +51,8 @@ abstract class CarAuditLogItem {
     public UUID getId() {
         return id;
     }
-    public UUID getCarId() {
-        return carId;
+    public Car getCar() {
+        return car;
     }
     public void setCar(Car car) {
         this.car = car;
