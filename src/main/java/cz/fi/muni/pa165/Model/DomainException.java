@@ -1,6 +1,6 @@
 package cz.fi.muni.pa165.Model;
 
-class DomainException extends java.lang.Exception {
+public class DomainException extends java.lang.Exception {
 
     private DomainException(String message) {
         super(message);
