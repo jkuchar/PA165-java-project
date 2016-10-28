@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.Model.Entity;
 
+import cz.fi.muni.pa165.Model.CarState;
+
 import javax.persistence.*;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import java.util.UUID;
  * Created by SARMIR on 26. 10. 2016.
  */
 
+@SuppressWarnings("WeakerAccess")
 @Entity
 public class Car {
 
@@ -19,8 +22,8 @@ public class Car {
 
 
 
-    public Car(UUID ID, int serialNumber, int regPlateNumber, String manufacturer, String type, int numberOfSeats, CarState carState, Date establishDate, Date discardDate) {
-        this.ID = ID;
+    public Car(UUID id, int serialNumber, int regPlateNumber, String manufacturer, String type, int numberOfSeats, CarState carState, Date establishDate, Date discardDate) {
+        this.id = id;
         this.serialNumber = serialNumber;
         this.regPlateNumber = regPlateNumber;
         this.manufacturer = manufacturer;
@@ -32,7 +35,7 @@ public class Car {
     }
 
     @Id
-    private UUID ID;
+    private UUID id;
 
     @NotNull
     private int serialNumber;
@@ -92,7 +95,7 @@ public class Car {
 
 
 
-    public UUID getID() { return ID; }
+    public UUID getID() { return id; }
 
     public int getSerialNumber() {
         return serialNumber;
