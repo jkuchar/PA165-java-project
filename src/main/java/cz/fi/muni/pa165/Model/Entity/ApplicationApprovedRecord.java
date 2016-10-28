@@ -39,6 +39,7 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
         Assert.notNull(to, "Cannot exist without to date.");
         this.to = to;
         
+        Assert.notNull(application, "Cannot exist without rent application record.");        
         this.application = app;
     }
     

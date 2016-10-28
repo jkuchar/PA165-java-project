@@ -35,7 +35,8 @@ public class ReturnRecord extends CarAuditLogItem{
         
         Assert.notNull(odometerState, "Cannot exist without odometer state.");
         this.odometerState = odometer;
-        
+ 
+        Assert.notNull(rentRecord, "Cannot exist without rent record.");        
         this.rentRecord = rent;
              
     }    
