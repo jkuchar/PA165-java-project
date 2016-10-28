@@ -1,35 +1,51 @@
 package cz.fi.muni.pa165.Model.Entity;
 
+import org.springframework.util.Assert;
 import java.util.Date;
 import java.util.UUID;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-public abstract class CarAuditLogItem {
+@Entity
+abstract class CarAuditLogItem {
 
     @Id
-    protected UUID id;
+    @NotNull
+    private UUID id;
 
-    protected Car car;
+    @NotNull
+    private Car car;
 
-    protected User user;
+    @NotNull
+    private User user;
 
-    protected Date created;
+    @NotNull
+    private Date created;
 
-    protected String comment;
+    private String comment;
 
-    protected CarAuditLogItem(Car car, User user, Date created, String comment) {
+    CarAuditLogItem(Car car, User user, Date created, String comment) {
         this.id = UUID.randomUUID();
+
+        Assert.notNull(car, "Cannot create LogItem without car.");
         this.car = car;
+
+        Assert.notNull(user, "Cannot create LogItem without user.");
         this.user = user;
+
+        Assert.notNull(created, "Cannot create LogItem without creation date.");
         this.created = created;
+
         this.comment = comment;
     }
 
-    public CarAuditLogItem(Car car, User user, String comment) {
+    CarAuditLogItem(Car car, User user, String comment) {
         this(car, user, new Date(), comment);
     }
 
-    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
     protected CarAuditLogItem() {}
 
     public UUID getId() {
