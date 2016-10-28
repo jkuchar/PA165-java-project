@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -15,9 +16,11 @@ abstract class CarAuditLogItem {
     private UUID id;
 
     @NotNull
+    @ManyToOne
     private Car car;
 
     @NotNull
+    @ManyToOne
     private User user;
 
     @NotNull
@@ -48,31 +51,23 @@ abstract class CarAuditLogItem {
     // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
     protected CarAuditLogItem() {}
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public UUID getId() {
         return id;
     }
     public Car getCar() {
         return car;
     }
-    public void setCar(Car car) {
-        this.car = car;
-    }
     public User getUser() {
         return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
     }
     public Date getCreated() {
         return created;
     }
-    public void setCreated(Date created) {
-        this.created = created;
-    }
     public String getComment() {
         return comment;
-    }
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }

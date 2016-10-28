@@ -24,6 +24,7 @@ public class RentRecord extends CarAuditLogItem{
     @Column(nullable = false)
     private int odometerState;
 
+    @NotNull
     @OneToOne
     private ApplicationApprovedRecord approvedRecord;
     
@@ -50,24 +51,12 @@ public class RentRecord extends CarAuditLogItem{
         return fuelState;
     }
 
-    public void setFuelState(int fuelState) {
-        this.fuelState = fuelState;
-    }
-
     public int getOdometerState() {
         return odometerState;
     }
-
-    public void setOdometerState(int odometerState) {
-        this.odometerState = odometerState;
-    }  
 
     public ApplicationApprovedRecord getApprovedRecord() {
         return approvedRecord;
     }
 
-    public void setApprovedRecord(ApplicationApprovedRecord approvedRecord) {
-        this.approvedRecord = approvedRecord;
-    }
-       
 }

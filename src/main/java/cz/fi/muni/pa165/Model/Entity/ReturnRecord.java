@@ -24,6 +24,7 @@ public class ReturnRecord extends CarAuditLogItem{
     @Column(nullable = false)
     private int odometerState;
     
+    @NotNull
     @OneToOne
     private RentRecord rentRecord;
     
@@ -50,24 +51,12 @@ public class ReturnRecord extends CarAuditLogItem{
         return fuelState;
     }
 
-    public void setFuelState(int fuelState) {
-        this.fuelState = fuelState;
-    }
-
     public int getOdometerState() {
         return odometerState;
-    }
-
-    public void setOdometerState(int odometerState) {
-        this.odometerState = odometerState;
     }
 
     public RentRecord getRentRecord() {
         return rentRecord;
     }
 
-    public void setRentRecord(RentRecord rentRecord) {
-        this.rentRecord = rentRecord;
-    }
-             
 }
