@@ -1,11 +1,15 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import cz.fi.muni.pa165.Model.DomainException;
+import cz.fi.muni.pa165.Model.PersonName;
 import cz.fi.muni.pa165.Model.Role;
 import org.hibernate.validator.constraints.Email;
+import org.jetbrains.annotations.Contract;
 import org.springframework.util.Assert;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -15,22 +19,42 @@ import java.util.UUID;
 @Entity
 class User {
 
+    @Id
+    @NotNull
+    private UUID id;
+
+    @NotNull
+    @Enumerated
+    private Role role;
+
+    /**
+     * Hibernate: embedded objects
+     * @link http://www.simplecodestuffs.com/value-object-entity-object-in-hibernate-mapping/
+     */
+    @NotNull
+    @Embedded
+    private PersonName name;
+
+    @Email
+    @NotNull
+    private String email;
+
+    @NotNull
+    private Date created;
+
     // DO NOT REMOVE! Hibernate hack:
     // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
     protected User() {
     }
 
-    User(String firstName, String lastName, Role role, String email, Date created) {
+    User(PersonName personName, Role role, String email, Date created) {
         this.id = UUID.randomUUID();
 
         Assert.notNull(role, "Cannot create user with no role.");
         this.role = role;
 
-        Assert.notNull(firstName, "Cannot create user with no first name.");
-        this.firstName = firstName;
-
-        Assert.notNull(lastName, "Cannot create user with no last name.");
-        this.lastName = lastName;
+        Assert.notNull(personName, "Cannot exist without name.");
+        this.name = personName;
 
         Assert.notNull(email, "Cannot create user with no e-mail.");
         this.email = email;
@@ -43,56 +67,69 @@ class User {
      * Create user with current date created
      * @return created user
      */
-    @org.jetbrains.annotations.Contract("!null, !null, !null, !null -> !null")
-    public static User create(String firstName, String lastName, Role role, String email) {
-        return new User(firstName, lastName, role, email, new Date());
+    @Contract("_, _, _ -> !null")
+    public static User create(PersonName personName, Role role, String email) {
+        return new User(personName, role, email, new Date());
     }
 
-    @Id
-    @NotNull
-    private UUID id;
-
-    @NotNull
-    private Role role;
-
-    @NotNull
-    private String firstName;
-
-    @NotNull
-    private String lastName;
-
-    @Email
-    @NotNull
-    private String email;
-
-    @NotNull
-    private Date created;
+    @org.jetbrains.annotations.Contract("!null, !null, !null, !null -> !null")
+    public static User create(String firstName, String lastName, Role role, String email) {
+        return User.create(new PersonName(firstName, lastName), role, email);
+    }
 
     public void changeRole(Role role) throws DomainException {
         Assert.notNull(role, "Cannot change user's role to null.");
         this.role = role;
     }
 
-    public void changeName(String firstName, String lastName) throws DomainException {
-        Assert.notNull(firstName, "First name is required when changing user's name.");
-        Assert.notNull(lastName,  "Last name is required when changing user's name.");
-
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void changeName(PersonName personName) throws DomainException {
+        Assert.notNull(personName, "Cannot remove user's name.");
+        this.name = personName;
     }
 
     public UUID getId() {
         return id;
     }
+
     public Role getRole() {
         return role;
     }
+
+    public PersonName getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+
+    // deprecated:
+    @Deprecated
+    User(String firstName, String lastName, Role role, String email, Date created) {
+        this(new PersonName(firstName, lastName), role, email, created);
+    }
+
+    @Deprecated
     public String getFirstName() {
-        return firstName;
+        return name.getFirst();
     }
+
+    @Deprecated
     public String getLastName() {
-        return lastName;
+        return name.getLast();
     }
-    public String getEmail() { return email; }
-    public Date getCreated() { return created; }
+
+    @Deprecated
+    public void changeName(String firstName, String lastName) throws DomainException {
+        Assert.notNull(firstName, "First name is required when changing user's name.");
+        Assert.notNull(lastName,  "Last name is required when changing user's name.");
+
+        this.name = new PersonName(firstName, lastName);
+    }
+
 }
