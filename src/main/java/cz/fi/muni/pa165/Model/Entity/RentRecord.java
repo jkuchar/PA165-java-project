@@ -25,6 +25,7 @@ public class RentRecord extends CarAuditLogItem{
     private int odometerState;
 
     @OneToOne
+    @NotNull
     private ApplicationApprovedRecord approvedRecord;
     
     

@@ -25,6 +25,7 @@ public class ReturnRecord extends CarAuditLogItem{
     private int odometerState;
     
     @OneToOne
+    @NotNull
     private RentRecord rentRecord;
     
     // DO NOT REMOVE! Hibernate hack:

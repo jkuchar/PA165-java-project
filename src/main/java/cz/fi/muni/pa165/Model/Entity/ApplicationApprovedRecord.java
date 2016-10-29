@@ -27,6 +27,7 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     private Date to;
     
     @OneToOne
+    @NotNull
     private RentApplication application;
     
     // DO NOT REMOVE! Hibernate hack:
