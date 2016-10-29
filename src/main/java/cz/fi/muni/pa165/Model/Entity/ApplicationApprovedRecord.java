@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.util.Assert;
 
 /**
@@ -59,4 +60,30 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     public RentApplication getApplication() {
         return application;
     } 
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if ((o == null) || !(o instanceof ApplicationApprovedRecord)) {
+            return false;
+        }
+        ApplicationApprovedRecord other = (ApplicationApprovedRecord) o;
+        if (getFrom() != null ? !getFrom().equals(other.getFrom()) : other.getFrom() != null) {
+            return false;
+        }
+        if (getTo() != null ? !getTo().equals(other.getTo()) : other.getTo() != null) {
+            return false;
+        }
+        if (application != null ? !application.equals(other.getApplication()) : other.getApplication() != null) {
+            return false;
+        }
+	return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(getFrom()).append(getTo()).append(getApplication().getId()).toHashCode();
+    }
 }

@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.util.Assert;
 
 /**
@@ -47,5 +48,28 @@ public class RentApplication extends CarAuditLogItem{
 
     public Date getTo() {
         return to;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if ((o == null) || !(o instanceof ApplicationApprovedRecord)) {
+            return false;
+        }
+        ApplicationApprovedRecord other = (ApplicationApprovedRecord) o;
+        if (getFrom() != null ? !getFrom().equals(other.getFrom()) : other.getFrom() != null) {
+            return false;
+        }
+        if (getTo() != null ? !getTo().equals(other.getTo()) : other.getTo() != null) {
+            return false;
+        }
+	return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(getFrom()).append(getTo()).toHashCode();
     }
 }

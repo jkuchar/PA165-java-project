@@ -8,6 +8,7 @@ package cz.fi.muni.pa165.Model.Entity;
 import javax.persistence.Column;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.util.Assert;
 
 /**
@@ -57,5 +58,31 @@ public class ReturnRecord extends CarAuditLogItem{
     
     public RentRecord getRentRecord() {
         return rentRecord;
-    }   
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if ((o == null) || !(o instanceof ReturnRecord)) {
+            return false;
+        }
+        ReturnRecord other = (ReturnRecord) o;
+        if (getFuelState() !=  other.getFuelState() ) {
+            return false;
+        }
+        if (getOdometerState() != other.getOdometerState() ) {
+            return false;
+        }
+        if (rentRecord != null ? !rentRecord.equals(other.getRentRecord()) : other.getRentRecord() != null) {
+            return false;
+        }
+	return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(getFuelState()).append(getOdometerState()).append(getRentRecord().getId()).toHashCode();
+    }
 }
