@@ -87,46 +87,19 @@ public class Car {
 
 
     public void changeState(CarState state) throws DomainException{
+        if(state == this.state) {
+            return;
+        }
         Assert.notNull(state, "State is mandatory");
 
-        if(this.state == CarState.OK){
-
-            if (state == CarState.OK){
-                
-                System.out.println("Car is already in state OK");
-            }
-            else if (state == CarState.SERVICING) {
-                this.state = state;
-            }
-            else if (state == CarState.DISCARDED){
-                this.state = state;
-                this.discardDate = new Date();
-
-            }
+        if (!this.state.allowTransition(state)) {
+            throw DomainException.carStateTransitionNotAllowed(this.state, state);
         }
 
-        else if (this.state == CarState.SERVICING){
-
-            if (state == CarState.SERVICING){
-                System.out.println("Car is already in state SERVICING");
-            }
-            else  if (state == CarState.OK){
-                this.state = state;
-            }
-            else if (state == CarState.DISCARDED){
-                this.state = state;
-                this.discardDate = new Date();
-            }
+        if (state == CarState.DISCARDED){
+            this.discardDate = new Date();
         }
-
-        else if (this.state == CarState.DISCARDED){
-
-            if (state == CarState.OK || state == CarState.SERVICING || state == CarState.DISCARDED){
-                System.out.println("Car has already been DISCARDED");
-            }
-
-        }
-
+        this.state = state;
     }
 
 
