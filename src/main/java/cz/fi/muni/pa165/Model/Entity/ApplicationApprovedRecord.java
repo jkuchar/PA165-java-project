@@ -6,7 +6,6 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import java.util.Date;
-import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,6 +29,11 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     @OneToOne
     private RentApplication application;
     
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
+        protected ApplicationApprovedRecord() {
+    }
+    
     public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app) {
         super(car, user, comment);
         
@@ -41,35 +45,17 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
         
         Assert.notNull(application, "Cannot exist without rent application record.");        
         this.application = app;
-    }
-    
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected ApplicationApprovedRecord() {
-    }
+    }    
     
     public Date getFrom() {
         return from;
     }
-
-    public void setFrom(Date from) {
-        this.from = from;
-    }
-
+    
     public Date getTo() {
         return to;
-    }
-
-    public void setTo(Date to) {
-        this.to = to;
     }
     
     public RentApplication getApplication() {
         return application;
-    }
-
-    public void setApplication(RentApplication application) {
-        this.application = application;
-    }
-    
+    } 
 }

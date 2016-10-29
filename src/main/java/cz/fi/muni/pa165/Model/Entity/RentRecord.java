@@ -27,6 +27,12 @@ public class RentRecord extends CarAuditLogItem{
     @OneToOne
     private ApplicationApprovedRecord approvedRecord;
     
+    
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
+    protected RentRecord() {
+    }
+    
     public RentRecord(Car car, User user, ApplicationApprovedRecord approved, String comment, int fuel, int odometer) {
         super(car, user, comment);
         
@@ -39,35 +45,17 @@ public class RentRecord extends CarAuditLogItem{
         Assert.notNull(approvedRecord, "Cannot exist without application approved record.");
         this.approvedRecord = approved;
     
-    }    
-    
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected RentRecord() {
-    }
+    }       
         
     public int getFuelState() {
         return fuelState;
     }
 
-    public void setFuelState(int fuelState) {
-        this.fuelState = fuelState;
-    }
-
     public int getOdometerState() {
         return odometerState;
-    }
-
-    public void setOdometerState(int odometerState) {
-        this.odometerState = odometerState;
-    }  
+    }    
 
     public ApplicationApprovedRecord getApprovedRecord() {
         return approvedRecord;
-    }
-
-    public void setApprovedRecord(ApplicationApprovedRecord approvedRecord) {
-        this.approvedRecord = approvedRecord;
-    }
-       
+    }   
 }

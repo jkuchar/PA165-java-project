@@ -27,6 +27,11 @@ public class ReturnRecord extends CarAuditLogItem{
     @OneToOne
     private RentRecord rentRecord;
     
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
+        protected ReturnRecord() {
+    }
+    
     public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer) {
         super(car, user, comment);
         
@@ -40,34 +45,16 @@ public class ReturnRecord extends CarAuditLogItem{
         this.rentRecord = rent;
              
     }    
-    
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected ReturnRecord() {
-    }  
-
+ 
     public int getFuelState() {
         return fuelState;
-    }
-
-    public void setFuelState(int fuelState) {
-        this.fuelState = fuelState;
     }
 
     public int getOdometerState() {
         return odometerState;
     }
-
-    public void setOdometerState(int odometerState) {
-        this.odometerState = odometerState;
-    }
-
+    
     public RentRecord getRentRecord() {
         return rentRecord;
-    }
-
-    public void setRentRecord(RentRecord rentRecord) {
-        this.rentRecord = rentRecord;
-    }
-             
+    }            
 }

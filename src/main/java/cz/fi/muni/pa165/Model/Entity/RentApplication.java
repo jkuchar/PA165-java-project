@@ -26,6 +26,11 @@ public class RentApplication extends CarAuditLogItem{
     @Temporal(TemporalType.TIMESTAMP)
     private Date to;
     
+    // DO NOT REMOVE! Hibernate hack:
+    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
+        protected RentApplication() {
+    }
+    
     public RentApplication(Car car, User user, String comment, Date from, Date to) {
         super(car, user, comment);
         
@@ -34,26 +39,13 @@ public class RentApplication extends CarAuditLogItem{
         
         Assert.notNull(to, "Cannot exist without to date.");
         this.to = to;
-    }
-    
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected RentApplication() {
-    }
+    }    
     
     public Date getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
-        this.from = from;
-    }
-
     public Date getTo() {
         return to;
-    }
-
-    public void setTo(Date to) {
-        this.to = to;
     }
 }
