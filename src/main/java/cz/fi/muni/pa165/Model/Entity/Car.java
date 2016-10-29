@@ -1,6 +1,9 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import cz.fi.muni.pa165.Model.CarState;
+import cz.fi.muni.pa165.Model.DomainException;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import javax.persistence.Id;
@@ -17,27 +20,8 @@ import java.util.UUID;
 public class Car {
 
 
-    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
-    protected Car(){}
-
-
-
-    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats, Date establishDate) {
-        this.id = UUID.randomUUID();
-        this.serialNumber = serialNumber;
-        this.regPlateNumber = regPlateNumber;
-        this.manufacturer = manufacturer;
-        this.type = type;
-        this.seats = numberOfSeats;
-        this.state = CarState.OK;
-        this.establishDate = establishDate;
-    }
-
-    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats) {
-        this(serialNumber,regPlateNumber, manufacturer,  type, numberOfSeats, new Date());
-    }
-
     @Id
+    @NotNull
     private UUID id;
 
     @NotNull
@@ -56,18 +40,59 @@ public class Car {
     private int seats;
 
     @NotNull
+    @Enumerated
     private CarState state;
 
+    @DateTimeFormat
     private Date establishDate;
 
+    @DateTimeFormat
     private Date discardDate;
 
+    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
+    protected Car(){}
 
-    public void changeState(CarState state) {
-//sdfsdf
+
+
+    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats, Date establishDate) {
+        this.id = UUID.randomUUID();
+
+        Assert.notNull(serialNumber, "Cannot create car with no serial number.");
+        this.serialNumber = serialNumber;
+
+        Assert.notNull(regPlateNumber, "Cannot create car with no registration plate number.");
+        this.regPlateNumber = regPlateNumber;
+
+        Assert.notNull(manufacturer, "Cannot create car with no manufacturer.");
+        this.manufacturer = manufacturer;
+
+        Assert.notNull(type, "Cannot create car with no type.");
+        this.type = type;
+
+        Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
+        this.seats = numberOfSeats;
+
+        this.state = CarState.OK;
+
+        Assert.notNull(establishDate, "Cannot create car without estrablish date.");
+        this.establishDate = establishDate;
+
+    }
+
+    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats) {
+        this(serialNumber,regPlateNumber, manufacturer,  type, numberOfSeats, new Date());
+    }
+
+
+
+
+    public void changeState(CarState state) throws DomainException{
+        Assert.notNull(state, "State is mandatory");
+
         if(this.state == CarState.OK){
 
             if (state == CarState.OK){
+                
                 System.out.println("Car is already in state OK");
             }
             else if (state == CarState.SERVICING) {
@@ -76,6 +101,7 @@ public class Car {
             else if (state == CarState.DISCARDED){
                 this.state = state;
                 this.discardDate = new Date();
+
             }
         }
 
@@ -105,23 +131,28 @@ public class Car {
 
 
     // use case: fix typos in Car decription
-    public void setSerialNumber(String serialNumber) {
+    public void setSerialNumber(String serialNumber) throws DomainException{
+        Assert.notNull(serialNumber, "Cannot create car with no serial number.");
         this.serialNumber = serialNumber;
     }
 
-    public void setRegPlateNumber(String regPlateNumber) {
+    public void setRegPlateNumber(String regPlateNumber) throws DomainException{
+        Assert.notNull(regPlateNumber, "Cannot create car with no registration plate number.");
         this.regPlateNumber = regPlateNumber;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(String manufacturer) throws DomainException{
+        Assert.notNull(manufacturer, "Cannot create car with no manufacturer.");
         this.manufacturer = manufacturer;
     }
 
-    public void setType(String type) {
+    public void setType(String type) throws DomainException{
+        Assert.notNull(type, "Cannot create car with no type.");
         this.type = type;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setNumberOfSeats(int numberOfSeats) throws DomainException{
+        Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
         this.seats = numberOfSeats;
     }
 
