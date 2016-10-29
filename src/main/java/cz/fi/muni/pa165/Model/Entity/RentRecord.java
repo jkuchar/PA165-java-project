@@ -24,6 +24,7 @@ public class RentRecord extends CarAuditLogItem{
     @Column(nullable = false)
     private int odometerState;
 
+    @NotNull
     @OneToOne
     @NotNull
     private ApplicationApprovedRecord approvedRecord;
@@ -54,9 +55,18 @@ public class RentRecord extends CarAuditLogItem{
 
     public int getOdometerState() {
         return odometerState;
+<<<<<<< HEAD
     }    
 
     public ApplicationApprovedRecord getApprovedRecord() {
         return approvedRecord;
     }   
+=======
+    }
+
+    public ApplicationApprovedRecord getApprovedRecord() {
+        return approvedRecord;
+    }
+
+>>>>>>> 9d029340d01a7691a80a5414817ad4906f7ff2da
 }
