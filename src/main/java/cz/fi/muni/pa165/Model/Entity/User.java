@@ -3,21 +3,19 @@ package cz.fi.muni.pa165.Model.Entity;
 import cz.fi.muni.pa165.Model.DomainException;
 import cz.fi.muni.pa165.Model.PersonName;
 import cz.fi.muni.pa165.Model.Role;
+import org.hibernate.annotations.ColumnTransformers;
 import org.hibernate.validator.constraints.Email;
 import org.jetbrains.annotations.Contract;
 import org.springframework.util.Assert;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
 
 @SuppressWarnings("WeakerAccess")
 @Entity
-class User {
+public class User {
 
     @Id
     @NotNull
@@ -47,7 +45,7 @@ class User {
     protected User() {
     }
 
-    User(PersonName personName, Role role, String email, Date created) {
+    public User(PersonName personName, Role role, String email, Date created) {
         this.id = UUID.randomUUID();
 
         Assert.notNull(role, "Cannot create user with no role.");
