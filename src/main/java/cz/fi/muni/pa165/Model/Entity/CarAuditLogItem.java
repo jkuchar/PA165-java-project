@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
-abstract class CarAuditLogItem {
+public abstract class CarAuditLogItem {
 
     @Id
     @NotNull
