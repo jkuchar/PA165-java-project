@@ -33,14 +33,17 @@ public class CarTest {
         car.changeState(CarState.OK);
         assertEquals(car.getCarState(), CarState.OK);
 
-        car.changeState(CarState.DISCARDED);
-        assertEquals(car.getCarState(), CarState.DISCARDED);
-
         car.changeState(CarState.SERVICING);
         assertEquals(car.getCarState(), CarState.SERVICING);
 
         car.changeState(CarState.OK);
         assertEquals(car.getCarState(), CarState.OK);
+
+        car.changeState(CarState.OK);
+        assertEquals(car.getCarState(), CarState.OK);
+
+        car.changeState(CarState.DISCARDED);
+        assertEquals(car.getCarState(), CarState.DISCARDED);
     }
 
     @Test
