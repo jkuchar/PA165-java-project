@@ -97,3 +97,23 @@ Value Objects are
 implementation: `equals()` and `hashcode()` needs to compute with all properties (from definition above)
 
 - Used in user entity to describe users name: `PersonName`
+
+
+### Unit vs integration test
+
+What to test? Any valuable code. Typically contains business logic.
+
+#### Unit test
+
+- tests one unit **in isolation**
+- consequence: can be run in parallel
+- consequence: do not need any external resources (file-system, database, network, ...)
+- typically written by developer in the same time as he is writing actual code
+- goal: to prove that written code is actually working
+
+#### Integration test
+
+- test bigger part of the system (without isolation)
+- consequence: they can be very slow (e.g.: set-up database for every test)
+- consequence: they are unreliable (e.g.: network failure)
+- goal: ensure that **interfaces** of classes when they work together are correct 
