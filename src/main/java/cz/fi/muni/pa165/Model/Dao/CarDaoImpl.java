@@ -61,18 +61,12 @@ public class CarDaoImpl implements CarDao{
     }
 
     @Override
-    public void insertCar(Car c) {
+    public void create(Car c) {
         em.persist(c);
     }
 
     @Override
-    public void updateCar(Car c) {
-        em.merge(c);
-
-    }
-
-    @Override
-    public void deleteCar(Car c) {
+    public void delete(Car c) {
         em.remove(em.merge(c));
     }
 }

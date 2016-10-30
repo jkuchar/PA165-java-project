@@ -17,8 +17,7 @@ public interface CarDao {
     Car findByRegPlateNumber(String regPlateNumber);
     List<Car> findByState(CarState state);
 
-    void insertCar(Car c);
-    void updateCar(Car c);
-    void deleteCar(Car c);
+    void create(Car c);
+    void delete(Car c);
 
 }
