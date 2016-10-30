@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,6 +18,7 @@ import org.springframework.util.Assert;
  *
  * @author charlliz
  */
+@Entity
 public class ApplicationApprovedRecord extends CarAuditLogItem{
     
     @NotNull
