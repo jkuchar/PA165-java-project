@@ -8,11 +8,19 @@ Manages cars in company. Cars can be rented by employees. System should keep tra
 - **architecture**: use-case oriented
 - **investigate**: how to build domain model as [Rich as possible](http://stackoverflow.com/questions/23314330/rich-vs-anemic-domain-model) (push behavior down into the model)
 
+## Covered use-cases
+
+roles:
+- **employee**: in our [bounded context](http://martinfowler.com/bliki/BoundedContext.html) is person that can rent a car
+- **administrator/manager** is a person that manages car inventory
+
+![Use-case diagram](diagrams/use-cases.png)
+
 # The Domain Model
 
 Contains business logic of the system.
 
-We use **rich domain model** which uses semantics of user (and use cases) and contains behavior.
+We use **rich domain model** which contains behavior (methods).
 
 ![Entities class diagram](diagrams/entities-class.png)
 
@@ -26,7 +34,12 @@ We use **rich domain model** which uses semantics of user (and use cases) and co
 			- **Car Rented**: Employee claimed car
 				- **Car Returned**: Employee returned car
 
-Note: The idea of "log" is not dissimilar to [event sourcing](https://www.youtube.com/watch?v=JHGkaShoyNs).
+Tip: The idea of "car log" is not dissimilar to [event sourcing](https://www.youtube.com/watch?v=JHGkaShoyNs).
+
+
+
+
+
 
 ## Technical: Model Top Level Architecture
 
@@ -58,7 +71,14 @@ Note: The idea of "log" is not dissimilar to [event sourcing](https://www.youtub
 - can use private methods for common code base (but `flush()` must be called only on public/main ones)
 
 
-## Other concepts used in model
+
+
+
+
+
+## Other concepts used in the model
+
+This section should be used mostly internally to clarify how we are going to the software.
 
 ### Entities
 
