@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.Model.Dao;
 
+import cz.fi.muni.pa165.Model.CarState;
 import cz.fi.muni.pa165.Model.Entity.Car;
 import cz.fi.muni.pa165.Model.config.PersistenceApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 import javax.validation.constraints.Future;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import static org.testng.Assert.*;
 
@@ -33,20 +35,32 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
         assertTrue(allCars.contains(c));
     }
 
+    private static int buildCar_i = 0;
     private Car buildCar() {
-        return new Car("5348534251", "LM258896", "Ford", "Focus", 5, new Date());
+        buildCar_i++;
+        return new Car(
+            "5348534251" + buildCar_i, // need uniqueness
+            "LM258896" + buildCar_i,
+            "Ford",
+            "Focus",
+            5,
+            new Date()
+        );
     }
 
     @Test
     public void testFindById() throws Exception{
 
         Car original = buildCar();
-        assertNotNull(carDao.findById(original.getID()));
+        UUID id = original.getID();
+
+        assertNull(carDao.findById(id));
+
         carDao.create(original);
 
         {
-            Car retrieved = carDao.findById(original.getID());
-            assertEquals(retrieved.getSerialNumber(), "5348534251");
+            Car retrieved = carDao.findById(id);
+            assertEquals(retrieved.getSerialNumber(), original.getSerialNumber());
 
             assertEquals(retrieved, original);
             assertSame(retrieved, original);
@@ -54,23 +68,26 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
 
         carDao.delete(original);
 
-        assertNull(carDao.findById(original.getID()));
+        assertNull(carDao.findById(id));
     }
 
     @Test
     public void testFindBySerialNumber() throws Exception {
 
         Car original = buildCar();
-        assertNotNull(carDao.findBySerialNumber(original.getSerialNumber()));
+        String serialNumber = original.getSerialNumber();
+
+        assertNull(carDao.findBySerialNumber(serialNumber));
 
         carDao.create(original);
 
         {
-         Car retrieved = carDao.findBySerialNumber(original.getSerialNumber());
-         assertEquals(retrieved.getRegPlateNumber(), "5348534251");
+            Car retrieved = carDao.findBySerialNumber(serialNumber);
 
-         assertEquals(retrieved, original);
-         assertSame(retrieved, original);
+            assertEquals(retrieved.getSerialNumber(), serialNumber);
+
+            assertEquals(retrieved, original);
+            assertSame(retrieved, original);
         }
     }
 
@@ -78,13 +95,15 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
     public void testFindByRegPlateNumber() throws Exception {
 
         Car original = buildCar();
-        assertNotNull(carDao.findByRegPlateNumber(original.getRegPlateNumber()));
+        String regPlateNumber = original.getRegPlateNumber();
+
+        assertNull(carDao.findByRegPlateNumber(regPlateNumber));
 
         carDao.create(original);
 
         {
-            Car retrieved = carDao.findByRegPlateNumber(original.getRegPlateNumber());
-            assertEquals(retrieved.getRegPlateNumber(), "LM258896");
+            Car retrieved = carDao.findByRegPlateNumber(regPlateNumber);
+            assertEquals(retrieved.getRegPlateNumber(), regPlateNumber);
 
             assertEquals(retrieved, original);
             assertSame(retrieved, original);
@@ -95,19 +114,18 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
     public void testFindByState() throws Exception {
 
         Car original = buildCar();
-        assertNotNull(carDao.findByState(original.getCarState()));
+        CarState carState = original.getCarState();
+
+        {
+            List<Car> carsInState = carDao.findByState(carState);
+            assertFalse(carsInState.contains(original));
+        }
 
         carDao.create(original);
 
         {
-            List<Car> retrieved = carDao.findByState(original.getCarState());
-            assertEquals(1, retrieved.size());
-
-            for (Car cars : retrieved) {
-                assertEquals(cars.getCarState(), original.getCarState());
-                assertEquals(cars.getSerialNumber(), original.getSerialNumber());
-                assertEquals(cars.getRegPlateNumber(), original.getRegPlateNumber());
-            }
+            List<Car> retrieved = carDao.findByState(carState);
+            assertTrue(retrieved.contains(original));
         }
     }
 
