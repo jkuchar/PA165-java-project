@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -16,6 +17,7 @@ import org.springframework.util.Assert;
  *
  * @author charlliz
  */
+@Entity
 public class RentApplication extends CarAuditLogItem{
 
     

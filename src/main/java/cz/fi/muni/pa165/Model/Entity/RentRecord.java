@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -15,6 +16,7 @@ import org.springframework.util.Assert;
  *
  * @author charlliz
  */
+@Entity
 public class RentRecord extends CarAuditLogItem{
 
     @NotNull
