@@ -13,5 +13,11 @@ public class DomainException extends java.lang.Exception {
         );
     }
 
+    public static DomainException carStateTransitionNotAllowed(CarState state0, CarState state1) {
+        return new DomainException(
+            String.format("Car cannot translate from state %s to %s.", state0, state1)
+        );
+    }
+
     // add more named constructors here...
 }

@@ -32,6 +32,8 @@ public class UserDaoImplTest extends AbstractTransactionalTestNGSpringContextTes
         // This means that findAll will return random number of User.
         // We can count only with data we create here.
 
+        // AAA = http://wiki.c2.com/?ArrangeActAssert
+
         // arrange
         User u;
         userDao.create(u = buildUser());
@@ -49,16 +51,11 @@ public class UserDaoImplTest extends AbstractTransactionalTestNGSpringContextTes
 
     @Test
     public void testFindById() throws Exception {
-        // AAA = http://wiki.c2.com/?ArrangeActAssert
 
-        // arrange
         User original = buildUser();
         assertNull(userDao.findById(original.getId()));
-
-        // act
         userDao.create(original);
 
-        // assert
         { // local scope
             User retrieved = userDao.findById(original.getId());
             assertEquals(retrieved.getName(), PersonName.of("Jan Kuchar"));
@@ -67,23 +64,18 @@ public class UserDaoImplTest extends AbstractTransactionalTestNGSpringContextTes
             assertSame(retrieved, original); // compares instances; should be the same thanks to EntityManager identity map
         }
 
-        // 2. act
         userDao.delete(original);
 
-        // 2. assert
         assertNull(userDao.findById(original.getId()));
     }
 
     @Test
     public void testFindByName() throws Exception {
-        // arrange
         User original = buildUser();
         assertNull(userDao.findByName(original.getName()));
 
-        // act
         userDao.create(original);
 
-        // assert
         { // local scope
             User retrieved = userDao.findByName(original.getName());
             assertEquals(retrieved.getName(), PersonName.of("Jan Kuchar"));

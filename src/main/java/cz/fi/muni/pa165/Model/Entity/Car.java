@@ -1,6 +1,9 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import cz.fi.muni.pa165.Model.CarState;
+import cz.fi.muni.pa165.Model.DomainException;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import javax.persistence.Id;
@@ -17,31 +20,15 @@ import java.util.UUID;
 public class Car {
 
 
-    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
-    protected Car(){}
-
-
-
-    public Car(UUID id, int serialNumber, int regPlateNumber, String manufacturer, String type, int numberOfSeats, CarState carState, Date establishDate, Date discardDate) {
-        this.id = id;
-        this.serialNumber = serialNumber;
-        this.regPlateNumber = regPlateNumber;
-        this.manufacturer = manufacturer;
-        this.type = type;
-        this.numberOfSeats = numberOfSeats;
-        this.state = carState;
-        this.establishDate = establishDate;
-        this.discardDate = discardDate;
-    }
-
     @Id
+    @NotNull
     private UUID id;
 
     @NotNull
-    private int serialNumber;
+    private String serialNumber;
 
     @NotNull
-    private int regPlateNumber;
+    private String regPlateNumber;
 
     @NotNull
     private String manufacturer;
@@ -50,58 +37,107 @@ public class Car {
     private String type;
 
     @NotNull
-    private int numberOfSeats;
+    private int seats;
 
     @NotNull
+    @Enumerated
     private CarState state;
 
+    @DateTimeFormat
     private Date establishDate;
 
+    @DateTimeFormat
     private Date discardDate;
 
+    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
+    protected Car(){}
 
 
-    public void setSerialNumber(int serialNumber) {
+
+    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats, Date establishDate) {
+        this.id = UUID.randomUUID();
+
+        Assert.notNull(serialNumber, "Cannot create car with no serial number.");
         this.serialNumber = serialNumber;
-    }
 
-    public void setRegPlateNumber(int regPlateNumber) {
+        Assert.notNull(regPlateNumber, "Cannot create car with no registration plate number.");
         this.regPlateNumber = regPlateNumber;
-    }
 
-    public void setManufacturer(String manufacturer) {
+        Assert.notNull(manufacturer, "Cannot create car with no manufacturer.");
         this.manufacturer = manufacturer;
-    }
 
-    public void setType(String type) {
+        Assert.notNull(type, "Cannot create car with no type.");
         this.type = type;
+
+        Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
+        this.seats = numberOfSeats;
+
+        this.state = CarState.OK;
+
+        Assert.notNull(establishDate, "Cannot create car without estrablish date.");
+        this.establishDate = establishDate;
+
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats) {
+        this(serialNumber,regPlateNumber, manufacturer,  type, numberOfSeats, new Date());
     }
 
-    public void setState(CarState state) {
+
+
+
+    public void changeState(CarState state) throws DomainException{
+        if(state == this.state) {
+            return;
+        }
+        Assert.notNull(state, "State is mandatory");
+
+        if (!this.state.allowTransition(state)) {
+            throw DomainException.carStateTransitionNotAllowed(this.state, state);
+        }
+
+        if (state == CarState.DISCARDED){
+            this.discardDate = new Date();
+        }
         this.state = state;
     }
 
-    public void setEstablishDate(Date establishDate) {
-        this.establishDate = establishDate;
+
+    // use case: fix typos in Car decription
+    public void setSerialNumber(String serialNumber) throws DomainException{
+        Assert.notNull(serialNumber, "Cannot create car with no serial number.");
+        this.serialNumber = serialNumber;
     }
 
-    public void setDiscardDate(Date discardDate) {
-        this.discardDate = discardDate;
+    public void setRegPlateNumber(String regPlateNumber) throws DomainException{
+        Assert.notNull(regPlateNumber, "Cannot create car with no registration plate number.");
+        this.regPlateNumber = regPlateNumber;
+    }
+
+    public void setManufacturer(String manufacturer) throws DomainException{
+        Assert.notNull(manufacturer, "Cannot create car with no manufacturer.");
+        this.manufacturer = manufacturer;
+    }
+
+    public void setType(String type) throws DomainException{
+        Assert.notNull(type, "Cannot create car with no type.");
+        this.type = type;
+    }
+
+    public void setNumberOfSeats(int numberOfSeats) throws DomainException{
+        Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
+        this.seats = numberOfSeats;
     }
 
 
 
     public UUID getID() { return id; }
 
-    public int getSerialNumber() {
+    public String getSerialNumber() {
         return serialNumber;
     }
 
-    public int getRegPlateNumber() {
+    public String getRegPlateNumber() {
         return regPlateNumber;
     }
 
@@ -113,7 +149,7 @@ public class Car {
         return type;
     }
 
-    public int getNumberOfSeats() { return numberOfSeats; }
+    public int getNumberOfSeats() { return seats; }
 
     public CarState getCarState() { return state; }
 
@@ -123,5 +159,21 @@ public class Car {
 
     public Date getDiscardDate() {
         return discardDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+
+        Car car = (Car) o;
+
+        return id.equals(car.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }
