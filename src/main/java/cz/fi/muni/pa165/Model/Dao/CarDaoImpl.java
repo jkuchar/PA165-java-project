@@ -54,7 +54,7 @@ public class CarDaoImpl implements CarDao{
     @Override
     public List<Car> findByState(CarState state) {
         try {
-            em.createQuery("SELECT c FROM Car c WHERE c.state = :car_state", Car.class).setParameter("car_state", state).getResultList();
+            return em.createQuery("SELECT c FROM Car c WHERE c.state = :car_state", Car.class).setParameter("car_state", state).getResultList();
         } catch (NoResultException nre){
             return null;
         }
