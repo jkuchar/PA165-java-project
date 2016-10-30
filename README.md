@@ -3,7 +3,7 @@ The school project for Java EE seminars.
 
 Project manages cars in company. Cars can be rented by employees. System should keep track of history of records about renting process.
 
-Details are in [docs](docs).   
+Details are in [docs](docs/README.md).   
 
 ## Team
 - @charlizz
