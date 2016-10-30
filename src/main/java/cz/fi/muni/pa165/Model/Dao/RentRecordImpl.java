@@ -14,11 +14,13 @@ import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author charlliz
  */
+@Repository
 public class RentRecordImpl implements RentRecordDao{
 
     @PersistenceContext
