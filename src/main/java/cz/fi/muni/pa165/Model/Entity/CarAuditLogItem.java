@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * @author rtrembecky
  */
 @MappedSuperclass
-abstract class CarAuditLogItem {
+public abstract class CarAuditLogItem {
 
     @Id
     @NotNull
