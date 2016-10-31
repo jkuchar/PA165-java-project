@@ -25,9 +25,11 @@ public class Car {
     private UUID id;
 
     @NotNull
+    @Column(unique = true, nullable = false)
     private String serialNumber;
 
     @NotNull
+    @Column(unique = true, nullable = false)
     private String regPlateNumber;
 
     @NotNull
