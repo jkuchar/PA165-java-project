@@ -12,6 +12,7 @@ import java.util.Objects;
  * Person name Value Object
  * @link http://martinfowler.com/bliki/ValueObject.html
  * @todo add of() static factory?
+ * @author jkuchar
  */
 @SuppressWarnings("JpaAttributeMemberSignatureInspection")
 @Embeddable
