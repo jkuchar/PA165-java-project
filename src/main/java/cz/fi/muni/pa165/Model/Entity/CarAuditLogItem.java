@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+/**
+ *
+ * @author rtrembecky
+ */
 @Entity
 public abstract class CarAuditLogItem {
 
