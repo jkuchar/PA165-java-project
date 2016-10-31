@@ -69,14 +69,14 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date fromDate = formatter.parse(from);
         Date toDate = formatter.parse(to);
-        
+
         userDao.create(u1 = User.create(PersonName.of("John Smith"), Role.USER, "j.smith@mail.com"));
         carDao.create(c1 = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, new Date()));
         RentApplication r1;
-        rentApplicationDao.create(r1 = new RentApplication(c1,u1,"Work trip to Prague",fromDate, toDate));
+        rentApplicationDao.create(r1 = new RentApplication(c1, u1, "Work trip to Prague", fromDate, toDate));
 
-        recordDao.create(a1 = new ApplicationRejectedRecord(c1,u1,new Date(),"Car cannot be rent for such long period of time",r1));
-    
+        recordDao.create(a1 = new ApplicationRejectedRecord(c1, u1, new Date(), "Car cannot be rent for such long period of time", r1));
+
         User u2;
         userDao.create(u2 = User.create(PersonName.of("Jane Austin"), Role.USER, "j.austin@mail.com"));
 
@@ -84,9 +84,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         carDao.create(c2 = new Car("R1D1", "467", "Manufacturer", "H510Q", 5, new Date()));
 
         RentApplication r2;
-        rentApplicationDao.create(r2 = new RentApplication(c2,u2,"Work trip to Bratislava",fromDate, toDate));
-        
-        recordDao.create(a2 = new ApplicationRejectedRecord(c1,u1,new Date(),"Car has planned service control in that time",r2));
+        rentApplicationDao.create(r2 = new RentApplication(c2, u2, "Work trip to Bratislava", fromDate, toDate));
+
+        recordDao.create(a2 = new ApplicationRejectedRecord(c1, u1, new Date(), "Car has planned service control in that time", r2));
     }
 
     @Test
@@ -155,7 +155,7 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         this.initTest();
 
         recordDao.delete(a1);
-        assertEquals(1, recordDao.findAll().size());
+
         assertNull(recordDao.findById(a1.getId()));
     }
     
