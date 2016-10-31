@@ -29,7 +29,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
     @Override
     public List<RentRecord> findAll() {
         return em.createQuery(
-                "select r from RentRecord r", RentRecord.class).getResultList();
+                "SELECT r from RentRecord r", RentRecord.class).getResultList();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
     @Override
     public List<RentRecord> findByCar(Car c) {
         TypedQuery<RentRecord> query = em.createQuery(
-                "Select r from RentRecord r where r.car = :carid", RentRecord.class);
+                "SELECT r FROM RentRecord r WHERE r.car = :carid", RentRecord.class);
 
         query.setParameter("carid", c);
         return query.getResultList();
@@ -49,7 +49,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
     @Override
     public List<RentRecord> findByUser(User u) {
          TypedQuery<RentRecord> query = em.createQuery(
-                "Select r from RentRecord r where r.user = :userid", RentRecord.class);
+                "SELECT r FROM RentRecord r WHERE r.user = :userid", RentRecord.class);
 
         query.setParameter("userid", u);
         return query.getResultList();
