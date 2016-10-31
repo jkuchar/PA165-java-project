@@ -60,7 +60,7 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
 	TypedQuery<ReturnRecord> query = em.createQuery(
 		"SELECT r FROM ReturnRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", ReturnRecord.class);
 	
-        query.setParameter("fromtDate", from);
+        query.setParameter("fromDate", from);
 	query.setParameter("toDate", to);
 	return query.getResultList(); 
     }

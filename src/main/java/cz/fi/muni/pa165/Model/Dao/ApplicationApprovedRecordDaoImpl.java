@@ -61,7 +61,7 @@ public class ApplicationApprovedRecordDaoImpl implements ApplicationApprovedReco
 	TypedQuery<ApplicationApprovedRecord> query = em.createQuery(
 		"SELECT r FROM ApplicationApprovedRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", ApplicationApprovedRecord.class);
 	
-        query.setParameter("fromtDate", from);
+        query.setParameter("fromDate", from);
 	query.setParameter("toDate", to);
 	return query.getResultList(); 
     }
