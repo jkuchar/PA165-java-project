@@ -23,6 +23,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
@@ -31,8 +32,7 @@ import org.testng.annotations.Test;
  */
 @ContextConfiguration(classes = PersistenceApplicationContext.class)
 public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalTestNGSpringContextTests  {
-    
-    
+
     @Autowired
     private ApplicationRejectedRecordDao recordDao;
     
@@ -40,9 +40,16 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     private ApplicationRejectedRecord a2;
     private User u1;
     private Car c1;
- 
+
     @BeforeSuite
-    public void initTest() throws ParseException {
+    public void initTest() throws Exception {
+
+        // Spring bug: SPR-4072: https://jira.spring.io/browse/SPR-4072
+        // workaround: http://stackoverflow.com/questions/5192562/spring-autowiring-happens-after-beforeclass-when-running-test-with-maven-surefi
+        if(this.recordDao == null) { // @BeforeSuite is executed before autowiring happens
+            this.springTestContextPrepareTestInstance();
+        }
+
         String from = "2016-10-15";
         String to = "2016-11-15";        
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
