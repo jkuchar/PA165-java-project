@@ -133,7 +133,7 @@ public class Car {
 
 
 
-    public UUID getID() { return id; }
+    public UUID getId() { return id; }
 
     public String getSerialNumber() {
         return serialNumber;

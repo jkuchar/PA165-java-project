@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.util.Assert;
 
 /**
@@ -68,24 +67,18 @@ public class RentRecord extends CarAuditLogItem{
         if (this == o) {
             return true;
         }
-        if ((o == null) || !(o instanceof RentRecord)) {
+        if (!(o instanceof RentRecord)) {
             return false;
         }
-        RentRecord other = (RentRecord) o;
-        if (getFuelState() !=  other.getFuelState() ) {
-            return false;
-        }
-        if (getOdometerState() != other.getOdometerState() ) {
-            return false;
-        }
-        if (approvedRecord != null ? !approvedRecord.equals(other.getApprovedRecord()) : other.getApprovedRecord() != null) {
-            return false;
-        }
-	return true;
+
+        RentRecord rec = (RentRecord) o;
+
+        return this.getId().equals(rec.getId());
+
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(getFuelState()).append(getOdometerState()).append(getApprovedRecord().getId()).toHashCode();
+        return this.getId().hashCode();
     }
 }
