@@ -23,11 +23,21 @@ public class RentApplicationDaoImplTest extends AbstractTransactionalTestNGSprin
     @Autowired
     private RentApplicationDao rentApplicationDao;
 
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private CarDao carDao;
+
     private RentApplication create() {
         Date created = new Date();
         Car car = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, created);
+        carDao.create(car);
         User user = new User(PersonName.of("John Doe"), Role.MANAGER, "john.doe@company.com", created);
-        RentApplication rentApplication = new RentApplication(car, user, "please give me car", new Date(117,1,2), new Date(117,1,5));
+        userDao.create(user);
+        Date from = new Date(117,1,2);
+        Date to = new Date(117,1,5);
+        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to);
         return rentApplication;
     }
 

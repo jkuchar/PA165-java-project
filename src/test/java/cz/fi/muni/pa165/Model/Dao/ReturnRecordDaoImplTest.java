@@ -23,12 +23,25 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
     @Autowired
     private ReturnRecordDao returnRecordDao;
 
+    @Autowired
+    private RentApplicationDao rentApplicationDao;
+
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private CarDao carDao;
+
     private ReturnRecord create() {
         Date created = new Date();
         Car car = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, created);
+        carDao.create(car);
         User user = new User(PersonName.of("John Doe"), Role.MANAGER, "john.doe@company.com", created);
-        RentApplication rentApplication = new RentApplication(car, user, "please give me car", new Date(117,1,2), new Date(117,1,5));
-        ApplicationApprovedRecord approved = new ApplicationApprovedRecord(car, user, new Date(117,1,2), new Date(117,1,5), "sure", rentApplication);
+        userDao.create(user);
+        Date from = new Date(117,1,2);
+        Date to = new Date(117,1,5);
+        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to);
+        ApplicationApprovedRecord approved = new ApplicationApprovedRecord(car, user, from, to, "sure", rentApplication);
         RentRecord rentRecord = new RentRecord(car, user, approved, "happy riding!", 25, 10000);
         ReturnRecord returnRecord = new ReturnRecord(car, user, rentRecord, "car is ok", 5, 10100);
         return returnRecord;
