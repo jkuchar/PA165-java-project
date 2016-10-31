@@ -29,7 +29,7 @@ public class ApplicationApprovedRecordDaoImpl implements ApplicationApprovedReco
     @Override
     public List<ApplicationApprovedRecord> findAll() {
         return em.createQuery(
-                "select r from ApplicationApprovedRecord r", ApplicationApprovedRecord.class)
+                "SELECT r FROM ApplicationApprovedRecord r", ApplicationApprovedRecord.class)
                 .getResultList();
     }
 
@@ -41,18 +41,18 @@ public class ApplicationApprovedRecordDaoImpl implements ApplicationApprovedReco
     @Override
     public List<ApplicationApprovedRecord> findByCar(Car c) {
         TypedQuery<ApplicationApprovedRecord> query = em.createQuery(
-                "Select r from ApplicationApprovedRecord r where r.car = :carid", ApplicationApprovedRecord.class);
+                "SELECT r FROM ApplicationApprovedRecord r WHERE r.car = :carid", ApplicationApprovedRecord.class);
 
-        query.setParameter("carid", c);
+        query.setParameter("carid", c.getID());
         return query.getResultList();
     }
 
     @Override
     public List<ApplicationApprovedRecord> findByUser(User u) {
          TypedQuery<ApplicationApprovedRecord> query = em.createQuery(
-                "Select r from ApplicationApprovedRecord r where r.user = :userid", ApplicationApprovedRecord.class);
+                "SELECT r FROM ApplicationApprovedRecord r WHERE r.user = :userid", ApplicationApprovedRecord.class);
 
-        query.setParameter("userid", u);
+        query.setParameter("userid", u.getId());
         return query.getResultList();
     }
 
