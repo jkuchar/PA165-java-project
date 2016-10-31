@@ -61,7 +61,7 @@ public class RentApplicationDaoImpl implements RentApplicationDao {
 	TypedQuery<RentApplication> query = em.createQuery(
 		"SELECT r FROM RentApplication r WHERE r.created BETWEEN :fromDate AND :toDate ", RentApplication.class);
 	
-        query.setParameter("fromtDate", from);
+        query.setParameter("fromDate", from);
 	query.setParameter("toDate", to);
 	return query.getResultList(); 
     }
