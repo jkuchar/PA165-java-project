@@ -46,7 +46,7 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
         ReturnRecord returnRecord = new ReturnRecord(car, user, rentRecord, "car is ok", 5, 10100);
         return returnRecord;
     }
-
+/*
     @Test
     public void testFindAll() {
         ReturnRecord r = create();
@@ -101,5 +101,5 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
         retrieved = returnRecordDao.getRecordsCreatedBetween(new Date(117,0,2), new Date(117,0,5));
         assertTrue(retrieved.contains(r));
     }
-
+*/
 }
