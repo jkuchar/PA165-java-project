@@ -26,12 +26,18 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 /**
  *
  * @author charlliz
  */
 @ContextConfiguration(classes = PersistenceApplicationContext.class)
 public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalTestNGSpringContextTests  {
+
+    @PersistenceContext
+    private EntityManager em;
 
     @Autowired
     private ApplicationRejectedRecordDao recordDao;
@@ -87,6 +93,8 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         rentApplicationDao.create(r2 = new RentApplication(c2, u2, "Work trip to Bratislava", fromDate, toDate));
 
         recordDao.create(a2 = new ApplicationRejectedRecord(c1, u1, new Date(), "Car has planned service control in that time", r2));
+
+        em.flush(); // for testing purposes
     }
 
     @Test
