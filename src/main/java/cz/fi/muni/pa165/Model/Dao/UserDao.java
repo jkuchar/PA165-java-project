@@ -8,6 +8,7 @@ import java.util.UUID;
 
 /**
  * This file is part of PA165 school project.
+ * @author jkuchar
  */
 public interface UserDao {
 

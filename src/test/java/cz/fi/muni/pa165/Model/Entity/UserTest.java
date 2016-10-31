@@ -13,6 +13,7 @@ import static org.testng.Assert.*;
 
 /**
  * This file is part of PA165 school project.
+ * @author jkuchar
  */
 public class UserTest {
 
