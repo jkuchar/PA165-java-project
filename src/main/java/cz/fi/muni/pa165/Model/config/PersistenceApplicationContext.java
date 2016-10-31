@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.Model.config;
 
+import cz.fi.muni.pa165.Model.Dao.CarDao;
 import cz.fi.muni.pa165.Model.Dao.UserDao;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;

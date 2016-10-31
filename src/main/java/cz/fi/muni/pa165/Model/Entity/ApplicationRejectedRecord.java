@@ -8,6 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ *
+ * @author rtrembecky
+ */
 final public class ApplicationRejectedRecord extends CarAuditLogItem {
 
     @NotNull
