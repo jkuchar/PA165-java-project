@@ -41,14 +41,16 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     private User u1;
     private Car c1;
 
-    @BeforeSuite
-    public void initTest() throws Exception {
+    private static boolean initialized = false;
 
-        // Spring bug: SPR-4072: https://jira.spring.io/browse/SPR-4072
-        // workaround: http://stackoverflow.com/questions/5192562/spring-autowiring-happens-after-beforeclass-when-running-test-with-maven-surefi
-        if(this.recordDao == null) { // @BeforeSuite is executed before autowiring happens
-            this.springTestContextPrepareTestInstance();
+    private void initTest() throws Exception {
+        // execute only once: @BeforeSuite simulation
+        // workaround for bug: https://jira.spring.io/browse/SPR-4072
+        if(initialized) {
+            return;
         }
+        initialized = true;
+
 
         String from = "2016-10-15";
         String to = "2016-11-15";        
@@ -73,7 +75,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     }
 
     @Test
-    public void testCreateRecord() {
+    public void testCreateRecord() throws Exception {
+        this.initTest();
+
         List<ApplicationRejectedRecord> records = new ArrayList<>(recordDao.findAll());
 
         assertEquals(2, records.size());
@@ -87,7 +91,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     }
     
     @Test
-    public void testFindById() {
+    public void testFindById() throws Exception {
+        this.initTest();
+
         ApplicationRejectedRecord record = recordDao.findById(a1.getId());
        
         assertEquals(a1, record);
@@ -100,7 +106,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     }
 
     @Test
-    public void testFindByCar() {
+    public void testFindByCar() throws Exception {
+        this.initTest();
+
         List<ApplicationRejectedRecord> records = recordDao.findByCar(c1);
        
         assertEquals(1, records.size());
@@ -113,7 +121,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     }
 
     @Test
-    public void testFindByUser() {
+    public void testFindByUser() throws Exception {
+        this.initTest();
+
         List<ApplicationRejectedRecord> records = recordDao.findByUser(u1);
        
         assertEquals(1, records.size());
@@ -126,10 +136,12 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
     }
 
     @Test
-    public void testDelete() {
-       recordDao.delete(a1);
-       assertEquals(1, recordDao.findAll().size());
-       assertNull(recordDao.findById(a1.getId()));
+    public void testDelete() throws Exception {
+        this.initTest();
+
+        recordDao.delete(a1);
+        assertEquals(1, recordDao.findAll().size());
+        assertNull(recordDao.findById(a1.getId()));
     }
     
 }
