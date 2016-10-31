@@ -1,5 +1,8 @@
 package cz.fi.muni.pa165.Model;
 
+/**
+ * @author jkuchar
+ */
 public class DomainException extends java.lang.Exception {
 
     private DomainException(String message) {

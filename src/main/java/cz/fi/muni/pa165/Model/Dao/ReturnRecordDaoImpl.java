@@ -6,7 +6,7 @@
 package cz.fi.muni.pa165.Model.Dao;
 
 import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.Model.Entity.RentRecord;
+import cz.fi.muni.pa165.Model.Entity.ReturnRecord;
 import cz.fi.muni.pa165.Model.Entity.User;
 import java.util.Date;
 import java.util.List;
@@ -21,44 +21,44 @@ import org.springframework.stereotype.Repository;
  * @author charlliz
  */
 @Repository
-public class RentRecordImpl implements RentRecordDao{
+public class ReturnRecordDaoImpl implements ReturnRecordDao{
 
     @PersistenceContext
     private EntityManager em;    
     
     @Override
-    public List<RentRecord> findAll() {
+    public List<ReturnRecord> findAll() {
         return em.createQuery(
-                "SELECT r from RentRecord r", RentRecord.class).getResultList();
+                "SELECT r FROM RentRecord r", ReturnRecord.class).getResultList();
     }
 
     @Override
-    public RentRecord findById(UUID id) {
-       return em.find(RentRecord.class, id);
+    public ReturnRecord findById(UUID id) {
+       return em.find(ReturnRecord.class, id);
     }
 
     @Override
-    public List<RentRecord> findByCar(Car c) {
-        TypedQuery<RentRecord> query = em.createQuery(
-                "SELECT r FROM RentRecord r WHERE r.car = :carid", RentRecord.class);
+    public List<ReturnRecord> findByCar(Car c) {
+        TypedQuery<ReturnRecord> query = em.createQuery(
+                "SELECT r FROM ReturnRecord r WHERE r.car = :carid", ReturnRecord.class);
 
         query.setParameter("carid", c.getID());
         return query.getResultList();
     }
 
     @Override
-    public List<RentRecord> findByUser(User u) {
-         TypedQuery<RentRecord> query = em.createQuery(
-                "SELECT r FROM RentRecord r WHERE r.user = :userid", RentRecord.class);
+    public List<ReturnRecord> findByUser(User u) {
+         TypedQuery<ReturnRecord> query = em.createQuery(
+                "SELECT r FROM ReturnRecord r WHERE r.user = :userid", ReturnRecord.class);
 
         query.setParameter("userid", u.getId());
         return query.getResultList();
     }
 
     @Override
-    public List<RentRecord> getRecordsCreatedBetween(Date from, Date to) {
-	TypedQuery<RentRecord> query = em.createQuery(
-		"SELECT r FROM RentRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", RentRecord.class);
+    public List<ReturnRecord> getRecordsCreatedBetween(Date from, Date to) {
+	TypedQuery<ReturnRecord> query = em.createQuery(
+		"SELECT r FROM ReturnRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", ReturnRecord.class);
 	
         query.setParameter("fromtDate", from);
 	query.setParameter("toDate", to);
@@ -66,13 +66,13 @@ public class RentRecordImpl implements RentRecordDao{
     }
 
     @Override
-    public void create(RentRecord r) {
+    public void create(ReturnRecord r) {
         em.persist(r);
     }
 
     @Override
-    public void delete(RentRecord r) {
+    public void delete(ReturnRecord r) {
          em.remove(r);
     }
-        
+         
 }
