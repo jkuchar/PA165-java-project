@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
  * @author charlliz
  */
 @Repository
-public class ReturnRecordImpl implements ReturnRecordDao{
+public class ReturnRecordDaoImpl implements ReturnRecordDao{
 
     @PersistenceContext
     private EntityManager em;    
