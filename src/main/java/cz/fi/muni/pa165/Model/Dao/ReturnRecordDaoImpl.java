@@ -42,7 +42,7 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
         TypedQuery<ReturnRecord> query = em.createQuery(
                 "SELECT r FROM ReturnRecord r WHERE r.car = :carid", ReturnRecord.class);
 
-        query.setParameter("carid", c.getID());
+        query.setParameter("carid", c);
         return query.getResultList();
     }
 
@@ -51,7 +51,7 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
          TypedQuery<ReturnRecord> query = em.createQuery(
                 "SELECT r FROM ReturnRecord r WHERE r.user = :userid", ReturnRecord.class);
 
-        query.setParameter("userid", u.getId());
+        query.setParameter("userid", u);
         return query.getResultList();
     }
 

@@ -42,7 +42,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
         TypedQuery<RentRecord> query = em.createQuery(
                 "SELECT r FROM RentRecord r WHERE r.car = :carid", RentRecord.class);
 
-        query.setParameter("carid", c.getID());
+        query.setParameter("carid", c);
         return query.getResultList();
     }
 
@@ -51,7 +51,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
          TypedQuery<RentRecord> query = em.createQuery(
                 "SELECT r FROM RentRecord r WHERE r.user = :userid", RentRecord.class);
 
-        query.setParameter("userid", u.getId());
+        query.setParameter("userid", u);
         return query.getResultList();
     }
 

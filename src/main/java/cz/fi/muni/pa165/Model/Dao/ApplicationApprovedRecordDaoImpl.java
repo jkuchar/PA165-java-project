@@ -43,7 +43,7 @@ public class ApplicationApprovedRecordDaoImpl implements ApplicationApprovedReco
         TypedQuery<ApplicationApprovedRecord> query = em.createQuery(
                 "SELECT r FROM ApplicationApprovedRecord r WHERE r.car = :carid", ApplicationApprovedRecord.class);
 
-        query.setParameter("carid", c.getID());
+        query.setParameter("carid", c);
         return query.getResultList();
     }
 
@@ -52,7 +52,7 @@ public class ApplicationApprovedRecordDaoImpl implements ApplicationApprovedReco
          TypedQuery<ApplicationApprovedRecord> query = em.createQuery(
                 "SELECT r FROM ApplicationApprovedRecord r WHERE r.user = :userid", ApplicationApprovedRecord.class);
 
-        query.setParameter("userid", u.getId());
+        query.setParameter("userid", u);
         return query.getResultList();
     }
 
