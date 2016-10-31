@@ -52,7 +52,7 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
     public void testFindById() throws Exception{
 
         Car original = buildCar();
-        UUID id = original.getID();
+        UUID id = original.getId();
 
         assertNull(carDao.findById(id));
 
