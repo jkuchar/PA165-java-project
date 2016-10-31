@@ -25,9 +25,11 @@ public class Car {
     private UUID id;
 
     @NotNull
+    @Column(unique = true, nullable = false)
     private String serialNumber;
 
     @NotNull
+    @Column(unique = true, nullable = false)
     private String regPlateNumber;
 
     @NotNull
@@ -131,7 +133,7 @@ public class Car {
 
 
 
-    public UUID getID() { return id; }
+    public UUID getId() { return id; }
 
     public String getSerialNumber() {
         return serialNumber;
