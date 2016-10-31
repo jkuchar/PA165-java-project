@@ -28,7 +28,7 @@ public class CarTest {
     }
 
     @Test
-    public void testChangeStateValidTransitions() throws Exception {
+    public void testChangeStateValidTransitions() throws DomainException {
         Car car = create();
 
         car.changeState(CarState.OK);
@@ -54,7 +54,7 @@ public class CarTest {
     }
 
     @Test
-    public void testChangeStateInvalidTransitions() throws Exception {
+    public void testChangeStateInvalidTransitions() throws DomainException {
         Car car = create();
 
         car.changeState(CarState.DISCARDED);
