@@ -25,7 +25,7 @@ public class CarDaoImpl implements CarDao{
 
     @Override
     public List<Car> findAll() {
-        return em.createNativeQuery("SELECT c FROM Car c", Car.class).getResultList();
+        return em.createQuery("SELECT c FROM Car c", Car.class).getResultList();
     }
 
     @Override
