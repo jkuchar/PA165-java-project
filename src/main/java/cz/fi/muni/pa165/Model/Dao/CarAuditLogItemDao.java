@@ -13,11 +13,8 @@ import java.util.UUID;
  */
 public interface CarAuditLogItemDao {
     public List<CarAuditLogItem> findAll();
-    public List<CarAuditLogItem> findById(UUID id);
+    public CarAuditLogItem findById(UUID id);
     public List<CarAuditLogItem> findByCar(Car c);
     public List<CarAuditLogItem> findByUser(User u);
     public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to);
-
-    void create(CarAuditLogItem r);
-    void delete(CarAuditLogItem r);
 }

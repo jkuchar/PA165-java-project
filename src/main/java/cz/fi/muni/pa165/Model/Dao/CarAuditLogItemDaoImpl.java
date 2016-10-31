@@ -26,29 +26,23 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
     }
 
     @Override
-    public List<CarAuditLogItem> findById(UUID id) {
-        TypedQuery<CarAuditLogItem> query = em.createQuery(
-                "SELECT i FROM CarAuditLogItem i WHERE i = :itemId", CarAuditLogItem.class);
-
-        query.setParameter("itemId", id);
-        return query.getResultList();
+    public CarAuditLogItem findById(UUID id) {
+        return em.find(CarAuditLogItem.class, id);
     }
 
     @Override
     public List<CarAuditLogItem> findByCar(Car c) {
         TypedQuery<CarAuditLogItem> query = em.createQuery(
-                "SELECT i FROM CarAuditLogItem i WHERE i.car = :carId", CarAuditLogItem.class);
-
-        query.setParameter("carId", c.getId());
+                "SELECT i FROM CarAuditLogItem i WHERE i.car = :car", CarAuditLogItem.class);
+        query.setParameter("car", c);
         return query.getResultList();
     }
 
     @Override
     public List<CarAuditLogItem> findByUser(User u) {
         TypedQuery<CarAuditLogItem> query = em.createQuery(
-                "SELECT i FROM CarAuditLogItem i WHERE i.user = :userId", CarAuditLogItem.class);
-
-        query.setParameter("userId", u.getId());
+                "SELECT i FROM CarAuditLogItem i WHERE i.user = :user", CarAuditLogItem.class);
+        query.setParameter("user", u);
         return query.getResultList();
     }
 
@@ -56,19 +50,8 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
     public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to) {
         TypedQuery<CarAuditLogItem> query = em.createQuery(
                 "SELECT r FROM CarAuditLogItem r WHERE r.created BETWEEN :fromDate AND :toDate ", CarAuditLogItem.class);
-
         query.setParameter("fromDate", from);
         query.setParameter("toDate", to);
         return query.getResultList();
-    }
-
-    @Override
-    public void create(CarAuditLogItem i) {
-        em.persist(i);
-    }
-
-    @Override
-    public void delete(CarAuditLogItem i) {
-        em.remove(i);
     }
 }
