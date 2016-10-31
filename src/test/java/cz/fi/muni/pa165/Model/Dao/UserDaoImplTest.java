@@ -19,6 +19,7 @@ import static org.testng.Assert.*;
 /**
  * Integration test
  * This file is part of PA165 school project.
+ * @author jkuchar
  */
 @ContextConfiguration(classes = PersistenceApplicationContext.class)
 public class UserDaoImplTest extends AbstractTransactionalTestNGSpringContextTests {
