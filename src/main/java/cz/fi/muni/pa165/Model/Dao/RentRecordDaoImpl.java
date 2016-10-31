@@ -60,7 +60,7 @@ public class RentRecordDaoImpl implements RentRecordDao{
 	TypedQuery<RentRecord> query = em.createQuery(
 		"SELECT r FROM RentRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", RentRecord.class);
 	
-        query.setParameter("fromtDate", from);
+        query.setParameter("fromDate", from);
 	query.setParameter("toDate", to);
 	return query.getResultList(); 
     }
