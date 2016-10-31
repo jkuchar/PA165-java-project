@@ -1,6 +1,7 @@
 package cz.fi.muni.pa165.Model.Entity;
 
 import cz.fi.muni.pa165.Model.CarState;
+import cz.fi.muni.pa165.Model.DomainException;
 import org.testng.annotations.Test;
 
 import java.util.Date;
@@ -27,11 +28,14 @@ public class CarTest {
     }
 
     @Test
-    public void testChangeState() throws Exception {
+    public void testChangeStateValidTransitions() throws Exception {
         Car car = create();
 
         car.changeState(CarState.OK);
         assertEquals(car.getCarState(), CarState.OK);
+
+        car.changeState(CarState.SERVICING);
+        assertEquals(car.getCarState(), CarState.SERVICING);
 
         car.changeState(CarState.SERVICING);
         assertEquals(car.getCarState(), CarState.SERVICING);
@@ -44,46 +48,30 @@ public class CarTest {
 
         car.changeState(CarState.DISCARDED);
         assertEquals(car.getCarState(), CarState.DISCARDED);
+
+        car.changeState(CarState.DISCARDED);
+        assertEquals(car.getCarState(), CarState.DISCARDED);
     }
 
     @Test
-    public void testSetSerialNumber() throws Exception {
+    public void testChangeStateInvalidTransitions() throws Exception {
         Car car = create();
 
-        car.setSerialNumber("C3PO");
-        assertEquals(car.getSerialNumber(), "C3PO");
+        car.changeState(CarState.DISCARDED);
+        assertEquals(car.getCarState(), CarState.DISCARDED);
+
+        try {
+            car.changeState(CarState.OK);
+            fail("Transition from DISCARDED to OK should not be allowed.");
+        } catch(DomainException e) {
+            assertEquals(car.getCarState(), CarState.DISCARDED);
+        }
+
+        try {
+            car.changeState(CarState.SERVICING);
+            fail("Transition from DISCARDED to SERVICING should not be allowed.");
+        } catch(DomainException e) {
+            assertEquals(car.getCarState(), CarState.DISCARDED);
+        }
     }
-
-    @Test
-    public void testSetRegPlateNumber() throws Exception {
-        Car car = create();
-
-        car.setRegPlateNumber("000598");
-        assertEquals(car.getRegPlateNumber(), "000598");
-    }
-
-    @Test
-    public void testSetManufacturer() throws Exception {
-        Car car = create();
-
-        car.setManufacturer("Škoda Auto");
-        assertEquals(car.getManufacturer(), "Škoda Auto");
-    }
-
-    @Test
-    public void testSetType() throws Exception {
-        Car car = create();
-
-        car.setType("top kek");
-        assertEquals(car.getType(), "top kek");
-    }
-
-    @Test
-    public void testSetNumberOfSeats() throws Exception {
-        Car car = create();
-
-        car.setNumberOfSeats(3);
-        assertEquals(car.getNumberOfSeats(), 3);
-    }
-
 }
