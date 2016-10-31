@@ -35,18 +35,18 @@ public class ApplicationRejectedRecordDaoImpl implements ApplicationRejectedReco
     @Override
     public List<ApplicationRejectedRecord> findByCar(Car c) {
         TypedQuery<ApplicationRejectedRecord> query = em.createQuery(
-                "SELECT r FROM ApplicationRejectedRecord r WHERE r.car = :carId", ApplicationRejectedRecord.class);
+                "SELECT r FROM ApplicationRejectedRecord r WHERE r.car = :car", ApplicationRejectedRecord.class);
 
-        query.setParameter("carId", c.getID());
+        query.setParameter("car", c);
         return query.getResultList();
     }
 
     @Override
     public List<ApplicationRejectedRecord> findByUser(User u) {
         TypedQuery<ApplicationRejectedRecord> query = em.createQuery(
-                "SELECT r FROM ApplicationRejectedRecord r WHERE r.user = :userId", ApplicationRejectedRecord.class);
+                "SELECT r FROM ApplicationRejectedRecord r WHERE r.user = :user", ApplicationRejectedRecord.class);
 
-        query.setParameter("userId", u.getId());
+        query.setParameter("user", u);
         return query.getResultList();
     }
 
