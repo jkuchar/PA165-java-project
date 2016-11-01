@@ -37,8 +37,8 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
         protected ApplicationApprovedRecord() {
     }
     
-    public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app) {
-        super(car, user, comment);
+    public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app, Date created) {
+        super(car, user, comment, created);
         
         Assert.notNull(from, "Cannot exist without from date.");
         this.from = from;
@@ -46,9 +46,13 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
         Assert.notNull(to, "Cannot exist without to date.");
         this.to = to;
         
-        Assert.notNull(application, "Cannot exist without rent application record.");        
+        Assert.notNull(app, "Cannot exist without rent application record.");
         this.application = app;
-    }    
+    }
+
+    public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app) {
+        this(car, user, from, to, comment, app, new Date());
+    }
     
     public Date getFrom() {
         return from;

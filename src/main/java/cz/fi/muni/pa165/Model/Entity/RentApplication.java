@@ -33,15 +33,19 @@ public class RentApplication extends CarAuditLogItem{
         protected RentApplication() {
     }
     
-    public RentApplication(Car car, User user, String comment, Date from, Date to) {
-        super(car, user, comment);
+    public RentApplication(Car car, User user, String comment, Date from, Date to, Date created) {
+        super(car, user, comment, created);
         
         Assert.notNull(from, "Cannot exist without from date.");
         this.from = from;
         
         Assert.notNull(to, "Cannot exist without to date.");
         this.to = to;
-    }    
+    }
+
+    public RentApplication(Car car, User user, String comment, Date from, Date to) {
+        this(car, user, comment, from, to, new Date());
+    }
     
     public Date getFrom() {
         return from;

@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author rtrembecky
  */
 @Entity
-final public class ApplicationRejectedRecord extends CarAuditLogItem {
+public class ApplicationRejectedRecord extends CarAuditLogItem {
 
     @NotNull
     @OneToOne
@@ -24,11 +24,15 @@ final public class ApplicationRejectedRecord extends CarAuditLogItem {
         protected ApplicationRejectedRecord() {
     }
     
-    public ApplicationRejectedRecord(Car car, User user, Date created, String comment, RentApplication application) {
-        super(car, user, created, comment);
+    public ApplicationRejectedRecord(Car car, User user, String comment, RentApplication application, Date created) {
+        super(car, user, comment, created);
 
         Assert.notNull(application, "Cannot exist without rent application record.");
         this.application = application;
+    }
+
+    public ApplicationRejectedRecord(Car car, User user, String comment, RentApplication application) {
+        this(car, user, comment, application, new Date());
     }
 
     public RentApplication getApplication() {

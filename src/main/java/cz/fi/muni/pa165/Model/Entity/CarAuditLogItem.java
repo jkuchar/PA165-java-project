@@ -31,7 +31,7 @@ public abstract class CarAuditLogItem {
 
     private String comment;
 
-    CarAuditLogItem(Car car, User user, Date created, String comment) {
+    public CarAuditLogItem(Car car, User user, String comment, Date created) {
         this.id = UUID.randomUUID();
 
         Assert.notNull(car, "Cannot create LogItem without car.");
@@ -47,7 +47,7 @@ public abstract class CarAuditLogItem {
     }
 
     CarAuditLogItem(Car car, User user, String comment) {
-        this(car, user, new Date(), comment);
+        this(car, user, comment, new Date());
     }
 
     // DO NOT REMOVE! Hibernate hack:
