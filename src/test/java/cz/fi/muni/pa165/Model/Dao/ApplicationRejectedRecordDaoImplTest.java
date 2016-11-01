@@ -83,7 +83,7 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         RentApplication r1;
         rentApplicationDao.create(r1 = new RentApplication(c1, u1, "Work trip to Prague", fromDate, toDate));
 
-        recordDao.create(a1 = new ApplicationRejectedRecord(c1, u1, new Date(), "Car cannot be rent for such long period of time", r1));
+        recordDao.create(a1 = new ApplicationRejectedRecord(c1, u1, "Car cannot be rent for such long period of time", r1, new Date()));
 
         User u2;
         userDao.create(u2 = User.create(PersonName.of("Jane Austin"), Role.USER, "j.austin@mail.com"));
@@ -94,11 +94,11 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         RentApplication r2;
         rentApplicationDao.create(r2 = new RentApplication(c2, u2, "Work trip to Bratislava", fromDate, toDate));
 
-        recordDao.create(a2 = new ApplicationRejectedRecord(c1, u1, new Date(), "Car has planned service control in that time", r2));
+        recordDao.create(a2 = new ApplicationRejectedRecord(c1, u1, "Car has planned service control in that time", r2, new Date()));
 
         em.flush(); // for testing purposes
     }
-/*
+
     @Test
     public void testCreateRecord() throws Exception {
         this.initTest();
@@ -168,5 +168,4 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
 
         assertNull(recordDao.findById(a1.getId()));
     }
-    */
 }
