@@ -77,7 +77,9 @@ public class ApplicationRejectedRecordDaoImplTest extends AbstractTransactionalT
         Date toDate = formatter.parse(to);
 
         userDao.create(u1 = User.create(PersonName.of("John Smith"), Role.USER, "j.smith@mail.com"));
+
         carDao.create(c1 = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, new Date()));
+
         RentApplication r1;
         rentApplicationDao.create(r1 = new RentApplication(c1, u1, "Work trip to Prague", fromDate, toDate));
 
