@@ -3,9 +3,7 @@ package cz.fi.muni.pa165.Model.Entity;
 import org.springframework.util.Assert;
 import java.util.Date;
 import java.util.UUID;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -13,6 +11,7 @@ import javax.validation.constraints.NotNull;
  * @author rtrembecky
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class CarAuditLogItem {
 
     @Id
