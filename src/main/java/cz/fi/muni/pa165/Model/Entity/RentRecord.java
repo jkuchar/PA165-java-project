@@ -47,7 +47,7 @@ public class RentRecord extends CarAuditLogItem{
         Assert.notNull(odometerState, "Cannot exist without odometer state.");
         this.odometerState = odometer;
 
-        Assert.notNull(approvedRecord, "Cannot exist without application approved record.");
+        Assert.notNull(approved, "Cannot exist without application approved record.");
         this.approvedRecord = approved;
     
     }
