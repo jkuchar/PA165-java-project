@@ -24,6 +24,12 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
     private ReturnRecordDao returnRecordDao;
 
     @Autowired
+    private RentRecordDao rentRecordDao;
+
+    @Autowired
+    private ApplicationApprovedRecordDao applicationApprovedRecordDao;
+
+    @Autowired
     private RentApplicationDao rentApplicationDao;
 
     @Autowired
@@ -33,20 +39,23 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
     private CarDao carDao;
 
     private ReturnRecord create() {
-        Date created = new Date();
+        Date created = new Date(117,0,20);
         Car car = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, created);
         carDao.create(car);
         User user = new User(PersonName.of("John Doe"), Role.MANAGER, "john.doe@company.com", created);
         userDao.create(user);
         Date from = new Date(117,1,2);
         Date to = new Date(117,1,5);
-        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to);
-        ApplicationApprovedRecord approved = new ApplicationApprovedRecord(car, user, from, to, "sure", rentApplication);
-        RentRecord rentRecord = new RentRecord(car, user, approved, "happy riding!", 25, 10000);
-        ReturnRecord returnRecord = new ReturnRecord(car, user, rentRecord, "car is ok", 5, 10100);
+        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to, created);
+        rentApplicationDao.create(rentApplication);
+        ApplicationApprovedRecord applicationApprovedRecord = new ApplicationApprovedRecord(car, user, from, to, "sure", rentApplication, new Date(117,0,22));
+        applicationApprovedRecordDao.create(applicationApprovedRecord);
+        RentRecord rentRecord = new RentRecord(car, user, applicationApprovedRecord, "happy riding!", 25, 10000, new Date(117,1,2));
+        rentRecordDao.create(rentRecord);
+        ReturnRecord returnRecord = new ReturnRecord(car, user, rentRecord, "car is ok", 5, 10100, new Date(117,1,5));
         return returnRecord;
     }
-/*
+
     @Test
     public void testFindAll() {
         ReturnRecord r = create();
@@ -94,12 +103,11 @@ public class ReturnRecordDaoImplTest extends AbstractTransactionalTestNGSpringCo
     @Test
     public void testGetRecordsCreatedBetween() {
         ReturnRecord r = create();
-        List<ReturnRecord> retrieved = returnRecordDao.getRecordsCreatedBetween(new Date(117,0,2), new Date(117,0,5));
+        List<ReturnRecord> retrieved = returnRecordDao.getRecordsCreatedBetween(new Date(117,1,4), new Date(117,1,5));
         assertFalse(retrieved.contains(r));
         returnRecordDao.create(r);
 
-        retrieved = returnRecordDao.getRecordsCreatedBetween(new Date(117,0,2), new Date(117,0,5));
+        retrieved = returnRecordDao.getRecordsCreatedBetween(new Date(117,1,4), new Date(117,1,5));
         assertTrue(retrieved.contains(r));
     }
-*/
 }

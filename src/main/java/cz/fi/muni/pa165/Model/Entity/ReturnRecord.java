@@ -11,6 +11,8 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import org.springframework.util.Assert;
 
+import java.util.Date;
+
 /**
  *
  * @author charlliz
@@ -35,8 +37,8 @@ public class ReturnRecord extends CarAuditLogItem{
         protected ReturnRecord() {
     }
     
-    public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer) {
-        super(car, user, comment);
+    public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer, Date created) {
+        super(car, user, comment, created);
         
         Assert.notNull(fuelState, "Cannot exist without fuel state.");
         this.fuelState = fuel;
@@ -44,10 +46,13 @@ public class ReturnRecord extends CarAuditLogItem{
         Assert.notNull(odometerState, "Cannot exist without odometer state.");
         this.odometerState = odometer;
  
-        Assert.notNull(rentRecord, "Cannot exist without rent record.");        
+        Assert.notNull(rent, "Cannot exist without rent record.");
         this.rentRecord = rent;
-             
-    }    
+    }
+
+    public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer) {
+        this(car, user, rent, comment, fuel, odometer, new Date());
+    }
  
     public int getFuelState() {
         return fuelState;

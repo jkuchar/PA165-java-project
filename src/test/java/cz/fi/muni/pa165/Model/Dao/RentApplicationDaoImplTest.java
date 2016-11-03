@@ -30,17 +30,17 @@ public class RentApplicationDaoImplTest extends AbstractTransactionalTestNGSprin
     private CarDao carDao;
 
     private RentApplication create() {
-        Date created = new Date();
+        Date created = new Date(117,0,20);
         Car car = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, created);
         carDao.create(car);
         User user = new User(PersonName.of("John Doe"), Role.MANAGER, "john.doe@company.com", created);
         userDao.create(user);
         Date from = new Date(117,1,2);
         Date to = new Date(117,1,5);
-        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to);
+        RentApplication rentApplication = new RentApplication(car, user, "please give me a car", from, to, created);
         return rentApplication;
     }
-/*
+
     @Test
     public void testFindAll() {
         RentApplication r = create();
@@ -88,12 +88,11 @@ public class RentApplicationDaoImplTest extends AbstractTransactionalTestNGSprin
     @Test
     public void testGetRecordsCreatedBetween() {
         RentApplication r = create();
-        List<RentApplication> retrieved = rentApplicationDao.getRecordsCreatedBetween(new Date(117,0,2), new Date(117,0,5));
+        List<RentApplication> retrieved = rentApplicationDao.getRecordsCreatedBetween(new Date(117,0,18), new Date(117,0,23));
         assertFalse(retrieved.contains(r));
         rentApplicationDao.create(r);
 
-        retrieved = rentApplicationDao.getRecordsCreatedBetween(new Date(117,0,2), new Date(117,0,5));
+        retrieved = rentApplicationDao.getRecordsCreatedBetween(new Date(117,0,18), new Date(117,0,23));
         assertTrue(retrieved.contains(r));
     }
-*/
 }

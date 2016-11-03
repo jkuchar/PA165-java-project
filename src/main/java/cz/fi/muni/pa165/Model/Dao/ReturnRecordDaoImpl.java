@@ -29,7 +29,7 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
     @Override
     public List<ReturnRecord> findAll() {
         return em.createQuery(
-                "SELECT r FROM RentRecord r", ReturnRecord.class).getResultList();
+                "SELECT r FROM ReturnRecord r", ReturnRecord.class).getResultList();
     }
 
     @Override
