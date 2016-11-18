@@ -12,11 +12,42 @@ import java.util.UUID;
  */
 public interface UserDao {
 
+    /**
+     * Method retrieve all users from db
+     * @return list of all users
+     */
     List<User> findAll();
+
+    /**
+     * Method retrieve item with corresponding id
+     * @param id is id of user
+     * @return user with certain id
+     */
     User findById(UUID id);
+
+    /**
+     * Method retrieve user with corresponding name.
+     * @param name is name of user
+     * @return return user with certian name
+     */
     User findByName(PersonName name);
 
+    /**
+     * Method insert new user into db.
+     * @param c is new user
+     */
     void create(User c);
+
+    /**
+     * Method delete user from db.
+     * @param c is user to delete
+     */
     void delete(User c);
+
+    /**
+     * Method is used for updating information of user. 
+     * @param c is user to update
+     */
+    void update(User c); 
 
 }

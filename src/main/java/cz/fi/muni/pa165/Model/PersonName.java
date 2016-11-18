@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 @SuppressWarnings("JpaAttributeMemberSignatureInspection")
 @Embeddable
-final public class PersonName {
+public class PersonName {
 
     @NotNull
     @Column(name = "name_first")
@@ -26,7 +26,6 @@ final public class PersonName {
     @Column(name = "name_last")
     private String last;
 
-    // Hibernate Hack
     protected PersonName() {
     }
 
@@ -49,7 +48,7 @@ final public class PersonName {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof PersonName)) return false;
         PersonName that = (PersonName) o;
         return Objects.equals(first, that.first) &&
                 Objects.equals(last, that.last);

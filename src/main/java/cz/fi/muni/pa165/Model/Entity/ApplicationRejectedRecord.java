@@ -19,10 +19,7 @@ public class ApplicationRejectedRecord extends CarAuditLogItem {
     @OneToOne
     private RentApplication application;
 
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected ApplicationRejectedRecord() {
-    }
+    protected ApplicationRejectedRecord() {}
     
     public ApplicationRejectedRecord(Car car, User user, String comment, RentApplication application, Date created) {
         super(car, user, comment, created);

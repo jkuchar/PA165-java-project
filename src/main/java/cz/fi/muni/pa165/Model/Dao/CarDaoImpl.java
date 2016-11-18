@@ -69,4 +69,9 @@ public class CarDaoImpl implements CarDao{
     public void delete(Car c) {
         em.remove(em.merge(c));
     }
+    
+    @Override
+    public void update(Car c) {
+            em.merge(c);
+    }
 }

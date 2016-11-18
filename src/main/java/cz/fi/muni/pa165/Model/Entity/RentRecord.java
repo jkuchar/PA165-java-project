@@ -32,11 +32,7 @@ public class RentRecord extends CarAuditLogItem{
     @OneToOne
     private ApplicationApprovedRecord approvedRecord;
     
-    
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-    protected RentRecord() {
-    }
+    protected RentRecord() {}
     
     public RentRecord(Car car, User user, ApplicationApprovedRecord approved, String comment, int fuel, int odometer, Date created) {
         super(car, user, comment, created);

@@ -42,12 +42,10 @@ public class User {
     private String email;
 
     @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-    protected User() {
-    }
+    protected User() {}
 
     public User(PersonName personName, Role role, String email, Date created) {
         this.id = UUID.randomUUID();
@@ -79,12 +77,12 @@ public class User {
         return User.create(new PersonName(firstName, lastName), role, email);
     }
 
-    public void changeRole(Role role) throws DomainException {
+    public void setRole(Role role){
         Assert.notNull(role, "Cannot change user's role to null.");
         this.role = role;
     }
 
-    public void changeName(PersonName personName) throws DomainException {
+    public void setName(PersonName personName){
         Assert.notNull(personName, "Cannot remove user's name.");
         this.name = personName;
     }
@@ -105,6 +103,10 @@ public class User {
         return email;
     }
 
+    public String setEmail() {
+        return email;
+    }
+    
     public Date getCreated() {
         return created;
     }
@@ -121,29 +123,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(getId());
     }
-
-    // deprecated:
-    @Deprecated
-    User(String firstName, String lastName, Role role, String email, Date created) {
-        this(new PersonName(firstName, lastName), role, email, created);
-    }
-
-    @Deprecated
-    public String getFirstName() {
-        return name.getFirst();
-    }
-
-    @Deprecated
-    public String getLastName() {
-        return name.getLast();
-    }
-
-    @Deprecated
-    public void changeName(String firstName, String lastName) throws DomainException {
-        Assert.notNull(firstName, "First name is required when changing user's name.");
-        Assert.notNull(lastName,  "Last name is required when changing user's name.");
-
-        this.name = new PersonName(firstName, lastName);
-    }
-
 }

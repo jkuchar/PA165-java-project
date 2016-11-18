@@ -46,15 +46,14 @@ public class Car {
     private CarState state;
 
     @DateTimeFormat
+    @Temporal(TemporalType.TIMESTAMP)
     private Date establishDate;
 
     @DateTimeFormat
+    @Temporal(TemporalType.TIMESTAMP)
     private Date discardDate;
 
-    /* DO NOT REMOVE! hack explanation @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717 */
     protected Car(){}
-
-
 
     public Car(String serialNumber, String regPlateNumber, String manufacturer, String type, int numberOfSeats, Date establishDate) {
         this.id = UUID.randomUUID();
@@ -85,9 +84,6 @@ public class Car {
         this(serialNumber,regPlateNumber, manufacturer,  type, numberOfSeats, new Date());
     }
 
-
-
-
     public void changeState(CarState state) throws DomainException{
         if(state == this.state) {
             return;
@@ -106,27 +102,27 @@ public class Car {
 
 
     // use case: fix typos in Car decription
-    public void setSerialNumber(String serialNumber) throws DomainException{
+    public void setSerialNumber(String serialNumber){
         Assert.notNull(serialNumber, "Cannot create car with no serial number.");
         this.serialNumber = serialNumber;
     }
 
-    public void setRegPlateNumber(String regPlateNumber) throws DomainException{
+    public void setRegPlateNumber(String regPlateNumber){
         Assert.notNull(regPlateNumber, "Cannot create car with no registration plate number.");
         this.regPlateNumber = regPlateNumber;
     }
 
-    public void setManufacturer(String manufacturer) throws DomainException{
+    public void setManufacturer(String manufacturer){
         Assert.notNull(manufacturer, "Cannot create car with no manufacturer.");
         this.manufacturer = manufacturer;
     }
 
-    public void setType(String type) throws DomainException{
+    public void setType(String type){
         Assert.notNull(type, "Cannot create car with no type.");
         this.type = type;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) throws DomainException{
+    public void setNumberOfSeats(int numberOfSeats){
         Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
         this.seats = numberOfSeats;
     }

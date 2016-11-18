@@ -32,10 +32,7 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     @NotNull
     private RentApplication application;
     
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
-        protected ApplicationApprovedRecord() {
-    }
+    protected ApplicationApprovedRecord() {}
     
     public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app, Date created) {
         super(car, user, comment, created);

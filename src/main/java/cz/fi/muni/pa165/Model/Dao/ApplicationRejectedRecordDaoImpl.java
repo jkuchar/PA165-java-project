@@ -49,6 +49,16 @@ public class ApplicationRejectedRecordDaoImpl implements ApplicationRejectedReco
         query.setParameter("user", u);
         return query.getResultList();
     }
+    
+    @Override
+    public List<ApplicationRejectedRecord> getRecordsCreatedBetween(Date from, Date to) {
+	TypedQuery<ApplicationRejectedRecord> query = em.createQuery(
+		"SELECT r FROM ApplicationApprovedRecord r WHERE r.created BETWEEN :fromDate AND :toDate ", ApplicationRejectedRecord.class);
+	
+        query.setParameter("fromDate", from);
+	query.setParameter("toDate", to);
+	return query.getResultList(); 
+    }
 
     @Override
     public void create(ApplicationRejectedRecord r) {

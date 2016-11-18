@@ -50,8 +50,6 @@ public abstract class CarAuditLogItem {
         this(car, user, comment, new Date());
     }
 
-    // DO NOT REMOVE! Hibernate hack:
-    // @link http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor#comment9688725_2971717
     protected CarAuditLogItem() {}
 
     public void setComment(String comment) {

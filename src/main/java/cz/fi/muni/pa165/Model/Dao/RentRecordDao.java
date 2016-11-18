@@ -18,13 +18,51 @@ import java.util.UUID;
  */
 public interface RentRecordDao {
 
+    /**
+     * Method retrieve all rent records from db
+     * @return all rent records
+     */
     public List<RentRecord> findAll();
+
+    /**
+     * Method retrieve item with corresponding id
+     * @param id id of rent record
+     * @return return rent record with certain id
+     */
     public RentRecord findById(UUID id);
+
+    /**
+     * Method retrieve rent records with corresponding car.
+     * @param c certain car
+     * @return list of all rent records with certain car
+     */
     public List<RentRecord> findByCar(Car c);
+
+    /**
+     * Method to find all rent records of certain user.
+     * @param u certain user
+     * @return list of all rent records of certain user
+     */
     public List<RentRecord> findByUser(User u);
+
+    /**
+     * Method retrieve rent records betweens certain dates.
+     * @param from start date
+     * @param to end date
+     * @return list of all rent records which were created between certain dates
+     */
     public List<RentRecord> getRecordsCreatedBetween(Date from, Date to);
     
+    /**
+     * Method insert new rent record into db.
+     * @param r is new rent record
+     */
     void create(RentRecord r);
+
+    /**
+     * Method delete rent record from db.
+     * @param r is rent record to delete
+     */
     void delete(RentRecord r);
     
 }
