@@ -14,20 +14,20 @@ import java.util.UUID;
 public interface ApplicationRejectedRecordDao {
 
     /**
-     * Method retrieve all application rejected records from db
+     * Method to retrieve all application rejected records from db.
      * @return all application rejected records
      */
     public List<ApplicationRejectedRecord> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve application rejected record with corresponding id.
      * @param id id of application rejected record
      * @return return application rejected record with certain id
      */
     public ApplicationRejectedRecord findById(UUID id);
 
     /**
-     * Method retrieve application rejected records with corresponding car.
+     * Method to retrieve application rejected records with corresponding car.
      * @param c certain car
      * @return list of all application rejected records with certain car
      */
@@ -41,7 +41,7 @@ public interface ApplicationRejectedRecordDao {
     public List<ApplicationRejectedRecord> findByUser(User u);
 
         /**
-     * Method retrieve application rejected records betweens certain dates.
+     * Method to retrieve application rejected records between certain dates.
      * @param from start date
      * @param to end date
      * @return list of all application rejected records which were created between certain dates
@@ -49,13 +49,13 @@ public interface ApplicationRejectedRecordDao {
     public List<ApplicationRejectedRecord> getRecordsCreatedBetween(Date from, Date to);
     
     /**
-     * Method insert new application rejected record into db.
+     * Method to insert new application rejected record into db.
      * @param r is new application rejected record
      */
     void create(ApplicationRejectedRecord r);
 
     /**
-     * Method delete application rejected record from db.
+     * Method to delete application rejected record from db.
      * @param r is application rejected record to delete
      */
     void delete(ApplicationRejectedRecord r);

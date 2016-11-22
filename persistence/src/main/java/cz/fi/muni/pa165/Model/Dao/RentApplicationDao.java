@@ -19,20 +19,20 @@ import java.util.UUID;
 public interface RentApplicationDao {
     
     /**
-     * Method retrieve all rent applications from db
+     * Method to retrieve all rent applications from db.
      * @return all rent applications
      */
     public List<RentApplication> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve rent application with corresponding id.
      * @param id id of rent application
      * @return return rent application with certain id
      */
     public RentApplication findById(UUID id);
 
     /**
-     * Method retrieve rent applications with corresponding car.
+     * Method to retrieve rent applications with corresponding car.
      * @param c certain car
      * @return list of all rent applications with certain car
      */
@@ -46,7 +46,7 @@ public interface RentApplicationDao {
     public List<RentApplication> findByUser(User u);
 
     /**
-     * Method retrieve rent applications betweens certain dates.
+     * Method to retrieve rent applications between certain dates.
      * @param from start date
      * @param to end date
      * @return list of all rent applications which were created between certain dates
@@ -54,7 +54,7 @@ public interface RentApplicationDao {
     public List<RentApplication> getRecordsCreatedBetween(Date from, Date to);
     
     /**
-     * Method insert new rent application into db.
+     * Method to insert new rent application into db.
      * @param r is new rent application
      */
     void create(RentApplication r);

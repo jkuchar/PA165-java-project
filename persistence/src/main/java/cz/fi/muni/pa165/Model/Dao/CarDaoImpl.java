@@ -14,6 +14,7 @@ import java.util.UUID;
 
 /**
  * Created by SARMIR on 29. 10. 2016.
+ * @author jakubsarmir
  */
 @Repository
 public class CarDaoImpl implements CarDao{

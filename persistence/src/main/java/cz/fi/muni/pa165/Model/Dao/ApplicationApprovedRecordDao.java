@@ -19,20 +19,20 @@ import java.util.UUID;
 public interface ApplicationApprovedRecordDao {
 
     /**
-     * Method retrieve all application approved records from db
+     * Method to retrieve all application approved records from db.
      * @return all application approved records
      */
     public List<ApplicationApprovedRecord> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve application approved record with corresponding id.
      * @param id id of application approved record
      * @return return application approved record with certain id
      */
     public ApplicationApprovedRecord findById(UUID id);
 
     /**
-     * Method retrieve application approved records with corresponding car.
+     * Method to retrieve application approved records with corresponding car.
      * @param c certain car
      * @return list of all application approved records with certain car
      */
@@ -46,7 +46,7 @@ public interface ApplicationApprovedRecordDao {
     public List<ApplicationApprovedRecord> findByUser(User u);
 
     /**
-     * Method retrieve application approved records betweens certain dates.
+     * Method to retrieve application approved records between certain dates.
      * @param from start date
      * @param to end date
      * @return list of all application approved records which were created between certain dates
@@ -54,13 +54,13 @@ public interface ApplicationApprovedRecordDao {
     public List<ApplicationApprovedRecord> getRecordsCreatedBetween(Date from, Date to);
     
     /**
-     * Method insert new application approved record into db.
+     * Method to insert new application approved record into db.
      * @param r is new application approved record
      */
     void create(ApplicationApprovedRecord r);
 
     /**
-     * Method delete application approved record from db.
+     * Method to delete application approved record from db.
      * @param r is application approved record to delete
      */
     void delete(ApplicationApprovedRecord r);

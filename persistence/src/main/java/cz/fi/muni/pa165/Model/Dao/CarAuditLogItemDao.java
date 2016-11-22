@@ -14,20 +14,20 @@ import java.util.UUID;
 public interface CarAuditLogItemDao {
 
     /**
-     * Method retrieve all car audit log items from db
+     * Method to retrieve all car audit log items from db.
      * @return all car audit log items
      */
     public List<CarAuditLogItem> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve car audit log item with corresponding id.
      * @param id id of car audit log items
      * @return car audit log items with certain id
      */
     public CarAuditLogItem findById(UUID id);
 
     /**
-     * Method retrieve car audit log items with corresponding car.
+     * Method to retrieve car audit log items with corresponding car.
      * @param c certain car
      * @return list of all car audit log items with certain car
      */
@@ -41,7 +41,7 @@ public interface CarAuditLogItemDao {
     public List<CarAuditLogItem> findByUser(User u);
 
     /**
-     * Method retrieve car audit log items betweens certain dates.
+     * Method retrieve car audit log items between certain dates.
      * @param from start date
      * @param to end date
      * @return list of all car audit log items which were created between certain dates

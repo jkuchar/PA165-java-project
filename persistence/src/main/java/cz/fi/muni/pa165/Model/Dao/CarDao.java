@@ -8,32 +8,33 @@ import java.util.UUID;
 
 /**
  * Created by SARMIR on 29. 10. 2016.
+ * @author jakubsarmir
  */
 public interface CarDao {
 
     /**
-     * Method retrieve all cars from db
+     * Method to retrieve all cars from db.
      * @return List of all cars in db
      */
     List<Car> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve car with corresponding id.
      * @param id id of certain car
      * @return return cars with certain id
      */
     Car findById(UUID id);
 
     /**
-     * Method retrieve car with corresponding serial number.
+     * Method to retrieve car with corresponding serial number.
      * @param serialNumber is serial number of certain car
      * @return car with certain serial number
      */
     Car findBySerialNumber(String serialNumber);
 
     /**
-     * Method retrieve car with corresponding plate number.
-     * @param regPlateNumber is plate number of certian car
+     * Method to retrieve car with corresponding plate number.
+     * @param regPlateNumber is plate number of certain car
      * @return car with certain plate number
      */
     Car findByRegPlateNumber(String regPlateNumber);
@@ -41,24 +42,24 @@ public interface CarDao {
     /**
      * Method retrieve all cars with certain car state from car park perspective.
      * @param state is current state of car.
-     * @return all cars with certian car state.
+     * @return all cars with certain car state.
      */
     List<Car> findByState(CarState state);
 
     /**
-     * Method insert new car into db.
+     * Method to insert new car into db.
      * @param c is new created car
      */
     void create(Car c);
 
     /**
-     * Method delete car from db.
+     * Method to delete car from db.
      * @param c is car to be deleted
      */
     void delete(Car c);
 
     /**
-     * Method is used for updating information of car.
+     * Method to update information about car in db.
      * @param c is car to be updated
      */
     void update(Car c);
