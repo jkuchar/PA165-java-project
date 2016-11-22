@@ -35,7 +35,7 @@ public class PersistenceApplicationContext {
     }
 
     /**
-     * Starts up a container that emulates behavior prescribed in JPA spec for container-managed EntityManager
+     * Starts up a container that emulates behavior prescribed in JPA spec for container-managed EntityManager.
      */
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(){

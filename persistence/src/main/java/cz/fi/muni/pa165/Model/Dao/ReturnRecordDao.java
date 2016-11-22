@@ -19,20 +19,20 @@ import java.util.UUID;
 public interface ReturnRecordDao {
 
     /**
-     * Method retrieve all return records from db
+     * Method to retrieve all return records from db.
      * @return all return records
      */
     public List<ReturnRecord> findAll();
 
     /**
-     * Method retrieve item with corresponding id
+     * Method to retrieve return record with corresponding id.
      * @param id id of return record
      * @return return return record with certain id
      */
     public ReturnRecord findById(UUID id);
 
     /**
-     * Method retrieve return records with corresponding car.
+     * Method to retrieve return records with corresponding car.
      * @param c certain car
      * @return list of all return records with certain car
      */
@@ -46,7 +46,7 @@ public interface ReturnRecordDao {
     public List<ReturnRecord> findByUser(User u);
 
     /**
-     * Method retrieve return records betweens certain dates.
+     * Method to retrieve return records between certain dates.
      * @param from start date
      * @param to end date
      * @return list of all return records which were created between certain dates
@@ -54,7 +54,7 @@ public interface ReturnRecordDao {
     public List<ReturnRecord> getRecordsCreatedBetween(Date from, Date to);
     
     /**
-     * Method insert new return record into db.
+     * Method to insert new return record into db.
      * @param r is new return record
      */
     void create(ReturnRecord r);

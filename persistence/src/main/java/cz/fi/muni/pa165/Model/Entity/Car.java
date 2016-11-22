@@ -13,6 +13,7 @@ import java.util.UUID;
 
 /**
  * Created by SARMIR on 26. 10. 2016.
+ * @author jakubsarmir
  */
 
 @SuppressWarnings("WeakerAccess")

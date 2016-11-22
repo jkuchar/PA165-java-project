@@ -17,6 +17,7 @@ import static org.testng.Assert.*;
 
 /**
  * Created by SARMIR on 30. 10. 2016.
+ * @author jakubsarmir
  */
 @ContextConfiguration(classes = PersistenceApplicationContext.class)
 public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTests{
