@@ -32,18 +32,28 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
 
     @Override
     public List<CarAuditLogItem> findByCar(Car c) {
+        return findByCar(c.getId());
+    }
+
+    @Override
+    public List<CarAuditLogItem> findByCar(UUID id) {
         TypedQuery<CarAuditLogItem> query = em.createQuery(
-                "SELECT i FROM CarAuditLogItem i WHERE i.car = :car", CarAuditLogItem.class);
-        query.setParameter("car", c);
+                "SELECT i FROM CarAuditLogItem i WHERE i.car.id = :carId", CarAuditLogItem.class);
+        query.setParameter("carId", id);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<CarAuditLogItem> findByUser(UUID id) {
+        TypedQuery<CarAuditLogItem> query = em.createQuery(
+                "SELECT i FROM CarAuditLogItem i WHERE i.user.id = :userId", CarAuditLogItem.class);
+        query.setParameter("userId", id);
         return query.getResultList();
     }
 
     @Override
     public List<CarAuditLogItem> findByUser(User u) {
-        TypedQuery<CarAuditLogItem> query = em.createQuery(
-                "SELECT i FROM CarAuditLogItem i WHERE i.user = :user", CarAuditLogItem.class);
-        query.setParameter("user", u);
-        return query.getResultList();
+        return findByUser(u.getId());
     }
 
     @Override
