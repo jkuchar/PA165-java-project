@@ -40,12 +40,33 @@ public interface CarDao {
     Car findByRegPlateNumber(String regPlateNumber);
 
     /**
-     * Method retrieve all cars with certain car state from car park perspective.
+     * Method to retrieve all cars with certain car state from car park perspective.
      * @param state is current state of car.
      * @return all cars with certain car state.
      */
     List<Car> findByState(CarState state);
 
+    /**
+     * Method to retrieve all cars with the given manufacturer.
+     * @param manufacturer is manufacturer of car.
+     * @return all cars with certain manufacturer.
+     */
+    List<Car> getAllCarsByManufacturer(String manufacturer);
+    
+     /**
+     * Method to retrieve all cars with the given type.
+     * @param type is type of car.
+     * @return all cars with certain car type.
+     */
+    List<Car> getAllCarsByType(String type);
+    
+     /**
+     * Method retrieve all cars with the number of seats.
+     * @param seats is the number of seats.
+     * @return all cars with certain number of seats.
+     */
+    List<Car> getAllCarsBySeats(int seats);
+    
     /**
      * Method to insert new car into db.
      * @param c is new created car

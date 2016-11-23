@@ -1,0 +1,10 @@
+cz\fi\muni\pa165\Model\Entity\CarTest.class
+cz\fi\muni\pa165\Model\Dao\ApplicationRejectedRecordDaoImplTest.class
+cz\fi\muni\pa165\Model\Dao\CarDaoImplTest.class
+cz\fi\muni\pa165\Model\Dao\UserDaoImplTest.class
+cz\fi\muni\pa165\Model\Dao\ReturnRecordDaoImplTest.class
+cz\fi\muni\pa165\Model\Entity\UserTest.class
+cz\fi\muni\pa165\Model\Dao\ApplicationApprovedRecordDaoImplTest.class
+cz\fi\muni\pa165\Model\Dao\RentRecordDaoImplTest.class
+cz\fi\muni\pa165\Model\PersonNameTest.class
+cz\fi\muni\pa165\Model\Dao\RentApplicationDaoImplTest.class

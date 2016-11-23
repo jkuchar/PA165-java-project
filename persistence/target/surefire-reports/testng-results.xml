@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="48" passed="48">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="13739" started-at="2016-11-18T20:20:13Z" finished-at="2016-11-18T20:20:27Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="13739" started-at="2016-11-18T20:20:13Z" finished-at="2016-11-18T20:20:27Z">
+      <class name="cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="31" started-at="2016-11-18T21:20:13Z" finished-at="2016-11-18T21:20:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="9951" started-at="2016-11-18T21:20:13Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="490" started-at="2016-11-18T21:20:23Z" finished-at="2016-11-18T21:20:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="testFindAll" duration-ms="1152" started-at="2016-11-18T21:20:23Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="46" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByCar()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="testFindByCar" duration-ms="116" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCar -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="15" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="testFindById" duration-ms="115" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="8" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="8" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByUser()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="testFindByUser" duration-ms="61" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUser -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetRecordsCreatedBetween()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="testGetRecordsCreatedBetween" duration-ms="75" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetRecordsCreatedBetween -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="42" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.PersonNameTest">
+        <test-method status="PASS" signature="testEquals()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testEquals" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEquals -->
+        <test-method status="PASS" signature="testGetFirst()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testGetFirst" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetFirst -->
+        <test-method status="PASS" signature="testGetLast()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testGetLast" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetLast -->
+        <test-method status="PASS" signature="testHashCode()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testHashCode" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHashCode -->
+        <test-method status="PASS" signature="testOf_compositeFistNameAndLastName()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testOf_compositeFistNameAndLastName" duration-ms="3" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOf_compositeFistNameAndLastName -->
+        <test-method status="PASS" signature="testOf_separateFirstNameAndLastName()[pri:0, instance:cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9]" name="testOf_separateFirstNameAndLastName" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOf_separateFirstNameAndLastName -->
+      </class> <!-- cz.fi.muni.pa165.Model.PersonNameTest -->
+      <class name="cz.fi.muni.pa165.Model.Entity.CarTest">
+        <test-method status="PASS" signature="testChangeStateInvalidTransitions()[pri:0, instance:cz.fi.muni.pa165.Model.Entity.CarTest@17211155]" name="testChangeStateInvalidTransitions" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testChangeStateInvalidTransitions -->
+        <test-method status="PASS" signature="testChangeStateValidTransitions()[pri:0, instance:cz.fi.muni.pa165.Model.Entity.CarTest@17211155]" name="testChangeStateValidTransitions" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testChangeStateValidTransitions -->
+      </class> <!-- cz.fi.muni.pa165.Model.Entity.CarTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.CarDaoImplTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:25Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="15" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="testFindAll" duration-ms="33" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindById() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="testFindById" duration-ms="19" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindById() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByRegPlateNumber() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByRegPlateNumber()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="testFindByRegPlateNumber" duration-ms="25" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByRegPlateNumber -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByRegPlateNumber() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindBySerialNumber() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindBySerialNumber()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="testFindBySerialNumber" duration-ms="17" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindBySerialNumber -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindBySerialNumber() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByState() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByState()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="testFindByState" duration-ms="49" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByState -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByState() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.CarDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.UserDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:27Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="testFindAll" duration-ms="15" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindById() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="testFindById" duration-ms="9" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindById() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindByName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByName()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="testFindByName" duration-ms="16" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByName -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindByName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.UserDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="16" started-at="2016-11-18T21:20:25Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testDelete() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDelete()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="testDelete" duration-ms="5" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDelete -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testDelete() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="10" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindAll() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="testFindAll" duration-ms="45" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindAll() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByCar() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByCar()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="testFindByCar" duration-ms="41" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCar -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="15" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByCar() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindById() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="testFindById" duration-ms="2" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindById() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByUser() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByUser()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="testFindByUser" duration-ms="47" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUser -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="8" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByUser() throws java.text.ParseException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:25Z" finished-at="2016-11-18T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.Entity.UserTest">
+        <test-method status="PASS" signature="testChangeName()[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testChangeName" duration-ms="0" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testChangeName -->
+        <test-method status="PASS" signature="testChangeRole()[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testChangeRole" duration-ms="3" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testChangeRole -->
+        <test-method status="PASS" signature="testConstructWithNulls(cz.fi.muni.pa165.Model.PersonName, cz.fi.muni.pa165.Model.Role, java.lang.String, java.util.Date)[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testConstructWithNulls" duration-ms="3" started-at="2016-11-18T21:20:27Z" data-provider="testConstructWithNulls_dataProvider" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[MANAGER]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[john.doe@company.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Fri Nov 18 21:20:27 CET 2016]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructWithNulls -->
+        <test-method status="PASS" signature="testConstructWithNulls(cz.fi.muni.pa165.Model.PersonName, cz.fi.muni.pa165.Model.Role, java.lang.String, java.util.Date)[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testConstructWithNulls" duration-ms="0" started-at="2016-11-18T21:20:27Z" data-provider="testConstructWithNulls_dataProvider" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[cz.fi.muni.pa165.Model.PersonName@447e510]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[john.doe@company.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Fri Nov 18 21:20:27 CET 2016]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructWithNulls -->
+        <test-method status="PASS" signature="testConstructWithNulls(cz.fi.muni.pa165.Model.PersonName, cz.fi.muni.pa165.Model.Role, java.lang.String, java.util.Date)[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testConstructWithNulls" duration-ms="0" started-at="2016-11-18T21:20:27Z" data-provider="testConstructWithNulls_dataProvider" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[cz.fi.muni.pa165.Model.PersonName@447e510]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[MANAGER]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[john.doe@company.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructWithNulls -->
+        <test-method status="PASS" signature="testConstructWithNulls(cz.fi.muni.pa165.Model.PersonName, cz.fi.muni.pa165.Model.Role, java.lang.String, java.util.Date)[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testConstructWithNulls" duration-ms="0" started-at="2016-11-18T21:20:27Z" data-provider="testConstructWithNulls_dataProvider" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[cz.fi.muni.pa165.Model.PersonName@447e510]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[MANAGER]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Fri Nov 18 21:20:27 CET 2016]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConstructWithNulls -->
+        <test-method status="PASS" signature="testCreate()[pri:0, instance:cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190]" name="testCreate" duration-ms="0" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreate -->
+      </class> <!-- cz.fi.muni.pa165.Model.Entity.UserTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="21" started-at="2016-11-18T21:20:26Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="testFindAll" duration-ms="51" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByCar()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="testFindByCar" duration-ms="41" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCar -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="10" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="testFindById" duration-ms="46" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByUser()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="testFindByUser" duration-ms="39" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUser -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetRecordsCreatedBetween()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="testGetRecordsCreatedBetween" duration-ms="37" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetRecordsCreatedBetween -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="8" started-at="2016-11-18T21:20:26Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="testFindAll" duration-ms="94" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="14" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByCar()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="testFindByCar" duration-ms="53" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCar -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="testFindById" duration-ms="49" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByUser()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="testFindByUser" duration-ms="42" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUser -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="11" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetRecordsCreatedBetween()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="testGetRecordsCreatedBetween" duration-ms="30" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetRecordsCreatedBetween -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:27Z" finished-at="2016-11-18T21:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest -->
+      <class name="cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2016-11-18T21:20:26Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="4" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="testFindAll" duration-ms="40" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindAll -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="3" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByCar()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="testFindByCar" duration-ms="37" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByCar -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByCar()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="testFindById" duration-ms="66" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="14" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="7" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindByUser()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="testFindByUser" duration-ms="99" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByUser -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByUser()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="5" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetRecordsCreatedBetween()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="testGetRecordsCreatedBetween" duration-ms="59" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetRecordsCreatedBetween -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="9" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testGetRecordsCreatedBetween()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-18T21:20:26Z" finished-at="2016-11-18T21:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

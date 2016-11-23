@@ -75,4 +75,31 @@ public class CarDaoImpl implements CarDao{
     public void update(Car c) {
             em.merge(c);
     }
+
+    @Override
+    public List<Car> getAllCarsByManufacturer(String manufacturer) {
+        TypedQuery<Car> query = em.createQuery(
+            "SELECT r FROM Car r WHERE r.manufacturer = :manufacturer", Car.class);
+
+        query.setParameter("manufacturer", manufacturer);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Car> getAllCarsByType(String type) {
+       TypedQuery<Car> query = em.createQuery(
+            "SELECT r FROM Car r WHERE r.type = :type", Car.class);
+
+        query.setParameter("type", type);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Car> getAllCarsBySeats(int seats) {
+       TypedQuery<Car> query = em.createQuery(
+            "SELECT r FROM Car r WHERE r.seats = :seats", Car.class);
+
+        query.setParameter("seats", seats);
+        return query.getResultList();
+    }
 }

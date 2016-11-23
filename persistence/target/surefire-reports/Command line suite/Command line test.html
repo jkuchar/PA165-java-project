@@ -1,0 +1,319 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>48/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Nov 18 21:20:13 CET 2016</td>
+</tr>
+<tr><td>Total time:</td><td>13 seconds (13739 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testChangeName()'><b>testChangeName</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testChangeRole()'><b>testChangeRole</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.CarTest.testChangeStateInvalidTransitions()'><b>testChangeStateInvalidTransitions</b><br>Test class: cz.fi.muni.pa165.Model.Entity.CarTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.CarTest@17211155</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.CarTest.testChangeStateValidTransitions()'><b>testChangeStateValidTransitions</b><br>Test class: cz.fi.muni.pa165.Model.Entity.CarTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.CarTest@17211155</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testConstructWithNulls()'><b>testConstructWithNulls</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest<br>Parameters: null, MANAGER, john.doe@company.com, Fri Nov 18 21:20:27 CET 2016</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testConstructWithNulls()'><b>testConstructWithNulls</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest<br>Parameters: cz.fi.muni.pa165.Model.PersonName@447e510, null, john.doe@company.com, Fri Nov 18 21:20:27 CET 2016</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testConstructWithNulls()'><b>testConstructWithNulls</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest<br>Parameters: cz.fi.muni.pa165.Model.PersonName@447e510, MANAGER, null, Fri Nov 18 21:20:27 CET 2016</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testConstructWithNulls()'><b>testConstructWithNulls</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest<br>Parameters: cz.fi.muni.pa165.Model.PersonName@447e510, MANAGER, john.doe@company.com, null</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Entity.UserTest.testCreate()'><b>testCreate</b><br>Test class: cz.fi.muni.pa165.Model.Entity.UserTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Entity.UserTest@b3d7190</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testDelete()'><b>testDelete</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testEquals()'><b>testEquals</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest</td>
+<td></td>
+<td>1</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.CarDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindAll()'><b>testFindAll</b><br>Test class: cz.fi.muni.pa165.Model.Dao.UserDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByCar()'><b>testFindByCar</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByCar()'><b>testFindByCar</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByCar()'><b>testFindByCar</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByCar()'><b>testFindByCar</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByCar()'><b>testFindByCar</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.CarDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindById()'><b>testFindById</b><br>Test class: cz.fi.muni.pa165.Model.Dao.UserDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.UserDaoImplTest.testFindByName()'><b>testFindByName</b><br>Test class: cz.fi.muni.pa165.Model.Dao.UserDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.UserDaoImplTest@7a36aefa</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByRegPlateNumber()'><b>testFindByRegPlateNumber</b><br>Test class: cz.fi.muni.pa165.Model.Dao.CarDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindBySerialNumber()'><b>testFindBySerialNumber</b><br>Test class: cz.fi.muni.pa165.Model.Dao.CarDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.CarDaoImplTest.testFindByState()'><b>testFindByState</b><br>Test class: cz.fi.muni.pa165.Model.Dao.CarDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.CarDaoImplTest@4fcd19b3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testFindByUser()'><b>testFindByUser</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest.testFindByUser()'><b>testFindByUser</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDaoImplTest@5204062d</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testFindByUser()'><b>testFindByUser</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testFindByUser()'><b>testFindByUser</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testFindByUser()'><b>testFindByUser</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testGetFirst()'><b>testGetFirst</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testGetLast()'><b>testGetLast</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest.testGetRecordsCreatedBetween()'><b>testGetRecordsCreatedBetween</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ApplicationApprovedRecordDaoImplTest@5579bb86</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest.testGetRecordsCreatedBetween()'><b>testGetRecordsCreatedBetween</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentApplicationDaoImplTest@376b4233</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest.testGetRecordsCreatedBetween()'><b>testGetRecordsCreatedBetween</b><br>Test class: cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.RentRecordDaoImplTest@2fd66ad3</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest.testGetRecordsCreatedBetween()'><b>testGetRecordsCreatedBetween</b><br>Test class: cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.Dao.ReturnRecordDaoImplTest@5d11346a</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testHashCode()'><b>testHashCode</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testOf_compositeFistNameAndLastName()'><b>testOf_compositeFistNameAndLastName</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+<tr>
+<td title='cz.fi.muni.pa165.Model.PersonNameTest.testOf_separateFirstNameAndLastName()'><b>testOf_separateFirstNameAndLastName</b><br>Test class: cz.fi.muni.pa165.Model.PersonNameTest</td>
+<td></td>
+<td>0</td>
+<td>cz.fi.muni.pa165.Model.PersonNameTest@5fdba6f9</td></tr>
+</table><p>
+</body>
+</html>
