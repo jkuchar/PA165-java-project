@@ -1,5 +1,6 @@
-package cz.fi.muni.pa165.api.dto;
+package cz.fi.muni.pa165.Api.DTO;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -9,12 +10,16 @@ import java.util.UUID;
  */
 public class CarAuditLogItemDTO {
 
+    @NotNull
     public UUID id;
 
+    @NotNull
     public UUID carId;
 
+    @NotNull
     public UUID userId;
 
+    @NotNull
     public Date created;
 
     public String comment;
