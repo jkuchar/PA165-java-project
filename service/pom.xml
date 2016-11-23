@@ -14,4 +14,14 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>cz.fi.muni.pa165</groupId>
+            <artifactId>carpark-persistence</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>
