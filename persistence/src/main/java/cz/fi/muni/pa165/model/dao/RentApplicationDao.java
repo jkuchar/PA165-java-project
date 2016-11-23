@@ -33,16 +33,22 @@ public interface RentApplicationDao {
 
     /**
      * Method to retrieve rent applications with corresponding car.
-     * @param c certain car
+     * @param carId ID of car
      * @return list of all rent applications with certain car
      */
+    public List<RentApplication> findByCar(UUID carId);
+
+    @Deprecated
     public List<RentApplication> findByCar(Car c);
 
     /**
      * Method to find all rent applications of certain user.
-     * @param u certain user
+     * @param userId certain user
      * @return list of all rent applications of certain user
      */
+    public List<RentApplication> findByUser(UUID userId);
+
+    @Deprecated
     public List<RentApplication> findByUser(User u);
 
     /**
