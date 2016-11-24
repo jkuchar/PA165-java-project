@@ -55,7 +55,7 @@ public class RentApplicationDaoImpl implements RentApplicationDao {
     @Override
     public List<RentApplication> findByUser(UUID userId) {
         TypedQuery<RentApplication> query = em.createQuery(
-                "SELECT r FROM RentApplication r WHERE r.user = :userid", RentApplication.class);
+                "SELECT r FROM RentApplication r WHERE r.user.id = :userid", RentApplication.class);
 
         query.setParameter("userid", userId);
         return query.getResultList();
