@@ -15,8 +15,7 @@ import org.springframework.context.annotation.Import;
  * @author jkuchar
  */
 @Configuration
-@Import(PersistenceApplicationContext.class)
 @ComponentScan(basePackageClasses = {CarServiceImpl.class})
-public class ServiceConfiguration {
+public class ServiceTestsConfiguration {
 
 }
