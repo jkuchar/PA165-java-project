@@ -17,6 +17,8 @@ import static org.mockito.Mockito.when;
 
 /**
  * There is no business logic inside this class --> basically proxy test (behavioral)
+ * From transitivity of relation with persistence layer is obvious that if this passes
+ * arguments correctly, it does its job properly.
  * @author jkuchar
  */
 public class CarAuditLogItemServiceImplTest {
