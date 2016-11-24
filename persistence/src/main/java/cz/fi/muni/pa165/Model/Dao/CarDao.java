@@ -40,12 +40,11 @@ public interface CarDao {
     Car findByRegPlateNumber(String regPlateNumber);
 
     /**
-     * Method to retrieve all cars with certain car state from car park perspective.
+     * Method retrieve all cars with certain car state from car park perspective.
      * @param state is current state of car.
      * @return all cars with certain car state.
      */
     List<Car> findByState(CarState state);
-
     /**
      * Method to retrieve all cars with the given manufacturer.
      * @param manufacturer is manufacturer of car.
