@@ -5,9 +5,10 @@
  */
 package cz.fi.muni.pa165.facade;
 
-import cz.fi.muni.pa165.Model.Entity.ApplicationRejectedRecord;
-import cz.fi.muni.pa165.Model.Entity.*;
-import cz.fi.muni.pa165.dto.ApplicationRejectedRecordDTO;
+import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
+import cz.fi.muni.pa165.model.entity.*;
+import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
+import cz.fi.muni.pa165.api.dto.ApplicationRejectedRecordDTO;
 import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarService;
@@ -24,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedRecordFacade{
+public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedRecordFacade {
 
     @Autowired
     private ApplicationRejectedRecordService recordService;

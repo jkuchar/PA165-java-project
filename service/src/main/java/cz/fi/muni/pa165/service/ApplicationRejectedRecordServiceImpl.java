@@ -5,10 +5,10 @@
  */
 package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.Model.Dao.ApplicationRejectedRecordDao;
-import cz.fi.muni.pa165.Model.Entity.ApplicationRejectedRecord;
-import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.Model.Entity.User;
+import cz.fi.muni.pa165.model.dao.ApplicationRejectedRecordDao;
+import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
+import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.User;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;

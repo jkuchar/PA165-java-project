@@ -5,12 +5,13 @@
  */
 package cz.fi.muni.pa165.facade;
 
-import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.dto.CarDTO;
+import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.api.facade.CarFacade;
+import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarService;
-import java.util.Date;
+
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class CarFacadeImpl implements CarFacade{
+public class CarFacadeImpl implements CarFacade {
     
     @Autowired
     private CarService carService;

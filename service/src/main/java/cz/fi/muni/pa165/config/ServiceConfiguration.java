@@ -5,9 +5,9 @@
  */
 package cz.fi.muni.pa165.config;
 
-import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.Model.config.PersistenceApplicationContext;
-import cz.fi.muni.pa165.dto.CarDTO;
+import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
+import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.facade.CarFacadeImpl;
 import cz.fi.muni.pa165.service.CarServiceImpl;
 import org.dozer.DozerBeanMapper;

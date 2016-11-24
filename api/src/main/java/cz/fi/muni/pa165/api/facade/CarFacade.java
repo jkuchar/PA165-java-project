@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.service;
+package cz.fi.muni.pa165.api.facade;
 
-
+import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.enums.CarState;
-import cz.fi.muni.pa165.model.entity.Car;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,79 +14,80 @@ import java.util.UUID;
  *
  * @author charlliz
  */
-public interface CarService {
-    
+public interface CarFacade {
+
     /**
      * Create new car.
      * @param car is new created car.
+     * @return id of created car
      */
-    void createCar(Car car);
+    UUID createCar(CarDTO car);
         
     /**
      * Find all existing cars.
      * @return all cars
      */
-    List<Car> findAllCars();
+    List<CarDTO> findAllCars();
         
     /**
      * Find car by given id.
      * @param id is ID of certain car
      * @return car with given id
      */
-    Car findCarById(UUID id);
+    CarDTO findCarById(UUID id);
 
     /**
      * Get car by serial number.
      * @param serialNumber is serial number of certain car
      * @return car with certain serial number
      */
-    Car findCarBySerialNumber(String serialNumber);
+    CarDTO findCarBySerialNumber(String serialNumber);
 
     /**
      * Get car by Plate number.
      * @param regPlateNumber is plate number of certain car
      * @return car with certain plate number
      */
-    Car findCarByRegPlateNumber(String regPlateNumber);
+    CarDTO findCarByRegPlateNumber(String regPlateNumber);
 
     /**
      * Get all cars with the given state.
      * @param state is current state of car.
      * @return all cars with certain car state.
      */
-    List<Car> getAllCarsByState(CarState state);
+    List<CarDTO> getAllCarsByState(CarState state);
     
      /**
      * Get all cars with the given manufacturer.
      * @param manufacturer is manufacturer of car.
      * @return all cars with certain manufacturer.
      */
-    List<Car> getAllCarsByManufacturer(String manufacturer);
+    List<CarDTO> getAllCarsByManufacturer(String manufacturer);
     
      /**
      * Get all cars with the given type.
      * @param type is type of car.
      * @return all cars with certain car type.
      */
-    List<Car> getAllCarsByType(String type);
+    List<CarDTO> getAllCarsByType(String type);
     
      /**
      * Get all cars with the number of seats.
      * @param seats is the number of seats.
      * @return all cars with certain number of seats.
      */
-    List<Car> getAllCarsBySeats(int seats);
+    List<CarDTO> getAllCarsBySeats(int seats);
     
     /**
      * Change state of serviced car to servicing. 
-     * @param car is serviced car.
+     * @param carId is id of serviced car.
      */
-    void serviceCar(Car car);
+    void serviceCar(UUID carId);
     
     /**
      * Change state of car to discarded.
-     * @param car is car to be discarded.
+     * @param carId is id of car to be discarded.
      */
-    void discardCar(Car car);
-	    
+    void discardCar(UUID carId);
+  
 }
