@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.api.facade;
+package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.api.enums.CarState;
+import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;

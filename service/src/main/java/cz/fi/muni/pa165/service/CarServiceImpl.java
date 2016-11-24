@@ -6,7 +6,7 @@
 package cz.fi.muni.pa165.service;
 
 
-import cz.fi.muni.pa165.exceptions.CarParkServiceException;
+import cz.fi.muni.pa165.service.exceptions.CarParkServiceException;
 import cz.fi.muni.pa165.model.CarState;
 import cz.fi.muni.pa165.model.DomainException;
 import cz.fi.muni.pa165.model.dao.CarDao;

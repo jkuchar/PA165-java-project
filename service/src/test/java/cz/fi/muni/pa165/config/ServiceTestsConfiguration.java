@@ -7,6 +7,7 @@ package cz.fi.muni.pa165.config;
 
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.service.CarServiceImpl;
+import cz.fi.muni.pa165.service.config.ServiceConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,7 +16,7 @@ import org.springframework.context.annotation.Import;
  * @author jkuchar
  */
 @Configuration
-@ComponentScan(basePackageClasses = {CarServiceImpl.class})
+@Import(ServiceConfiguration.class)
 public class ServiceTestsConfiguration {
 
 }
