@@ -23,56 +23,55 @@ import static org.mockito.Mockito.when;
  */
 public class CarAuditLogItemServiceImplTest {
 
-    private CarAuditLogItemDao carAuditLogItemDao;
-
-    private CarAuditLogItemService carAuditLogItemService;
+    private CarAuditLogItemService uut;
+    private CarAuditLogItemDao dao;
 
     private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
 
     @BeforeMethod
     public void setUp() throws Exception {
-        carAuditLogItemDao = Mockito.mock(CarAuditLogItemDao.class);
-        carAuditLogItemService = new CarAuditLogItemServiceImpl(carAuditLogItemDao);
+        dao = Mockito.mock(CarAuditLogItemDao.class);
+        uut = new CarAuditLogItemServiceImpl(dao);
     }
 
     @Test
     public void testFindAll() throws Exception {
         // Arrange
         List<CarAuditLogItem> collection = new LinkedList<>();
-        when(carAuditLogItemDao.findAll()).thenReturn(collection);
+        when(dao.findAll()).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(carAuditLogItemService.findAll(), collection);
+        Assert.assertSame(uut.findAll(), collection);
     }
 
     @Test
     public void testFindByCar() throws Exception {
         // Arrange
         List<CarAuditLogItem> collection = new LinkedList<>();
-        when(carAuditLogItemDao.findByCar(someUUID)).thenReturn(collection);
+        when(dao.findByCar(someUUID)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(carAuditLogItemService.findByCar(someUUID), collection);
+        Assert.assertSame(uut.findByCar(someUUID), collection);
     }
 
     @Test
     public void testFindByUser() throws Exception {
         // Arrange
         List<CarAuditLogItem> collection = new LinkedList<>();
-        when(carAuditLogItemDao.findByUser(someUUID)).thenReturn(collection);
+        when(dao.findByUser(someUUID)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(carAuditLogItemService.findByUser(someUUID), collection);
+        Assert.assertSame(uut.findByUser(someUUID), collection);
     }
 
     @Test
     public void testFindById() throws Exception {
         // Arrange
         CarAuditLogItem someItem = Mockito.mock(CarAuditLogItem.class);
-        when(carAuditLogItemDao.findById(someUUID)).thenReturn(someItem);
+        when(dao.findById(someUUID)).thenReturn(someItem);
 
         // Act + Assert
-        Assert.assertSame(carAuditLogItemService.findById(someUUID), someItem);
+        Assert.assertSame(uut.findById(someUUID), someItem);
     }
 
     @Test
@@ -81,10 +80,10 @@ public class CarAuditLogItemServiceImplTest {
         List<CarAuditLogItem> collection = new LinkedList<>();
         Date from = new Date("01/01/2016");
         Date to   = new Date("01/02/2016");
-        when(carAuditLogItemDao.getRecordsCreatedBetween(from, to)).thenReturn(collection);
+        when(dao.getRecordsCreatedBetween(from, to)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(carAuditLogItemService.getRecordsCreatedBetween(from, to), collection);
+        Assert.assertSame(uut.getRecordsCreatedBetween(from, to), collection);
     }
 
 }
