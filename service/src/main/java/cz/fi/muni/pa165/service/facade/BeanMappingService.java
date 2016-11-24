@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Copied from e-shop from seminar
  */
-interface BeanMappingService {
+public interface BeanMappingService {
     <T> List<T> mapTo(Collection<?> objects, Class<T> mapToClass);
 
     <T> T mapTo(Object u, Class<T> mapToClass);

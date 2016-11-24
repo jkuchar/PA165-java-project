@@ -4,20 +4,12 @@ import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import cz.fi.muni.pa165.service.CarAuditLogItemService;
-import org.junit.runner.RunWith;
+import cz.fi.muni.pa165.service.config.BeanMappingConfiguration;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import cz.fi.muni.pa165.service.config.ServiceTestsConfiguration;
 
 import javax.inject.Inject;
 import java.util.LinkedList;
@@ -28,7 +20,7 @@ import static org.mockito.Mockito.when;
 /**
  * @author jkuchar
  */
-@ContextConfiguration(classes = ServiceTestsConfiguration.class)
+@ContextConfiguration(classes = BeanMappingConfiguration.class)
 public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTests {
 
     private CarAuditLogItemFacade uut;

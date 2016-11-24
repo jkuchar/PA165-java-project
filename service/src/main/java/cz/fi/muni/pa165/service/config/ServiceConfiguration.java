@@ -6,10 +6,8 @@
 package cz.fi.muni.pa165.service.config;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.model.dao.CarAuditLogItemDao;
-import cz.fi.muni.pa165.model.dao.CarAuditLogItemDaoImpl;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarAuditLogItemServiceImpl;
 import cz.fi.muni.pa165.service.facade.CarAuditLogItemFacadeImpl;
@@ -25,7 +23,10 @@ import org.springframework.context.annotation.Import;
  * @author charlliz
  */
 @Configuration
-@Import({PersistenceApplicationContext.class})
+@Import({
+        PersistenceApplicationContext.class,
+        BeanMappingConfiguration.class
+})
 @ComponentScan(basePackageClasses={
         CarAuditLogItemDao.class,
         CarAuditLogItemFacadeImpl.class,
