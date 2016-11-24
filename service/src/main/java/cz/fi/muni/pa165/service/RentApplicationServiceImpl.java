@@ -19,6 +19,7 @@ public class RentApplicationServiceImpl implements RentApplicationService {
     public RentApplicationServiceImpl(RentApplicationDao rentApplicationDao) {
         this.rentApplicationDao = rentApplicationDao;
     }
+
     @Override
     public List<RentApplication> findAll() {
         return rentApplicationDao.findAll();

@@ -10,6 +10,7 @@ import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -19,11 +20,16 @@ import java.util.UUID;
  *
  * @author charlliz
  */
+@Service
 public class ApplicationRejectedRecordServiceImpl implements ApplicationRejectedRecordService{
 
+    private final ApplicationRejectedRecordDao recordDao;
+
     @Autowired
-    private ApplicationRejectedRecordDao recordDao;
-        
+    public ApplicationRejectedRecordServiceImpl(ApplicationRejectedRecordDao recordDao) {
+        this.recordDao = recordDao;
+    }
+
     @Override
     public void create(ApplicationRejectedRecord r) {
         recordDao.create(r);

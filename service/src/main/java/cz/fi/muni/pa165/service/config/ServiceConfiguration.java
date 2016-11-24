@@ -6,21 +6,31 @@
 package cz.fi.muni.pa165.service.config;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.api.facade.CarFacade;
-import cz.fi.muni.pa165.service.facade.CarFacadeImpl;
+import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
+import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
+import cz.fi.muni.pa165.model.dao.CarAuditLogItemDao;
+import cz.fi.muni.pa165.model.dao.CarAuditLogItemDaoImpl;
 import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.service.CarAuditLogItemServiceImpl;
+import cz.fi.muni.pa165.service.facade.CarAuditLogItemFacadeImpl;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.dozer.loader.api.BeanMappingBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author charlliz
  */
 @Configuration
-@ComponentScan(basePackageClasses = {CarFacadeImpl.class, CarFacade.class})
+@Import({PersistenceApplicationContext.class})
+@ComponentScan(basePackageClasses={
+        CarAuditLogItemDao.class,
+        CarAuditLogItemFacadeImpl.class,
+        CarAuditLogItemServiceImpl.class
+})
 public class ServiceConfiguration {
 
     @Bean
