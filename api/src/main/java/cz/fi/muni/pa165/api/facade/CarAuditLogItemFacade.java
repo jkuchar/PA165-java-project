@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.Api;
+package cz.fi.muni.pa165.api.facade;
 
 import cz.fi.muni.pa165.Api.DTO.CarAuditLogItemDTO;
 

@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.Api;
+package cz.fi.muni.pa165.api.facade;
 
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
