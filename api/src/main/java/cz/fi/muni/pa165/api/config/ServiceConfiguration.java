@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.config;
+package cz.fi.muni.pa165.api.config;
 
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
