@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import javax.inject.Inject;
@@ -32,9 +33,8 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
     @Inject
     private BeanMappingService beanMappingService;
 
-
+    @BeforeMethod
     private void prepare() {
-        // workaround for @BeforeMethod does not have wired dependencies
         uut = new CarAuditLogItemFacadeImpl(
                 service = Mockito.mock(CarAuditLogItemService.class),
                 beanMappingService
@@ -44,7 +44,6 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
     @Test
     public void testFindAll() throws Exception {
         // Arrange
-        prepare();
         List<CarAuditLogItem> source = new LinkedList<>();
         source.add(Mockito.mock(CarAuditLogItem.class));
 
@@ -66,7 +65,6 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
     @Test
     public void testFindByCar() throws Exception {
         // Arrange
-        prepare();
         List<CarAuditLogItem> source = new LinkedList<>();
         source.add(Mockito.mock(CarAuditLogItem.class));
 
@@ -83,7 +81,6 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
     @Test
     public void testFindByUser() throws Exception {
         // Arrange
-        prepare();
         List<CarAuditLogItem> source = new LinkedList<>();
         source.add(Mockito.mock(CarAuditLogItem.class));
 
@@ -100,7 +97,6 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
     @Test
     public void testGetRecordsCreatedBetween() throws Exception {
         // Arrange
-        prepare();
         List<CarAuditLogItem> source = new LinkedList<>();
         source.add(Mockito.mock(CarAuditLogItem.class));
 
