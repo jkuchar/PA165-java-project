@@ -1,7 +1,7 @@
-package cz.fi.muni.pa165.Service;
+package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.Model.Dao.RentApplicationDao;
-import cz.fi.muni.pa165.Model.Entity.RentApplication;
+import cz.fi.muni.pa165.model.dao.RentApplicationDao;
+import cz.fi.muni.pa165.model.entity.RentApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,13 @@ import java.util.UUID;
 @Service
 public class RentApplicationServiceImpl implements RentApplicationService {
 
+
+    private final RentApplicationDao rentApplicationDao;
+
+    @Autowired
+    public RentApplicationServiceImpl(RentApplicationDao rentApplicationDao) {
+        this.rentApplicationDao = rentApplicationDao;
+    }
     @Override
     public List<RentApplication> findAll() {
         return rentApplicationDao.findAll();
@@ -52,13 +59,6 @@ public class RentApplicationServiceImpl implements RentApplicationService {
         delete(findById(id));
     }
 
-    private final RentApplicationDao rentApplicationDao;
-
-
-    @Autowired
-    public RentApplicationServiceImpl(RentApplicationDao rentApplicationDao) {
-        this.rentApplicationDao = rentApplicationDao;
-    }
 
 
 

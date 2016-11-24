@@ -1,6 +1,6 @@
-package cz.fi.muni.pa165.Service;
+package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.Model.Entity.RentApplication;
+import cz.fi.muni.pa165.model.entity.RentApplication;
 
 import java.util.Date;
 import java.util.List;

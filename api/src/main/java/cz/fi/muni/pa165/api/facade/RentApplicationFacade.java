@@ -1,7 +1,7 @@
 package cz.fi.muni.pa165.api.facade;
 
-import cz.fi.muni.pa165.Api.DTO.RentApplicationDTO;
-import cz.fi.muni.pa165.Model.Entity.RentApplication;
+
+import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 
 import java.util.Date;
 import java.util.List;

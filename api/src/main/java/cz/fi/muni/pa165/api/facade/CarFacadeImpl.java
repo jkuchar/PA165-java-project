@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.facade;
+package cz.fi.muni.pa165.api.facade;
 
-import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.api.dto.CarDTO;
+import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarService;
@@ -26,12 +25,16 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CarFacadeImpl implements CarFacade {
     
-    @Autowired
-    private CarService carService;
+    private final CarService carService;
+
+    private final BeanMappingService beanMappingService;
 
     @Autowired
-    private BeanMappingService beanMappingService;
-    
+    public CarFacadeImpl(CarService carService, BeanMappingService beanMappingService) {
+        this.carService = carService;
+        this.beanMappingService = beanMappingService;
+    }
+
     @Override
     public UUID createCar(CarDTO car) {
         Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getNumberOfSeats(),car.getEstablishDate());

@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.Api.DTO;
+package cz.fi.muni.pa165.api.dto;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;

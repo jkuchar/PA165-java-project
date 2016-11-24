@@ -1,9 +1,7 @@
 package cz.fi.muni.pa165.api.facade;
 
-import cz.fi.muni.pa165.Api.DTO.RentApplicationDTO;
-import cz.fi.muni.pa165.Model.Entity.RentApplication;
-import cz.fi.muni.pa165.Service.CarAuditLogItemService;
-import cz.fi.muni.pa165.Service.RentApplicationService;
+import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
+import cz.fi.muni.pa165.service.RentApplicationService;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

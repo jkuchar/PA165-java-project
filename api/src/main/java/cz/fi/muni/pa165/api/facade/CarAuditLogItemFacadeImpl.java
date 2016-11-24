@@ -1,7 +1,7 @@
 package cz.fi.muni.pa165.api.facade;
 
-import cz.fi.muni.pa165.Api.DTO.CarAuditLogItemDTO;
-import cz.fi.muni.pa165.Service.CarAuditLogItemService;
+import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
+import cz.fi.muni.pa165.service.CarAuditLogItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

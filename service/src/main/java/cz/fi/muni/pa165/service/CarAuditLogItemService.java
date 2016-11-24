@@ -1,8 +1,7 @@
-package cz.fi.muni.pa165.Service;
+package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.Model.Entity.CarAuditLogItem;
-import cz.fi.muni.pa165.Model.Entity.User;
+
+import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 
 import java.util.Date;
 import java.util.List;

@@ -1,13 +1,10 @@
-package cz.fi.muni.pa165.Service;
+package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.Model.Dao.CarAuditLogItemDao;
-import cz.fi.muni.pa165.Model.Entity.Car;
-import cz.fi.muni.pa165.Model.Entity.CarAuditLogItem;
-import cz.fi.muni.pa165.Model.Entity.User;
+import cz.fi.muni.pa165.model.dao.CarAuditLogItemDao;
+import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -26,7 +23,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
     }
 
     @Override
-    public List<cz.fi.muni.pa165.Model.Entity.CarAuditLogItem> findAll() {
+    public List<CarAuditLogItem> findAll() {
         return dao.findAll();
     }
 
@@ -41,12 +38,12 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
     }
 
     @Override
-    public cz.fi.muni.pa165.Model.Entity.CarAuditLogItem findById(UUID id) {
+    public CarAuditLogItem findById(UUID id) {
         return dao.findById(id);
     }
 
     @Override
-    public List<cz.fi.muni.pa165.Model.Entity.CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to) {
+    public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to) {
         return dao.getRecordsCreatedBetween(from, to);
     }
 }

@@ -1,6 +1,7 @@
 package cz.fi.muni.pa165.api.facade;
 
-import cz.fi.muni.pa165.Api.DTO.CarAuditLogItemDTO;
+
+import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
 
 import java.util.Date;
 import java.util.List;

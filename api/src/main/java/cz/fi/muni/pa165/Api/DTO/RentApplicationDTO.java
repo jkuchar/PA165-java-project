@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.Api.DTO;
+package cz.fi.muni.pa165.api.dto;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
