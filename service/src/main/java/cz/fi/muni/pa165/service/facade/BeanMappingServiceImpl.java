@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author jkuchar
+ * Copied from e-shop from seminar
  */
 @Service
 public class BeanMappingServiceImpl implements BeanMappingService {
