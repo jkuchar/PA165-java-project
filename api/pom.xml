@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cz.fi.muni.pa165</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>carpark-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
