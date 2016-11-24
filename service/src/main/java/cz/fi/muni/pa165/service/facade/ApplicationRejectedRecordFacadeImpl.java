@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.api.facade;
+package cz.fi.muni.pa165.service.facade;
 
-import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
-import cz.fi.muni.pa165.model.entity.*;
-import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
 import cz.fi.muni.pa165.api.dto.ApplicationRejectedRecordDTO;
+import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
+import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
+import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
-import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarService;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  *

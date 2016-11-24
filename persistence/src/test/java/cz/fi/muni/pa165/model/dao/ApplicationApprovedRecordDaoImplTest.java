@@ -1,12 +1,12 @@
 package cz.fi.muni.pa165.model.dao;
 
+import cz.fi.muni.pa165.model.PersonName;
+import cz.fi.muni.pa165.model.Role;
+import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentApplication;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.model.Role;
-import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;

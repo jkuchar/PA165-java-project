@@ -8,13 +8,14 @@ package cz.fi.muni.pa165.model.dao;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.User;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import org.springframework.stereotype.Repository;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  *

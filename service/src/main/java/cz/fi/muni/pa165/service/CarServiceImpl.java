@@ -6,14 +6,15 @@
 package cz.fi.muni.pa165.service;
 
 
-import cz.fi.muni.pa165.model.dao.CarDao;
-import cz.fi.muni.pa165.model.DomainException;
-import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.service.exceptions.CarParkServiceException;
 import cz.fi.muni.pa165.model.CarState;
-import cz.fi.muni.pa165.exceptions.CarParkServiceException;
+import cz.fi.muni.pa165.model.DomainException;
+import cz.fi.muni.pa165.model.dao.CarDao;
+import cz.fi.muni.pa165.model.entity.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 import java.util.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *

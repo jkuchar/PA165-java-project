@@ -5,12 +5,13 @@
  */
 package cz.fi.muni.pa165.model.entity;
 
-import java.util.Date;
+import org.springframework.util.Assert;
+
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import org.springframework.util.Assert;
+import java.util.Date;
 
 /**
  *

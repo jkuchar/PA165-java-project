@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.api.dto;
 
 import cz.fi.muni.pa165.api.enums.CarState;
+
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
