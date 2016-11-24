@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Import;
  * @author charlliz
  */
 @Configuration
-@Import(PersistenceApplicationContext.class)
 @ComponentScan(basePackageClasses = {CarFacadeImpl.class})
 public class ApiConfiguration {
 
