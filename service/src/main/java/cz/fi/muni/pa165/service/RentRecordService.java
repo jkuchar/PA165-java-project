@@ -1,8 +1,6 @@
 package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentRecord;
-import cz.fi.muni.pa165.model.entity.User;
 
 import java.util.Date;
 import java.util.List;
@@ -31,7 +29,5 @@ public interface RentRecordService {
 
     void create(RentRecord r);
 
-
-    void delete(RentRecord r);
 
 }

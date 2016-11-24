@@ -54,10 +54,15 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
 
     @Override
     public List<ReturnRecord> findByUser(User u) {
-         TypedQuery<ReturnRecord> query = em.createQuery(
-                "SELECT r FROM ReturnRecord r WHERE r.user = :userid", ReturnRecord.class);
+        return findByUser(u.getId());
+    }
 
-        query.setParameter("userid", u);
+    @Override
+    public List<ReturnRecord> findByUser(UUID userId) {
+        TypedQuery<ReturnRecord> query = em.createQuery(
+                "SELECT r FROM ReturnRecord r WHERE r.user.id = :userid", ReturnRecord.class);
+
+        query.setParameter("userid", userId);
         return query.getResultList();
     }
 

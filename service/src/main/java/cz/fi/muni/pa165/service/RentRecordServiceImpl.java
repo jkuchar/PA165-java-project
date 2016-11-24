@@ -1,10 +1,7 @@
 package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.model.dao.RentApplicationDao;
 import cz.fi.muni.pa165.model.dao.RentRecordDao;
-import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentRecord;
-import cz.fi.muni.pa165.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
@@ -53,8 +50,5 @@ public class RentRecordServiceImpl implements RentRecordService {
 
     }
 
-    @Override
-    public void delete(RentRecord r) {
 
-    }
 }
