@@ -5,22 +5,24 @@
  */
 package cz.fi.muni.pa165.model.dao;
 
+import cz.fi.muni.pa165.model.PersonName;
+import cz.fi.muni.pa165.model.Role;
+import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentApplication;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.model.Role;
-import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+import org.testng.annotations.Test;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+
 import static org.testng.Assert.*;
-import org.testng.annotations.Test;
 
 /**
  *

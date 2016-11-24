@@ -2,7 +2,8 @@ package cz.fi.muni.pa165.model;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 /**
  * This file is part of PA165 school project.
