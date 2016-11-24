@@ -39,19 +39,29 @@ public class RentRecordDaoImpl implements RentRecordDao{
 
     @Override
     public List<RentRecord> findByCar(Car c) {
-        TypedQuery<RentRecord> query = em.createQuery(
-                "SELECT r FROM RentRecord r WHERE r.car = :carid", RentRecord.class);
+        return findByCar(c.getId());
+    }
 
-        query.setParameter("carid", c);
+    @Override
+    public List<RentRecord> findByCar(UUID carId) {
+        TypedQuery<RentRecord> query = em.createQuery(
+                "SELECT r FROM RentRecord r WHERE r.car.id = :carid", RentRecord.class);
+
+        query.setParameter("carid", carId);
         return query.getResultList();
     }
 
     @Override
     public List<RentRecord> findByUser(User u) {
-         TypedQuery<RentRecord> query = em.createQuery(
-                "SELECT r FROM RentRecord r WHERE r.user = :userid", RentRecord.class);
+        return findByUser(u.getId());
+    }
 
-        query.setParameter("userid", u);
+    @Override
+    public List<RentRecord> findByUser(UUID userId) {
+         TypedQuery<RentRecord> query = em.createQuery(
+                "SELECT r FROM RentRecord r WHERE r.user.id = :userid", RentRecord.class);
+
+        query.setParameter("userid", userId);
         return query.getResultList();
     }
 

@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.model.entity.ReturnRecord;
 import cz.fi.muni.pa165.model.entity.User;
 import java.util.Date;
@@ -36,6 +37,9 @@ public interface ReturnRecordDao {
      * @param c certain car
      * @return list of all return records with certain car
      */
+    public List<ReturnRecord> findByCar(UUID carId);
+
+    @Deprecated
     public List<ReturnRecord> findByCar(Car c);
 
     /**

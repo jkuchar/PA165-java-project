@@ -39,10 +39,15 @@ public class ReturnRecordDaoImpl implements ReturnRecordDao{
 
     @Override
     public List<ReturnRecord> findByCar(Car c) {
-        TypedQuery<ReturnRecord> query = em.createQuery(
-                "SELECT r FROM ReturnRecord r WHERE r.car = :carid", ReturnRecord.class);
+        return findByCar(c.getId());
+    }
 
-        query.setParameter("carid", c);
+    @Override
+    public List<ReturnRecord> findByCar(UUID carId) {
+        TypedQuery<ReturnRecord> query = em.createQuery(
+                "SELECT r FROM ReturnRecord r WHERE r.car.id = :carid", ReturnRecord.class);
+
+        query.setParameter("carid", carId);
         return query.getResultList();
     }
 

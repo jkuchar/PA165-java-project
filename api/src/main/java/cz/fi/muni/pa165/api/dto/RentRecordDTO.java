@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * Created by SARMIR on 24. 11. 2016.
+ * @author jakubsarmir
  */
 public class RentRecordDTO {
 

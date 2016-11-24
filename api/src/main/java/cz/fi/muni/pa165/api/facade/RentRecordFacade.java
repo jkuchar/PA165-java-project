@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package cz.fi.muni.pa165.model.dao;
+package cz.fi.muni.pa165.api.facade;
 
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.model.entity.User;
+
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 /**
- *
- * @author charlliz
+ * @author jakubsarmir
  */
-public interface RentRecordDao {
+public interface RentRecordFacade {
 
     /**
      * Method to retrieve all rent records from db.
@@ -36,9 +31,6 @@ public interface RentRecordDao {
      * @param c certain car
      * @return list of all rent records with certain car
      */
-    public List<RentRecord> findByCar(UUID carId);
-
-    @Deprecated
     public List<RentRecord> findByCar(Car c);
 
     /**
@@ -46,9 +38,6 @@ public interface RentRecordDao {
      * @param u certain user
      * @return list of all rent records of certain user
      */
-    public List<RentRecord> findByUser(UUID userId);
-
-    @Deprecated
     public List<RentRecord> findByUser(User u);
 
     /**
@@ -58,7 +47,7 @@ public interface RentRecordDao {
      * @return list of all rent records which were created between certain dates
      */
     public List<RentRecord> getRecordsCreatedBetween(Date from, Date to);
-    
+
     /**
      * Method to insert new rent record into db.
      * @param r is new rent record
@@ -70,5 +59,5 @@ public interface RentRecordDao {
      * @param r is rent record to delete
      */
     void delete(RentRecord r);
-    
+
 }
