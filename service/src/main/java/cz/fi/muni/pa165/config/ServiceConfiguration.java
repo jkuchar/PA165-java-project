@@ -5,23 +5,14 @@
  */
 package cz.fi.muni.pa165.config;
 
-import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.api.facade.CarFacadeImpl;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
-import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.service.BeanMappingService;
-import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
 import cz.fi.muni.pa165.service.CarServiceImpl;
-import org.dozer.DozerBeanMapper;
-import org.dozer.Mapper;
-import org.dozer.loader.api.BeanMappingBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author charlliz
+ * @author jkuchar
  */
 @Configuration
 @Import(PersistenceApplicationContext.class)

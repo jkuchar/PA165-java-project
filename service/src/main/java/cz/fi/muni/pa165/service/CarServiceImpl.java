@@ -9,7 +9,7 @@ package cz.fi.muni.pa165.service;
 import cz.fi.muni.pa165.model.dao.CarDao;
 import cz.fi.muni.pa165.model.DomainException;
 import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.model.enums.CarState;
+import cz.fi.muni.pa165.model.CarState;
 import cz.fi.muni.pa165.exceptions.CarParkServiceException;
 import java.util.List;
 import java.util.UUID;

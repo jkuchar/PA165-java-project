@@ -64,7 +64,12 @@ public class CarFacadeImpl implements CarFacade {
 
     @Override
     public List<CarDTO> getAllCarsByState(CarState state) {
-        return beanMappingService.mapTo(carService.getAllCarsByState(state),CarDTO.class);
+        return beanMappingService.mapTo(
+                carService.getAllCarsByState(
+                        beanMappingService.mapTo(state, cz.fi.muni.pa165.model.CarState.class)
+                ),
+                CarDTO.class
+        );
     }
 
     @Override
