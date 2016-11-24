@@ -1,6 +1,7 @@
-package cz.fi.muni.pa165.api.facade;
+package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
+import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.service.RentApplicationService;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
