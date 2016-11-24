@@ -15,7 +15,7 @@ import java.util.UUID;
 import static org.mockito.Mockito.*;
 
 /**
- * This file is part of PA165 school project.
+ * @author jkuchar
  */
 public class RentApplicationServiceImplTest {
 
