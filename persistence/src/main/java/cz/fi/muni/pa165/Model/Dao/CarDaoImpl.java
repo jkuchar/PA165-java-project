@@ -1,6 +1,6 @@
 package cz.fi.muni.pa165.Model.Dao;
 
-import cz.fi.muni.pa165.Model.CarState;
+import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.Model.Entity.Car;
 import org.springframework.stereotype.Repository;
 

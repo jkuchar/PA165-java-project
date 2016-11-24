@@ -16,3 +16,6 @@ lib/*
 *.log
 *.swp
 *.iml
+/persistence/target/
+/api/target/
+/service/target/

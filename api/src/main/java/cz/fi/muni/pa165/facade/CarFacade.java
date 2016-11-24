@@ -80,14 +80,14 @@ public interface CarFacade {
     
     /**
      * Change state of serviced car to servicing. 
-     * @param car is serviced car.
+     * @param carId is id of serviced car.
      */
-    void serviceCar(CarDTO car);
+    void serviceCar(UUID carId);
     
     /**
      * Change state of car to discarded.
-     * @param car is car to be discarded.
+     * @param carId is id of car to be discarded.
      */
-    void discardCar(CarDTO car);
+    void discardCar(UUID carId);
   
 }

@@ -5,10 +5,15 @@
  */
 package cz.fi.muni.pa165.facade;
 
+import cz.fi.muni.pa165.Model.Entity.Car;
 import cz.fi.muni.pa165.dto.CarDTO;
 import cz.fi.muni.pa165.enums.CarState;
+import cz.fi.muni.pa165.service.BeanMappingService;
+import cz.fi.muni.pa165.service.CarService;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,63 +24,68 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class CarFacadeImpl implements CarFacade{
+    
+    @Autowired
+    private CarService carService;
 
+    @Autowired
+    private BeanMappingService beanMappingService;
+    
     @Override
     public UUID createCar(CarDTO car) {
-        Car c = new Car();
-        category.setName(categoryCreateDTO.getName());
-        categoryService.create(category);
-        return  category.getId();
+        Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getNumberOfSeats(),car.getEstablishDate());
+        carService.createCar(c);
+        return  c.getId();
     }
 
     @Override
     public List<CarDTO> findAllCars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.findAllCars(),CarDTO.class);
     }
 
     @Override
     public CarDTO findCarById(UUID id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.findCarById(id),CarDTO.class);
     }
 
     @Override
     public CarDTO findCarBySerialNumber(String serialNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.findCarBySerialNumber(serialNumber),CarDTO.class);
     }
 
     @Override
     public CarDTO findCarByRegPlateNumber(String regPlateNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.findCarByRegPlateNumber(regPlateNumber),CarDTO.class);
     }
 
     @Override
     public List<CarDTO> getAllCarsByState(CarState state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.getAllCarsByState(state),CarDTO.class);
     }
 
     @Override
     public List<CarDTO> getAllCarsByManufacturer(String manufacturer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.getAllCarsByManufacturer(manufacturer),CarDTO.class);
     }
 
     @Override
     public List<CarDTO> getAllCarsByType(String type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.getAllCarsByType(type),CarDTO.class);
     }
 
     @Override
     public List<CarDTO> getAllCarsBySeats(int seats) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return beanMappingService.mapTo(carService.getAllCarsBySeats(seats),CarDTO.class);
     }
 
     @Override
-    public void serviceCar(CarDTO car) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void serviceCar(UUID carId) {
+        carService.serviceCar(carService.findCarById(carId));
     }
 
     @Override
-    public void discardCar(CarDTO car) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void discardCar(UUID carId) {
+        carService.discardCar(carService.findCarById(carId));
     }
     
 }

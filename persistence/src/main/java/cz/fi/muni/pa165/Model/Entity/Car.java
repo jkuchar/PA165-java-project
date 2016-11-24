@@ -1,6 +1,6 @@
 package cz.fi.muni.pa165.Model.Entity;
 
-import cz.fi.muni.pa165.Model.CarState;
+import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.Model.DomainException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.Assert;

@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.Model;
 
+import cz.fi.muni.pa165.enums.CarState;
+
 /**
  * @author jkuchar
  */

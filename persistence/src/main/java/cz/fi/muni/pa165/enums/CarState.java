@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.Model;
+package cz.fi.muni.pa165.enums;
 
 /**
  * @author jakubsarmir
