@@ -34,6 +34,7 @@ public class CarDTO {
 
     private Date discardDate;
 
+    // TODO: @charlliz remove setters / getters; use plain public properties; this is should be stupid object without ANY behaviour = no methods
     public void setState(CarState state){
         this.state = state;
     }
