@@ -26,18 +26,24 @@ public interface CarAuditLogItemDao {
      */
     public CarAuditLogItem findById(UUID id);
 
-    /**
-     * Method to retrieve car audit log items with corresponding car.
-     * @param c certain car
-     * @return list of all car audit log items with certain car
-     */
+    @Deprecated
     public List<CarAuditLogItem> findByCar(Car c);
 
     /**
+     * Method to retrieve car audit log items with corresponding car.
+     * @param id the car id
+     * @return list of all car audit log items with certain car
+     */
+    public List<CarAuditLogItem> findByCar(UUID id);
+
+    /**
      * Method to find all car audit log items of certain user.
-     * @param u certain user
+     * @param id the user id
      * @return list of all car audit log items of certain user
      */
+    public List<CarAuditLogItem> findByUser(UUID id);
+
+    @Deprecated
     public List<CarAuditLogItem> findByUser(User u);
 
     /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.facade;
+package cz.fi.muni.pa165.api.facade;
 
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.*;
@@ -32,12 +32,15 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
 
     @Autowired
     private CarService carService;
+
     /*
     @Autowired
     private UserService userService;*/
         
     @Autowired
     private BeanMappingService beanMappingService;
+
+    // todo: refactor to constructor; this way there is no way how to create an class instance
         
     @Override
     public UUID create(ApplicationRejectedRecordDTO r) {
