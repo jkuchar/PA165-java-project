@@ -1,17 +1,8 @@
 package cz.fi.muni.pa165.service;
 
-import cz.fi.muni.pa165.config.ServiceTestsConfiguration;
 import cz.fi.muni.pa165.model.dao.CarAuditLogItemDao;
-import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 
 /**
@@ -30,16 +21,15 @@ import static org.mockito.Mockito.*;
  */
 public class CarAuditLogItemServiceImplTest {
 
-    @Mock
     private CarAuditLogItemDao carAuditLogItemDao;
 
     private CarAuditLogItemService carAuditLogItemService;
 
-    private UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
+    private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
 
     @BeforeMethod
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this); // init Mockito magic!
+        carAuditLogItemDao = Mockito.mock(CarAuditLogItemDao.class);
         carAuditLogItemService = new CarAuditLogItemServiceImpl(carAuditLogItemDao);
     }
 
@@ -87,8 +77,8 @@ public class CarAuditLogItemServiceImplTest {
     public void testGetRecordsCreatedBetween() throws Exception {
         // Arrange
         List<CarAuditLogItem> collection = new LinkedList<>();
-        Date from = new Date("2016-01-01");
-        Date to   = new Date("2016-02-01");
+        Date from = new Date("01/01/2016");
+        Date to   = new Date("01/02/2016");
         when(carAuditLogItemDao.getRecordsCreatedBetween(from, to)).thenReturn(collection);
 
         // Act + Assert

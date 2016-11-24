@@ -34,7 +34,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
 
     @Override
     public List<CarAuditLogItem> findByUser(UUID userId) {
-        return dao.findByCar(userId);
+        return dao.findByUser(userId);
     }
 
     @Override
