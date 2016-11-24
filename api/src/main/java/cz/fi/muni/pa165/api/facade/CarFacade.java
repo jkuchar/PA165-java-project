@@ -6,7 +6,7 @@
 package cz.fi.muni.pa165.api.facade;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.enums.CarState;
+import cz.fi.muni.pa165.api.enums.CarState;
 import java.util.List;
 import java.util.UUID;
 

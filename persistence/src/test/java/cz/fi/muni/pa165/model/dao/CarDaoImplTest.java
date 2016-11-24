@@ -1,6 +1,6 @@
 package cz.fi.muni.pa165.model.dao;
 
-import cz.fi.muni.pa165.enums.CarState;
+import cz.fi.muni.pa165.model.enums.CarState;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,7 +11,6 @@ import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.api.facade.CarFacadeImpl;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
-import cz.fi.muni.pa165.service.CarServiceImpl;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.dozer.loader.api.BeanMappingBuilder;
@@ -24,15 +23,9 @@ import org.springframework.context.annotation.Import;
  * @author charlliz
  */
 @Configuration
-//@Import(PersistenceApplicationContext.class) (there must be not direct dependency on presistence)
-@ComponentScan(basePackageClasses = {CarServiceImpl.class, CarFacadeImpl.class})
-public class ServiceConfiguration {
-
-	@Bean
-    public BeanMappingService beanMappingService() {
-        return new BeanMappingServiceImpl();
-    }
-
+@Import(PersistenceApplicationContext.class)
+@ComponentScan(basePackageClasses = {CarFacadeImpl.class})
+public class ApiConfiguration {
 
     @Bean
     public Mapper dozer() {

@@ -32,6 +32,7 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
 
     @Autowired
     private CarService carService;
+
     /*
     @Autowired
     private UserService userService;*/
