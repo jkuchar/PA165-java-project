@@ -1,10 +1,11 @@
 package cz.fi.muni.pa165.model.entity;
 
 import org.springframework.util.Assert;
-import java.util.Date;
-import java.util.UUID;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.UUID;
 
 /**
  *

@@ -9,10 +9,11 @@ import cz.fi.muni.pa165.model.dao.ApplicationRejectedRecordDao;
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *

@@ -1,10 +1,13 @@
 package cz.fi.muni.pa165.model.dao;
 
-import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.model.PersonName;
+import cz.fi.muni.pa165.model.entity.User;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.UUID;
 

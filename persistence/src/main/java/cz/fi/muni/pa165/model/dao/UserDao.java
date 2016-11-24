@@ -1,7 +1,7 @@
 package cz.fi.muni.pa165.model.dao;
 
-import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.model.PersonName;
+import cz.fi.muni.pa165.model.entity.User;
 
 import java.util.List;
 import java.util.UUID;

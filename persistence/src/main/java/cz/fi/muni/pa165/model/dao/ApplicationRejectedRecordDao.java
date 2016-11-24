@@ -1,8 +1,8 @@
 package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
-import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.User;
 
 import java.util.Date;
 import java.util.List;

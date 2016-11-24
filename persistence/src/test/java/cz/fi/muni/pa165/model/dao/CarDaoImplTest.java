@@ -1,8 +1,8 @@
 package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.CarState;
-import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
+import cz.fi.muni.pa165.model.entity.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;

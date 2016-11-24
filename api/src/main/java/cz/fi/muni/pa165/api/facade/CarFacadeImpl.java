@@ -6,16 +6,15 @@
 package cz.fi.muni.pa165.api.facade;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.api.enums.CarState;
-import cz.fi.muni.pa165.service.BeanMappingService;
+import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
-
-import java.util.List;
-import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  *
