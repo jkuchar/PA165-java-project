@@ -43,11 +43,11 @@ public class ReturnRecordServiceImpl implements ReturnRecordService{
 
     @Override
     public List<ReturnRecord> getRecordsCreatedBetween(Date from, Date to) {
-        return null;
+        return returnRecordDao.getRecordsCreatedBetween(from, to);
     }
 
     @Override
     public void create(ReturnRecord r) {
-
+        returnRecordDao.create(r);
     }
 }

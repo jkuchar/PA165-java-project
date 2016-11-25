@@ -25,7 +25,7 @@ public interface ReturnRecordFacade {
 
     /**
      * Method to retrieve return records with corresponding car.
-     * @param c certain car
+     * @param carId certain car
      * @return list of all return records with certain car
      */
     public List<ReturnRecordDTO> findByCar(UUID carId);
@@ -33,7 +33,7 @@ public interface ReturnRecordFacade {
 
     /**
      * Method to find all return records of certain user.
-     * @param u certain user
+     * @param userId certain user
      * @return list of all return records of certain user
      */
     public List<ReturnRecordDTO> findByUser(UUID userId);

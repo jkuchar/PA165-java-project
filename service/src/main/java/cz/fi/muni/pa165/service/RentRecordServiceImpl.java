@@ -47,7 +47,7 @@ public class RentRecordServiceImpl implements RentRecordService {
 
     @Override
     public void create(RentRecord r) {
-
+        rentRecordDao.create(r);
     }
 
 

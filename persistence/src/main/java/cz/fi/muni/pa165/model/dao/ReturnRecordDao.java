@@ -35,7 +35,7 @@ public interface ReturnRecordDao {
 
     /**
      * Method to retrieve return records with corresponding car.
-     * @param c certain car
+     * @param carId certain car
      * @return list of all return records with certain car
      */
     public List<ReturnRecord> findByCar(UUID carId);
@@ -45,7 +45,7 @@ public interface ReturnRecordDao {
 
     /**
      * Method to find all return records of certain user.
-     * @param u certain user
+     * @param userId certain user
      * @return list of all return records of certain user
      */
     public List<ReturnRecord> findByUser(UUID userId);

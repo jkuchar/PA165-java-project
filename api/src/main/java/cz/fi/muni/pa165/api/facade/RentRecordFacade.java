@@ -25,14 +25,14 @@ public interface RentRecordFacade {
 
     /**
      * Method to retrieve rent records with corresponding car.
-     * @param c certain car
+     * @param carId certain car
      * @return list of all rent records with certain car
      */
     public List<RentRecordDTO> findByCar(UUID carId);
 
     /**
      * Method to find all rent records of certain user.
-     * @param u certain user
+     * @param userId certain user
      * @return list of all rent records of certain user
      */
     public List<RentRecordDTO> findByUser(UUID userId);
