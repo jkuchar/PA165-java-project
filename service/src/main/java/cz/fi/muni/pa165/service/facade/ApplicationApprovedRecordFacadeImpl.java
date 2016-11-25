@@ -50,8 +50,8 @@ public class ApplicationApprovedRecordFacadeImpl implements ApplicationApprovedR
 
     @Override
     public UUID create(ApplicationApprovedRecordDTO r) {
-        Car car = carService.findCarById(r.getId());
-        User user = userService.findById(r.getId());
+        Car car = carService.findCarById(r.getCar().getId());
+        User user = userService.findById(r.getUser().getId());
         RentApplication rentApplication = rentApplicationService.findById(r.getRentApplication().getId());
         ApplicationApprovedRecord app = new ApplicationApprovedRecord(car, user, r.getFrom(), r.getTo(),
                 r.getComment(), rentApplication);
