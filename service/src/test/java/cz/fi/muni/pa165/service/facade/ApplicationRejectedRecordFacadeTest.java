@@ -27,6 +27,7 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -35,8 +36,8 @@ import org.testng.annotations.Test;
  *
  * @author charlliz
  */
-
-public class ApplicationRejectedRecordFacadeTest {
+@ContextConfiguration(classes = BeanMappingConfiguration.class)
+public class ApplicationRejectedRecordFacadeTest extends AbstractTestNGSpringContextTests  {
 
     private ApplicationRejectedRecordFacade applicationFacade;
     
@@ -64,7 +65,7 @@ public class ApplicationRejectedRecordFacadeTest {
         );
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindAll() throws Exception {
         List<ApplicationRejectedRecord> source = new LinkedList<>();
         source.add(Mockito.mock(ApplicationRejectedRecord.class));
@@ -76,7 +77,7 @@ public class ApplicationRejectedRecordFacadeTest {
         Assert.assertEquals(collection.get(0), new ApplicationRejectedRecordDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindById() throws Exception {
         ApplicationRejectedRecord entity = Mockito.mock(ApplicationRejectedRecord.class);
         when(applicationService.findRecordById(someUUID)).thenReturn(entity);
@@ -86,7 +87,7 @@ public class ApplicationRejectedRecordFacadeTest {
         Assert.assertEquals(dto, new ApplicationRejectedRecordDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindByCar() throws Exception {
         List<ApplicationRejectedRecord> source = new LinkedList<>();
         source.add(Mockito.mock(ApplicationRejectedRecord.class));
@@ -100,7 +101,7 @@ public class ApplicationRejectedRecordFacadeTest {
         Assert.assertEquals(collection.get(0), new ApplicationRejectedRecordDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindByUser() throws Exception {
 
         List<ApplicationRejectedRecord> source = new LinkedList<>();
@@ -115,7 +116,7 @@ public class ApplicationRejectedRecordFacadeTest {
         Assert.assertEquals(collection.get(0), new ApplicationRejectedRecordDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testGetRecordsCreatedBetween() throws Exception {
         List<ApplicationRejectedRecord> source = new LinkedList<>();
         source.add(Mockito.mock(ApplicationRejectedRecord.class));
