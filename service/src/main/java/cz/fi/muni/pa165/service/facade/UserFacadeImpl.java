@@ -59,6 +59,7 @@ public class UserFacadeImpl implements UserFacade {
             default: role = Role.USER;
         }
         User user = new User(personName, role, u.getEmail(), u.getCreated());
+        userService.register(user);
         return user.getId();
     }
 
