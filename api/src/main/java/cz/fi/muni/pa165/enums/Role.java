@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.api.enums;
+package cz.fi.muni.pa165.enums;
 
 /**
  * @author rtrembecky

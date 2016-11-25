@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ApplicationRejectedRecordDTO;
 import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
@@ -15,7 +16,6 @@ import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
 import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentApplicationService;
 import cz.fi.muni.pa165.service.UserService;
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,34 +32,37 @@ import java.util.UUID;
 @Transactional
 public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedRecordFacade {
 
-    private ApplicationRejectedRecordService recordService;
+    private final ApplicationRejectedRecordService recordService;
 
-    private CarService carService;
+    private final CarService carService;
 
-    private UserService userService;
+    private final UserService userService;
 
-    private BeanMappingService beanMappingService;
+    private final RentApplicationService rentService;
 
-    private RentApplicationService rentApplicationService;
+    private final BeanMappingService beanMappingService;
 
-    public ApplicationRejectedRecordFacadeImpl (ApplicationRejectedRecordService recordService, CarService carService,
-                                                UserService userService, BeanMappingService beanMappingService,
-                                                RentApplicationService rentApplicationService) {
-        this.recordService = recordService;
-        this.carService = carService;
-        this.userService = userService;
+    @Autowired
+    public ApplicationRejectedRecordFacadeImpl (BeanMappingService beanMappingService,
+                                         ApplicationRejectedRecordService recordService,
+                                         UserService userService, CarService carService,
+                                         RentApplicationService rentService) {
         this.beanMappingService = beanMappingService;
-        this.rentApplicationService = rentApplicationService;
+        this.recordService = recordService;
+        this.userService = userService;
+        this.carService = carService;
+        this.rentService = rentService;
     }
-        
+    
     @Override
     public UUID create(ApplicationRejectedRecordDTO r) {
-        User user = userService.findById(r.userId);
-        Car car = carService.findCarById(r.carId);
-        RentApplication rentApplication = rentApplicationService.findById(r.getRentApplicationId());
-        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car, user, r.comment, rentApplication, r.created);
+        
+        User user = userService.findById(r.getUserDTO().getId());
+        Car car = carService.findCarById(r.getCarDTO().getId());
+        RentApplication rent = rentService.findById(r.getRentApplicationDTO().getId());
+        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car,user,r.getComment(),rent);
         recordService.create(record);
-        return record.getId();
+        return  record.getId();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import org.dozer.Mapper;

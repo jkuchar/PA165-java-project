@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.model.entity.RentApplication;
@@ -143,15 +144,6 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         verify(service, times(1)).create(entity);
         Assert.assertEquals(id, someUUID);
 
-    }
-
-    @Test
-    public void testDelete() throws Exception {
-        // act
-        uut.delete(someUUID);
-
-        // assert
-        verify(service, times(1)).delete(someUUID);
     }
 
 }

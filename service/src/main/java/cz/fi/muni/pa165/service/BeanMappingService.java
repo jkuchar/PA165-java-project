@@ -1,14 +1,13 @@
-package cz.fi.muni.pa165.service.facade;
+package cz.fi.muni.pa165.service;
 
 import org.dozer.Mapper;
 
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Copied from e-shop from seminar
- */
+
 public interface BeanMappingService {
+    
     <T> List<T> mapTo(Collection<?> objects, Class<T> mapToClass);
 
     <T> T mapTo(Object u, Class<T> mapToClass);

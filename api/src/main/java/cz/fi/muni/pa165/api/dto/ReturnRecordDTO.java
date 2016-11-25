@@ -1,6 +1,5 @@
 package cz.fi.muni.pa165.api.dto;
 
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -90,7 +89,6 @@ public class ReturnRecordDTO {
         this.rentRecordDto = rentRecordDto;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -109,5 +107,4 @@ public class ReturnRecordDTO {
     public int hashCode() {
         return Objects.hash(id, carDto, userDto, created, comment, fuelState, odometerState, rentRecordDto);
     }
-
 }

@@ -1,5 +1,6 @@
-package cz.fi.muni.pa165.service.facade;
+package cz.fi.muni.pa165.service;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,9 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Copied from e-shop from seminar
- */
+
 @Service
 public class BeanMappingServiceImpl implements BeanMappingService {
 

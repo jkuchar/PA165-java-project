@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.model.entity.Car;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * This file is part of PA165 school project.
+ *  @author jkuchar
  */
 @Transactional
 @Service
@@ -69,15 +70,10 @@ public class RentApplicationFacadeImpl implements RentApplicationFacade {
 
     @Override
     public UUID create(RentApplicationDTO r) {
-        User user = userService.findById(r.userId);
-        Car car = carService.findCarById(r.carId);
-        RentApplication ra = new RentApplication(car, user, r.comment, r.from, r.to);
+        User user = userService.findById(r.getUser().getId());
+        Car car = carService.findCarById(r.getCar().getId());
+        RentApplication ra = new RentApplication(car, user, r.getComment(), r.getFrom(), r.getTo());
         carAuditLogItemService.create(ra);
         return ra.getId();
-    }
-
-    @Override
-    public void delete(UUID id) {
-        carAuditLogItemService.delete(id);
     }
 }

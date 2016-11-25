@@ -6,7 +6,7 @@
 package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.model.Role;
+import cz.fi.muni.pa165.enums.Role;
 import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;

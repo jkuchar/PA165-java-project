@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.api.enums;
+package cz.fi.muni.pa165.enums;
 
 
 /**
@@ -12,6 +12,5 @@ package cz.fi.muni.pa165.api.enums;
  */
 public enum CarState {
 
-    // Nope! @charlizz There should no business logic!
     OK, SERVICING, DISCARDED;
 }

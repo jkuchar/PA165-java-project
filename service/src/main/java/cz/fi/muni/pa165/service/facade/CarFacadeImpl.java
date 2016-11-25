@@ -5,8 +5,9 @@
  */
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.api.enums.CarState;
+import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
@@ -66,7 +67,7 @@ public class CarFacadeImpl implements CarFacade {
     public List<CarDTO> getAllCarsByState(CarState state) {
         return beanMappingService.mapTo(
                 carService.getAllCarsByState(
-                        beanMappingService.mapTo(state, cz.fi.muni.pa165.model.CarState.class)
+                        beanMappingService.mapTo(state, cz.fi.muni.pa165.enums.CarState.class)
                 ),
                 CarDTO.class
         );

@@ -1,6 +1,6 @@
 package cz.fi.muni.pa165.model.entity;
 
-import cz.fi.muni.pa165.model.CarState;
+import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.model.DomainException;
 import org.testng.annotations.Test;
 

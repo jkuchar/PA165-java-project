@@ -11,18 +11,59 @@ import java.util.UUID;
 public class CarAuditLogItemDTO {
 
     @NotNull
-    public UUID id;
+    private UUID id;
 
     @NotNull
-    public UUID carId;
+    private CarDTO car;
 
     @NotNull
-    public UUID userId;
+    private UserDTO user;
 
     @NotNull
-    public Date created;
+    private Date created;
 
-    public String comment;
+    private String comment;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    } 
+
+    public CarDTO getCar() {
+        return car;
+    }
+
+    public void setCar(CarDTO car) {
+        this.car = car;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+      
 
     @Override
     public boolean equals(Object o) {
@@ -30,14 +71,14 @@ public class CarAuditLogItemDTO {
         if (o == null || getClass() != o.getClass()) return false;
         CarAuditLogItemDTO that = (CarAuditLogItemDTO) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(carId, that.carId) &&
-                Objects.equals(userId, that.userId) &&
+                Objects.equals(car, that.car) &&
+                Objects.equals(user, that.user) &&
                 Objects.equals(created, that.created) &&
                 Objects.equals(comment, that.comment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, carId, userId, created, comment);
+        return Objects.hash(id, car, user, created, comment);
     }
 }
