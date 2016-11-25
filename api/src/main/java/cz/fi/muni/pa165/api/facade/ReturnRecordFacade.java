@@ -52,10 +52,5 @@ public interface ReturnRecordFacade {
      */
     void create(ReturnRecordDTO r);
 
-    /**
-     * Method delete return record from db.
-     * @param r is return record to delete
-     */
-
 
 }

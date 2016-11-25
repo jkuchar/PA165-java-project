@@ -50,10 +50,6 @@ public interface RentRecordFacade {
      * @param r is new rent record
      */
     UUID create(RentRecordDTO r);
-
-    /**
-     * Method to delete rent record from db.
-     * @param r is rent record to delete
-     */
+    
 
 }
