@@ -5,19 +5,23 @@
  */
 package cz.fi.muni.pa165.api.dto;
 
+import java.util.UUID;
+
 /**
  *
  * @author charlliz
  */
-public class ApplicationRejectedRecordDTO extends CarAuditLogItemDTO{
-/*
-    private RentApplicationDTO application;
+public class ApplicationRejectedRecordDTO extends CarAuditLogItemDTO {
 
-    public RentApplicationDTO setApplication(RentApplicationDTO app) {
-        application = app;
-    } 
-    
-    public RentApplicationDTO getApplication() {
-        return application;
-    }  */
+    private UUID rentApplicationId;
+
+    public UUID getRentApplicationId() {
+        return rentApplicationId;
+    }
+
+    public void setRentApplicationId(UUID rentApplicationId) {
+        this.rentApplicationId = rentApplicationId;
+    }
+
+    //todo: equals and hashcode methods
 }

@@ -3,7 +3,9 @@ package cz.fi.muni.pa165.service.facade;
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.model.entity.RentApplication;
+import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentApplicationService;
+import cz.fi.muni.pa165.service.UserService;
 import cz.fi.muni.pa165.service.config.BeanMappingConfiguration;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,6 +30,8 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
 
     private RentApplicationFacade uut;
     private RentApplicationService service;
+    private UserService userService;
+    private CarService carService;
     private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
 
     @Inject
@@ -37,7 +41,9 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
     private void prepare() {
         uut = new RentApplicationFacadeImpl(
                 beanMappingService,
-                service = Mockito.mock(RentApplicationService.class)
+                service = Mockito.mock(RentApplicationService.class),
+                userService = Mockito.mock(UserService.class),
+                carService = Mockito.mock(CarService.class)
         );
     }
 
