@@ -7,8 +7,8 @@ package cz.fi.muni.pa165.service.config;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.service.facade.BeanMappingService;
-import cz.fi.muni.pa165.service.facade.BeanMappingServiceImpl;
+import cz.fi.muni.pa165.service.BeanMappingService;
+import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.dozer.loader.api.BeanMappingBuilder;
@@ -33,11 +33,6 @@ public class BeanMappingConfiguration {
         return dozer;
     }
 
-    /**
-     * Custom config for Dozer if needed
-     *
-     * @author nguyen
-     */
     public class DozerCustomConfig extends BeanMappingBuilder {
         @Override
         protected void configure() {

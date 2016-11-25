@@ -5,12 +5,18 @@
  */
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ApplicationRejectedRecordDTO;
 import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
 import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.RentApplication;
+import cz.fi.muni.pa165.model.entity.User;
+import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
 import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
 import cz.fi.muni.pa165.service.CarService;
+import cz.fi.muni.pa165.service.RentApplicationService;
+import cz.fi.muni.pa165.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,30 +33,37 @@ import java.util.UUID;
 @Transactional
 public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedRecordFacade {
 
-    @Autowired
-    private ApplicationRejectedRecordService recordService;
+    private final ApplicationRejectedRecordService recordService;
+
+    private final CarService carService;
+
+    private final UserService userService;
+
+    private final RentApplicationService rentService;
+
+    private final BeanMappingService beanMappingService;
 
     @Autowired
-    private CarService carService;
-
-    /*
-    @Autowired
-    private UserService userService;*/
-        
-    @Autowired
-    private BeanMappingService beanMappingService;
-
-    // todo: refactor to constructor; this way there is no way how to create an class instance
-        
+    public ApplicationRejectedRecordFacadeImpl (BeanMappingService beanMappingService,
+                                         ApplicationRejectedRecordService recordService,
+                                         UserService userService, CarService carService,
+                                         RentApplicationService rentService) {
+        this.beanMappingService = beanMappingService;
+        this.recordService = recordService;
+        this.userService = userService;
+        this.carService = carService;
+        this.rentService = rentService;
+    }
+    
     @Override
     public UUID create(ApplicationRejectedRecordDTO r) {
-        /*
-        User user = userService.findUserById(r.getUserId());
-        Car car = carService.findCarById(r.getCarId());
-        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car, user,r.getComment(),r.getApplication(),r.getCreated());
+        
+        User user = userService.findById(r.getUser().getId());
+        Car car = carService.findCarById(r.getCar().getId());
+        RentApplication rent = rentService.findById(r.getApplication().getId());
+        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car,user,r.getComment(),rent,r.getCreated());
         recordService.create(record);
-        return  record.getId();*/
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return  record.getId();
     }
 
     @Override
@@ -73,13 +86,11 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
 
     @Override
     public List<ApplicationRejectedRecordDTO> getAllRecordsByUser(UUID userId) {
-        /*
-       	User user = userService.findUserById(userId);
+
+       	User user = userService.findById(userId);
 	List<ApplicationRejectedRecord> records = recordService.getAllRecordsByUser(user);
 
 	return beanMappingService.mapTo(records, ApplicationRejectedRecordDTO.class); 
-                */
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

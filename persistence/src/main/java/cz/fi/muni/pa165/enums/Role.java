@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.model;
+package cz.fi.muni.pa165.enums;
 
 /**
  * @author jkuchar

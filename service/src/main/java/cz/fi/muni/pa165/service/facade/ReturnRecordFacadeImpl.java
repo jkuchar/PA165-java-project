@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ReturnRecordDTO;
 import cz.fi.muni.pa165.api.facade.ReturnRecordFacade;
 import cz.fi.muni.pa165.service.ReturnRecordService;

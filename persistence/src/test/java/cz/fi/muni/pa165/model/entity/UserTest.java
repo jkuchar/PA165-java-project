@@ -1,7 +1,7 @@
 package cz.fi.muni.pa165.model.entity;
 
 import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.model.Role;
+import cz.fi.muni.pa165.enums.Role;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

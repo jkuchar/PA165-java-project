@@ -1,17 +1,19 @@
 package cz.fi.muni.pa165.api.dto;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
  * @author rtrembecky
  */
 public class ApplicationApprovedRecordDTO {
+    
     private UUID id;
 
-    private UUID carId;
+    private CarDTO car;
 
-    private UUID userId;
+    private UserDTO user;
 
     private Date created;
 
@@ -21,7 +23,7 @@ public class ApplicationApprovedRecordDTO {
 
     private Date to;
 
-    private UUID rentApplicationId;
+    private RentApplicationDTO rentApplication;
 
     public UUID getId() {
         return id;
@@ -29,22 +31,6 @@ public class ApplicationApprovedRecordDTO {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getCarId() {
-        return carId;
-    }
-
-    public void setCarId(UUID carId) {
-        this.carId = carId;
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
     }
 
     public Date getCreated() {
@@ -79,31 +65,46 @@ public class ApplicationApprovedRecordDTO {
         this.to = to;
     }
 
-    public UUID getRentApplicationId() {
-        return rentApplicationId;
+    public CarDTO getCar() {
+        return car;
     }
 
-    public void setRentApplicationId(UUID rentApplicationId) {
-        this.rentApplicationId = rentApplicationId;
+    public void setCar(CarDTO car) {
+        this.car = car;
     }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+
+    public RentApplicationDTO getRentApplication() {
+        return rentApplication;
+    }
+
+    public void setRentApplication(RentApplicationDTO rentApplication) {
+        this.rentApplication = rentApplication;
+    }
+    
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof ApplicationApprovedRecordDTO)) {
-            return false;
-        }
-
-        ApplicationApprovedRecordDTO app = (ApplicationApprovedRecordDTO) o;
-
-        return id.equals(app.getId());
-
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ApplicationApprovedRecordDTO that = (ApplicationApprovedRecordDTO) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(car, that.car) &&
+                Objects.equals(user, that.user) &&
+                Objects.equals(created, that.created) &&
+                Objects.equals(comment, that.comment) &&
+                Objects.equals(rentApplication, that.rentApplication);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
-    }
+        return Objects.hash(id, car, user, created, comment, rentApplication);
+    } 
 }

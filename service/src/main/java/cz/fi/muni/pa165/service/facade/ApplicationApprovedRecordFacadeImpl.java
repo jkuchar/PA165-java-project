@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ApplicationApprovedRecordDTO;
 import cz.fi.muni.pa165.api.facade.ApplicationApprovedRecordFacade;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
@@ -51,7 +52,7 @@ public class ApplicationApprovedRecordFacadeImpl implements ApplicationApprovedR
     public UUID create(ApplicationApprovedRecordDTO r) {
         Car car = carService.findCarById(r.getId());
         User user = userService.findById(r.getId());
-        RentApplication rentApplication = rentApplicationService.findById(r.getRentApplicationId());
+        RentApplication rentApplication = rentApplicationService.findById(r.getRentApplication().getId());
         ApplicationApprovedRecord app = new ApplicationApprovedRecord(car, user, r.getFrom(), r.getTo(),
                 r.getComment(), rentApplication);
         return app.getId();

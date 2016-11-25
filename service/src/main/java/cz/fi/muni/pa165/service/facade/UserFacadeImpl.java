@@ -1,9 +1,10 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.UserDTO;
 import cz.fi.muni.pa165.api.facade.UserFacade;
 import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.model.Role;
+import cz.fi.muni.pa165.enums.Role;
 import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

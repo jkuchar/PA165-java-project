@@ -1,8 +1,9 @@
 package cz.fi.muni.pa165.api.dto;
 
-import cz.fi.muni.pa165.api.enums.Role;
+import cz.fi.muni.pa165.enums.Role;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -69,18 +70,21 @@ public class UserDTO {
         this.created = created;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserDTO)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        UserDTO userDTO = (UserDTO) o;
-
-        return id.equals(userDTO.id);
+        UserDTO that = (UserDTO) o;
+        return  Objects.equals(id, that.id) &&
+                Objects.equals(role, that.role) &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(created, that.created) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id, role, firstName, created, lastName, email);
     }
 }

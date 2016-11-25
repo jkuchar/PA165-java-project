@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentRecordDTO;
 import cz.fi.muni.pa165.api.facade.RentRecordFacade;
 import cz.fi.muni.pa165.service.RentRecordService;

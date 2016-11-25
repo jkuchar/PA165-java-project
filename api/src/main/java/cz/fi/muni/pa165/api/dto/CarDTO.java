@@ -5,7 +5,7 @@
  */
 package cz.fi.muni.pa165.api.dto;
 
-import cz.fi.muni.pa165.api.enums.CarState;
+import cz.fi.muni.pa165.enums.CarState;
 
 import java.util.Date;
 import java.util.Objects;
@@ -35,7 +35,6 @@ public class CarDTO {
 
     private Date discardDate;
 
-    // TODO: @charlliz remove setters / getters; use plain public properties; this is should be stupid object without ANY behaviour = no methods
     public void setState(CarState state){
         this.state = state;
     }
@@ -61,6 +60,10 @@ public class CarDTO {
     }
 
     public UUID getId() { return id; }
+    
+    public void setId(UUID id) { 
+        this.id = id; 
+    }
 
     public String getSerialNumber() {
         return serialNumber;

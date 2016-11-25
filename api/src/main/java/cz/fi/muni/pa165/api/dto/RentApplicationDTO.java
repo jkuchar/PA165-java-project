@@ -11,31 +11,89 @@ import java.util.UUID;
 public class RentApplicationDTO {
 
     @NotNull
-    public UUID id;
+    private UUID id;
 
     @NotNull
-    public UUID carId;
+    private CarDTO car;
 
     @NotNull
-    public UUID userId;
+    private UserDTO user;
 
     @NotNull
-    public Date created;
+    private Date created;
 
-    public String comment;
+    private String comment;
 
-    public Date from;
+    private Date from;
 
-    public Date to;
+    private Date to;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Date getFrom() {
+        return from;
+    }
+
+    public void setFrom(Date from) {
+        this.from = from;
+    }
+
+    public Date getTo() {
+        return to;
+    }
+
+    public void setTo(Date to) {
+        this.to = to;
+    }  
+
+    public CarDTO getCar() {
+        return car;
+    }
+
+    public void setCar(CarDTO car) {
+        this.car = car;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+    
+    
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RentApplicationDTO that = (RentApplicationDTO) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(carId, that.carId) &&
-                Objects.equals(userId, that.userId) &&
+                Objects.equals(car, that.car) &&
+                Objects.equals(user, that.user) &&
                 Objects.equals(created, that.created) &&
                 Objects.equals(comment, that.comment) &&
                 Objects.equals(from, that.from) &&
@@ -44,6 +102,6 @@ public class RentApplicationDTO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, carId, userId, created, comment, from, to);
+        return Objects.hash(id, car, user, created, comment, from, to);
     }
 }
