@@ -34,7 +34,7 @@ public interface UserFacade {
      * Register a new user.
      * @param u is new user
      */
-    void register(UserDTO u);
+    UUID register(UserDTO u);
 
     /**
      * Delete user from database.
