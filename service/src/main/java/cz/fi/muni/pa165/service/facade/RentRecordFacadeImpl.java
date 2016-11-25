@@ -3,7 +3,14 @@ package cz.fi.muni.pa165.service.facade;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentRecordDTO;
 import cz.fi.muni.pa165.api.facade.RentRecordFacade;
+import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
+import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.RentRecord;
+import cz.fi.muni.pa165.model.entity.User;
+import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
+import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentRecordService;
+import cz.fi.muni.pa165.service.UserService;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +31,20 @@ public class RentRecordFacadeImpl implements RentRecordFacade {
 
     private final RentRecordService rentRecordService;
 
+    private final UserService userService;
+
+    private final CarService carService;
+
+    private final ApplicationApprovedRecordService approvedRecordService;
+
     @Autowired
-    public RentRecordFacadeImpl(BeanMappingService beanMappingService, RentRecordService rentRecordService) {
+    public RentRecordFacadeImpl(BeanMappingService beanMappingService, RentRecordService rentRecordService, UserService userService, CarService carService, ApplicationApprovedRecordService approvedRecordService) {
         this.beanMappingService = beanMappingService;
         this.rentRecordService = rentRecordService;
+        this.userService = userService;
+        this.carService = carService;
+        this.approvedRecordService = approvedRecordService;
     }
-
 
     @Override
     public List<RentRecordDTO> findAll() {
@@ -58,11 +73,11 @@ public class RentRecordFacadeImpl implements RentRecordFacade {
 
     @Override
     public UUID create(RentRecordDTO r) {
-        // todo: retrieve car and user when services are available
-//        RentRecord rr = new RentApplication(car, user, r.comment, r.from, r.to);
-//        carAuditLogItemService.create(ra);
-//        return ra.getId();
-        throw new NotImplementedException();
+        Car car = carService.findCarById(r.getCarDto().getId());
+        User user = userService.findById(r.getUserDto().getId());
+        ApplicationApprovedRecord approvedRecord = approvedRecordService.findById(r.getId());
+        RentRecord rr = new RentRecord(car, user, approvedRecord, r.getComment(), r.getFuelState(), r.getOdometerState(), r.getCreated());
+        return rr.getId();
     }
 
 }

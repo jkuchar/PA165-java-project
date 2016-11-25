@@ -12,7 +12,6 @@ import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentApplication;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
 import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
 import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentApplicationService;
@@ -58,44 +57,43 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
     @Override
     public UUID create(ApplicationRejectedRecordDTO r) {
         
-        User user = userService.findById(r.getUser().getId());
-        Car car = carService.findCarById(r.getCar().getId());
-        RentApplication rent = rentService.findById(r.getApplication().getId());
-        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car,user,r.getComment(),rent,r.getCreated());
+        User user = userService.findById(r.getUserDTO().getId());
+        Car car = carService.findCarById(r.getCarDTO().getId());
+        RentApplication rent = rentService.findById(r.getRentApplicationDTO().getId());
+        ApplicationRejectedRecord record = new ApplicationRejectedRecord(car,user,r.getComment(),rent);
         recordService.create(record);
         return  record.getId();
     }
 
     @Override
     public List<ApplicationRejectedRecordDTO> findAllRecords() {
-        return beanMappingService.mapTo(recordService.findAllRecords(),ApplicationRejectedRecordDTO.class);
+        return beanMappingService.mapTo(recordService.findAllRecords(), ApplicationRejectedRecordDTO.class);
     }
 
     @Override
     public ApplicationRejectedRecordDTO findRecordById(UUID id) {
-        return beanMappingService.mapTo(recordService.findRecordById(id),ApplicationRejectedRecordDTO.class);
+        return beanMappingService.mapTo(recordService.findRecordById(id), ApplicationRejectedRecordDTO.class);
     }
 
     @Override
     public List<ApplicationRejectedRecordDTO> getAllRecordsByCar(UUID carId) {
        	Car car = carService.findCarById(carId);
-	List<ApplicationRejectedRecord> records = recordService.getAllRecordsByCar(car);
+	    List<ApplicationRejectedRecord> records = recordService.getAllRecordsByCar(car);
 
-	return beanMappingService.mapTo(records, ApplicationRejectedRecordDTO.class); 
+	    return beanMappingService.mapTo(records, ApplicationRejectedRecordDTO.class);
     }
 
     @Override
     public List<ApplicationRejectedRecordDTO> getAllRecordsByUser(UUID userId) {
-
        	User user = userService.findById(userId);
-	List<ApplicationRejectedRecord> records = recordService.getAllRecordsByUser(user);
+	    List<ApplicationRejectedRecord> records = recordService.getAllRecordsByUser(user);
 
-	return beanMappingService.mapTo(records, ApplicationRejectedRecordDTO.class); 
+	    return beanMappingService.mapTo(records, ApplicationRejectedRecordDTO.class);
     }
 
     @Override
     public List<ApplicationRejectedRecordDTO> getAllRecordsCreatedBetween(Date from, Date to) {
-        return beanMappingService.mapTo(recordService.getAllRecordsCreatedBetween(from, to),ApplicationRejectedRecordDTO.class);
+        return beanMappingService.mapTo(recordService.getAllRecordsCreatedBetween(from, to), ApplicationRejectedRecordDTO.class);
     }
     
 }

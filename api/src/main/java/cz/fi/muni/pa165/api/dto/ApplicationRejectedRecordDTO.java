@@ -17,22 +17,22 @@ public class ApplicationRejectedRecordDTO{
     
     private UUID id;
 
-    private CarDTO car;
+    private CarDTO carDTO;
 
-    private UserDTO user;
+    private UserDTO userDTO;
 
     private Date created;
 
     private String comment;
     
-    private RentApplicationDTO application;
+    private RentApplicationDTO rentApplicationDTO;
 
-    public void setApplication(RentApplicationDTO app) {
-        application = app;
+    public void setRentApplicationDTO(RentApplicationDTO app) {
+        rentApplicationDTO = app;
     } 
     
-    public RentApplicationDTO getApplication() {
-        return application;
+    public RentApplicationDTO getRentApplicationDTO() {
+        return rentApplicationDTO;
     }  
 
     public UUID getId() {
@@ -43,20 +43,20 @@ public class ApplicationRejectedRecordDTO{
         this.id = id;
     }
 
-    public CarDTO getCar() {
-        return car;
+    public CarDTO getCarDTO() {
+        return carDTO;
     }
 
-    public void setCar(CarDTO car) {
-        this.car = car;
+    public void setCarDTO(CarDTO carDTO) {
+        this.carDTO = carDTO;
     }
 
-    public UserDTO getUser() {
-        return user;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 
-    public void setUser(UserDTO user) {
-        this.user = user;
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 
     public Date getCreated() {
@@ -81,15 +81,15 @@ public class ApplicationRejectedRecordDTO{
         if (o == null || getClass() != o.getClass()) return false;
         ApplicationRejectedRecordDTO that = (ApplicationRejectedRecordDTO) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(car, that.car) &&
-                Objects.equals(user, that.user) &&
+                Objects.equals(carDTO, that.carDTO) &&
+                Objects.equals(userDTO, that.userDTO) &&
                 Objects.equals(created, that.created) &&
                 Objects.equals(comment, that.comment) &&
-                Objects.equals(application, that.application);
+                Objects.equals(rentApplicationDTO, that.rentApplicationDTO);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, car, user, created, comment, application);
-    }  
+        return Objects.hash(id, carDTO, userDTO, created, comment, rentApplicationDTO);
+    }
 }

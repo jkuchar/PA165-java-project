@@ -1,7 +1,6 @@
 package cz.fi.muni.pa165.api.dto;
 
 import java.util.Date;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -9,45 +8,22 @@ import java.util.UUID;
  * @author jakubsarmir
  */
 public class ReturnRecordDTO {
-    
-    @NotNull
+
     private UUID id;
 
-    @NotNull
-    private CarDTO car;
+    private CarDTO carDto;
 
-    @NotNull
-    private UserDTO user;
+    private UserDTO userDto;
 
-    @NotNull
     private Date created;
 
     private String comment;
-    
-    @NotNull
+
     private int fuelState;
 
-    @NotNull
     private int odometerState;
 
-    @NotNull
-    private RentRecordDTO rentRecord;
-
-    public int getFuelState() {
-        return fuelState;
-    }
-
-    public void setFuelState(int fuelState) {
-        this.fuelState = fuelState;
-    }
-
-    public int getOdometerState() {
-        return odometerState;
-    }
-
-    public void setOdometerState(int odometerState) {
-        this.odometerState = odometerState;
-    }
+    private RentRecordDTO rentRecordDto;
 
     public UUID getId() {
         return id;
@@ -57,20 +33,20 @@ public class ReturnRecordDTO {
         this.id = id;
     }
 
-    public CarDTO getCar() {
-        return car;
+    public CarDTO getCarDto() {
+        return carDto;
     }
 
-    public void setCar(CarDTO car) {
-        this.car = car;
+    public void setCarDto(CarDTO carDto) {
+        this.carDto = carDto;
     }
 
-    public UserDTO getUser() {
-        return user;
+    public UserDTO getUserDto() {
+        return userDto;
     }
 
-    public void setUser(UserDTO user) {
-        this.user = user;
+    public void setUserDto(UserDTO userDto) {
+        this.userDto = userDto;
     }
 
     public Date getCreated() {
@@ -89,32 +65,46 @@ public class ReturnRecordDTO {
         this.comment = comment;
     }
 
-    public RentRecordDTO getRentRecord() {
-        return rentRecord;
+    public int getFuelState() {
+        return fuelState;
     }
 
-    public void setRentRecord(RentRecordDTO rentRecord) {
-        this.rentRecord = rentRecord;
+    public void setFuelState(int fuelState) {
+        this.fuelState = fuelState;
     }
 
-    
+    public int getOdometerState() {
+        return odometerState;
+    }
+
+    public void setOdometerState(int odometerState) {
+        this.odometerState = odometerState;
+    }
+
+    public RentRecordDTO getRentRecordDto() {
+        return rentRecordDto;
+    }
+
+    public void setRentRecordDto(RentRecordDTO rentRecordDto) {
+        this.rentRecordDto = rentRecordDto;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ReturnRecordDTO that = (ReturnRecordDTO) o;
-        return  Objects.equals(id, that.id) &&
-                Objects.equals(car, that.car) &&
-                Objects.equals(user, that.user) &&
+        return Objects.equals(id, that.id) &&
+                Objects.equals(carDto, that.carDto) &&
+                Objects.equals(userDto, that.userDto) &&
                 Objects.equals(created, that.created) &&
                 Objects.equals(comment, that.comment) &&
                 Objects.equals(fuelState, that.fuelState) &&
                 Objects.equals(odometerState, that.odometerState) &&
-                Objects.equals(rentRecord, that.rentRecord);
+                Objects.equals(rentRecordDto, that.rentRecordDto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, car, user, created, comment, fuelState, odometerState, rentRecord);
+        return Objects.hash(id, carDto, userDto, created, comment, fuelState, odometerState, rentRecordDto);
     }
 }
