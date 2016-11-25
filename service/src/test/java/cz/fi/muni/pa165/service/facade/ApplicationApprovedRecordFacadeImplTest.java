@@ -58,40 +58,6 @@ public class ApplicationApprovedRecordFacadeImplTest extends AbstractTestNGSprin
     }
 
     @Test
-    public void testCreate() {
-        ApplicationApprovedRecordDTO dto = new ApplicationApprovedRecordDTO();
-
-        //todo: add some sets which are missing from CarDTO at the moment
-        carDTO = new CarDTO();
-        carDTO.setSerialNumber("R2D2");
-        carDTO.setRegPlateNumber("456");
-        carDTO.setManufacturer("Manufacturer");
-        carDTO.setType("H510Q");
-        carDTO.setNumberOfSeats(5);
-
-        userDTO = new UserDTO();
-        userDTO.setId(UUID.randomUUID());
-        userDTO.setRole(Role.USER);
-        userDTO.setFirstName("John");
-        userDTO.setLastName("Doe");
-        userDTO.setEmail("john.doe@company.com");
-        userDTO.setCreated(new Date("2016/2/5"));
-
-        dto.setId(id);
-        dto.setCar(carDTO);
-        dto.setUser(userDTO);
-        dto.setComment("");
-        dto.setCreated(new Date("2016/5/12"));
-        dto.setFrom(new Date("2016/5/28"));
-        dto.setTo(new Date("2016/6/3"));
-        dto.setRentApplication(Mockito.mock(RentApplicationDTO.class));
-
-        UUID id = facade.create(dto);
-
-
-    }
-
-    @Test
     public void testFindAllRecords() {
         // Arrange
         List<ApplicationApprovedRecord> source = new LinkedList<>();
