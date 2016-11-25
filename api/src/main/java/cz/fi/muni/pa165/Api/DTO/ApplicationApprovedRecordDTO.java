@@ -21,7 +21,7 @@ public class ApplicationApprovedRecordDTO {
 
     private Date to;
 
-    private RentApplicationDTO rentApplicationDTO;
+    private UUID rentApplicationId;
 
     public UUID getId() {
         return id;
@@ -79,12 +79,12 @@ public class ApplicationApprovedRecordDTO {
         this.to = to;
     }
 
-    public RentApplicationDTO getRentApplicationDTO() {
-        return rentApplicationDTO;
+    public UUID getRentApplicationId() {
+        return rentApplicationId;
     }
 
-    public void setRentApplicationDTO(RentApplicationDTO rentApplicationDTO) {
-        this.rentApplicationDTO = rentApplicationDTO;
+    public void setRentApplicationId(UUID rentApplicationId) {
+        this.rentApplicationId = rentApplicationId;
     }
 
     @Override
