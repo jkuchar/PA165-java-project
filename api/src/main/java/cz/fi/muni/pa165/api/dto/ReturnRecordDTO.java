@@ -1,9 +1,5 @@
 package cz.fi.muni.pa165.api.dto;
 
-import cz.fi.muni.pa165.model.entity.RentRecord;
-
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
