@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.enums.Role;
+import cz.fi.muni.pa165.model.PersonName;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentRecordDTO;
 import cz.fi.muni.pa165.api.facade.RentRecordFacade;
@@ -79,5 +81,4 @@ public class RentRecordFacadeImpl implements RentRecordFacade {
         RentRecord rr = new RentRecord(car, user, approvedRecord, r.getComment(), r.getFuelState(), r.getOdometerState(), r.getCreated());
         return rr.getId();
     }
-
 }
