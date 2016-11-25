@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.api.dto;
 
+import cz.fi.muni.pa165.model.entity.ReturnRecord;
+
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
@@ -92,22 +94,22 @@ public class ReturnRecordDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof ReturnRecordDTO)) {
-            return false;
-        }
-
-        ReturnRecordDTO app = (ReturnRecordDTO) o;
-
-        return id.equals(app.getId());
-
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ReturnRecordDTO that = (ReturnRecordDTO) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(carDto, that.carDto) &&
+                Objects.equals(userDto, that.userDto) &&
+                Objects.equals(created, that.created) &&
+                Objects.equals(comment, that.comment) &&
+                Objects.equals(fuelState, that.fuelState) &&
+                Objects.equals(odometerState, that.odometerState) &&
+                Objects.equals(rentRecordDto, that.rentRecordDto);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id, carDto, userDto, created, comment, fuelState, odometerState, rentRecordDto);
     }
 
 }

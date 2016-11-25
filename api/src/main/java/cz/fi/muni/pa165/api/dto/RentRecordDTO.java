@@ -93,21 +93,21 @@ public class RentRecordDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof RentRecordDTO)) {
-            return false;
-        }
-
-        RentRecordDTO app = (RentRecordDTO) o;
-
-        return id.equals(app.getId());
-
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RentRecordDTO that = (RentRecordDTO) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(carDto, that.carDto) &&
+                Objects.equals(userDto, that.userDto) &&
+                Objects.equals(created, that.created) &&
+                Objects.equals(comment, that.comment) &&
+                Objects.equals(fuelState, that.fuelState) &&
+                Objects.equals(odometerState, that.odometerState) &&
+                Objects.equals(approvedRecordDto, that.approvedRecordDto);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id, carDto, userDto, created, comment, fuelState, odometerState, approvedRecordDto);
     }
 }
