@@ -85,6 +85,11 @@ public class User {
         this.name = personName;
     }
 
+    public void setEmail(String email) {
+        Assert.notNull(email, "Cannot remove user's email.");
+        this.email = email;
+    }
+
     public UUID getId() {
         return id;
     }
@@ -98,10 +103,6 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
-    }
-
-    public String setEmail() {
         return email;
     }
     
