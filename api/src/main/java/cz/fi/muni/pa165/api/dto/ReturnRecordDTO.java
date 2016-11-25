@@ -1,7 +1,5 @@
 package cz.fi.muni.pa165.api.dto;
 
-import cz.fi.muni.pa165.model.entity.ReturnRecord;
-
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
