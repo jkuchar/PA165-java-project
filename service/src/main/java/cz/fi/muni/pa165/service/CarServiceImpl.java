@@ -12,6 +12,7 @@ import cz.fi.muni.pa165.model.DomainException;
 import cz.fi.muni.pa165.model.dao.CarDao;
 import cz.fi.muni.pa165.model.entity.Car;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
@@ -20,11 +21,16 @@ import java.util.UUID;
  *
  * @author charlliz
  */
+@Service
 public class CarServiceImpl implements CarService {
 
+    private final CarDao carDao;
+
     @Autowired
-    private CarDao carDao;
-    
+    public CarServiceImpl(CarDao carDao) {
+        this.carDao = carDao;
+    }
+
     @Override
     public void createCar(Car car) {
         carDao.create(car);
