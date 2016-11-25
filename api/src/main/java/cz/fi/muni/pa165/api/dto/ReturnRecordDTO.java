@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author jakubsarmir
@@ -19,7 +20,7 @@ public class ReturnRecordDTO {
     public int odometerState;
 
     @NotNull
-    public RentRecord rentRecord;
+    public UUID rentRecordId;
 
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -28,12 +29,12 @@ public class ReturnRecordDTO {
         ReturnRecordDTO that = (ReturnRecordDTO) o;
         return Objects.equals(fuelState, that.fuelState) &&
                 Objects.equals(odometerState, that.odometerState) &&
-                Objects.equals(rentRecord, that.rentRecord);
+                Objects.equals(rentRecordId, that.rentRecordId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fuelState, odometerState, rentRecord);
+        return Objects.hash(fuelState, odometerState, rentRecordId);
     }
 
 

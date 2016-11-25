@@ -50,6 +50,6 @@ public interface RentRecordFacade {
      * @param r is new rent record
      */
     UUID create(RentRecordDTO r);
-    
+
 
 }

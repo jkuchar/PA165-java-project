@@ -1,16 +1,9 @@
 package cz.fi.muni.pa165.api.dto;
 
-import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
-import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.model.entity.RentRecord;
-import cz.fi.muni.pa165.model.entity.User;
-import org.springframework.util.Assert;
 
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author jakubsarmir
@@ -24,7 +17,7 @@ public class RentRecordDTO {
     public int odometerState;
 
     @NotNull
-    public ApplicationApprovedRecord approvedRecord;
+    public UUID approvedRecordId;
 
 
 
@@ -36,12 +29,12 @@ public class RentRecordDTO {
         RentRecordDTO that = (RentRecordDTO) o;
         return Objects.equals(fuelState, that.fuelState) &&
                 Objects.equals(odometerState, that.odometerState) &&
-                Objects.equals(approvedRecord, that.approvedRecord);
+                Objects.equals(approvedRecordId, that.approvedRecordId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fuelState, odometerState, approvedRecord);
+        return Objects.hash(fuelState, odometerState, approvedRecordId);
     }
 
 }
