@@ -2,7 +2,12 @@ package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
+import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.RentApplication;
+import cz.fi.muni.pa165.model.entity.User;
+import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentApplicationService;
+import cz.fi.muni.pa165.service.UserService;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +28,18 @@ public class RentApplicationFacadeImpl implements RentApplicationFacade {
 
     private final RentApplicationService carAuditLogItemService;
 
+    private final UserService userService;
+
+    private final CarService carService;
+
     @Autowired
-    public RentApplicationFacadeImpl(BeanMappingService beanMappingService, RentApplicationService carAuditLogItemService) {
+    public RentApplicationFacadeImpl(BeanMappingService beanMappingService,
+                                     RentApplicationService carAuditLogItemService, UserService userService,
+                                     CarService carService) {
         this.beanMappingService = beanMappingService;
         this.carAuditLogItemService = carAuditLogItemService;
+        this.userService = userService;
+        this.carService = carService;
     }
 
     @Override
@@ -56,11 +69,11 @@ public class RentApplicationFacadeImpl implements RentApplicationFacade {
 
     @Override
     public UUID create(RentApplicationDTO r) {
-        // todo: retrieve car and user when services are available
-//        RentApplication ra = new RentApplication(car, user, r.comment, r.from, r.to);
-//        carAuditLogItemService.create(ra);
-//        return ra.getId();
-        throw new NotImplementedException();
+        User user = userService.findById(r.userId);
+        Car car = carService.findCarById(r.carId);
+        RentApplication ra = new RentApplication(car, user, r.comment, r.from, r.to);
+        carAuditLogItemService.create(ra);
+        return ra.getId();
     }
 
     @Override
