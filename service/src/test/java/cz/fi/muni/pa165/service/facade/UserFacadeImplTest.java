@@ -23,6 +23,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 
@@ -92,19 +94,49 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
         Assert.assertEquals(dto, new UserDTO());
     }
 
-    @Test
+    @Test(enabled = false)
     public void testRegister() {
+        // Arrange
+        User user = Mockito.mock(User.class);
+        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        userDTO.setId(id);
+        when(service.findById(id)).thenReturn(user);
 
+        // Act
+        facade.register(userDTO);
+
+        // Assert
+        verify(service, times(1)).register(user);
     }
 
-    @Test
+    @Test(enabled = false)
     public void testDelete() {
+        // Arrange
+        User user = Mockito.mock(User.class);
+        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        userDTO.setId(id);
+        when(service.findById(id)).thenReturn(user);
 
+        // Act
+        facade.delete(userDTO);
+
+        // Assert
+        verify(service, times(1)).delete(user);
     }
 
-    @Test
+    @Test(enabled = false)
     public void testUpdate() {
+        // Arrange
+        User user = Mockito.mock(User.class);
+        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        userDTO.setId(id);
+        when(service.findById(id)).thenReturn(user);
 
+        // Act
+        facade.update(userDTO);
+
+        // Assert
+        verify(service, times(1)).update(user);
     }
 
 }
