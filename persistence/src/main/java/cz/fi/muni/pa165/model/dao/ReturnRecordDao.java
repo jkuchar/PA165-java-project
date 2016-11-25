@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.entity.Car;
+import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.model.entity.ReturnRecord;
 import cz.fi.muni.pa165.model.entity.User;
 
@@ -34,16 +35,22 @@ public interface ReturnRecordDao {
 
     /**
      * Method to retrieve return records with corresponding car.
-     * @param c certain car
+     * @param carId certain car
      * @return list of all return records with certain car
      */
+    public List<ReturnRecord> findByCar(UUID carId);
+
+    @Deprecated
     public List<ReturnRecord> findByCar(Car c);
 
     /**
      * Method to find all return records of certain user.
-     * @param u certain user
+     * @param userId certain user
      * @return list of all return records of certain user
      */
+    public List<ReturnRecord> findByUser(UUID userId);
+
+    @Deprecated
     public List<ReturnRecord> findByUser(User u);
 
     /**
