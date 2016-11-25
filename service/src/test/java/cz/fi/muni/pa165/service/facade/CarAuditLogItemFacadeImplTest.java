@@ -59,7 +59,15 @@ public class CarAuditLogItemFacadeImplTest extends AbstractTestNGSpringContextTe
 
     @Test
     public void testFindById() throws Exception {
+        // Arrange
+        CarAuditLogItem entity = Mockito.mock(CarAuditLogItem.class);
+        when(service.findById(someUUID)).thenReturn(entity);
 
+        // Act
+        final CarAuditLogItemDTO dto = uut.findById(someUUID);
+
+        // Assert
+        Assert.assertEquals(dto, new CarAuditLogItemDTO());
     }
 
     @Test
