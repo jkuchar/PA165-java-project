@@ -20,6 +20,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -29,7 +30,7 @@ import org.testng.annotations.Test;
  * @author charlliz
  */
 @ContextConfiguration(classes = BeanMappingConfiguration.class)
-public class CarFacadeTest {
+public class CarFacadeTest extends AbstractTestNGSpringContextTests {
     
     private CarFacade carFacade;
     
@@ -47,7 +48,7 @@ public class CarFacadeTest {
                 beanMappingService);
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindAll()  {
         List<Car> source = new LinkedList<>();
         source.add(Mockito.mock(Car.class));
@@ -59,7 +60,7 @@ public class CarFacadeTest {
         Assert.assertEquals(collection.get(0), new CarDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testFindById() {
         Car entity = Mockito.mock(Car.class);
         when(carService.findCarById(someUUID)).thenReturn(entity);
