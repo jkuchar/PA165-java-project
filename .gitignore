@@ -19,3 +19,4 @@ lib/*
 /persistence/target/
 /api/target/
 /service/target/
+/rest/target/
