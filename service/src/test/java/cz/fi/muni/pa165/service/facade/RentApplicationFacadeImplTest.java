@@ -1,9 +1,12 @@
 package cz.fi.muni.pa165.service.facade;
 
-import cz.fi.muni.pa165.service.BeanMappingService;
+import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
-import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
+import cz.fi.muni.pa165.api.dto.UserDTO;
+import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentApplication;
+import cz.fi.muni.pa165.model.entity.User;
+import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarService;
 import cz.fi.muni.pa165.service.RentApplicationService;
 import cz.fi.muni.pa165.service.UserService;
@@ -21,7 +24,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 /**
  * @author jkuchar
@@ -29,8 +34,8 @@ import static org.mockito.Mockito.*;
 @ContextConfiguration(classes = BeanMappingConfiguration.class)
 public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTests {
 
-    private RentApplicationFacade uut;
-    private RentApplicationService service;
+    private RentApplicationFacadeImpl uut;
+    private RentApplicationService rentApplicationService;
     private UserService userService;
     private CarService carService;
     private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
@@ -41,10 +46,10 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
     @BeforeMethod
     private void prepare() {
         uut = new RentApplicationFacadeImpl(
-                beanMappingService,
-                service = Mockito.mock(RentApplicationService.class),
-                userService = Mockito.mock(UserService.class),
-                carService = Mockito.mock(CarService.class)
+            beanMappingService,
+            rentApplicationService = Mockito.mock(RentApplicationService.class),
+            userService = Mockito.mock(UserService.class),
+            carService = Mockito.mock(CarService.class)
         );
     }
 
@@ -54,7 +59,7 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         List<RentApplication> source = new LinkedList<>();
         source.add(Mockito.mock(RentApplication.class));
 
-        when(service.findAll()).thenReturn(source);
+        when(rentApplicationService.findAll()).thenReturn(source);
 
         // Act
         final List<RentApplicationDTO> collection = uut.findAll();
@@ -68,7 +73,7 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
     public void testFindById() throws Exception {
         // Arrange
         RentApplication entity = Mockito.mock(RentApplication.class);
-        when(service.findById(someUUID)).thenReturn(entity);
+        when(rentApplicationService.findById(someUUID)).thenReturn(entity);
 
         // Act
         final RentApplicationDTO dto = uut.findById(someUUID);
@@ -83,7 +88,7 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         List<RentApplication> source = new LinkedList<>();
         source.add(Mockito.mock(RentApplication.class));
 
-        when(service.findByCar(someUUID)).thenReturn(source);
+        when(rentApplicationService.findByCar(someUUID)).thenReturn(source);
 
         // Act
         final List<RentApplicationDTO> collection = uut.findByCar(someUUID);
@@ -99,7 +104,7 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         List<RentApplication> source = new LinkedList<>();
         source.add(Mockito.mock(RentApplication.class));
 
-        when(service.findByUser(someUUID)).thenReturn(source);
+        when(rentApplicationService.findByUser(someUUID)).thenReturn(source);
 
         // Act
         final List<RentApplicationDTO> collection = uut.findByUser(someUUID);
@@ -119,7 +124,7 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         Date to = new Date("01/02/2016");
 
 
-        when(service.getRecordsCreatedBetween(from, to)).thenReturn(source);
+        when(rentApplicationService.getRecordsCreatedBetween(from, to)).thenReturn(source);
 
         // Act
         final List<RentApplicationDTO> collection = uut.getRecordsCreatedBetween(from, to);
@@ -130,20 +135,39 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
     }
 
     // todo: enable when other user and car facades will be available
-    @Test(enabled = false)
+    @Test
     public void testCreate() throws Exception {
         // Arrange
-        RentApplicationDTO dto = Mockito.mock(RentApplicationDTO.class);
-        RentApplication entity = Mockito.mock(RentApplication.class);
-        when(entity.getId()).thenReturn(someUUID);
+        // 1. prepare test data (DTOs):
+        RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
+
+        CarDTO carDTO = new CarDTO();
+        carDTO.setId(someUUID);
+        rentApplicationDTO.setCar(carDTO);
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(someUUID);
+        rentApplicationDTO.setUser(userDTO);
+
+        rentApplicationDTO.setComment("ahoj");
+        rentApplicationDTO.setFrom(new Date("2016/01/01"));
+        rentApplicationDTO.setTo(new Date("2016/02/01"));
+
+        // 2. configure user rentApplicationService and entity:
+        User userEntity = Mockito.mock(User.class);
+        when(userService.findById(someUUID)).thenReturn(userEntity);
+
+        // 3. configure car rentApplicationService and entity
+        Car car = Mockito.mock(Car.class);
+        when(carService.findCarById(someUUID)).thenReturn(car);
 
         // Act
-        UUID id = uut.create(dto);
+        UUID id = uut.create(rentApplicationDTO);
 
         // Assert
-        verify(service, times(1)).create(entity);
-        Assert.assertEquals(id, someUUID);
-
+        Assert.assertNotEquals(id, someUUID);
+        Mockito.verify(rentApplicationService, times(1))
+            .create(any(RentApplication.class));
     }
 
 }
