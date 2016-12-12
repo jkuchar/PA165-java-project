@@ -20,3 +20,5 @@ lib/*
 /api/target/
 /service/target/
 /rest/target/
+/sample-data/target/
+/spring-mvc/target/
