@@ -29,6 +29,6 @@
         <module>api</module>
         <module>rest</module>
         <module>sample-data</module>
-    <module>spring-mvc</module>
+        <module>spring-mvc</module>
   </modules>
 </project>
