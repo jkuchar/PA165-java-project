@@ -3,6 +3,7 @@ package cz.fi.muni.pa165.service;
 import cz.fi.muni.pa165.model.dao.ReturnRecordDao;
 import cz.fi.muni.pa165.model.entity.ReturnRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.UUID;
 /**
  * @author jakubsarmir
  */
+@Service
 public class ReturnRecordServiceImpl implements ReturnRecordService{
 
     private final ReturnRecordDao returnRecordDao;
