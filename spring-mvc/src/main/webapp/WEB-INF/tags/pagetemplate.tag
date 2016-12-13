@@ -2,7 +2,7 @@
 <%@ attribute name="title" required="false" %>
 <%@ attribute name="head" fragment="true" %>
 <%@ attribute name="body" fragment="true" required="true" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="carpark" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -14,7 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><c:out value="${title}"/></title>
     <!-- bootstrap loaded from content delivery network -->
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
+    <!-- for favicon uncomment
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/x-icon">
+    -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"  crossorigin="anonymous">
     <jsp:invoke fragment="head"/>
@@ -34,16 +36,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><my:a href="/shopping/show"><f:message key="navigation.eshop"/></my:a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.admin"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><my:a href="/order/list/all"><f:message key="navigation.admin.orders"/></my:a></li>
-                        <li><my:a href="/user/list"><f:message key="navigation.admin.customers"/></my:a></li>
-                        <li><my:a href="/product/list"><f:message key="navigation.admin.products"/></my:a></li>
-                        <li><my:a href="/category/list"><f:message key="navigation.admin.categories"/></my:a></li>
-                    </ul>
-                </li>
+                <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
+                <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
+                <li><carpark:a href="/car/list"><f:message key="navigation.cars"/></carpark:a></li>
+                <li><carpark:a href="/order/list/all"><f:message key="navigation.records"/></carpark:a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -57,15 +53,14 @@
                         <li><a href="http://getbootstrap.com/components/">Bootstrap components</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.about"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://is.muni.cz/predmet/fi/podzim2015/PA165">PA165</a></li>
-                        <li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">SpringMVC</a></li>
-                        <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-                        <li><a href="https://maven.apache.org/">Maven</a></li>
-                    </ul>
-                </li>
+                <c:choose>
+                    <c:when test="${not empty authenticatedUser}">
+                        <li><carpark:a href="/user/detail/${authenticatedUser.userName}"><f:message key="navigation.profile"/></carpark:a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

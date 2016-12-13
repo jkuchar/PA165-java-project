@@ -1,4 +1,4 @@
-package cz.fi.muni.pa165.mvc.config;
+package cz.fi.muni.pa165.springmvc.config;
 
 import cz.fi.muni.pa165.sampledata.CarParkWithSampleDataConfiguration;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ import javax.validation.Validator;
 @EnableWebMvc
 @Configuration
 @Import({CarParkWithSampleDataConfiguration.class})
-@ComponentScan(basePackages = "cz.fi.muni.pa165.spring-mvc.controllers")
+@ComponentScan(basePackages = "cz.fi.muni.pa165.spring-springmvc.controllers")
 public class MySpringMvcConfig extends WebMvcConfigurerAdapter {
 
     final static Logger log = LoggerFactory.getLogger(MySpringMvcConfig.class);
