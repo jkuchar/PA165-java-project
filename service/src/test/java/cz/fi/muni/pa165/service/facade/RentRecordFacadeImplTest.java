@@ -6,13 +6,13 @@ import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.service.*;
 import cz.fi.muni.pa165.service.config.BeanMappingConfiguration;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import javax.inject.Inject;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class RentRecordFacadeImplTest extends AbstractTestNGSpringContextTests {
     private CarService carService;
     private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
 
-    @Inject
+    @Autowired
     private BeanMappingService beanMappingService;
 
     @BeforeMethod

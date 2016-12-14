@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
  * @author charlliz
  */
 @ContextConfiguration(classes = BeanMappingConfiguration.class)
-public class CarServiceTest extends AbstractTestNGSpringContextTests
+public class CarServiceImplTest extends AbstractTestNGSpringContextTests
 {
     private CarDao dao;
     

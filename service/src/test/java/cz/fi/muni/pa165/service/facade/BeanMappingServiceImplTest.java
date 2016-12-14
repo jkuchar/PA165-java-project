@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 /**
  * @author jkuchar
  */
-public class BeanMappingServiceTest
+public class BeanMappingServiceImplTest
 {
     private Mapper dozer;
     private BeanMappingService uut;
