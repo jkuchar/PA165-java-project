@@ -85,7 +85,7 @@ public class CarDTO {
         return type;
     }
 
-    public CarState getCarState() { return state; }
+    public CarState getState() { return state; }
 
     public Date getEstablishDate() {
         return establishDate;

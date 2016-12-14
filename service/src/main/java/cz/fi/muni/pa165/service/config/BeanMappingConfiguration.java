@@ -12,6 +12,7 @@ import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
 import cz.fi.muni.pa165.service.CarServiceImpl;
 import cz.fi.muni.pa165.service.facade.CarFacadeImpl;
+import java.util.Collections;
 import java.util.UUID;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
@@ -38,15 +39,14 @@ public class BeanMappingConfiguration {
     @Bean
     public Mapper dozer() {
         DozerBeanMapper dozer = new DozerBeanMapper();
-        dozer.addMapping(new DozerCustomConfig());
+        dozer.setMappingFiles(Collections.singletonList("mappings.xml"));
         return dozer;
     }
 
     public class DozerCustomConfig extends BeanMappingBuilder {
         @Override
         protected void configure() {
-            mapping(Car.class, CarDTO.class);
-            mapping(UUID.class, UUID.class);          
+            mapping(Car.class, CarDTO.class);         
         }
     }
 
