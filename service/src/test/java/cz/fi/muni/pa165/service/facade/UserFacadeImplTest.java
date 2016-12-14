@@ -2,6 +2,7 @@ package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.UserDTO;
 import cz.fi.muni.pa165.api.facade.UserFacade;
+import cz.fi.muni.pa165.enums.Role;
 import cz.fi.muni.pa165.model.PersonName;
 import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.service.BeanMappingService;
@@ -15,13 +16,12 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * @author rtrembecky
@@ -89,28 +89,33 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
         Assert.assertEquals(dto, new UserDTO());
     }
 
-    @Test(enabled = false)
+    @Test
     public void testRegister() {
         // Arrange
-        User user = Mockito.mock(User.class);
-        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
-        when(service.findById(id)).thenReturn(user);
+        userDTO.setFirstName("Devil");
+        userDTO.setLastName("Lucifer");
+        userDTO.setRole(Role.USER);
+        userDTO.setEmail("666@hell.underground");
+        userDTO.setCreated(new Date("01/02/2016"));
 
         // Act
-        facade.register(userDTO);
+        UUID uuid = facade.register(userDTO);
 
         // Assert
-        verify(service, times(1)).register(user);
+        Assert.assertNotEquals(id, uuid);
+        verify(service, times(1)).register(any(User.class));
     }
 
-    @Test(enabled = false)
+    @Test
     public void testDelete() {
         // Arrange
         User user = Mockito.mock(User.class);
-        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
         when(service.findById(id)).thenReturn(user);
+        doNothing().when(service).delete(user);
 
         // Act
         facade.delete(userDTO);
@@ -119,13 +124,18 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
         verify(service, times(1)).delete(user);
     }
 
-    @Test(enabled = false)
+    @Test
     public void testUpdate() {
         // Arrange
         User user = Mockito.mock(User.class);
-        UserDTO userDTO = Mockito.mock(UserDTO.class);
+        UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
+        userDTO.setFirstName("Devil");
+        userDTO.setLastName("Lucifer");
+        userDTO.setRole(Role.USER);
+        userDTO.setEmail("666@hell.underground");
         when(service.findById(id)).thenReturn(user);
+        doNothing().when(service).update(user);
 
         // Act
         facade.update(userDTO);
