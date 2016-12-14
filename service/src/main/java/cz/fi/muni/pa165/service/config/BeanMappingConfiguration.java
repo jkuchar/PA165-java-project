@@ -6,19 +6,28 @@
 package cz.fi.muni.pa165.service.config;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
+import cz.fi.muni.pa165.model.config.PersistenceApplicationContext;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.BeanMappingServiceImpl;
+import cz.fi.muni.pa165.service.CarServiceImpl;
+import cz.fi.muni.pa165.service.facade.CarFacadeImpl;
+import java.util.UUID;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.dozer.loader.api.BeanMappingBuilder;
+import org.dozer.loader.api.TypeMappingOptions;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author charlizz
  */
 @Configuration
+@Import(PersistenceApplicationContext.class)
+@ComponentScan(basePackageClasses={CarServiceImpl.class, CarFacadeImpl.class})
 public class BeanMappingConfiguration {
 
     @Bean
@@ -37,6 +46,7 @@ public class BeanMappingConfiguration {
         @Override
         protected void configure() {
             mapping(Car.class, CarDTO.class);
+            mapping(UUID.class, UUID.class);          
         }
     }
 

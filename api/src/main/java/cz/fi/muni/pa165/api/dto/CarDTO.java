@@ -54,9 +54,13 @@ public class CarDTO {
     public void setType(String type){
         this.type = type;
     }
+    
+    public int getSeats() {
+        return seats;
+    }
 
-    public void setNumberOfSeats(int numberOfSeats){
-        this.seats = numberOfSeats;
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     public UUID getId() { return id; }
@@ -80,8 +84,6 @@ public class CarDTO {
     public String getType() {
         return type;
     }
-
-    public int getNumberOfSeats() { return seats; }
 
     public CarState getCarState() { return state; }
 

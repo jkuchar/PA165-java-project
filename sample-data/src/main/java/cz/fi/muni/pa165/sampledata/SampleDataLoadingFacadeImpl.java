@@ -1,14 +1,14 @@
 package cz.fi.muni.pa165.sampledata;
 
-//todo: add imports
-/*import cz.fi.muni.pa165.dto.Color;
-import cz.fi.muni.pa165.entity.*;
-import cz.fi.muni.pa165.enums.Currency;
-import cz.fi.muni.pa165.enums.OrderState;
-import cz.fi.muni.pa165.service.CategoryService;
-import cz.fi.muni.pa165.service.OrderService;
-import cz.fi.muni.pa165.service.ProductService;
-import cz.fi.muni.pa165.service.UserService;*/
+
+import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
+import cz.fi.muni.pa165.service.ApplicationRejectedRecordService;
+import cz.fi.muni.pa165.service.CarAuditLogItemService;
+import cz.fi.muni.pa165.service.CarService;
+import cz.fi.muni.pa165.service.RentApplicationService;
+import cz.fi.muni.pa165.service.RentRecordService;
+import cz.fi.muni.pa165.service.ReturnRecordService;
+import cz.fi.muni.pa165.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,23 +30,28 @@ import java.util.Random;
  * @author
  */
 @Component
-@Transactional //transactions are handled on facade layer
+@Transactional 
 public class SampleDataLoadingFacadeImpl implements SampleDataLoadingFacade {
 
     final static Logger log = LoggerFactory.getLogger(SampleDataLoadingFacadeImpl.class);
 
-    //todo: add corresponding services
-/*    @Autowired
-    private OrderService orderService;
+    @Autowired
+    private CarService carService;
     @Autowired
     private UserService userService;
     @Autowired
-    private CategoryService categoryService;
+    private ApplicationApprovedRecordService approvedService;
     @Autowired
-    private ProductService productService;
-
-    public static final String JPEG = "image/jpeg";
-*/
+    private ApplicationRejectedRecordService rejectedService;
+    @Autowired
+    private RentApplicationService rentApplicationService;
+    @Autowired
+    private RentRecordService rentRecordService;
+    @Autowired
+    private ReturnRecordService returnRecordService;
+    @Autowired
+    private CarAuditLogItemService logItemService;
+    
     @Override
     @SuppressWarnings("unused")
     public void loadData() throws IOException {

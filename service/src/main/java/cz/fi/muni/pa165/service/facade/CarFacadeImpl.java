@@ -26,19 +26,20 @@ import java.util.UUID;
 @Transactional
 public class CarFacadeImpl implements CarFacade {
     
+ 
     private final CarService carService;
 
     private final BeanMappingService beanMappingService;
 
     @Autowired
-    public CarFacadeImpl(CarService carService, BeanMappingService beanMappingService) {
+    public CarFacadeImpl (CarService carService, BeanMappingService beanMappingService) {
         this.carService = carService;
         this.beanMappingService = beanMappingService;
     }
-
+    
     @Override
     public UUID createCar(CarDTO car) {
-        Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getNumberOfSeats(),car.getEstablishDate());
+        Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getSeats());
         carService.createCar(c);
         return  c.getId();
     }
