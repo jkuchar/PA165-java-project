@@ -2,7 +2,6 @@ package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.ApplicationApprovedRecordDTO;
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.api.dto.RentApplicationDTO;
 import cz.fi.muni.pa165.api.dto.UserDTO;
 import cz.fi.muni.pa165.api.facade.ApplicationApprovedRecordFacade;
 import cz.fi.muni.pa165.enums.Role;
@@ -13,13 +12,12 @@ import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.service.*;
 import cz.fi.muni.pa165.service.config.BeanMappingConfiguration;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import javax.inject.Inject;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -43,7 +41,7 @@ public class ApplicationApprovedRecordFacadeImplTest extends AbstractTestNGSprin
     private UserDTO userDTO;
     private UUID id;
 
-    @Inject
+    @Autowired
     private BeanMappingService beanMappingService;
 
     @BeforeMethod

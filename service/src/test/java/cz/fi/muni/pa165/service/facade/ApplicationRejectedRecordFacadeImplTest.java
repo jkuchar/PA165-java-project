@@ -23,11 +23,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import javax.inject.Inject;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
@@ -39,7 +40,7 @@ import org.testng.annotations.Test;
  * @author charlliz
  */
 @ContextConfiguration(classes = BeanMappingConfiguration.class)
-public class ApplicationRejectedRecordFacadeTest extends AbstractTestNGSpringContextTests  {
+public class ApplicationRejectedRecordFacadeImplTest extends AbstractTestNGSpringContextTests  {
 
     private ApplicationRejectedRecordFacade applicationFacade;
     
@@ -53,7 +54,7 @@ public class ApplicationRejectedRecordFacadeTest extends AbstractTestNGSpringCon
     
     private final UUID someUUID = UUID.fromString("123e4567-e89b-12d3-a456-426655440000");
 
-    @Inject
+    @Autowired
     private BeanMappingService beanMappingService;
 
     @BeforeMethod
