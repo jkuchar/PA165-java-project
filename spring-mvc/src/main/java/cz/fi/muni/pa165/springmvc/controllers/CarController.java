@@ -42,6 +42,11 @@ public class CarController {
     @Autowired
     private CarFacade carFacade;
 
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String list(Model model) {
+        return list("all", model);
+    }
+
     @RequestMapping(value = "/list/{filter}", method = RequestMethod.GET)
     public String list(@PathVariable String filter, Model model) {
         List<CarDTO> cars;

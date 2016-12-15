@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.controllers;
+package cz.fi.muni.pa165.rest.controllers;
 
 import cz.fi.muni.pa165.rest.ApiUris;
 import java.util.Collections;
@@ -35,10 +35,11 @@ public class MainController {
         Map<String,String> resourcesMap = new HashMap<>();
         
         resourcesMap.put("cars_uri", ApiUris.ROOT_URI_CARS);
-        resourcesMap.put("records_uri", ApiUris.ROOT_URI_RECORDS);
         resourcesMap.put("users_uri", ApiUris.ROOT_URI_USERS);
+        resourcesMap.put("records_uri", ApiUris.ROOT_URI_RECORDS);
         resourcesMap.put("rejected_uri", ApiUris.ROOT_URI_REJECTED);
-        
+        resourcesMap.put("approved_uri", ApiUris.ROOT_URI_APPROVED);
+
         return Collections.unmodifiableMap(resourcesMap);
         
     }
