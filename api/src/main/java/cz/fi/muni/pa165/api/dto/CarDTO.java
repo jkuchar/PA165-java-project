@@ -21,6 +21,14 @@ public class CarDTO {
 
     private String serialNumber;
 
+    public void setEstablishDate(Date establishDate) {
+        this.establishDate = establishDate;
+    }
+
+    public void setDiscardDate(Date discardDate) {
+        this.discardDate = discardDate;
+    }
+
     private String regPlateNumber;
 
     private String manufacturer;
