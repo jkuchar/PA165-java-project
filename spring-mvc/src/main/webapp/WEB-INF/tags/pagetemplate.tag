@@ -39,7 +39,17 @@
                 <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
                 <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
                 <li><carpark:a href="/car/list"><f:message key="navigation.cars"/></carpark:a></li>
-                <li><carpark:a href="/order/list/all"><f:message key="navigation.records"/></carpark:a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
+                        <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
+                        <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
+                        <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">

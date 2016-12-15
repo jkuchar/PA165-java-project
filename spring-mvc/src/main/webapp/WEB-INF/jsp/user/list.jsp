@@ -8,20 +8,19 @@
 <carpark:pagetemplate title="Users">
 <jsp:attribute name="body">
     <table class="table">
-        <caption>Users</caption>
         <thead>
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>email</th>
-            <th>created</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Creation date</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${users}" var="user">
             <tr>
                 <td>${user.id}</td>
-                <td><c:out value="${user.name}"/></td>
+                <td><c:out value="${user.firstName} ${user.lastName}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><fmt:formatDate value="${user.created}" pattern="yyyy-MM-dd"/></td>
             </tr>
