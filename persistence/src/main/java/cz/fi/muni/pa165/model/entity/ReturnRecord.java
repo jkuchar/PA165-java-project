@@ -50,6 +50,10 @@ public class ReturnRecord extends CarAuditLogItem{
     public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer) {
         this(car, user, rent, comment, fuel, odometer, new Date());
     }
+    
+    public ReturnRecord(String comment,RentRecord rent, int fuel, int odometer) {
+        this(rent.getCar(), rent.getUser(), rent, comment, fuel, odometer, new Date());
+    }
  
     public int getFuelState() {
         return fuelState;

@@ -11,6 +11,7 @@ import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

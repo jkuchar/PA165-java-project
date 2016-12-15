@@ -76,7 +76,7 @@ public class UserServiceImplTest {
         User user = Mockito.mock(User.class);
 
         // Act
-        service.register(user);
+        service.register(user, "password123+");
 
         // Assert
         verify(dao, times(1)).create(user);

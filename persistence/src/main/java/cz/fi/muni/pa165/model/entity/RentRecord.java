@@ -51,6 +51,10 @@ public class RentRecord extends CarAuditLogItem{
     public RentRecord(Car car, User user, ApplicationApprovedRecord approved, String comment, int fuel, int odometer) {
         this(car, user, approved, comment, fuel, odometer, new Date());
     }
+    
+    public RentRecord(String comment, ApplicationApprovedRecord approved, int fuel, int odometer) {
+        this(approved.getCar(), approved.getUser(), approved, comment, fuel, odometer, new Date());
+    }
 
     public int getFuelState() {
         return fuelState;

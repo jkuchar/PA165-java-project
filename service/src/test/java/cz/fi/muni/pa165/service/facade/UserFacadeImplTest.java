@@ -101,11 +101,11 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
         userDTO.setCreated(new Date("01/02/2016"));
 
         // Act
-        UUID uuid = facade.register(userDTO);
+        UUID uuid = facade.register(userDTO, "password123+");
 
         // Assert
         Assert.assertNotEquals(id, uuid);
-        verify(service, times(1)).register(any(User.class));
+        verify(service, times(1)).register(any(User.class), any(String.class));
     }
 
     @Test

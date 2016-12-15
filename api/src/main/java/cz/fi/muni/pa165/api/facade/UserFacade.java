@@ -33,8 +33,9 @@ public interface UserFacade {
     /**
      * Register a new user.
      * @param u is new user
+     * @param unencryptedPassword is new password
      */
-    UUID register(UserDTO u);
+    UUID register(UserDTO u, String unencryptedPassword);
 
     /**
      * Delete user from database.

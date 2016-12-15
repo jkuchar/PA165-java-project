@@ -52,6 +52,10 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
         this(car, user, from, to, comment, app, new Date());
     }
     
+    public ApplicationApprovedRecord(String comment, RentApplication app) {
+        this(app.getCar(), app.getUser(), app.getFrom(), app.getTo(), comment, app, new Date());
+    }
+    
     public Date getFrom() {
         return from;
     }

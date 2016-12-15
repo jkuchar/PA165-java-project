@@ -41,7 +41,7 @@
             </tr>    
             <tr>
                 <td>Car</td>
-                <td><c:out value="${record.carDTO.manufacturer} ${record.carDTO.type}"/></td>
+                <td><c:out value="${record.carDTO.manufacturer} ${car.type}"/></td>
             </tr> 
             <tr>
                 <td>Vehicle registration plate</td>
