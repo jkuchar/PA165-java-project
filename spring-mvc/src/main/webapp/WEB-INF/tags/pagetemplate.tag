@@ -2,7 +2,7 @@
 <%@ attribute name="title" required="false" %>
 <%@ attribute name="head" fragment="true" %>
 <%@ attribute name="body" fragment="true" required="true" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="carpark" %>
+<%@ taglib prefix="carpark" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -38,7 +38,7 @@
             <ul class="nav navbar-nav">
                 <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
                 <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
-                <li><carpark:a href="/car/list"><f:message key="navigation.cars"/></carpark:a></li>
+                <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
                 <li><carpark:a href="/order/list/all"><f:message key="navigation.records"/></carpark:a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
