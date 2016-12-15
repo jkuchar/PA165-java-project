@@ -10,8 +10,9 @@ package cz.fi.muni.pa165.rest;
  * @author charlliz
  */
 public abstract class ApiUris {
-    public static final String ROOT_URI_CARS   = "/cars"; 
-    public static final String ROOT_URI_USERS      = "/users";
-    public static final String ROOT_URI_RECORDS     = "/records";
-    public static final String ROOT_URI_REJECTED = "/records/rejected";  
+    public static final String ROOT_URI_CARS = "/cars";
+    public static final String ROOT_URI_USERS = "/users";
+    public static final String ROOT_URI_RECORDS = "/records";
+    public static final String ROOT_URI_REJECTED = "/records/rejected";
+    public static final String ROOT_URI_APPROVED = "/records/approved";
 }

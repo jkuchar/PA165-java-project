@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.fi.muni.pa165.controllers;
+package cz.fi.muni.pa165.rest.controllers;
 
 import cz.fi.muni.pa165.rest.ApiError;
 import cz.fi.muni.pa165.rest.exceptions.ResourceAlreadyExistingException;

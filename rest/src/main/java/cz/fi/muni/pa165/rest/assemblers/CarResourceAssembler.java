@@ -6,7 +6,7 @@
 package cz.fi.muni.pa165.rest.assemblers;
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
-import cz.fi.muni.pa165.controllers.CarsControllerHateoas;
+import cz.fi.muni.pa165.rest.controllers.CarsControllerHateoas;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
