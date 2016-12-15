@@ -26,17 +26,17 @@
             <%-- Because there is no static analysis right now, this will be hell to refactor in case there will be change in DTO --%>
             <tr>
                 <td><fmt:formatDate value="${logItem.created}" pattern="yyyy-MM-dd"/></td>
-                <td title="<c:out value="ID: ${logItem.id}" />" class="this-is-important">
+                <td title="<c:out value="log item ID: ${logItem.id}" />" class="this-is-important">
                     <c:out value="${logItem.type}"/>
                 </td>
-                <td title="<c:out value="ID: ${logItem.car.id}" />">
+                <td title="<c:out value="car ID: ${logItem.car.id}" />">
                     <c:out value="${logItem.car.manufacturer}"/> <c:out value="${logItem.car.type}"/>
                     (<c:out value="${logItem.car.regPlateNumber}"/>)
                 </td>
                 <td>
                     <c:out value="${logItem.comment}"/>
                 </td>
-                <td title="ID: <c:out value="${logItem.user.id}"/>">
+                <td title="user ID: <c:out value="${logItem.user.id}"/>">
                     <c:out value="${logItem.user.firstName}"/> <c:out value="${logItem.user.lastName}"/> (<c:out value="${logItem.user.email}"/>)
                 </td>
             </tr>
