@@ -27,8 +27,8 @@
         <c:forEach items="${records}" var="record">
             <tr>
                 <td>${record.id}</td>
-                <td><c:out value="${record.userDTO.firstName} ${record.userDTO.lastName}"/></td>
-                <td><c:out value="${record.carDTO.manufacturer}"/></td>
+                <td><c:out value="${record.user.email}"/></td>
+                <td><c:out value="${record.car.manufacturer} ${record.car.type}"/></td>
                 <td><fmt:formatDate value="${record.created}" pattern="yyyy-MM-dd"/></td>
                 <td>
                     <my:a href="/rejected/view/${record.id}" class="btn btn-primary">View</my:a>

@@ -74,8 +74,8 @@ public class ReturnRecordFacadeImpl implements ReturnRecordFacade{
 
     @Override
     public UUID create(ReturnRecordDTO r) {
-        Car car = carService.findCarById(r.getCarDto().getId());
-        User user = userService.findById(r.getUserDto().getId());
+        Car car = carService.findCarById(r.getCar().getId());
+        User user = userService.findById(r.getUser().getId());
         RentRecord rentRecord = rentRecordService.findById(r.getId());
         ReturnRecord rr = new ReturnRecord(car, user, rentRecord, r.getComment(), r.getFuelState(), r.getOdometerState(), r.getCreated());
         return rr.getId();

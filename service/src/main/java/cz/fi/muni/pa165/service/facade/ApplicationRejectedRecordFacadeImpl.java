@@ -57,9 +57,9 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
     @Override
     public UUID create(ApplicationRejectedRecordDTO r) {
         
-        User user = userService.findById(r.getUserDTO().getId());
-        Car car = carService.findCarById(r.getCarDTO().getId());
-        RentApplication rent = rentService.findById(r.getRentApplicationDTO().getId());
+        User user = userService.findById(r.getUser().getId());
+        Car car = carService.findCarById(r.getCar().getId());
+        RentApplication rent = rentService.findById(r.getRentApplication().getId());
         ApplicationRejectedRecord record = new ApplicationRejectedRecord(car,user,r.getComment(),rent);
         recordService.create(record);
         return  record.getId();

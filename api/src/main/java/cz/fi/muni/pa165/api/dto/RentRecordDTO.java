@@ -11,9 +11,9 @@ public class RentRecordDTO {
 
     private UUID id;
 
-    private CarDTO carDto;
+    private CarDTO car;
 
-    private UserDTO userDto;
+    private UserDTO user;
 
     private Date created;
 
@@ -33,20 +33,20 @@ public class RentRecordDTO {
         this.id = id;
     }
 
-    public CarDTO getCarDto() {
-        return carDto;
+    public CarDTO getCar() {
+        return car;
     }
 
-    public void setCarDto(CarDTO carDto) {
-        this.carDto = carDto;
+    public void setCar(CarDTO carDto) {
+        this.car = carDto;
     }
 
-    public UserDTO getUserDto() {
-        return userDto;
+    public UserDTO getUser() {
+        return user;
     }
 
-    public void setUserDto(UserDTO userDto) {
-        this.userDto = userDto;
+    public void setUser(UserDTO userDto) {
+        this.user = userDto;
     }
 
     public Date getCreated() {
@@ -81,11 +81,11 @@ public class RentRecordDTO {
         this.odometerState = odometerState;
     }
 
-    public ApplicationApprovedRecordDTO getApprovedRecordDto() {
+    public ApplicationApprovedRecordDTO getApprovedRecord() {
         return approvedRecordDto;
     }
 
-    public void setApprovedRecordDto(ApplicationApprovedRecordDTO approvedRecordDto) {
+    public void setApprovedRecord(ApplicationApprovedRecordDTO approvedRecordDto) {
         this.approvedRecordDto = approvedRecordDto;
     }
 
@@ -95,8 +95,8 @@ public class RentRecordDTO {
         if (o == null || getClass() != o.getClass()) return false;
         RentRecordDTO that = (RentRecordDTO) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(carDto, that.carDto) &&
-                Objects.equals(userDto, that.userDto) &&
+                Objects.equals(car, that.car) &&
+                Objects.equals(user, that.user) &&
                 Objects.equals(created, that.created) &&
                 Objects.equals(comment, that.comment) &&
                 Objects.equals(fuelState, that.fuelState) &&
@@ -106,6 +106,6 @@ public class RentRecordDTO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, carDto, userDto, created, comment, fuelState, odometerState, approvedRecordDto);
+        return Objects.hash(id, car, user, created, comment, fuelState, odometerState, approvedRecordDto);
     }
 }

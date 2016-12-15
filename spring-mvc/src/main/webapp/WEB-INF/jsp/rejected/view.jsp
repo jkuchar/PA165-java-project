@@ -37,15 +37,15 @@
             </tr>             
             <tr>
                 <td>User</td>
-                <td><c:out value="${record.userDTO.firstName} ${record.userDTO.lastName}"/></td>
+                <td><c:out value="${record.user.email}"/></td>
             </tr>    
             <tr>
                 <td>Car</td>
-                <td><c:out value="${record.carDTO.manufacturer} ${car.type}"/></td>
+                <td><c:out value="${record.car.manufacturer} ${record.car.type}"/></td>
             </tr> 
             <tr>
                 <td>Vehicle registration plate</td>
-                <td><c:out value="${record.carDTO.regPlateNumber}"/></td>
+                <td><c:out value="${record.car.regPlateNumber}"/></td>
             </tr> 
         </tbody>
     </table>
