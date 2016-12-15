@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.model.entity;
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -31,6 +32,8 @@ public abstract class CarAuditLogItem {
     private Date created;
 
     private String comment;
+
+    public abstract CarAuditLogItemType getType();
 
     public CarAuditLogItem(Car car, User user, String comment, Date created) {
         this.id = UUID.randomUUID();

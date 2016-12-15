@@ -19,4 +19,6 @@ public interface CarAuditLogItemService {
     List<CarAuditLogItem> findByUser(UUID userId);
 
     List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to);
+
+    List<CarAuditLogItem> findAllFromNewest();
 }

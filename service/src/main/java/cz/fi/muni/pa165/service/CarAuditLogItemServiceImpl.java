@@ -1,7 +1,6 @@
 package cz.fi.muni.pa165.service;
 
 import cz.fi.muni.pa165.model.dao.CarAuditLogItemDao;
-import cz.fi.muni.pa165.model.dao.CarAuditLogItemDaoImpl;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +45,10 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
     @Override
     public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to) {
         return dao.getRecordsCreatedBetween(from, to);
+    }
+
+    @Override
+    public List<CarAuditLogItem> findAllFromNewest() {
+        return dao.findAllFromNewest();
     }
 }

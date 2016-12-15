@@ -53,4 +53,6 @@ public interface CarAuditLogItemDao {
      * @return list of all car audit log items which were created between certain dates
      */
     public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to);
+
+    List<CarAuditLogItem> findAllFromNewest();
 }

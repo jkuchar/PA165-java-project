@@ -24,6 +24,8 @@ public class CarAuditLogItemDTO {
 
     private String comment;
 
+    private String type;
+
     public UUID getId() {
         return id;
     }
@@ -63,7 +65,14 @@ public class CarAuditLogItemDTO {
     public void setUser(UserDTO user) {
         this.user = user;
     }
-      
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public boolean equals(Object o) {
