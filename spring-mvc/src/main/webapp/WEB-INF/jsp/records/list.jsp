@@ -12,11 +12,11 @@
         <caption>Latest book records:</caption>
         <thead>
         <tr>
+            <th>Recorded at</th>
             <th>Type</th>
             <th>Car</th>
             <th>Comment</th>
             <th>Employee</th>
-            <th>Recorded at</th>
         </tr>
         </thead>
         <tbody>
@@ -25,20 +25,20 @@
             <%-- BTW: this whole block is wrong; these data should be prepared into custumly designed DTO in controller to make future refactoring easy --%>
             <%-- Because there is no static analysis right now, this will be hell to refactor in case there will be change in DTO --%>
             <tr>
-                <td title="<c:out value="ID: ${logItem.id}" />">
+                <td><fmt:formatDate value="${logItem.created}" pattern="yyyy-MM-dd"/></td>
+                <td title="<c:out value="ID: ${logItem.id}" />" class="this-is-important">
                     <c:out value="${logItem.type}"/>
                 </td>
                 <td title="<c:out value="ID: ${logItem.car.id}" />">
                     <c:out value="${logItem.car.manufacturer}"/> <c:out value="${logItem.car.type}"/>
                     (<c:out value="${logItem.car.regPlateNumber}"/>)
                 </td>
-                <td class="this-is-important">
+                <td>
                     <c:out value="${logItem.comment}"/>
                 </td>
                 <td title="ID: <c:out value="${logItem.user.id}"/>">
                     <c:out value="${logItem.user.firstName}"/> <c:out value="${logItem.user.lastName}"/> (<c:out value="${logItem.user.email}"/>)
                 </td>
-                <td><fmt:formatDate value="${logItem.created}" pattern="yyyy-MM-dd"/></td>
             </tr>
         </c:forEach>
         </tbody>
