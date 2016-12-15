@@ -4,7 +4,6 @@ import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import cz.fi.muni.pa165.model.entity.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -66,5 +65,11 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
         query.setParameter("fromDate", from);
         query.setParameter("toDate", to);
         return query.getResultList();
+    }
+
+    @Override
+    public List<CarAuditLogItem> findAllFromNewest() {
+        return em.createQuery(
+                "SELECT i FROM CarAuditLogItem i ORDER BY i.created DESC ", CarAuditLogItem.class).getResultList();
     }
 }

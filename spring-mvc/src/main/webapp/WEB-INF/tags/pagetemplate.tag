@@ -39,7 +39,7 @@
                 <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
                 <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
                 <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
-                <li><carpark:a href="/order/list/all"><f:message key="navigation.records"/></carpark:a></li>
+                <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
