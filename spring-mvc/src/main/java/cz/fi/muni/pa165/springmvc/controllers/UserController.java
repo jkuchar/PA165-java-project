@@ -1,10 +1,13 @@
 package cz.fi.muni.pa165.springmvc.controllers;
 
+import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
 import cz.fi.muni.pa165.api.dto.UserDTO;
+import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.UserFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +29,9 @@ public class UserController {
     @Autowired
     private UserFacade userFacade;
 
+    @Autowired
+    private CarAuditLogItemFacade carAuditLogItemFacade;
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         log.debug("list()");
@@ -44,5 +50,14 @@ public class UserController {
         }
         model.addAttribute("user", user);
         return "user/detail";
+    }
+
+    /**
+     * @author jkuchar
+     */
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public String view(@PathVariable UUID id, Model model) {
+        model.addAttribute("logItems", carAuditLogItemFacade.findByUser(id));
+        return "user/view";
     }
 }

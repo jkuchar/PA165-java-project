@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="carpark" tagdir="/WEB-INF/tags" %>
 
 <my:pagetemplate title="Car detail">
 <jsp:attribute name="body">
@@ -61,6 +62,8 @@
             </tr>
         </tbody>
     </table>
+
+    <carpark:logitemlist logItems="${logItems}" />
 
 </jsp:attribute>
 </my:pagetemplate>

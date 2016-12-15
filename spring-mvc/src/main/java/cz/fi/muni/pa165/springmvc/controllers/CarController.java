@@ -7,6 +7,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.CarDTO;
+import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,10 @@ public class CarController {
 
     @Autowired
     private CarFacade carFacade;
+
+    @Autowired
+    private CarAuditLogItemFacade carAuditLogItemFacade;
+
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
@@ -81,6 +86,7 @@ public class CarController {
     public String view(@PathVariable UUID id, Model model) {
         log.debug("view({})", id);
         model.addAttribute("car", carFacade.findCarById(id));
+        model.addAttribute("logItems", carAuditLogItemFacade.findByCar(id));
         return "car/view";
     }
 

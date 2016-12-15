@@ -32,9 +32,7 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
 
         List<CarAuditLogItemDTO> dtos = new ArrayList<>();
         for(CarAuditLogItem item : in) {
-            CarAuditLogItemDTO dto = mapTo(item);
-
-            dtos.add(dto);
+            dtos.add(mapTo(item));
         }
         return dtos;
     }
