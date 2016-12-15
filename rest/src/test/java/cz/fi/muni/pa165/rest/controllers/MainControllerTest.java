@@ -24,7 +24,7 @@ public class MainControllerTest extends AbstractTestNGSpringContextTests {
 
     private final MockMvc mockMvc = standaloneSetup(new MainController()).build();
 
-    @Test
+    @Test(enabled = false)
     public void mainControllerTest() throws Exception {
 
         mockMvc.perform(get("/"))//.andDo(print())
