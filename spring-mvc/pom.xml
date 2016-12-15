@@ -101,7 +101,8 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <scope>test</scope>
+            <version>4.3.3.RELEASE</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>

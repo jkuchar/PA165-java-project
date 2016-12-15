@@ -31,6 +31,10 @@ public class ApplicationRejectedRecord extends CarAuditLogItem {
     public ApplicationRejectedRecord(Car car, User user, String comment, RentApplication application) {
         this(car, user, comment, application, new Date());
     }
+    
+    public ApplicationRejectedRecord(String comment, RentApplication application) {
+        this(application.getCar(), application.getUser(), comment, application, new Date());
+    }
 
     public RentApplication getApplication() {
         return application;

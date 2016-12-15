@@ -47,7 +47,7 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public UUID register(UserDTO u) {
+    public UUID register(UserDTO u, String unencryptedPassword) {
         PersonName personName = new PersonName(u.getFirstName(), u.getLastName());
         Role role;
         switch (u.getRole()) {
@@ -59,8 +59,9 @@ public class UserFacadeImpl implements UserFacade {
                 break;
             default: role = Role.USER;
         }
+        
         User user = new User(personName, role, u.getEmail(), u.getCreated());
-        userService.register(user);
+        userService.register(user, unencryptedPassword);
         return user.getId();
     }
 

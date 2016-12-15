@@ -34,8 +34,9 @@ public interface UserService {
     /**
      * Register a new user.
      * @param u is new user
+     * @param unencryptedPassword is new password
      */
-    void register(User u);
+    void register(User u, String unencryptedPassword);
 
     /**
      * Delete user from database.

@@ -11,6 +11,7 @@ import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,19 +27,20 @@ import java.util.UUID;
 @Transactional
 public class CarFacadeImpl implements CarFacade {
     
+ 
     private final CarService carService;
 
     private final BeanMappingService beanMappingService;
 
     @Autowired
-    public CarFacadeImpl(CarService carService, BeanMappingService beanMappingService) {
+    public CarFacadeImpl (CarService carService, BeanMappingService beanMappingService) {
         this.carService = carService;
         this.beanMappingService = beanMappingService;
     }
-
+    
     @Override
     public UUID createCar(CarDTO car) {
-        Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getNumberOfSeats(),car.getEstablishDate());
+        Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getSeats());
         carService.createCar(c);
         return  c.getId();
     }

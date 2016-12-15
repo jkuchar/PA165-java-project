@@ -21,6 +21,8 @@ public class UserDTO {
     private String email;
 
     private Date created;
+    
+    private String passwordHash;
 
     public UUID getId() {
         return id;
@@ -68,6 +70,14 @@ public class UserDTO {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+    
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public boolean equals(Object o) {
