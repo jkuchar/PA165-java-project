@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.model.entity;
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.springframework.util.Assert;
 
 import javax.persistence.Entity;
@@ -66,8 +67,13 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     
     public RentApplication getApplication() {
         return application;
-    } 
-    
+    }
+
+    @Override
+    public CarAuditLogItemType getType() {
+        return CarAuditLogItemType.APPLICATION_APPROVED;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

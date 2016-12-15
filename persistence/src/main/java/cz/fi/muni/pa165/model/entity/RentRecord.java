@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.model.entity;
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.springframework.util.Assert;
 
 import javax.persistence.Column;
@@ -31,7 +32,12 @@ public class RentRecord extends CarAuditLogItem{
     @NotNull
     @OneToOne
     private ApplicationApprovedRecord approvedRecord;
-    
+
+    @Override
+    public CarAuditLogItemType getType() {
+        return CarAuditLogItemType.RENT_RECORD;
+    }
+
     protected RentRecord() {}
     
     public RentRecord(Car car, User user, ApplicationApprovedRecord approved, String comment, int fuel, int odometer, Date created) {

@@ -1,6 +1,7 @@
 package cz.fi.muni.pa165.model.entity;
 
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.springframework.util.Assert;
 
 import javax.persistence.Entity;
@@ -18,6 +19,11 @@ public class ApplicationRejectedRecord extends CarAuditLogItem {
     @NotNull
     @OneToOne
     private RentApplication application;
+
+    @Override
+    public CarAuditLogItemType getType() {
+        return CarAuditLogItemType.APPLICATION_REJECTED;
+    }
 
     protected ApplicationRejectedRecord() {}
     

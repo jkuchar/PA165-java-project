@@ -14,6 +14,8 @@ public interface CarAuditLogItemFacade {
 
     List<CarAuditLogItemDTO> findAll();
 
+    List<CarAuditLogItemDTO> findAllFromNewest();
+
     CarAuditLogItemDTO findById(UUID id);
 
     List<CarAuditLogItemDTO> findByCar(UUID carId);

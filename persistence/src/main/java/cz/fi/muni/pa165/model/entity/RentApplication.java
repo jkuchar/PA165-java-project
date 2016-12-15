@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.model.entity;
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.springframework.util.Assert;
 
 import javax.persistence.Entity;
@@ -28,7 +29,12 @@ public class RentApplication extends CarAuditLogItem{
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date to;
-    
+
+    @Override
+    public CarAuditLogItemType getType() {
+        return CarAuditLogItemType.RENT_APPLICATION;
+    }
+
     protected RentApplication() {}
     
     public RentApplication(Car car, User user, String comment, Date from, Date to, Date created) {
