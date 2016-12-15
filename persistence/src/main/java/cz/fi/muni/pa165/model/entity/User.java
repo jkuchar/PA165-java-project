@@ -42,6 +42,8 @@ public class User {
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+    
+    private String passwordHash;
 
     protected User() {}
 
@@ -108,6 +110,15 @@ public class User {
     
     public Date getCreated() {
         return created;
+    }
+    
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+    
+    public void setPasswordHash(String passwordHash) {
+        Assert.notNull(passwordHash, "Password cannot be null.");
+        this.passwordHash = passwordHash;
     }
 
     @Override

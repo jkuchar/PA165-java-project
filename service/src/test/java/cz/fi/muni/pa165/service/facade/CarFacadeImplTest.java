@@ -83,5 +83,5 @@ public class CarFacadeImplTest extends AbstractTestNGSpringContextTests {
         verify(carService, times(1)).createCar(entity);
         Assert.assertEquals(id, someUUID);
 
-    }        
+    }       
 }

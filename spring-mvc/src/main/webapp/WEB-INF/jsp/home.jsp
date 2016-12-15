@@ -10,6 +10,8 @@
 
     <div class="jumbotron">
         <h1>Welcome to Car Park!</h1>
+        <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/car/list/all"
+              role="button">View cars</a></p>
     </div>
 
 </jsp:attribute>
