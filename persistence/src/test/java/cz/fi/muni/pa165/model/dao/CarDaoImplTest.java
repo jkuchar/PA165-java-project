@@ -114,7 +114,7 @@ public class CarDaoImplTest extends AbstractTransactionalTestNGSpringContextTest
     public void testFindByState() throws Exception {
 
         Car original = buildCar();
-        CarState carState = original.getCarState();
+        CarState carState = original.getState();
 
         {
             List<Car> carsInState = carDao.findByState(carState);
