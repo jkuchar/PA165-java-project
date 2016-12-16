@@ -46,6 +46,7 @@
                 <td><c:out value="${car.state}"/></td>
                 <td>
                     <my:a href="/car/view/${car.id}" class="btn btn-primary">Detail</my:a>
+                    <my:a href="/records/add/${car.id}" class="btn btn-default">Record</my:a>
                 </td>
             </tr>
         </c:forEach>

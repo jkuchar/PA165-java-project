@@ -39,7 +39,12 @@ public class ReturnRecord extends CarAuditLogItem{
     }
 
     protected ReturnRecord() {}
-    
+
+    @Override
+    public RentApplication getRentApplication() {
+        return rentRecord.getRentApplication();
+    }
+
     public ReturnRecord(Car car, User user, RentRecord rent, String comment, int fuel, int odometer, Date created) {
         super(car, user, comment, created);
         

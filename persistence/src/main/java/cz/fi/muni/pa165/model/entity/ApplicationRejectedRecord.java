@@ -26,7 +26,12 @@ public class ApplicationRejectedRecord extends CarAuditLogItem {
     }
 
     protected ApplicationRejectedRecord() {}
-    
+
+    @Override
+    public RentApplication getRentApplication() {
+        return application;
+    }
+
     public ApplicationRejectedRecord(Car car, User user, String comment, RentApplication application, Date created) {
         super(car, user, comment, created);
 
