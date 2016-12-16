@@ -39,7 +39,7 @@ public class CarsController {
 
     /**
      * Get list of Cars - GET
-     * http://localhost:8080/carpark-rest/cars
+     * curl -i -X GET http://localhost:8080/carpark-rest/cars
      *
      * @return CarDTO
      */
@@ -52,7 +52,7 @@ public class CarsController {
     /**
      *
      * Get Car by id - GET
-     * http://localhost:8080/carpark-rest/cars/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
+     * curl -i -X GET http://localhost:8080/carpark-rest/cars/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
      *
      * @param id is id of car
      * @return CarDTO
@@ -95,8 +95,8 @@ public class CarsController {
     }
 
     /**
-     * Update state of the car - discard - PUT
-     * 
+     * Update state of the car - discard 
+     * curl -X PUT -i -H
      * http://localhost:8080/carpark-rest/cars/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
      *
      * @param id is id of car to be discarded
