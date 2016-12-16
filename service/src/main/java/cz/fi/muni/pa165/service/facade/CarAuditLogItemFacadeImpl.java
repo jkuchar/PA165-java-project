@@ -89,16 +89,18 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
     }
 
     @Override
-    public CarLogStateDTO getLogState(UUID carId) {
-        CarAuditLogItemType state = carAuditLogItemService.getLogState(carId);
+    public CarLogStateDTO findLogState(UUID carId) {
+        CarAuditLogItemType state = carAuditLogItemService.findLogState(carId);
+        if(state == null) return null;
 
         List<CarLogPossibleStateDTO> possibleNextStates = new ArrayList<>();
         for(CarAuditLogItemType possibleSuccessor : state.getPossibleSuccessors()) {
             possibleNextStates.add(
-                    new CarLogPossibleStateDTO(possibleSuccessor.getName())
+                    new CarLogPossibleStateDTO(possibleSuccessor.getName(), possibleSuccessor.getId())
             );
         }
 
-        return new CarLogStateDTO(state.getName(), possibleNextStates);
+        //return new CarLogStateDTO(state.getName(), possibleNextStates);
+        return null;
     }
 }

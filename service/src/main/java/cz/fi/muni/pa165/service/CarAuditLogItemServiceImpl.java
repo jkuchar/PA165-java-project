@@ -57,7 +57,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
     }
 
     @Override
-    public CarAuditLogItemType getLogState(UUID carId) {
+    public CarAuditLogItemType findLogState(UUID carId) {
         List<CarAuditLogItem> logItems = findByCarChronologically(carId);
 
         final NavigableMap<RentApplication, List<CarAuditLogItem>> rentApplicationMap = buildStateTreeForCar(logItems);
@@ -73,7 +73,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
         }
 
         // if there is all closed or there are no records at all, car is in initial state
-        return CarAuditLogItemType.getInitialState();
+        return null;
     }
 
     /**
@@ -83,7 +83,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
      */
     private NavigableMap<RentApplication, List<CarAuditLogItem>> buildStateTreeForCar(List<CarAuditLogItem> logItems) {
         // construct records state tree
-        NavigableMap<RentApplication, List<CarAuditLogItem>> carRecords = new TreeMap<>();
+        NavigableMap<RentApplication, List<CarAuditLogItem>> carRecords = new TreeMap<>(); // todo: navigaeble vs comprarable
 
         for(CarAuditLogItem logItem : logItems) {
             List<CarAuditLogItem> logItemsList = carRecords.get(logItem.getRentApplication());

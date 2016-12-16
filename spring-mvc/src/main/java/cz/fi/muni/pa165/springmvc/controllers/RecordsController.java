@@ -9,6 +9,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
 import cz.fi.muni.pa165.api.dto.CarLogStateDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,13 +61,19 @@ public class RecordsController {
 //        return "car/new";
 //    }
 //
-    @RequestMapping(value = "/add/{carId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/add/{carId}", method = RequestMethod.GET)
     public String create(@PathVariable("carId") UUID carId, Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
 
-        CarLogStateDTO logState = carAuditLogItemFacade.getLogState(carId);
+        CarLogStateDTO logState = carAuditLogItemFacade.findLogState(carId);
 
-        model.addAttribute("currentState", logState.getTypeName());
-        model.addAttribute("possibleNextSteps", logState.getPossibleStates());
+        model.addAttribute("carId", carId);
+        if(logState != null) {
+            model.addAttribute("currentState", logState.getTypeName());
+            model.addAttribute("possibleNextSteps", logState.getPossibleStates());
+        } else {
+            model.addAttribute("currentState", null);
+            model.addAttribute("possibleNextSteps", CarAuditLogItemType.getInitialStates());
+        }
 
         return "records/select";
 
@@ -89,6 +96,14 @@ public class RecordsController {
 
 
 //        return "redirect:" + uriBuilder.path("/car/list/all").toUriString();
+    }
+
+    @RequestMapping(value = "/add/{carId}/{recordType}", method = RequestMethod.GET)
+    public String create(@PathVariable("carId") UUID carId, Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder, @PathVariable("recordType") String recordType) {
+        // validate recordType for current state
+
+        // redirect to proper particular record controller
+        return "redirect:" + uriBuilder.path("TODO TODO TODO").toUriString();
     }
     
 }

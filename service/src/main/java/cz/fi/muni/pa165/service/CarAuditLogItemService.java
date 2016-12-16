@@ -26,5 +26,5 @@ public interface CarAuditLogItemService {
     /**
      * Returns state of the last non-closed branch of state tree
      */
-    CarAuditLogItemType getLogState(UUID carId);
+    CarAuditLogItemType findLogState(UUID carId);
 }

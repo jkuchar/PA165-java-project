@@ -1,7 +1,5 @@
 package cz.fi.muni.pa165.model;
 
-import cz.fi.muni.pa165.model.entity.Car;
-import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import org.apache.commons.lang.ArrayUtils;
 
 import java.util.ArrayList;
@@ -13,11 +11,11 @@ import java.util.List;
 public enum CarAuditLogItemType {
 
     RENT_APPLICATION {
+
         @Override
         public String getName() {
             return "Rent application";
         }
-
 
         @Override
         public CarAuditLogItemType[] getPossibleSuccessors() {
@@ -35,6 +33,11 @@ public enum CarAuditLogItemType {
         @Override
         public boolean isEndState() {
             return false;
+        }
+
+        @Override
+        public String getId() {
+            return "rentApplication";
         }
     },
 
@@ -61,6 +64,11 @@ public enum CarAuditLogItemType {
         public boolean isEndState() {
             return true;
         }
+
+        @Override
+        public String getId() {
+            return "applicationRejected";
+        }
     },
 
     APPLICATION_APPROVED {
@@ -84,6 +92,11 @@ public enum CarAuditLogItemType {
         @Override
         public boolean isEndState() {
             return false;
+        }
+
+        @Override
+        public String getId() {
+            return "applicationApproved";
         }
     },
 
@@ -110,6 +123,11 @@ public enum CarAuditLogItemType {
         public boolean isEndState() {
             return false;
         }
+
+        @Override
+        public String getId() {
+            return "rentRecord";
+        }
     },
 
     RETURN_RECORD {
@@ -134,6 +152,11 @@ public enum CarAuditLogItemType {
         public boolean isEndState() {
             return true;
         }
+
+        @Override
+        public String getId() {
+            return "returnRecord";
+        }
     };
 
     public abstract String getName();
@@ -152,8 +175,33 @@ public enum CarAuditLogItemType {
         return ArrayUtils.indexOf(getPossibleSuccessors(), nextType) != -1; // if found, then true
     };
 
-    public static CarAuditLogItemType getInitialState() {
-        return CarAuditLogItemType.RENT_APPLICATION;
+    public static List<CarAuditLogItemType> getInitialStates() {
+        final ArrayList<CarAuditLogItemType> states = new ArrayList<>();
+        states.add(CarAuditLogItemType.RENT_APPLICATION);
+        return states;
     }
 
+    public abstract String getId();
+
+    public static CarAuditLogItemType fromId(String id) {
+        // todo: do not repeat values above
+
+        switch (id) {
+            case "rentApplication":
+                return RENT_APPLICATION;
+
+            case "applicationRejected":
+                return APPLICATION_REJECTED;
+
+            case "applicationApproved":
+                return APPLICATION_APPROVED;
+
+            case "rentRecord":
+                return RENT_RECORD;
+
+            case "returnRecord":
+                return RETURN_RECORD;
+        }
+        throw new RuntimeException("Invalid argument exception");
+    }
 }

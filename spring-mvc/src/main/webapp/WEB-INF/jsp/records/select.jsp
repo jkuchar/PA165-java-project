@@ -8,16 +8,21 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<carpark:pagetemplate title="New car record">
+<carpark:pagetemplate title="Record car event">
 <jsp:attribute name="body">
 
-    <h2>Current car state is <c:out value="${currentState}" /></h2>
+    <c:if test="${currentState != null}">
+        <h2>Currect state is "<c:out value="${currentState}" />"</h2>
+    </c:if>
+    <c:if test="${currentState == null}">
+        <h2>Car is available </h2>
+    </c:if>
 
-    <p>Select next possible step:</p>
+    <p>These are next possible actions:</p>
 
     <ul>
         <c:forEach items="${possibleNextSteps}" var="possibleNextStep">
-            <li><c:out value="${possibleNextStep}" /></li>
+            <li>Register <carpark:a href="/records/add/${carId}/${possibleNextStep.id}" class="btn btn-default">${possibleNextStep.name}</carpark:a></li>
         </c:forEach>
     </ul>
 

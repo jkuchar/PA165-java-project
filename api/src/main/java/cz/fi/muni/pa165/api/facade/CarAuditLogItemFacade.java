@@ -25,6 +25,6 @@ public interface CarAuditLogItemFacade {
 
     List<CarAuditLogItemDTO> getRecordsCreatedBetween(Date from, Date to);
 
-    CarLogStateDTO getLogState(UUID carId);
+    CarLogStateDTO findLogState(UUID carId);
 
 }

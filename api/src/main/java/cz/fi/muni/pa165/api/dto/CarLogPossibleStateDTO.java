@@ -7,8 +7,19 @@ public class CarLogPossibleStateDTO {
 
     private String typeName;
 
-    public CarLogPossibleStateDTO(String typeName) {
+    private String id;
+
+    public CarLogPossibleStateDTO(String typeName, String id) {
         this.typeName = typeName;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTypeName() {
