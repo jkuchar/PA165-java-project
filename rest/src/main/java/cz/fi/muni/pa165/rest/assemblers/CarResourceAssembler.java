@@ -29,10 +29,9 @@ public class CarResourceAssembler implements ResourceAssembler<CarDTO, Resource<
 
         try {
             productResource.add(linkTo(CarsControllerHateoas.class).slash(carDTO.getId()).withSelfRel());
-            productResource.add(linkTo(CarsControllerHateoas.class).slash(carDTO.getId()).withRel("DELETE"));
 
         } catch (Exception ex) {
-            Logger.getLogger(CarResourceAssembler.class.getName()).log(Level.SEVERE, "could not link resource from ProductsControllerHateoas", ex);
+            Logger.getLogger(CarResourceAssembler.class.getName()).log(Level.SEVERE, "could not link resource from CarsControllerHateoas", ex);
         }
 
         return productResource;
