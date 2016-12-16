@@ -85,6 +85,15 @@ public class CarServiceImpl implements CarService {
             throw new CarParkServiceException(e);
         }
     }
+    
+    @Override
+    public void finishService(Car car) {
+        try{
+            car.changeState(CarState.OK);
+        }catch(DomainException e){
+            throw new CarParkServiceException(e);
+        }
+    }
 
     @Override
     public void discardCar(Car car) {

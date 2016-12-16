@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 import cz.fi.muni.pa165.enums.CarState;
+import cz.fi.muni.pa165.service.exceptions.CarParkServiceException;
 import org.dozer.inject.Inject;
 
 /**
@@ -123,6 +124,42 @@ public class CarController {
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Car " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString();
+    }
+    
+    @RequestMapping(value = "/service/{id}", method = RequestMethod.POST)
+    public String service(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
+        try {
+            carFacade.serviceCar(id);
+            redirectAttributes.addFlashAttribute("alert_success", "Car with id "+id+" was serviced.");
+        } catch (CarParkServiceException ex) {
+            log.warn("car cant be seviced {}",id);
+            redirectAttributes.addFlashAttribute("alert_danger", "Car with id  "+id+" was not set as serviced. "+ex.getMessage());
+        }
+        return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
+    }
+    
+    @RequestMapping(value = "/ok/{id}", method = RequestMethod.POST)
+    public String finishService(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
+        try {
+            carFacade.finishService(id);
+            redirectAttributes.addFlashAttribute("alert_success", "Service of the car with id "+id+" was canceled.");
+        } catch (CarParkServiceException ex) {
+            log.warn("car cant be seviced {}",id);
+            redirectAttributes.addFlashAttribute("alert_danger", "Service of the car with id  "+id+" was not canceled. "+ex.getMessage());
+        }
+        return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
+    }
+    
+    @RequestMapping(value = "/discard/{id}", method = RequestMethod.POST)
+    public String discard(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
+        try {
+            carFacade.discardCar(id);
+            redirectAttributes.addFlashAttribute("alert_success", "Car with id "+id+" was discarded.");
+        } catch (CarParkServiceException ex) {
+            log.warn("car cant be seviced {}",id);
+            redirectAttributes.addFlashAttribute("alert_danger", "Car with id  "+id+" was not discarded. "+ex.getMessage());
+        }
+        return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
     }
     
 }

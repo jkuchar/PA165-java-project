@@ -93,5 +93,6 @@ public class ApplicationRejectedRecordController {
             throw new ResourceAlreadyExistingException();
         }
     }
+    
 
 }
