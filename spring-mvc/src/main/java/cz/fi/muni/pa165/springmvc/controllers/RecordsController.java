@@ -40,18 +40,7 @@ public class RecordsController {
         return "records/list";
     }
 
-//    /**
-//     *
-//     * @param id
-//     * @param model
-//     * @return
-//     */
-//    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
-//    public String view(@PathVariable UUID id, Model model) {
-//        log.debug("view({})", id);
-//        model.addAttribute("car", carFacade.findCarById(id));
-//        return "car/view";
-//    }
+
 //
 //    /**
 //     * Show empty form for creating car

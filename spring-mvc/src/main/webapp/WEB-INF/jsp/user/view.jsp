@@ -9,7 +9,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Car detail">
+<my:pagetemplate title="User detail">
 <jsp:attribute name="body">
 
     <%-- TODO: show information here... --%>
