@@ -226,7 +226,52 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
+    
+    @Autowired
+    private ApplicationApprovedRecordFacade applicationApprovedRecordFacade;
+    
+    @RequestMapping(value = "/create/applicationApproved", method = RequestMethod.POST)
+    public String createApproved(
+            @Valid @ModelAttribute("recordDTO") ApplicationApprovedRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
 
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment" }
+        )) {
+            return "records/applicationApproved";
+        }
+
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
+        rentApplicationDTO.setId(lastRecordId);
+        recordDTO.setRentApplication(rentApplicationDTO);
+
+        UUID id = applicationApprovedRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Application approved record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
 
     @Autowired
     private ReturnRecordFacade returnRecordFacade;
@@ -274,7 +319,6 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
-
     private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
         boolean errors = false;
         if (bindingResult.hasErrors()) {
