@@ -9,6 +9,8 @@ public class CarLogPossibleStateDTO {
 
     private String id;
 
+    private String url;
+
     public CarLogPossibleStateDTO(String typeName, String id) {
         this.typeName = typeName;
         this.id = id;
@@ -33,5 +35,13 @@ public class CarLogPossibleStateDTO {
     @Override
     public String toString() {
         return typeName;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
