@@ -13,7 +13,7 @@
     <form:form method="post" action="${pageContext.request.contextPath}${formSubmitUrl}"
                modelAttribute="recordDTO" cssClass="form-horizontal">
 
-        <div class="form-group ${manufacturer_error?'has-error':''}">
+        <div class="form-group ${comment_error?'has-error':''}">
             <form:label path="comment" cssClass="col-sm-2 control-label">comment:</form:label>
             <div class="col-sm-10">
                 <form:input path="comment" cssClass="form-control"/>
