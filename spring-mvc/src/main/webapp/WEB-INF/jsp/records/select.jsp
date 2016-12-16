@@ -22,7 +22,11 @@
 
     <ul>
         <c:forEach items="${possibleNextSteps}" var="possibleNextStep">
-            <li>Register <carpark:a href="/records/add/${carId}/${possibleNextStep.id}/${currentRecordId != null ? currentRecordId : ''}/" class="btn btn-default">${possibleNextStep}</carpark:a></li>
+            <li>
+                Register <carpark:a href="${possibleNextStep.url}" class="btn btn-default">
+                    ${possibleNextStep}
+                </carpark:a>
+            </li>
         </c:forEach>
     </ul>
 

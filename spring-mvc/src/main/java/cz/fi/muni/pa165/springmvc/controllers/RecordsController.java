@@ -7,6 +7,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
+import cz.fi.muni.pa165.api.dto.CarLogPossibleStateDTO;
 import cz.fi.muni.pa165.api.dto.CarLogStateDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.model.CarAuditLogItemType;
@@ -48,20 +49,36 @@ public class RecordsController {
 
 
     @RequestMapping(value = "/add/{carId}", method = RequestMethod.GET)
-    public String create(@PathVariable("carId") UUID carId, Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
+    public String create(
+            @PathVariable("carId") UUID carId,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder
+    ) {
 
         CarLogStateDTO logState = carAuditLogItemFacade.findLogState(carId);
 
         model.addAttribute("carId", carId);
+        final List<CarLogPossibleStateDTO> possibleStates;
         if(logState != null) {
             model.addAttribute("currentState", logState.getTypeName());
             model.addAttribute("currentRecordId", logState.getRecordId());
-            model.addAttribute("possibleNextSteps", logState.getPossibleStates());
+            possibleStates = logState.getPossibleStates();
         } else {
             model.addAttribute("currentState", null);
             model.addAttribute("currentRecordId", null);
-            model.addAttribute("possibleNextSteps", carAuditLogItemFacade.getInitialStates() /* returns also DTOs */);
+            possibleStates = carAuditLogItemFacade.getInitialStates();
         }
+
+        for (CarLogPossibleStateDTO dto : possibleStates) {
+            // todo: this contains potential XSS vulnerability; should be escaped
+            String url = "/records/add/" + carId + "/" + dto.getId();
+            if(logState != null) {
+                url += "?lastRecordId=" + logState.getRecordId();
+            }
+            dto.setUrl(url);
+        }
+        model.addAttribute("possibleNextSteps", possibleStates);
 
         return "records/select";
     }
