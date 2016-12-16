@@ -39,7 +39,7 @@ public class ApplicationRejectedRecordController {
 
     /**
      * Get list of rejected records - GET
-     * http://localhost:8080/carpark-rest/records/rejected
+     * curl -i -X GET http://localhost:8080/carpark-rest/records/rejected
      *
      * @return ApplicationRejectedRecordDTO
      */
@@ -52,7 +52,7 @@ public class ApplicationRejectedRecordController {
     /**
      *
      * Get ApplicationRejectedRecord by id - GET
-     * http://localhost:8080/carpark-rest/records/rejected/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
+     * curl -i -X GET http://localhost:8080/carpark-rest/records/rejected/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
      *
      * @param id is id of record
      * @return ApplicationRejectedRecordDTO
