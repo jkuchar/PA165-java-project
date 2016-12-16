@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class CarAuditLogItem {
+public abstract class CarAuditLogItem implements java.lang.Comparable {
 
     @Id
     @NotNull
@@ -81,4 +81,21 @@ public abstract class CarAuditLogItem {
      * Returns base rent application which this object refers to
      */
     public abstract RentApplication getRentApplication();
+
+
+    @Override
+    public int compareTo(Object o) {
+        // some order needed to get TreeMap working properly
+        // Order needs to be stable not really meaningful
+
+        if(o == null) throw new RuntimeException("Cannot compare to null");
+
+        if(!(o instanceof CarAuditLogItem)) {
+            throw new RuntimeException("Cannot compare to different type then CarAuditLogItem");
+        }
+
+        return getId().compareTo(
+                ((CarAuditLogItem) o).getId()
+        );
+    }
 }

@@ -58,6 +58,13 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
 
     @Override
     public CarAuditLogItemType findLogState(UUID carId) {
+        final CarAuditLogItem lastLogItem = findLastLogItem(carId);
+        if(lastLogItem == null) return null;
+
+        return lastLogItem.getType();
+    }
+
+    public CarAuditLogItem findLastLogItem(UUID carId) {
         List<CarAuditLogItem> logItems = findByCarChronologically(carId);
 
         final NavigableMap<RentApplication, List<CarAuditLogItem>> rentApplicationMap = buildStateTreeForCar(logItems);
@@ -68,7 +75,7 @@ public class CarAuditLogItemServiceImpl implements CarAuditLogItemService {
             CarAuditLogItem theLast = carAuditLogItems.get(carAuditLogItems.size() - 1);
 
             if(!theLast.getType().isEndState()) {
-                return theLast.getType();
+                return theLast;
             }
         }
 

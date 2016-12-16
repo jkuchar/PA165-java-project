@@ -90,17 +90,36 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
 
     @Override
     public CarLogStateDTO findLogState(UUID carId) {
-        CarAuditLogItemType state = carAuditLogItemService.findLogState(carId);
-        if(state == null) return null;
+        CarAuditLogItem lastItem = carAuditLogItemService.findLastLogItem(carId);
+        if(lastItem == null) return null;
 
+        return mapStateTo(lastItem.getType(), lastItem.getId());
+    }
+
+    @NotNull
+    private CarLogStateDTO mapStateTo(CarAuditLogItemType type, UUID id) {
         List<CarLogPossibleStateDTO> possibleNextStates = new ArrayList<>();
-        for(CarAuditLogItemType possibleSuccessor : state.getPossibleSuccessors()) {
+        for(CarAuditLogItemType possibleSuccessor : type.getPossibleSuccessors()) {
             possibleNextStates.add(
                     new CarLogPossibleStateDTO(possibleSuccessor.getName(), possibleSuccessor.getId())
             );
         }
 
-        //return new CarLogStateDTO(state.getName(), possibleNextStates);
-        return null;
+        return new CarLogStateDTO(
+                type.getName(),
+                possibleNextStates,
+                id
+        );
+    }
+
+
+    public List<CarLogPossibleStateDTO> getInitialStates() {
+        final List<CarAuditLogItemType> initialStates = CarAuditLogItemType.getInitialStates();
+        if(initialStates.size() != 1) throw new RuntimeException("Currently no support for more initial states.");
+        final CarAuditLogItemType initialState = initialStates.get(0);
+
+        final List<CarLogPossibleStateDTO> carLogPossibleStateDTOS = new ArrayList<>();
+        carLogPossibleStateDTOS.add(new CarLogPossibleStateDTO(initialState.getName(), initialState.getId()));
+        return carLogPossibleStateDTOS;
     }
 }

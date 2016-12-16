@@ -83,4 +83,5 @@ public class RentApplication extends CarAuditLogItem {
     public int hashCode() {
         return this.getId().hashCode();
     }
+
 }
