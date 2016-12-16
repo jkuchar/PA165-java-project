@@ -33,25 +33,25 @@ public class CarTest {
         Car car = create();
 
         car.changeState(CarState.OK);
-        assertEquals(car.getCarState(), CarState.OK);
+        assertEquals(car.getState(), CarState.OK);
 
         car.changeState(CarState.SERVICING);
-        assertEquals(car.getCarState(), CarState.SERVICING);
+        assertEquals(car.getState(), CarState.SERVICING);
 
         car.changeState(CarState.SERVICING);
-        assertEquals(car.getCarState(), CarState.SERVICING);
+        assertEquals(car.getState(), CarState.SERVICING);
 
         car.changeState(CarState.OK);
-        assertEquals(car.getCarState(), CarState.OK);
+        assertEquals(car.getState(), CarState.OK);
 
         car.changeState(CarState.OK);
-        assertEquals(car.getCarState(), CarState.OK);
+        assertEquals(car.getState(), CarState.OK);
 
         car.changeState(CarState.DISCARDED);
-        assertEquals(car.getCarState(), CarState.DISCARDED);
+        assertEquals(car.getState(), CarState.DISCARDED);
 
         car.changeState(CarState.DISCARDED);
-        assertEquals(car.getCarState(), CarState.DISCARDED);
+        assertEquals(car.getState(), CarState.DISCARDED);
     }
 
     @Test
@@ -59,20 +59,20 @@ public class CarTest {
         Car car = create();
 
         car.changeState(CarState.DISCARDED);
-        assertEquals(car.getCarState(), CarState.DISCARDED);
+        assertEquals(car.getState(), CarState.DISCARDED);
 
         try {
             car.changeState(CarState.OK);
             fail("Transition from DISCARDED to OK should not be allowed.");
         } catch(DomainException e) {
-            assertEquals(car.getCarState(), CarState.DISCARDED);
+            assertEquals(car.getState(), CarState.DISCARDED);
         }
 
         try {
             car.changeState(CarState.SERVICING);
             fail("Transition from DISCARDED to SERVICING should not be allowed.");
         } catch(DomainException e) {
-            assertEquals(car.getCarState(), CarState.DISCARDED);
+            assertEquals(car.getState(), CarState.DISCARDED);
         }
     }
 }

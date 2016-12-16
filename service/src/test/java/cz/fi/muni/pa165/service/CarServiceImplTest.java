@@ -60,13 +60,13 @@ public class CarServiceImplTest extends AbstractTestNGSpringContextTests
     @Test
     public void service(){
     	carService.serviceCar(car);
-    	Assert.assertEquals(car.getCarState(), CarState.SERVICING);
+    	Assert.assertEquals(car.getState(), CarState.SERVICING);
     }
     
     @Test
     public void discard(){
     	carService.discardCar(car);
-    	Assert.assertEquals(car.getCarState(), CarState.DISCARDED);
+    	Assert.assertEquals(car.getState(), CarState.DISCARDED);
     }
 }
 

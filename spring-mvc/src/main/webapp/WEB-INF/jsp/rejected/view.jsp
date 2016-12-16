@@ -49,6 +49,8 @@
             </tr> 
         </tbody>
     </table>
+    <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/rejected/list"
+              role="button">Back</a></p>        
 
 </jsp:attribute>
 </my:pagetemplate>
