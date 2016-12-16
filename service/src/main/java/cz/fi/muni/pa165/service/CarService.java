@@ -86,6 +86,12 @@ public interface CarService {
     void serviceCar(Car car);
     
     /**
+     * Change state of serviced car to ok. 
+     * @param car is serviced car.
+     */
+    void finishService(Car car);
+    
+    /**
      * Change state of car to discarded.
      * @param car is car to be discarded.
      */

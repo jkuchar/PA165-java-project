@@ -22,7 +22,7 @@ public class CarTest {
         assertEquals(car.getRegPlateNumber(), "456");
         assertEquals(car.getManufacturer(), "Manufacturer");
         assertEquals(car.getType(), "H510Q");
-        assertEquals(car.getNumberOfSeats(), 5);
+        assertEquals(car.getSeats(), 5);
         assertEquals(car.getEstablishDate(), created);
 
         return car;

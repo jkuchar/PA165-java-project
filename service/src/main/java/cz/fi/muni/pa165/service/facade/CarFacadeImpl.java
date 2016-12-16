@@ -90,6 +90,11 @@ public class CarFacadeImpl implements CarFacade {
     public void serviceCar(UUID carId) {
         carService.serviceCar(carService.findCarById(carId));
     }
+    
+    @Override
+    public void finishService(UUID carId) {
+        carService.finishService(carService.findCarById(carId));
+    }
 
     @Override
     public void discardCar(UUID carId) {
