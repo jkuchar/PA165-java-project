@@ -1,7 +1,10 @@
 package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
+import cz.fi.muni.pa165.api.dto.CarLogPossibleStateDTO;
+import cz.fi.muni.pa165.api.dto.CarLogStateDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarAuditLogItemService;
@@ -83,5 +86,40 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
     @Override
     public List<CarAuditLogItemDTO> getRecordsCreatedBetween(Date from, Date to) {
         return mapTo(carAuditLogItemService.getRecordsCreatedBetween(from, to));
+    }
+
+    @Override
+    public CarLogStateDTO findLogState(UUID carId) {
+        CarAuditLogItem lastItem = carAuditLogItemService.findLastLogItem(carId);
+        if(lastItem == null) return null;
+
+        return mapStateTo(lastItem.getType(), lastItem.getId());
+    }
+
+    @NotNull
+    private CarLogStateDTO mapStateTo(CarAuditLogItemType type, UUID id) {
+        List<CarLogPossibleStateDTO> possibleNextStates = new ArrayList<>();
+        for(CarAuditLogItemType possibleSuccessor : type.getPossibleSuccessors()) {
+            possibleNextStates.add(
+                    new CarLogPossibleStateDTO(possibleSuccessor.getName(), possibleSuccessor.getId())
+            );
+        }
+
+        return new CarLogStateDTO(
+                type.getName(),
+                possibleNextStates,
+                id
+        );
+    }
+
+
+    public List<CarLogPossibleStateDTO> getInitialStates() {
+        final List<CarAuditLogItemType> initialStates = CarAuditLogItemType.getInitialStates();
+        if(initialStates.size() != 1) throw new RuntimeException("Currently no support for more initial states.");
+        final CarAuditLogItemType initialState = initialStates.get(0);
+
+        final List<CarLogPossibleStateDTO> carLogPossibleStateDTOS = new ArrayList<>();
+        carLogPossibleStateDTOS.add(new CarLogPossibleStateDTO(initialState.getName(), initialState.getId()));
+        return carLogPossibleStateDTOS;
     }
 }

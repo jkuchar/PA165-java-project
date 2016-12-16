@@ -46,6 +46,14 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
     }
 
     @Override
+    public List<CarAuditLogItem> findByCarChronologically(UUID carId) {
+        TypedQuery<CarAuditLogItem> query = em.createQuery(
+                "SELECT i FROM CarAuditLogItem i WHERE i.car.id = :carId ORDER BY i.created ASC", CarAuditLogItem.class);
+        query.setParameter("carId", carId);
+        return query.getResultList();
+    }
+
+    @Override
     public List<CarAuditLogItem> findByUser(UUID id) {
         TypedQuery<CarAuditLogItem> query = em.createQuery(
                 "SELECT i FROM CarAuditLogItem i WHERE i.user.id = :userId", CarAuditLogItem.class);
@@ -72,4 +80,5 @@ public class CarAuditLogItemDaoImpl implements CarAuditLogItemDao {
         return em.createQuery(
                 "SELECT i FROM CarAuditLogItem i ORDER BY i.created DESC ", CarAuditLogItem.class).getResultList();
     }
+
 }

@@ -35,7 +35,12 @@ public class ApplicationApprovedRecord extends CarAuditLogItem{
     private RentApplication application;
     
     protected ApplicationApprovedRecord() {}
-    
+
+    @Override
+    public RentApplication getRentApplication() {
+        return application;
+    }
+
     public ApplicationApprovedRecord(Car car, User user, Date from, Date to, String comment, RentApplication app, Date created) {
         super(car, user, comment, created);
         

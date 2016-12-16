@@ -39,8 +39,12 @@
         </tbody>
     </table>
 
+    Latest records for user
+    <carpark:logitemlist logItems="${logItems}" />
     <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/user/list" role="button">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></p>
+
+	
 
 </jsp:attribute>
 </carpark:pagetemplate>
