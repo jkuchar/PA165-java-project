@@ -7,11 +7,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.*;
-import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
-import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
-import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
-import cz.fi.muni.pa165.api.facade.RentRecordFacade;
-import cz.fi.muni.pa165.api.facade.UserFacade;
+import cz.fi.muni.pa165.api.facade.*;
 import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,6 +109,10 @@ public class RecordsController {
 
             case "applicationRejected":
                 model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
+                break;
+
+            case "rentRecord":
+                model.addAttribute("recordDTO", new RentRecordDTO());
                 break;
 
             default:
