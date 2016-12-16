@@ -107,6 +107,10 @@ public class RecordsController {
                 model.addAttribute("recordDTO", new RentApplicationDTO());
                 break;
 
+            case "applicationApproved":
+                model.addAttribute("recordDTO", new ApplicationApprovedRecordDTO());
+                break;
+
             case "applicationRejected":
                 model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
                 break;
@@ -261,6 +265,9 @@ public class RecordsController {
         recordDTO.setCar(carDTO);
 
         recordDTO.setCreated(new Date());
+
+        recordDTO.setFrom(new Date()); // todo: add to form!
+        recordDTO.setTo(new Date()); // todo: add to form!
 
         final RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
         rentApplicationDTO.setId(lastRecordId);
