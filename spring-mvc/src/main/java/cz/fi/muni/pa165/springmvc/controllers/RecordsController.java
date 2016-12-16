@@ -7,6 +7,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.*;
+import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.api.facade.UserFacade;
@@ -101,12 +102,16 @@ public class RecordsController {
             throw new RuntimeException("Invalid record type");
         }
 
-        model.addAttribute("formSubmitUrl", "/records/create/rentApplication?carId=" + carId + "&lastRecordId=" + lastRecordId);
+        model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
 
 
         switch(recordType) {
             case "rentApplication":
                 model.addAttribute("recordDTO", new RentApplicationDTO());
+                break;
+
+            case "applicationRejected":
+                model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
                 break;
 
             default:
@@ -136,7 +141,7 @@ public class RecordsController {
     private RentApplicationFacade rentApplicationFacade;
 
     @RequestMapping(value = "/create/rentApplication", method = RequestMethod.POST)
-    public String create(
+    public String createRentApplication(
             @Valid @ModelAttribute("recordDTO") RentApplicationDTO recordDTO,
             BindingResult bindingResult,
             Model model,
@@ -156,6 +161,7 @@ public class RecordsController {
             return "records/rentApplication";
         }
 
+        // todo: remove this hack with DTOs
         final UserDTO userDTO = new UserDTO();
         userDTO.setId( getSomeUserId() );
         recordDTO.setUser(userDTO);
@@ -170,7 +176,54 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Rent application with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString();
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+    @Autowired
+    private ApplicationRejectedRecordFacade applicationRejectedRecordFacade;
+
+    @RequestMapping(value = "/create/applicationRejected", method = RequestMethod.POST)
+    public String create(
+            @Valid @ModelAttribute("recordDTO") ApplicationRejectedRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment" }
+        )) {
+            return "records/rentApplication";
+        }
+
+        // todo: remove this hack with DTOs
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
+        rentApplicationDTO.setId(lastRecordId);
+        recordDTO.setRentApplication(rentApplicationDTO);
+
+        UUID id = applicationRejectedRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
 
     private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
