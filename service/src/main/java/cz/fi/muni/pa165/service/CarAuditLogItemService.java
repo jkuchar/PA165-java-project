@@ -1,6 +1,7 @@
 package cz.fi.muni.pa165.service;
 
 
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 
 import java.util.Date;
@@ -21,4 +22,9 @@ public interface CarAuditLogItemService {
     List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to);
 
     List<CarAuditLogItem> findAllFromNewest();
+
+    /**
+     * Returns state of the last non-closed branch of state tree
+     */
+    CarAuditLogItemType getLogState(UUID carId);
 }

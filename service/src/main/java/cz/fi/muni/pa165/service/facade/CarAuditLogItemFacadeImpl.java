@@ -1,7 +1,10 @@
 package cz.fi.muni.pa165.service.facade;
 
 import cz.fi.muni.pa165.api.dto.CarAuditLogItemDTO;
+import cz.fi.muni.pa165.api.dto.CarLogPossibleStateDTO;
+import cz.fi.muni.pa165.api.dto.CarLogStateDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import cz.fi.muni.pa165.model.entity.CarAuditLogItem;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.service.CarAuditLogItemService;
@@ -83,5 +86,19 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
     @Override
     public List<CarAuditLogItemDTO> getRecordsCreatedBetween(Date from, Date to) {
         return mapTo(carAuditLogItemService.getRecordsCreatedBetween(from, to));
+    }
+
+    @Override
+    public CarLogStateDTO getLogState(UUID carId) {
+        CarAuditLogItemType state = carAuditLogItemService.getLogState(carId);
+
+        List<CarLogPossibleStateDTO> possibleNextStates = new ArrayList<>();
+        for(CarAuditLogItemType possibleSuccessor : state.getPossibleSuccessors()) {
+            possibleNextStates.add(
+                    new CarLogPossibleStateDTO(possibleSuccessor.getName())
+            );
+        }
+
+        return new CarLogStateDTO(state.getName(), possibleNextStates);
     }
 }

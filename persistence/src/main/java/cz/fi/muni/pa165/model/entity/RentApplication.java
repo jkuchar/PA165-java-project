@@ -19,7 +19,7 @@ import java.util.Date;
  * @author charlliz
  */
 @Entity
-public class RentApplication extends CarAuditLogItem{
+public class RentApplication extends CarAuditLogItem {
 
     
     @NotNull
@@ -36,7 +36,12 @@ public class RentApplication extends CarAuditLogItem{
     }
 
     protected RentApplication() {}
-    
+
+    @Override
+    public RentApplication getRentApplication() {
+        return this;
+    }
+
     public RentApplication(Car car, User user, String comment, Date from, Date to, Date created) {
         super(car, user, comment, created);
         

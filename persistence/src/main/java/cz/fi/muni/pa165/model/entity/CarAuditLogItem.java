@@ -75,4 +75,10 @@ public abstract class CarAuditLogItem {
     public String getComment() {
         return comment;
     }
+
+
+    /**
+     * Returns base rent application which this object refers to
+     */
+    public abstract RentApplication getRentApplication();
 }

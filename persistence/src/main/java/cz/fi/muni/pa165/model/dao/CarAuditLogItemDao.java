@@ -55,4 +55,9 @@ public interface CarAuditLogItemDao {
     public List<CarAuditLogItem> getRecordsCreatedBetween(Date from, Date to);
 
     List<CarAuditLogItem> findAllFromNewest();
+
+    /**
+     * Returns list of record ordered from the oldest to newest. Useful when listing in "book of records" and validating domain invariants.
+     */
+    List<CarAuditLogItem> findByCarChronologically(UUID carId);
 }
