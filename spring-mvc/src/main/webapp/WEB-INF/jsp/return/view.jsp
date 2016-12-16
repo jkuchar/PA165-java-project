@@ -1,6 +1,6 @@
 <%-- 
     Document   : view
-    Created on : 14.12.2016, 16:43:03
+    Created on : 16.12.2016
     Author     : charlliz
 --%>
 
@@ -11,7 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Application Rejected Record Detail">
+<my:pagetemplate title="Return Record Detail">
 <jsp:attribute name="body">
 
 
@@ -34,7 +34,15 @@
             <tr>
                 <td>Comment</td>
                 <td><c:out value="${record.comment}"/></td>                     
-            </tr>             
+            </tr>   
+            <tr>
+                <td>Fuel State</td>
+                <td><c:out value="${record.fuelState}"/></td>                     
+            </tr>  
+            <tr>
+                <td>Odometer State</td>
+                <td><c:out value="${record.odometerState}"/></td>                     
+            </tr> 
             <tr>
                 <td>User</td>
                 <td><c:out value="${record.user.email}"/>

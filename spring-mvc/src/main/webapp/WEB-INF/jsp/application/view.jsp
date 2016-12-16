@@ -1,6 +1,6 @@
 <%-- 
     Document   : view
-    Created on : 14.12.2016, 16:43:03
+    Created on : 16.12.2016
     Author     : charlliz
 --%>
 
@@ -11,7 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Application Rejected Record Detail">
+<my:pagetemplate title="Rent Application Detail">
 <jsp:attribute name="body">
 
 
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${record.id}</td>
             </tr> 
             <tr>

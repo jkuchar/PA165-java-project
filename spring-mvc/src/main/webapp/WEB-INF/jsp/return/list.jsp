@@ -1,27 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Richard
-  Date: 15.12.2016
-  Time: 17:43
+<%-- 
+    Document   : list
+    Created on : 16.12.2016
+    Author     : charlliz
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" trimDirectiveWhitespaces="false" session="false" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="carpark" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<carpark:pagetemplate title="Application Approved Records">
+<my:pagetemplate title="Application Rejected Records">
 <jsp:attribute name="body">
 
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>User</th>
             <th>Car</th>
-            <th>Creation date</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>
@@ -32,12 +31,13 @@
                 <td><c:out value="${record.car.manufacturer} ${record.car.type}"/></td>
                 <td><fmt:formatDate value="${record.created}" pattern="yyyy-MM-dd"/></td>
                 <td>
-                    <carpark:a href="/approved/view/${record.id}" class="btn btn-primary">View</carpark:a>
+                    <my:a href="/return/view/${record.id}" class="btn btn-primary">View</my:a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
+
 </jsp:attribute>
-</carpark:pagetemplate>
+</my:pagetemplate>
