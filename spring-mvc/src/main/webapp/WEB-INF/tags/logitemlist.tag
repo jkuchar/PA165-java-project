@@ -23,7 +23,7 @@
         <%-- BTW: this whole block is wrong; these data should be prepared into custumly designed DTO in controller to make future refactoring easy --%>
         <%-- Because there is no static analysis right now, this will be hell to refactor in case there will be change in DTO --%>
         <tr>
-            <td><fmt:formatDate value="${logItem.created}" pattern="yyyy-MM-dd"/></td>
+            <td><fmt:formatDate value="${logItem.created}" pattern="EEEE, yyyy-MM-dd HH:mm:ss"/></td>
             <td title="<c:out value="log item ID: ${logItem.id}" />" class="this-is-important">
                 <c:out value="${logItem.type}"/>
             </td>
