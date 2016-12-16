@@ -119,6 +119,10 @@ public class RecordsController {
                 model.addAttribute("recordDTO", new ReturnRecordDTO());
                 break;
 
+            case "rentRecord":
+                model.addAttribute("recordDTO", new RentRecordDTO());
+                break;
+
             default:
                 throw new RuntimeException("Wrong record type");
         }
@@ -326,6 +330,73 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
+
+
+    
+    @Autowired
+    private RentRecordFacade rentRecordFacade;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @RequestMapping(value = "/create/rentRecord", method = RequestMethod.POST)
+    public String createRentRecord(
+            @Valid @ModelAttribute("recordDTO") RentRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment" }
+        )) {
+            return "records/rentRecord";
+        }
+
+        // todo: remove this hack with DTOs
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final ApplicationApprovedRecordDTO approvedRecordDTO = new ApplicationApprovedRecordDTO();
+        approvedRecordDTO.setId(lastRecordId);
+        recordDTO.setApprovedRecord(approvedRecordDTO);
+
+        UUID id = rentRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Rent record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+
+
     private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
         boolean errors = false;
         if (bindingResult.hasErrors()) {
