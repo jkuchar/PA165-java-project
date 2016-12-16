@@ -7,10 +7,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.*;
-import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
-import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
-import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
-import cz.fi.muni.pa165.api.facade.UserFacade;
+import cz.fi.muni.pa165.api.facade.*;
 import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -112,6 +109,10 @@ public class RecordsController {
 
             case "applicationRejected":
                 model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
+                break;
+
+            case "returnRecord":
+                model.addAttribute("recordDTO", new ReturnRecordDTO());
                 break;
 
             default:
@@ -223,6 +224,54 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+
+    @Autowired
+    private ReturnRecordFacade returnRecordFacade;
+
+    @RequestMapping(value = "/create/returnRecord", method = RequestMethod.POST)
+    public String createReturnRecord(
+            @Valid @ModelAttribute("recordDTO") ReturnRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment", "fuelState", "odometerState" }
+        )) {
+            return "records/returnRecord";
+        }
+
+        // todo: remove this hack with DTOs
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final RentRecordDTO rentRecordDTO = new RentRecordDTO();
+        rentRecordDTO.setId(lastRecordId);
+        recordDTO.setRentRecord(rentRecordDTO);
+
+        UUID id = returnRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
 
