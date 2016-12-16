@@ -7,13 +7,11 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 
 import cz.fi.muni.pa165.api.dto.*;
+import cz.fi.muni.pa165.api.facade.ApplicationRejectedRecordFacade;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.api.facade.UserFacade;
-import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.apache.commons.lang.ArrayUtils;
-import org.apache.derby.iapi.services.io.ArrayUtil;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +28,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -105,12 +102,16 @@ public class RecordsController {
             throw new RuntimeException("Invalid record type");
         }
 
-        model.addAttribute("formSubmitUrl", "/records/create/rentApplication?carId=" + carId + "&lastRecordId=" + lastRecordId);
+        model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
 
 
         switch(recordType) {
             case "rentApplication":
                 model.addAttribute("recordDTO", new RentApplicationDTO());
+                break;
+
+            case "applicationRejected":
+                model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
                 break;
 
             default:
@@ -140,7 +141,7 @@ public class RecordsController {
     private RentApplicationFacade rentApplicationFacade;
 
     @RequestMapping(value = "/create/rentApplication", method = RequestMethod.POST)
-    public String create(
+    public String createRentApplication(
             @Valid @ModelAttribute("recordDTO") RentApplicationDTO recordDTO,
             BindingResult bindingResult,
             Model model,
@@ -150,27 +151,17 @@ public class RecordsController {
     ) {
         log.debug("create(formBean={})", recordDTO);
 
-        String[] validatedFields = new String[] { "from", "to", "comment" };
-
         //in case of validation error forward back to the the form
-        boolean errors = false;
-        if (bindingResult.hasErrors()) {
-            for (ObjectError ge : bindingResult.getGlobalErrors()) {
-                log.trace("ObjectError: {}", ge);
-            }
-            for (FieldError fe : bindingResult.getFieldErrors()) {
-                if(ArrayUtils.indexOf(validatedFields, fe.getField()) == -1) continue;
 
-                errors = true;
-                model.addAttribute(fe.getField() + "_error", true);
-                log.trace("FieldError: {}", fe);
-            }
-        }
-
-        if(errors) {
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "from", "to", "comment" }
+        )) {
             return "records/rentApplication";
         }
 
+        // todo: remove this hack with DTOs
         final UserDTO userDTO = new UserDTO();
         userDTO.setId( getSomeUserId() );
         recordDTO.setUser(userDTO);
@@ -185,7 +176,71 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Rent application with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString();
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+    @Autowired
+    private ApplicationRejectedRecordFacade applicationRejectedRecordFacade;
+
+    @RequestMapping(value = "/create/applicationRejected", method = RequestMethod.POST)
+    public String create(
+            @Valid @ModelAttribute("recordDTO") ApplicationRejectedRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment" }
+        )) {
+            return "records/rentApplication";
+        }
+
+        // todo: remove this hack with DTOs
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
+        rentApplicationDTO.setId(lastRecordId);
+        recordDTO.setRentApplication(rentApplicationDTO);
+
+        UUID id = applicationRejectedRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+    private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
+        boolean errors = false;
+        if (bindingResult.hasErrors()) {
+            for (ObjectError ge : bindingResult.getGlobalErrors()) {
+                log.trace("ObjectError: {}", ge);
+            }
+            for (FieldError fe : bindingResult.getFieldErrors()) {
+                if(ArrayUtils.indexOf(validatedFields, fe.getField()) == -1) continue;
+
+                errors = true;
+                model.addAttribute(fe.getField() + "_error", true);
+                log.trace("FieldError: {}", fe);
+            }
+        }
+        return errors;
     }
 
 }
