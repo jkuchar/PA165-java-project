@@ -30,4 +30,6 @@ public interface CarAuditLogItemFacade {
 
     List<CarLogPossibleStateDTO> getInitialStates();
 
+
+    boolean isRecordTypeValid(String recordTypeId);
 }

@@ -122,4 +122,15 @@ public class CarAuditLogItemFacadeImpl implements CarAuditLogItemFacade {
         carLogPossibleStateDTOS.add(new CarLogPossibleStateDTO(initialState.getName(), initialState.getId()));
         return carLogPossibleStateDTOS;
     }
+
+    @Override
+    public boolean isRecordTypeValid(String recordTypeId) {
+        // todo: move to service
+        try{
+            CarAuditLogItemType.fromId(recordTypeId);
+            return true;
+        } catch (Exception ignored) {
+        }
+        return false;
+    }
 }
