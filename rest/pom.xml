@@ -45,16 +45,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>cz.muni.fi.pa165</groupId>
-            <artifactId>eshop-sample-data</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cz.muni.fi.pa165</groupId>
-            <artifactId>eshop-service</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
         </dependency>
