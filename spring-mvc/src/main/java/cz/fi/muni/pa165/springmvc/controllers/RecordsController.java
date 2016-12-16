@@ -107,8 +107,16 @@ public class RecordsController {
                 model.addAttribute("recordDTO", new RentApplicationDTO());
                 break;
 
+            case "applicationApproved":
+                model.addAttribute("recordDTO", new ApplicationApprovedRecordDTO());
+                break;
+
             case "applicationRejected":
                 model.addAttribute("recordDTO", new ApplicationRejectedRecordDTO());
+                break;
+
+            case "returnRecord":
+                model.addAttribute("recordDTO", new ReturnRecordDTO());
                 break;
 
             case "rentRecord":
@@ -228,7 +236,120 @@ public class RecordsController {
     }
     
     @Autowired
+    private ApplicationApprovedRecordFacade applicationApprovedRecordFacade;
+    
+    @RequestMapping(value = "/create/applicationApproved", method = RequestMethod.POST)
+    public String createApproved(
+            @Valid @ModelAttribute("recordDTO") ApplicationApprovedRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment" }
+        )) {
+            return "records/applicationApproved";
+        }
+
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        recordDTO.setFrom(new Date()); // todo: add to form!
+        recordDTO.setTo(new Date()); // todo: add to form!
+
+        final RentApplicationDTO rentApplicationDTO = new RentApplicationDTO();
+        rentApplicationDTO.setId(lastRecordId);
+        recordDTO.setRentApplication(rentApplicationDTO);
+
+        UUID id = applicationApprovedRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Application approved record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+    @Autowired
+    private ReturnRecordFacade returnRecordFacade;
+
+    @RequestMapping(value = "/create/returnRecord", method = RequestMethod.POST)
+    public String createReturnRecord(
+            @Valid @ModelAttribute("recordDTO") ReturnRecordDTO recordDTO,
+            BindingResult bindingResult,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam("carId") UUID carId,
+            @RequestParam("lastRecordId") UUID lastRecordId
+    ) {
+        log.debug("create(formBean={})", recordDTO);
+
+        //in case of validation error forward back to the the form
+
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "comment", "fuelState", "odometerState" }
+        )) {
+            return "records/returnRecord";
+        }
+
+        // todo: remove this hack with DTOs
+        final UserDTO userDTO = new UserDTO();
+        userDTO.setId( getSomeUserId() );
+        recordDTO.setUser(userDTO);
+
+        final CarDTO carDTO = new CarDTO();
+        carDTO.setId( carId );
+        recordDTO.setCar(carDTO);
+
+        recordDTO.setCreated(new Date());
+
+        final RentRecordDTO rentRecordDTO = new RentRecordDTO();
+        rentRecordDTO.setId(lastRecordId);
+        recordDTO.setRentRecord(rentRecordDTO);
+
+        UUID id = returnRecordFacade.create(recordDTO);
+
+        //report success
+        redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
+        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+    }
+
+
+    
+    @Autowired
     private RentRecordFacade rentRecordFacade;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @RequestMapping(value = "/create/rentRecord", method = RequestMethod.POST)
     public String createRentRecord(
@@ -273,6 +394,8 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("alert_success", "Rent record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
     }
+
+
 
     private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
         boolean errors = false;
