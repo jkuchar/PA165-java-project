@@ -10,10 +10,7 @@ import cz.fi.muni.pa165.api.dto.*;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.RentApplicationFacade;
 import cz.fi.muni.pa165.api.facade.UserFacade;
-import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.apache.commons.lang.ArrayUtils;
-import org.apache.derby.iapi.services.io.ArrayUtil;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +27,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -150,24 +146,13 @@ public class RecordsController {
     ) {
         log.debug("create(formBean={})", recordDTO);
 
-        String[] validatedFields = new String[] { "from", "to", "comment" };
-
         //in case of validation error forward back to the the form
-        boolean errors = false;
-        if (bindingResult.hasErrors()) {
-            for (ObjectError ge : bindingResult.getGlobalErrors()) {
-                log.trace("ObjectError: {}", ge);
-            }
-            for (FieldError fe : bindingResult.getFieldErrors()) {
-                if(ArrayUtils.indexOf(validatedFields, fe.getField()) == -1) continue;
 
-                errors = true;
-                model.addAttribute(fe.getField() + "_error", true);
-                log.trace("FieldError: {}", fe);
-            }
-        }
-
-        if(errors) {
+        if(validateRequestAndModel(
+                bindingResult,
+                model,
+                new String[] { "from", "to", "comment" }
+        )) {
             return "records/rentApplication";
         }
 
@@ -186,6 +171,23 @@ public class RecordsController {
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Rent application with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/records/list").toUriString();
+    }
+
+    private boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
+        boolean errors = false;
+        if (bindingResult.hasErrors()) {
+            for (ObjectError ge : bindingResult.getGlobalErrors()) {
+                log.trace("ObjectError: {}", ge);
+            }
+            for (FieldError fe : bindingResult.getFieldErrors()) {
+                if(ArrayUtils.indexOf(validatedFields, fe.getField()) == -1) continue;
+
+                errors = true;
+                model.addAttribute(fe.getField() + "_error", true);
+                log.trace("FieldError: {}", fe);
+            }
+        }
+        return errors;
     }
 
 }
