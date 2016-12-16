@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -66,12 +67,21 @@ public class RecordsController {
     }
 
     @RequestMapping(value = "/add/{carId}/{recordType}", method = RequestMethod.GET)
-    public String create(@PathVariable("carId") UUID carId, Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder, @PathVariable("recordType") String recordType) {
+    public String create(
+            @PathVariable("carId") UUID carId,
+            @PathVariable(value = "recordType") String recordType,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder,
+            @RequestParam(value = "lastRecordId", required = false) String lastRecordId
+    ) {
+        // TODO: implement forms here
         // validate recordType for current state
 
         // redirect to proper particular record controller
 
-        return "redirect:" + uriBuilder.path("TODO TODO TODO").toUriString();
+        return "records/TODO";
+//        return "redirect:" + uriBuilder.path("TODO TODO TODO").toUriString();
     }
     
 }
