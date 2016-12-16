@@ -63,7 +63,8 @@
         </tbody>
     </table>
 
-    <carpark:logitemlist logItems="${logItems}" />
-
+     <carpark:logitemlist logItems="${logItems}" />
+     <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/car/list/all"
+              role="button">Back</a></p>                 
 </jsp:attribute>
 </my:pagetemplate>

@@ -149,7 +149,7 @@ public class Car {
 
     public int getNumberOfSeats() { return seats; }
 
-    public CarState getCarState() { return state; }
+    public CarState getState() { return state; }
 
     public Date getEstablishDate() {
         return establishDate;
