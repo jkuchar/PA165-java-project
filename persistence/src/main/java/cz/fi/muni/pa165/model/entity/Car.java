@@ -122,7 +122,7 @@ public class Car {
         this.type = type;
     }
 
-    public void setNumberOfSeats(int numberOfSeats){
+    public void setSeats(int numberOfSeats){
         Assert.notNull(numberOfSeats, "Cannot create car without number of seats.");
         this.seats = numberOfSeats;
     }
@@ -147,7 +147,7 @@ public class Car {
         return type;
     }
 
-    public int getNumberOfSeats() { return seats; }
+    public int getSeats() { return seats; }
 
     public CarState getCarState() { return state; }
 
