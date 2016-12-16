@@ -13,7 +13,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Creation date</th>
+            <th>Registration date</th>
             <th></th>
         </tr>
         </thead>

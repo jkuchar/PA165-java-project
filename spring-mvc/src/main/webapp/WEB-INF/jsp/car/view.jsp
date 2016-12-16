@@ -15,7 +15,7 @@
 <my:pagetemplate title="Car detail">
 <jsp:attribute name="body">
 
-
+              
     <table class="table">
         <thead>
         <tr>
@@ -51,19 +51,50 @@
             <tr>
                 <td>Established date</td>
                 <td><fmt:formatDate value="${car.establishDate}" pattern="yyyy-MM-dd"/></td>                
-            </tr>    
-            <tr>
-                <td>Discard date</td>
-                <td><fmt:formatDate value="${car.discardDate}" pattern="yyyy-MM-dd"/></td>                
             </tr>  
+            <c:if test="${not empty car.discardDate}">
+                <tr>
+                    <td>Discard date</td>
+                    <td><fmt:formatDate value="${car.discardDate}" pattern="yyyy-MM-dd"/></td>                
+                </tr>  
+            </c:if>>
             <tr>    
                 <td>State</td>
                 <td><c:out value="${car.state}"/></td>
             </tr>
         </tbody>
-    </table>
-
+    </table>          
+              
     <carpark:logitemlist logItems="${logItems}" />
 
+    <c:choose>
+        <c:when test="${car.state=='OK'}">
+            <div class="col-xs-2">
+            <form method="post" action="${pageContext.request.contextPath}/car/service/${car.id}">
+                <button type="submit" class="btn btn-lg btn-info">Service car</button>
+            </form>
+            </div>
+            <div class="col-xs-2">
+            <form method="post" action="${pageContext.request.contextPath}/car/discard/${car.id}">
+                <button type="submit" class="btn btn-lg btn-warning">Discard car</button>
+            </form>
+            </div>
+        </c:when>
+        <c:when test="${car.state=='SERVICING'}">
+            <div class="col-xs-2">
+            <form method="post" action="${pageContext.request.contextPath}/car/ok/${car.id}">
+                <button type="submit" class="btn btn-lg btn-primary">Finish service</button>
+            </form>
+            </div>
+            <div class="col-xs-2">
+            <form method="post" action="${pageContext.request.contextPath}/car/discard/${car.id}">
+                <button type="submit" class="btn btn-lg btn-warning">Discard car</button>
+            </form>
+            </div>    
+        </c:when>
+    </c:choose>           
+    <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/car/list/all"
+              role="button"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            Back</a> </p>        
 </jsp:attribute>
 </my:pagetemplate>

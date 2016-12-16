@@ -67,11 +67,7 @@ public class CarFacadeImpl implements CarFacade {
 
     @Override
     public List<CarDTO> getAllCarsByState(CarState state) {
-        return beanMappingService.mapTo(
-                carService.getAllCarsByState(
-                        beanMappingService.mapTo(state, cz.fi.muni.pa165.enums.CarState.class)
-                ),
-                CarDTO.class
+        return beanMappingService.mapTo(carService.getAllCarsByState(state),CarDTO.class
         );
     }
 
@@ -93,6 +89,11 @@ public class CarFacadeImpl implements CarFacade {
     @Override
     public void serviceCar(UUID carId) {
         carService.serviceCar(carService.findCarById(carId));
+    }
+    
+    @Override
+    public void finishService(UUID carId) {
+        carService.finishService(carService.findCarById(carId));
     }
 
     @Override

@@ -52,9 +52,10 @@ public class ApplicationRejectedRecordController {
     }
     
      /**
+     * Show detail of rejected record with certain id
      * 
-     * @param id
-     * @param model
+     * @param id is id of rejected record
+     * @param model dala to display
      * @return 
      */
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
@@ -81,7 +82,6 @@ public class ApplicationRejectedRecordController {
     public String create(@Valid @ModelAttribute("createRecord") ApplicationRejectedRecordDTO formBean, BindingResult bindingResult,
                          Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
         log.debug("create(formBean={})", formBean);
-        //in case of validation error forward back to the the form
         if (bindingResult.hasErrors()) {
             for (ObjectError ge : bindingResult.getGlobalErrors()) {
                 log.trace("ObjectError: {}", ge);
@@ -92,9 +92,8 @@ public class ApplicationRejectedRecordController {
             }
             return "category/new";
         }
-        //create product
+
         UUID id = rejectedFacade.create(formBean);
-        //report success
         redirectAttributes.addFlashAttribute("alert_success", "Category " + id + " was created");
         return "redirect:" + uriBuilder.path("/category/list").toUriString();
     }    

@@ -86,6 +86,12 @@ public interface CarFacade {
     void serviceCar(UUID carId);
     
     /**
+     * Change state of serviced car to ok. 
+     * @param carId is id of serviced car.
+     */
+    void finishService(UUID carId);
+    
+    /**
      * Change state of car to discarded.
      * @param carId is id of car to be discarded.
      */
