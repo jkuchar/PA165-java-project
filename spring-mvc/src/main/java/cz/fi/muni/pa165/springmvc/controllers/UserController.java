@@ -39,25 +39,15 @@ public class UserController {
         return "user/list";
     }
 
-    @RequestMapping(value = "/detail/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/view/{userId}", method = RequestMethod.GET)
     public String detail(@PathVariable UUID userId, Model model) {
         UserDTO user = userFacade.findById(userId);
         if(user == null) {
             log.warn("No user with such id found");
-            model.addAttribute("alert_warning", "No user with such id found");
-            model.addAttribute("users", userFacade.findAll());
-            return "/user/list";
+            return list(model);
         }
         model.addAttribute("user", user);
-        return "user/detail";
-    }
-
-    /**
-     * @author jkuchar
-     */
-    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
-    public String view(@PathVariable UUID id, Model model) {
-        model.addAttribute("logItems", carAuditLogItemFacade.findByUser(id));
+        model.addAttribute("logItems", carAuditLogItemFacade.findByUser(userId));
         return "user/view";
     }
 }
