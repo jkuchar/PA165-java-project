@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import java.util.Date;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertThrows;
 import static org.testng.Assert.fail;
 
 /**
@@ -61,18 +62,7 @@ public class CarTest {
         car.changeState(CarState.DISCARDED);
         assertEquals(car.getState(), CarState.DISCARDED);
 
-        try {
-            car.changeState(CarState.OK);
-            fail("Transition from DISCARDED to OK should not be allowed.");
-        } catch(DomainException e) {
-            assertEquals(car.getState(), CarState.DISCARDED);
-        }
-
-        try {
-            car.changeState(CarState.SERVICING);
-            fail("Transition from DISCARDED to SERVICING should not be allowed.");
-        } catch(DomainException e) {
-            assertEquals(car.getState(), CarState.DISCARDED);
-        }
+        assertThrows(DomainException.class, () -> car.changeState(CarState.OK));
+        assertThrows(DomainException.class, () -> car.changeState(CarState.SERVICING));
     }
 }
