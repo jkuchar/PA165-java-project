@@ -185,7 +185,7 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Rent application with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+        return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
     @Autowired
@@ -232,7 +232,7 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+        return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
     
     @Autowired
@@ -281,7 +281,7 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Application approved record with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+        return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
     @Autowired
@@ -328,7 +328,7 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+        return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
 
@@ -392,7 +392,7 @@ public class RecordsController {
 
         //report success
         redirectAttributes.addFlashAttribute("alert_success", "Rent record with ID " + id + " was created");
-        return "redirect:" + uriBuilder.path("/records/list").toUriString(); // todo better URI
+        return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
 
