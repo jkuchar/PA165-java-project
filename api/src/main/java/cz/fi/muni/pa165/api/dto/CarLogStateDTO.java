@@ -11,11 +11,11 @@ public class CarLogStateDTO {
     private String typeName;
     private UUID recordId;
 
-    private List<CarLogPossibleStateDTO> possibleStates;
+    private List<CarLogPossibleStateDTO> possibleNextStates;
 
-    public CarLogStateDTO(String typeName, List<CarLogPossibleStateDTO> possibleStates, UUID recordId) {
+    public CarLogStateDTO(String typeName, List<CarLogPossibleStateDTO> possibleNextStates, UUID recordId) {
         this.typeName = typeName;
-        this.possibleStates = possibleStates;
+        this.possibleNextStates = possibleNextStates;
         this.recordId = recordId;
     }
 
@@ -28,11 +28,11 @@ public class CarLogStateDTO {
     }
 
     public List<CarLogPossibleStateDTO> getPossibleStates() {
-        return possibleStates;
+        return possibleNextStates;
     }
 
     public void setPossibleStates(List<CarLogPossibleStateDTO> possibleStates) {
-        this.possibleStates = possibleStates;
+        this.possibleNextStates = possibleStates;
     }
 
     public UUID getRecordId() {

@@ -1,17 +1,12 @@
 package cz.fi.muni.pa165.service.facade;
 
-import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ReturnRecordDTO;
 import cz.fi.muni.pa165.api.facade.ReturnRecordFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.model.entity.ReturnRecord;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.service.CarService;
-import cz.fi.muni.pa165.service.RentRecordService;
-import cz.fi.muni.pa165.service.ReturnRecordService;
-import cz.fi.muni.pa165.service.UserService;
-import org.apache.commons.lang.NotImplementedException;
+import cz.fi.muni.pa165.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,6 +73,7 @@ public class ReturnRecordFacadeImpl implements ReturnRecordFacade{
         User user = userService.findById(r.getUser().getId());
         RentRecord rentRecord = rentRecordService.findById(r.getRentRecord().getId());
         ReturnRecord rr = new ReturnRecord(car, user, rentRecord, r.getComment(), r.getFuelState(), r.getOdometerState(), r.getCreated());
+        returnRecordService.create(rr);
         return rr.getId();
     }
 }
