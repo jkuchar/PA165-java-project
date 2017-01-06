@@ -1,19 +1,12 @@
 package cz.fi.muni.pa165.service.facade;
 
-import cz.fi.muni.pa165.enums.Role;
-import cz.fi.muni.pa165.model.PersonName;
-import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.RentRecordDTO;
 import cz.fi.muni.pa165.api.facade.RentRecordFacade;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentRecord;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
-import cz.fi.muni.pa165.service.CarService;
-import cz.fi.muni.pa165.service.RentRecordService;
-import cz.fi.muni.pa165.service.UserService;
-import org.apache.commons.lang.NotImplementedException;
+import cz.fi.muni.pa165.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,8 +70,9 @@ public class RentRecordFacadeImpl implements RentRecordFacade {
     public UUID create(RentRecordDTO r) {
         Car car = carService.findCarById(r.getCar().getId());
         User user = userService.findById(r.getUser().getId());
-        ApplicationApprovedRecord approvedRecord = approvedRecordService.findById(r.getId());
+        ApplicationApprovedRecord approvedRecord = approvedRecordService.findById(r.getApprovedRecord().getId());
         RentRecord rr = new RentRecord(car, user, approvedRecord, r.getComment(), r.getFuelState(), r.getOdometerState(), r.getCreated());
+        rentRecordService.create(rr);
         return rr.getId();
     }
 }

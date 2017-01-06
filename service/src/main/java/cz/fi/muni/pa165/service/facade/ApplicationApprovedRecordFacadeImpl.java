@@ -1,16 +1,12 @@
 package cz.fi.muni.pa165.service.facade;
 
-import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.ApplicationApprovedRecordDTO;
 import cz.fi.muni.pa165.api.facade.ApplicationApprovedRecordFacade;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.RentApplication;
 import cz.fi.muni.pa165.model.entity.User;
-import cz.fi.muni.pa165.service.ApplicationApprovedRecordService;
-import cz.fi.muni.pa165.service.CarService;
-import cz.fi.muni.pa165.service.RentApplicationService;
-import cz.fi.muni.pa165.service.UserService;
+import cz.fi.muni.pa165.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +51,7 @@ public class ApplicationApprovedRecordFacadeImpl implements ApplicationApprovedR
         RentApplication rentApplication = rentApplicationService.findById(r.getRentApplication().getId());
         ApplicationApprovedRecord app = new ApplicationApprovedRecord(car, user, r.getFrom(), r.getTo(),
                 r.getComment(), rentApplication);
+        approvedRecordService.create(app);
         return app.getId();
     }
 
