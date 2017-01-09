@@ -49,6 +49,16 @@ final public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User findByEmail(String email) {
+        try {
+            return em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                    .setParameter("email", email).getSingleResult();
+        } catch (NoResultException nre){
+            return null;
+        }
+    }
+
+    @Override
     public void create(User c) {
         em.persist(c);
         // todo: investigate why this actually works? Thanks to @transactional? Why flush() is no needed?

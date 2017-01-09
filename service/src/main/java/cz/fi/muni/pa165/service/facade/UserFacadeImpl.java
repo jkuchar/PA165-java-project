@@ -47,6 +47,11 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
+    public UserDTO findByEmail(String email) {
+        return beanMappingService.mapTo(userService.findByEmail(email), UserDTO.class);
+    }
+
+    @Override
     public UUID register(UserDTO u, String unencryptedPassword) {
         PersonName personName = new PersonName(u.getFirstName(), u.getLastName());
         Role role;
