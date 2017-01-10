@@ -2,6 +2,8 @@ package cz.fi.muni.pa165.api.facade;
 
 import java.util.List;
 import java.util.UUID;
+
+import cz.fi.muni.pa165.api.dto.UserAuthDTO;
 import cz.fi.muni.pa165.api.dto.UserDTO;
 
 /**
@@ -41,8 +43,16 @@ public interface UserFacade {
      * Register a new user.
      * @param u is new user
      * @param unencryptedPassword is new password
+     * @return newly generated ID
      */
     UUID register(UserDTO u, String unencryptedPassword);
+
+    /**
+     * Authenticates a user.
+     * @param auth user to be authenticated
+     * @return true if successful
+     */
+    boolean auth(UserAuthDTO auth);
 
     /**
      * Delete user from database.

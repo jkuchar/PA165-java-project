@@ -56,4 +56,12 @@ public interface UserService {
      * @param u is user to update
      */
     void update(User u);
+
+    /**
+     * Authenticates a user.
+     * @param email user to be authenticated
+     * @param password user password
+     * @return true is successful
+     */
+    boolean auth(String email, String password);
 }

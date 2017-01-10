@@ -62,7 +62,13 @@ public class UserServiceImpl implements UserService {
     public void update(User u) {
         userDao.update(u);
     }
-    
+
+    @Override
+    public boolean auth(String email, String password) {
+        User user = userDao.findByEmail(email);
+        return validatePassword(password, user.getPasswordHash());
+    }
+
     //see  https://crackstation.net/hashing-security.htm#javasourcecode
     private static String createHash(String password) {
         final int SALT_BYTE_SIZE = 24;
