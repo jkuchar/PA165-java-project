@@ -48,11 +48,11 @@ public interface UserFacade {
     UUID register(UserDTO u, String unencryptedPassword);
 
     /**
-     * Authenticates a user.
+     * Validates user credentials.
      * @param auth user to be authenticated
      * @return true if successful
      */
-    boolean auth(UserAuthDTO auth);
+    boolean validate(UserAuthDTO auth);
 
     /**
      * Delete user from database.

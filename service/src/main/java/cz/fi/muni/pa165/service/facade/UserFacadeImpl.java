@@ -76,9 +76,9 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public boolean auth(UserAuthDTO auth) {
+    public boolean validate(UserAuthDTO auth) {
         log.debug("Authenticating user with email {}.", auth.getEmail());
-        return userService.auth(auth.getEmail(), auth.getPassword());
+        return userService.validate(auth.getEmail(), auth.getPassword());
     }
 
     @Override

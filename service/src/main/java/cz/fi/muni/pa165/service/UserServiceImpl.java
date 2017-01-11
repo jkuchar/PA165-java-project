@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean auth(String email, String password) {
+    public boolean validate(String email, String password) {
         User user = userDao.findByEmail(email);
         if (user == null)
             return false;

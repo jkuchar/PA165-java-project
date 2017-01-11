@@ -58,10 +58,10 @@ public interface UserService {
     void update(User u);
 
     /**
-     * Authenticates a user.
+     * Validates user credentials.
      * @param email user to be authenticated
      * @param password user password
      * @return true is successful
      */
-    boolean auth(String email, String password);
+    boolean validate(String email, String password);
 }

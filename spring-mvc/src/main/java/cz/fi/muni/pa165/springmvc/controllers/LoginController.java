@@ -45,7 +45,7 @@ public class LoginController {
         userAuthDTO.setPassword(password);
 
         HttpServletRequest request = (HttpServletRequest) r;
-        if (userFacade.auth(userAuthDTO)) {
+        if (userFacade.validate(userAuthDTO)) {
             log.debug("user was authenticated");
             UserDTO user = userFacade.findByEmail(userAuthDTO.getEmail());
             HttpSession session = request.getSession();
