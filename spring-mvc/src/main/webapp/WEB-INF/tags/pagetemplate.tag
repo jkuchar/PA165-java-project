@@ -66,7 +66,7 @@
                 </li>
                 <c:choose>
                     <c:when test="${not empty userAuth}">
-                        <li><carpark:a href="/user/detail/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
+                        <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
                     </c:when>
                     <c:otherwise>
                         <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>

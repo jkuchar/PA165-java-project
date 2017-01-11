@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping(value = "/view/{userId}", method = RequestMethod.GET)
     public String detail(@PathVariable UUID userId, Model model) {
-        log.debug("detail({})", userId);
+        log.debug("view({})", userId);
         UserDTO user = userFacade.findById(userId);
         if(user == null) {
             log.warn("No user with such id found");
