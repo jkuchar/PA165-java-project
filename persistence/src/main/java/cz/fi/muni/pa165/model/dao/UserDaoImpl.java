@@ -2,6 +2,8 @@ package cz.fi.muni.pa165.model.dao;
 
 import cz.fi.muni.pa165.model.PersonName;
 import cz.fi.muni.pa165.model.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -20,6 +22,8 @@ final public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager em;
+
+    final static Logger log = LoggerFactory.getLogger(UserDaoImpl.class);
 
     /**
      * This constructor should be available if someone want to inject entity manager on their own
@@ -44,6 +48,8 @@ final public class UserDaoImpl implements UserDao {
         try{
             return q.setParameter("name", name).getSingleResult();
         } catch (NoResultException nre) {
+            log.warn("no user found with name " + name);
+            log.warn("returning null");
             return null; // todo: really? or exception instead? Should be consistent with other methods.
         }
     }
@@ -54,6 +60,8 @@ final public class UserDaoImpl implements UserDao {
             return em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
                     .setParameter("email", email).getSingleResult();
         } catch (NoResultException nre){
+            log.warn("no user found with email " + email);
+            log.warn("returning null");
             return null;
         }
     }
