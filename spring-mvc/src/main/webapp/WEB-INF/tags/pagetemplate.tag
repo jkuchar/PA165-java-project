@@ -99,25 +99,25 @@
     <c:if test="${not empty success}">
         <div class="alert alert-success alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong><c:out value="${alert_success}"/>
+            <strong>Success!</strong><c:out value=" ${success}"/>
         </div>
     </c:if>
     <c:if test="${not empty info}">
         <div class="alert alert-info alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Info!</strong><c:out value="${alert_info}"/>
+            <strong>Info!</strong><c:out value=" ${info}"/>
         </div>
     </c:if>
     <c:if test="${not empty warning}">
         <div class="alert alert-warning alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Warning!</strong><c:out value="${alert_warning}"/>
+            <strong>Warning!</strong><c:out value=" ${warning}"/>
         </div>
     </c:if>
     <c:if test="${not empty danger}">
         <div class="alert alert-danger alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Danger!</strong><c:out value="${alert_danger}"/>
+            <strong>Danger!</strong><c:out value=" ${danger}"/>
         </div>
     </c:if>
 
