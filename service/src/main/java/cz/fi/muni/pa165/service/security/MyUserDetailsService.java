@@ -39,13 +39,13 @@ public class MyUserDetailsService implements UserDetailsService {
         final List<GrantedAuthority> authorities = new ArrayList<>();
         switch (role) {
             case USER:
-                authorities.add(new SimpleGrantedAuthority(Role.USER.toString()));
+                authorities.add(new SimpleGrantedAuthority(Role.USER.getAuthority()));
                 break;
             case MANAGER:
-                authorities.add(new SimpleGrantedAuthority(Role.USER.toString()));
+                authorities.add(new SimpleGrantedAuthority(Role.USER.getAuthority()));
             case ADMIN:
-                authorities.add(new SimpleGrantedAuthority(Role.USER.toString()));
-                authorities.add(new SimpleGrantedAuthority(Role.ADMIN.toString()));
+                authorities.add(new SimpleGrantedAuthority(Role.USER.getAuthority()));
+                authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getAuthority()));
                 break;
         }
         return authorities;
