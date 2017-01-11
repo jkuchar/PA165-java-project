@@ -67,7 +67,15 @@
                 <c:choose>
                     <c:when test="${not empty userAuth}">
                         <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
-                        <li><carpark:a href="/logout}"><f:message key="navigation.logout"/></carpark:a></li>
+                        <li>
+                            <form action="${pageContext.request.contextPath}/logout" method="post">
+                                <f:message key="navigation.logout" var="logoutLabel"/>
+                                <input type="submit" value="${logoutLabel}"/>
+                            </form>
+                            <!-- logout should be a POST request. if it was a GET request, we would simply use
+                                <carpark:a href="/logout}"><f:message key="navigation.logout"/></carpark:a>
+                            -->
+                        </li>
                     </c:when>
                     <c:otherwise>
                         <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>
