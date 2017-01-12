@@ -1,5 +1,6 @@
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.api.dto.UserAuthDTO;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.UserDTO;
 import cz.fi.muni.pa165.api.facade.UserFacade;
@@ -7,6 +8,8 @@ import cz.fi.muni.pa165.model.PersonName;
 import cz.fi.muni.pa165.enums.Role;
 import cz.fi.muni.pa165.model.entity.User;
 import cz.fi.muni.pa165.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +27,8 @@ public class UserFacadeImpl implements UserFacade {
     private final BeanMappingService beanMappingService;
 
     private final UserService userService;
+
+    final static Logger log = LoggerFactory.getLogger(UserFacadeImpl.class);
 
     @Autowired
     public UserFacadeImpl (BeanMappingService beanMappingService, UserService userService) {
@@ -47,6 +52,11 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
+    public UserDTO findByEmail(String email) {
+        return beanMappingService.mapTo(userService.findByEmail(email), UserDTO.class);
+    }
+
+    @Override
     public UUID register(UserDTO u, String unencryptedPassword) {
         PersonName personName = new PersonName(u.getFirstName(), u.getLastName());
         Role role;
@@ -63,6 +73,12 @@ public class UserFacadeImpl implements UserFacade {
         User user = new User(personName, role, u.getEmail(), u.getCreated());
         userService.register(user, unencryptedPassword);
         return user.getId();
+    }
+
+    @Override
+    public boolean validate(UserAuthDTO auth) {
+        log.debug("Authenticating user with email {}.", auth.getEmail());
+        return userService.validate(auth.getEmail(), auth.getPassword());
     }
 
     @Override
