@@ -15,7 +15,6 @@
 <my:pagetemplate title="Car detail">
 <jsp:attribute name="body">
 
-              
     <table class="table">
         <thead>
         <tr>
@@ -63,8 +62,8 @@
                 <td><c:out value="${car.state}"/></td>
             </tr>
         </tbody>
-    </table>          
-              
+    </table>
+
     <carpark:logitemlist logItems="${logItems}" />
 
     <c:choose>
