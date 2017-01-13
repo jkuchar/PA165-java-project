@@ -95,32 +95,4 @@ public class RentApplicationServiceImplTest {
         verify(dao, times(1)).create(rentApplication);
     }
 
-    @Test
-    public void testDelete_entity() throws Exception {
-        // Arrange
-        RentApplication rentApplication = Mockito.mock(RentApplication.class);
-
-        // Act
-        uut.delete(rentApplication);
-
-        // Assert
-        verify(dao, times(1)).delete(rentApplication);
-    }
-
-    @Test
-    public void testDelete_id() throws Exception {
-        // This guy has to turn ID into entity and then delete.
-
-        // Arrange
-        RentApplication rentApplication = Mockito.mock(RentApplication.class);
-        when(dao.findById(someUUID)).thenReturn(rentApplication);
-
-        // Act
-        uut.delete(someUUID);
-
-        // Assert
-        verify(dao, times(1)).findById(someUUID);
-        verify(dao, times(1)).delete(rentApplication);
-    }
-
 }

@@ -29,6 +29,13 @@ public class UsersController {
     @Autowired
     private UserFacade userFacade;
 
+    /**
+     * 
+     * Return all users
+     * 
+     * @return list of all users 
+     * @throws JsonProcessingException 
+     */
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public final Collection<UserDTO> getUsers() throws JsonProcessingException {
 
@@ -36,6 +43,14 @@ public class UsersController {
         return userFacade.findAll();
     }
 
+    /**
+     * 
+     * Return user with specific id 
+     * 
+     * @param id id of user
+     * @return userDto with specific id 
+     * @throws ResourceNotFoundException 
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public final UserDTO getUser(@PathVariable("id") UUID id) throws ResourceNotFoundException {
 

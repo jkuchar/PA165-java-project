@@ -52,15 +52,4 @@ public interface RentApplicationService {
      */    
     void create(RentApplication r);
 
-    /**
-     * Delete certain rent application record
-     * @param r is certain application record
-     */
-    void delete(RentApplication r);
-
-    /**
-     * Delete rent record with certain id
-     * @param id is id of rent application record
-     */
-    void delete(UUID id);
 }

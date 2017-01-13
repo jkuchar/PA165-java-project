@@ -5,6 +5,8 @@
 <%@ taglib prefix="carpark" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 
 <!DOCTYPE html>
 <html lang="${pageContext.request.locale}">
@@ -37,20 +39,24 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
-                <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
+                <sec:authorize access="hasRole('ROLE_MANAGER')">
+                    <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
+                </sec:authorize>
                 <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
+                <sec:authorize access="hasRole('ROLE_MANAGER')">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
+                            <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
+                            <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
+                            <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
+                        </ul>
+                    </li>
+                </sec:authorize>
                 <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
-                        <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
-                        <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
-                        <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
-                    </ul>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -65,8 +71,17 @@
                     </ul>
                 </li>
                 <c:choose>
-                    <c:when test="${not empty authenticatedUser}">
-                        <li><carpark:a href="/user/detail/${authenticatedUser.userName}"><f:message key="navigation.profile"/></carpark:a></li>
+                    <c:when test="${not empty userAuth}">
+                        <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
+                        <li>
+                            <form action="${pageContext.request.contextPath}/logout" method="post">
+                                <f:message key="navigation.logout" var="logoutLabel"/>
+                                <input type="submit" value="${logoutLabel}"/>
+                            </form>
+                            <!-- logout should be a POST request. if it was a GET request, we would simply use
+                                <carpark:a href="/logout}"><f:message key="navigation.logout"/></carpark:a>
+                            -->
+                        </li>
                     </c:when>
                     <c:otherwise>
                         <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>
@@ -86,34 +101,30 @@
         </div>
     </c:if>
 
-    <!-- authenticated user info -->
-    <c:if test="${not empty authenticatedUser}">
-        <div class="row">
-            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10"></div>
-            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <c:out value="${authenticatedUser.givenName} ${authenticatedUser.surname}"/>
-                    </div>
-                </div>
-            </div>
+    <!-- alerts -->
+    <c:if test="${not empty success}">
+        <div class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong><c:out value=" ${success}"/>
         </div>
     </c:if>
-
-    <!-- alerts -->
-    <c:if test="${not empty alert_danger}">
-        <div class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <c:out value="${alert_danger}"/></div>
+    <c:if test="${not empty info}">
+        <div class="alert alert-info alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong><c:out value=" ${info}"/>
+        </div>
     </c:if>
-    <c:if test="${not empty alert_info}">
-        <div class="alert alert-info" role="alert"><c:out value="${alert_info}"/></div>
+    <c:if test="${not empty warning}">
+        <div class="alert alert-warning alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><c:out value=" ${warning}"/>
+        </div>
     </c:if>
-    <c:if test="${not empty alert_success}">
-        <div class="alert alert-success" role="alert"><c:out value="${alert_success}"/></div>
-    </c:if>
-    <c:if test="${not empty alert_warning}">
-        <div class="alert alert-warning" role="alert"><c:out value="${alert_warning}"/></div>
+    <c:if test="${not empty danger}">
+        <div class="alert alert-danger alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!</strong><c:out value=" ${danger}"/>
+        </div>
     </c:if>
 
     <!-- page body -->

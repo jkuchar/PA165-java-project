@@ -5,13 +5,13 @@
  */
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.api.dto.CarCreateDTO;
 import cz.fi.muni.pa165.service.BeanMappingService;
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.enums.CarState;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.service.CarService;
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +39,7 @@ public class CarFacadeImpl implements CarFacade {
     }
     
     @Override
-    public UUID createCar(CarDTO car) {
+    public UUID createCar(CarCreateDTO car) {
         Car c = new Car(car.getSerialNumber(),car.getRegPlateNumber(),car.getManufacturer(),car.getType(),car.getSeats());
         carService.createCar(c);
         return  c.getId();

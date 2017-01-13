@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.service.facade;
 
+import cz.fi.muni.pa165.api.dto.CarCreateDTO;
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.api.facade.CarFacade;
 import cz.fi.muni.pa165.model.entity.Car;
@@ -74,7 +75,7 @@ public class CarFacadeImplTest extends AbstractTestNGSpringContextTests {
     @Test(enabled = false)
     public void testCreate() throws Exception {
 
-        CarDTO dto = Mockito.mock(CarDTO.class);
+        CarCreateDTO dto = Mockito.mock(CarCreateDTO.class);
         Car entity = Mockito.mock(Car.class);
         when(entity.getId()).thenReturn(someUUID);
 
