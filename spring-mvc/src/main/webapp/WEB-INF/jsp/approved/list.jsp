@@ -16,12 +16,10 @@
 <carpark:pagetemplate title="Application Approved Records">
 <jsp:attribute name="body">
 
-    <sec:authorize access="hasRole('ROLE_MANAGER')">
-        <div class="btn-group" role="group" aria-label="filter">
-            <carpark:a href="/approved/list/all" class="btn btn-default ${filter=='all'?'active':''}">All</carpark:a>
-            <carpark:a href="/approved/list/my" class="btn btn-default ${filter=='my'?'active':''}">My</carpark:a>
-        </div>
-    </sec:authorize>
+    <div class="btn-group" role="group" aria-label="filter">
+        <carpark:a href="/approved/list/all" class="btn btn-default ${filter=='all'?'active':''}">All</carpark:a>
+        <carpark:a href="/approved/list/my" class="btn btn-default ${filter=='my'?'active':''}">My</carpark:a>
+    </div>
 
     <table class="table">
         <thead>
