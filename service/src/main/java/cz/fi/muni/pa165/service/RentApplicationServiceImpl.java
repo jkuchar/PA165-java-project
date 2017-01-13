@@ -50,18 +50,4 @@ public class RentApplicationServiceImpl implements RentApplicationService {
         rentApplicationDao.create(r);
     }
 
-    @Override
-    public void delete(RentApplication r) {
-        rentApplicationDao.delete(r);
-    }
-
-    @Override
-    public void delete(UUID id) {
-        delete(findById(id));
-    }
-
-
-
-
-
 }

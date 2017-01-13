@@ -42,6 +42,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
+
+    @Override
     public void register(User u, String unencryptedPassword) {
         String passwordHash = createHash(unencryptedPassword);
         u.setPasswordHash(passwordHash);
@@ -57,8 +62,16 @@ public class UserServiceImpl implements UserService {
     public void update(User u) {
         userDao.update(u);
     }
-    
-        //see  https://crackstation.net/hashing-security.htm#javasourcecode
+
+    @Override
+    public boolean validate(String email, String password) {
+        User user = userDao.findByEmail(email);
+        if (user == null)
+            return false;
+        return validatePassword(password, user.getPasswordHash());
+    }
+
+    //see  https://crackstation.net/hashing-security.htm#javasourcecode
     private static String createHash(String password) {
         final int SALT_BYTE_SIZE = 24;
         final int HASH_BYTE_SIZE = 24;

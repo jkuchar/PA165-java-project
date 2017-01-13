@@ -43,11 +43,11 @@ public class RentRecordController {
         return "rent/list";
     }
     
-     /**
+    /**
      * Show detail of rent record with certain id
      * 
      * @param id is id of rent record
-     * @param model dala to display
+     * @param model data to display
      * @return 
      */
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
