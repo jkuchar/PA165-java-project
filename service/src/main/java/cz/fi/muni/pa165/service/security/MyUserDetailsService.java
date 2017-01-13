@@ -43,10 +43,8 @@ public class MyUserDetailsService implements UserDetailsService {
                 break;
             case MANAGER:
                 authorities.add(new SimpleGrantedAuthority(Role.USER.getAuthority()));
-                authorities.add(new SimpleGrantedAuthority(Role.MANAGER.getAuthority()));
             case ADMIN:
                 authorities.add(new SimpleGrantedAuthority(Role.USER.getAuthority()));
-                authorities.add(new SimpleGrantedAuthority(Role.MANAGER.getAuthority()));
                 authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getAuthority()));
                 break;
         }

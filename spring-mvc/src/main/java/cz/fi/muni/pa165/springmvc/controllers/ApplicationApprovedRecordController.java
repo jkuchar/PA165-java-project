@@ -24,25 +24,12 @@ public class ApplicationApprovedRecordController {
     @Autowired
     private ApplicationApprovedRecordFacade approvedFacade;
 
-    /**
-     * Shows a list of all application approved records.
-     *
-     * @param model data to display
-     * @return JSP page name
-     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("records", approvedFacade.findAllRecords());
         return "approved/list";
     }
 
-    /**
-     * Show detail of approved record with certain id
-     *
-     * @param id is id of approved record
-     * @param model data to display
-     * @return
-     */
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable UUID id, Model model) {
         log.debug("view({})", id);

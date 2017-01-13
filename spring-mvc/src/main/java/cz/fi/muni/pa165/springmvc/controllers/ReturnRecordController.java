@@ -44,11 +44,11 @@ public class ReturnRecordController {
         return "return/list";
     }
     
-    /**
+     /**
      * Show detail of return record with certain id
      * 
      * @param id is id of return record
-     * @param model data to display
+     * @param model dala to display
      * @return 
      */
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
