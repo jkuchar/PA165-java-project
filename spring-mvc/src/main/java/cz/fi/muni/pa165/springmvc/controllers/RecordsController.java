@@ -8,6 +8,7 @@ package cz.fi.muni.pa165.springmvc.controllers;
 
 import cz.fi.muni.pa165.api.dto.*;
 import cz.fi.muni.pa165.api.facade.*;
+import cz.fi.muni.pa165.model.CarAuditLogItemType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,7 +97,7 @@ public class RecordsController {
             throw new RuntimeException("Invalid record type");
         }
 
-        model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
+        addFormSubmitUrl(carId, recordType, model, lastRecordId);
 
         switch(recordType) {
             case "rentApplication":
@@ -159,6 +160,10 @@ public class RecordsController {
     }
     
 
+    private void addFormSubmitUrl(UUID carId, String recordType, Model model, String lastRecordId) {
+        model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder){
         binder.registerCustomEditor(       Date.class,
@@ -189,6 +194,7 @@ public class RecordsController {
     ) {
         log.debug("create(formBean={})", recordDTO);
 
+        addFormSubmitUrl(carId, CarAuditLogItemType.RENT_APPLICATION.getId(), model, "");
         //in case of validation error forward back to the the form
 
         if(validateRequestAndModel(
@@ -231,7 +237,7 @@ public class RecordsController {
             @RequestParam("lastRecordId") UUID lastRecordId
     ) {
         log.debug("create(formBean={})", recordDTO);
-
+        addFormSubmitUrl(carId, CarAuditLogItemType.APPLICATION_REJECTED.getId(), model, lastRecordId.toString());
         //in case of validation error forward back to the the form
 
         if(validateRequestAndModel(
@@ -278,6 +284,7 @@ public class RecordsController {
             @RequestParam("lastRecordId") UUID lastRecordId
     ) {
         log.debug("create(formBean={})", recordDTO);
+        addFormSubmitUrl(carId, CarAuditLogItemType.APPLICATION_APPROVED.getId(), model, lastRecordId.toString());
 
         //in case of validation error forward back to the the form
 
@@ -327,6 +334,7 @@ public class RecordsController {
             @RequestParam("lastRecordId") UUID lastRecordId
     ) {
         log.debug("create(formBean={})", recordDTO);
+        addFormSubmitUrl(carId, CarAuditLogItemType.RETURN_RECORD.getId(), model, lastRecordId.toString());
 
         //in case of validation error forward back to the the form
 
@@ -391,7 +399,7 @@ public class RecordsController {
             @RequestParam("lastRecordId") UUID lastRecordId
     ) {
         log.debug("create(formBean={})", recordDTO);
-
+        addFormSubmitUrl(carId, CarAuditLogItemType.RENT_RECORD.getId(), model, lastRecordId.toString());
         //in case of validation error forward back to the the form
 
         if(validateRequestAndModel(
