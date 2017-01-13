@@ -32,12 +32,12 @@ public class LoginController {
     @Autowired
     private MessageSource messageSource;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String email, @RequestParam String password, ServletRequest r, Model model, Locale locale) {
         log.debug("login()");
         UserAuthDTO userAuthDTO = new UserAuthDTO();
@@ -58,16 +58,16 @@ public class LoginController {
             model.addAttribute("danger", message("danger.login.wrong", locale));
             return "login";
         }
-    }
+    }*/
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+/*@RequestMapping(value = "/logout", method = RequestMethod.POST)
     public String logout(HttpServletRequest request, Model model, Locale locale) {
         log.debug("user logged out");
         HttpSession session = request.getSession();
         session.removeAttribute("userAuth");
         model.addAttribute("success", message("success.logout", locale));
         return "login";
-    }
+    }*/
 
     private String message(String code, Locale locale, Object... args) {
         return messageSource.getMessage(code, args, locale);

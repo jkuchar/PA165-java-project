@@ -5,6 +5,7 @@
 <%@ taglib prefix="carpark" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="${pageContext.request.locale}">
@@ -37,20 +38,30 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
-                <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
+                <sec:authorize access="hasRole('ROLE_MANAGER')">
+                    <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
+                </sec:authorize>
                 <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                                <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
+                            </sec:authorize>
+                            <sec:authorize access="hasRole('ROLE_USER')">
+                                <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
+                            </sec:authorize>
+                            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                                <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
+                                <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
+                            </sec:authorize>
+                        </ul>
+                    </li>
+
                 <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
-                        <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
-                        <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
-                        <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
-                    </ul>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -64,23 +75,21 @@
                         <li><a href="http://getbootstrap.com/components/">Bootstrap components</a></li>
                     </ul>
                 </li>
-                <c:choose>
-                    <c:when test="${not empty userAuth}">
-                        <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
-                        <li>
-                            <form action="${pageContext.request.contextPath}/logout" method="post">
-                                <f:message key="navigation.logout" var="logoutLabel"/>
-                                <input type="submit" value="${logoutLabel}"/>
-                            </form>
-                            <!-- logout should be a POST request. if it was a GET request, we would simply use
-                                <carpark:a href="/logout}"><f:message key="navigation.logout"/></carpark:a>
-                            -->
-                        </li>
-                    </c:when>
-                    <c:otherwise>
-                        <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>
-                    </c:otherwise>
-                </c:choose>
+                <sec:authorize access="isAuthenticated()">
+                    <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
+                    <li>
+                        <form action="${pageContext.request.contextPath}/logout" method="post">
+                            <f:message key="navigation.logout" var="logoutLabel"/>
+                            <input type="hidden"
+                                   name="${_csrf.parameterName}"
+                                   value="${_csrf.token}"/>
+                            <input type="submit" value="${logoutLabel}"/>
+                        </form>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="!isAuthenticated()">
+                    <li><carpark:a href="/login"><f:message key="navigation.login"/></carpark:a></li>
+                </sec:authorize>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

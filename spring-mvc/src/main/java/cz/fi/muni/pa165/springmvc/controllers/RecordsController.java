@@ -187,7 +187,7 @@ public class RecordsController {
         UUID id = rentApplicationFacade.create(recordDTO);
 
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Rent application with ID " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Rent application with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
@@ -234,7 +234,7 @@ public class RecordsController {
         UUID id = applicationRejectedRecordFacade.create(recordDTO);
 
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Application rejected record with ID " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Application rejected record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
     
@@ -284,7 +284,7 @@ public class RecordsController {
         UUID id = applicationApprovedRecordFacade.create(recordDTO);
 
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Application approved record with ID " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Application approved record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
@@ -332,7 +332,7 @@ public class RecordsController {
         UUID id = returnRecordFacade.create(recordDTO);
 
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Return record with ID " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Return record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
@@ -396,7 +396,7 @@ public class RecordsController {
         UUID id = rentRecordFacade.create(recordDTO);
 
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Rent record with ID " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Rent record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
 
