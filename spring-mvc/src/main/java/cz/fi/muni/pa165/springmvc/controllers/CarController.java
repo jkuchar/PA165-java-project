@@ -72,7 +72,7 @@ public class CarController {
                 break;
             default:
                 cars = new ArrayList<>();
-                model.addAttribute("alert_danger", "Unknown filter " + filter);
+                model.addAttribute("danger", "Unknown filter " + filter);
         }
         model.addAttribute("cars", cars);
         return "car/list";
@@ -117,7 +117,7 @@ public class CarController {
         //create car
         UUID id = carFacade.createCar(formBean);
         //report success
-        redirectAttributes.addFlashAttribute("alert_success", "Car " + id + " was created");
+        redirectAttributes.addFlashAttribute("success", "Car " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString();
     }
     
@@ -125,10 +125,10 @@ public class CarController {
     public String service(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
         try {
             carFacade.serviceCar(id);
-            redirectAttributes.addFlashAttribute("alert_success", "Car with id "+id+" was serviced.");
+            redirectAttributes.addFlashAttribute("success", "Car with id "+id+" was serviced.");
         } catch (CarParkServiceException ex) {
             log.warn("car cant be seviced {}",id);
-            redirectAttributes.addFlashAttribute("alert_danger", "Car with id  "+id+" was not set as serviced. "+ex.getMessage());
+            redirectAttributes.addFlashAttribute("danger", "Car with id  "+id+" was not set as serviced. "+ex.getMessage());
         }
         return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
     }
@@ -137,10 +137,10 @@ public class CarController {
     public String finishService(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
         try {
             carFacade.finishService(id);
-            redirectAttributes.addFlashAttribute("alert_success", "Service of the car with id "+id+" was canceled.");
+            redirectAttributes.addFlashAttribute("success", "Service of the car with id "+id+" was canceled.");
         } catch (CarParkServiceException ex) {
             log.warn("car cant be seviced {}",id);
-            redirectAttributes.addFlashAttribute("alert_danger", "Service of the car with id  "+id+" was not canceled. "+ex.getMessage());
+            redirectAttributes.addFlashAttribute("danger", "Service of the car with id  "+id+" was not canceled. "+ex.getMessage());
         }
         return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
     }
@@ -149,10 +149,10 @@ public class CarController {
     public String discard(@PathVariable UUID id, Model model,UriComponentsBuilder uriBuilder,RedirectAttributes redirectAttributes) {
         try {
             carFacade.discardCar(id);
-            redirectAttributes.addFlashAttribute("alert_success", "Car with id "+id+" was discarded.");
+            redirectAttributes.addFlashAttribute("success", "Car with id "+id+" was discarded.");
         } catch (CarParkServiceException ex) {
             log.warn("car cant be seviced {}",id);
-            redirectAttributes.addFlashAttribute("alert_danger", "Car with id  "+id+" was not discarded. "+ex.getMessage());
+            redirectAttributes.addFlashAttribute("danger", "Car with id  "+id+" was not discarded. "+ex.getMessage());
         }
         return "redirect:" + uriBuilder.path("/car/view/{id}").buildAndExpand(id).encode().toUriString();
     }
