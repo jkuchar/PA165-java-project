@@ -1,6 +1,7 @@
 package cz.fi.muni.pa165.api.dto;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -22,10 +23,14 @@ public class RentApplicationDTO {
     @NotNull
     private Date created;
 
+    @Size(min = 3)
+    @NotNull
     private String comment;
 
+    @NotNull
     private Date from;
 
+    @NotNull
     private Date to;
 
     public UUID getId() {

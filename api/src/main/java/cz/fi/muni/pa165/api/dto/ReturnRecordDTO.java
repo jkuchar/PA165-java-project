@@ -1,5 +1,7 @@
 package cz.fi.muni.pa165.api.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -15,12 +17,17 @@ public class ReturnRecordDTO {
 
     private UserDTO user;
 
+    @NotNull
     private Date created;
 
+    @NotNull
+    @Size(min = 3)
     private String comment;
 
+    @NotNull
     private int fuelState;
 
+    @NotNull
     private int odometerState;
 
     private RentRecordDTO rentRecordDto;
