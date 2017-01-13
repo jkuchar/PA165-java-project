@@ -41,42 +41,42 @@
                 <sec:authorize access="hasRole('ROLE_MANAGER')">
                     <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
                 </sec:authorize>
-                <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
-
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records.dropdown"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <sec:authorize access="hasRole('ROLE_MANAGER')">
-                            <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ROLE_USER')">
-                            <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ROLE_MANAGER')">
-                            <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
-                            <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
-                        </sec:authorize>
-                    </ul>
-                </li>
-
-                <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Javadocs</li>
-                        <li><a href="http://docs.oracle.com/javase/8/docs/api/">JDK 8 API</a></li>
-                        <li><a href="http://docs.oracle.com/javaee/6/api/">Java EE 6 API</a></li>
-                        <li><a href="http://docs.spring.io/spring/docs/current/javadoc-api/">Spring API</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Other</li>
-                        <li><a href="http://getbootstrap.com/css/">Bootstrap CSS</a></li>
-                        <li><a href="http://getbootstrap.com/components/">Bootstrap components</a></li>
-                    </ul>
-                </li>
                 <sec:authorize access="isAuthenticated()">
+                    <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
+
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records.dropdown"/><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                                <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
+                            </sec:authorize>
+                            <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
+                            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                                <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
+                                <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
+                            </sec:authorize>
+                        </ul>
+                    </li>
+
+                    <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.docs"/><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Javadocs</li>
+                            <li><a href="http://docs.oracle.com/javase/8/docs/api/">JDK 8 API</a></li>
+                            <li><a href="http://docs.oracle.com/javaee/6/api/">Java EE 6 API</a></li>
+                            <li><a href="http://docs.spring.io/spring/docs/current/javadoc-api/">Spring API</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Other</li>
+                            <li><a href="http://getbootstrap.com/css/">Bootstrap CSS</a></li>
+                            <li><a href="http://getbootstrap.com/components/">Bootstrap components</a></li>
+                        </ul>
+                    </li>
+
                     <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
+
                     <li>
                         <form action="${pageContext.request.contextPath}/logout" method="post">
                             <f:message key="navigation.logout" var="logoutLabel"/>
