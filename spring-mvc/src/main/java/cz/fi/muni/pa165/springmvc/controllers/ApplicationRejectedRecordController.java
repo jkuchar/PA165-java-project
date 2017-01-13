@@ -51,11 +51,11 @@ public class ApplicationRejectedRecordController {
         return "rejected/list";
     }
     
-     /**
+    /**
      * Show detail of rejected record with certain id
-     * 
+     *
      * @param id is id of rejected record
-     * @param model dala to display
+     * @param model data to display
      * @return 
      */
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
