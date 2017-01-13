@@ -48,6 +48,7 @@ public interface RentRecordFacade {
     /**
      * Method to insert new rent record into db.
      * @param r is new rent record
+     * @return id of created record
      */
     UUID create(RentRecordDTO r);
 

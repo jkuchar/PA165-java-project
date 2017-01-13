@@ -49,6 +49,7 @@ public interface ReturnRecordFacade {
     /**
      * Method to insert new return record into db.
      * @param r is new return record
+     * @return id of created record
      */
     UUID create(ReturnRecordDTO r);
 

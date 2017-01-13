@@ -34,6 +34,7 @@ public interface UserFacade {
      * Register a new user.
      * @param u is new user
      * @param unencryptedPassword is new password
+     * @return id of registered user
      */
     UUID register(UserDTO u, String unencryptedPassword);
 
