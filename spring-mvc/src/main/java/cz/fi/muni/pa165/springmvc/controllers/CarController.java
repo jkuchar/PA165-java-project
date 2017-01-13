@@ -109,14 +109,8 @@ public class CarController {
                          Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
         log.debug("create(formBean={})", formBean);
         //in case of validation error forward back to the the form
-        if (bindingResult.hasErrors()) {
-            for (ObjectError ge : bindingResult.getGlobalErrors()) {
-                log.trace("ObjectError: {}", ge);
-            }
-            for (FieldError fe : bindingResult.getFieldErrors()) {
-                model.addAttribute(fe.getField() + "_error", true);
-                log.trace("FieldError: {}", fe);
-            }
+        if(ValidationTools.validateRequestAndModel(bindingResult, model, new String[] {"manufacturer", "model", "registrationPlate", "serialNumber", "seats"}, log)) {
+
             return "car/new";
         }
         //create car
