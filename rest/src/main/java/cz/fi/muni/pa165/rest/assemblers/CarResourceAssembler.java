@@ -25,15 +25,15 @@ public class CarResourceAssembler implements ResourceAssembler<CarDTO, Resource<
     @Override
     public Resource<CarDTO> toResource(CarDTO carDTO) {
         UUID id = carDTO.getId();
-        Resource<CarDTO> productResource = new Resource<CarDTO>(carDTO);
+        Resource<CarDTO> carResource = new Resource<CarDTO>(carDTO);
 
         try {
-            productResource.add(linkTo(CarsControllerHateoas.class).slash(carDTO.getId()).withSelfRel());
+            carResource.add(linkTo(CarsControllerHateoas.class).slash(carDTO.getId()).withSelfRel());
 
         } catch (Exception ex) {
             Logger.getLogger(CarResourceAssembler.class.getName()).log(Level.SEVERE, "could not link resource from CarsControllerHateoas", ex);
         }
 
-        return productResource;
+        return carResource;
     }
 }
