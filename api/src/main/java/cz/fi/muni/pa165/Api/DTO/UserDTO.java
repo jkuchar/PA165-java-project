@@ -2,6 +2,7 @@ package cz.fi.muni.pa165.api.dto;
 
 import cz.fi.muni.pa165.enums.Role;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,16 +13,22 @@ import java.util.UUID;
 public class UserDTO {
     private UUID id;
 
+    @NotNull
     private Role role;
 
+    @NotNull
     private String firstName;
 
+    @NotNull
     private String lastName;
 
+    @NotNull
     private String email;
 
+    @NotNull
     private Date created;
-    
+
+    @NotNull
     private String passwordHash;
 
     public UUID getId() {
