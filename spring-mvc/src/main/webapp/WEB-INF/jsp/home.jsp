@@ -6,11 +6,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <carpark:pagetemplate>
-    <jsp:attribute name="body">
-        <div class="jumbotron">
-            <h1><fmt:message key="home.welcome"/></h1>
-            <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/car/list/all"
-                  role="button"><fmt:message key="home.viewCars"/></a></p>
-        </div>
-    </jsp:attribute>
+
+<jsp:attribute name="body">
+
+    <div class="jumbotron">
+        <h1><fmt:message key="home.welcome"/></h1>
+    </div>
+
+</jsp:attribute>
 </carpark:pagetemplate>
+

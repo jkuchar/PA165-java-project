@@ -37,29 +37,29 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
+
                 <sec:authorize access="hasRole('ROLE_MANAGER')">
                     <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
                 </sec:authorize>
                 <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <sec:authorize access="hasRole('ROLE_MANAGER')">
-                                <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
-                            </sec:authorize>
-                            <sec:authorize access="hasRole('ROLE_USER')">
-                                <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
-                            </sec:authorize>
-                            <sec:authorize access="hasRole('ROLE_MANAGER')">
-                                <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
-                                <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
-                            </sec:authorize>
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records.dropdown"/><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <sec:authorize access="hasRole('ROLE_MANAGER')">
+                            <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_USER')">
+                            <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_MANAGER')">
+                            <li><carpark:a href="/rent/list"><f:message key="navigation.records.rent"/></carpark:a></li>
+                            <li><carpark:a href="/return/list"><f:message key="navigation.records.return"/></carpark:a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><carpark:a href="/rejected/list"><f:message key="navigation.records.rejected"/></carpark:a></li>
+                        </sec:authorize>
+                    </ul>
+                </li>
 
                 <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
                 <li class="dropdown">

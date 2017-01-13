@@ -26,6 +26,8 @@
             <td><fmt:formatDate value="${logItem.created}" pattern="EEEE, yyyy-MM-dd HH:mm:ss"/></td>
             <td title="<c:out value="log item ID: ${logItem.id}" />" class="this-is-important">
                 <c:out value="${logItem.type}"/>
+                <br>
+                <carpark:a href="/records/view/${logItem.id}" class="btn btn-default">details</carpark:a>
             </td>
             <td title="<c:out value="car ID: ${logItem.car.id}" />">
                 <c:out value="${logItem.car.manufacturer}"/> <c:out value="${logItem.car.type}"/>

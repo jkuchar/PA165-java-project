@@ -37,11 +37,21 @@
         </tr>
         <tr>
             <td>User</td>
-            <td><c:out value="${record.user.email}"/></td>
+            <td><c:out value="${record.user.email}"/>                    
+                <a class="btn btn-info" href="${pageContext.request.contextPath}/user/view/${record.user.id}"
+                    role="button">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        View user detail</a>
+            </td>
         </tr>
         <tr>
             <td>Car</td>
-            <td><c:out value="${record.car.manufacturer} ${record.car.type}"/></td>
+            <td><c:out value="${record.car.manufacturer} ${record.car.type}"/>
+                <a class="btn btn-info" href="${pageContext.request.contextPath}/car/view/${record.car.id}"
+                    role="button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    View car detail</a>
+            </td>
         </tr>
         <tr>
             <td>Vehicle registration plate</td>
@@ -49,8 +59,6 @@
         </tr>
         </tbody>
     </table>
-    <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/approved/list" role="button">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></p>
 
 </jsp:attribute>
 </carpark:pagetemplate>
