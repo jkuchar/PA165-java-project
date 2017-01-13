@@ -36,12 +36,11 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><carpark:a href="/"><f:message key="navigation.home"/></carpark:a></li>
                 <li><carpark:a href="/user/list"><f:message key="navigation.users"/></carpark:a></li>
                 <li><carpark:a href="/car/list/all"><f:message key="navigation.cars"/></carpark:a></li>
                 <li><carpark:a href="/records/list"><f:message key="navigation.records"/></carpark:a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records"/><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><f:message key="navigation.records.dropdown"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><carpark:a href="/application/list"><f:message key="navigation.records.application"/></carpark:a></li>
                         <li><carpark:a href="/approved/list"><f:message key="navigation.records.approved"/></carpark:a></li>

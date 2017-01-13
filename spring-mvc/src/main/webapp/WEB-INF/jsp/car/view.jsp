@@ -92,9 +92,6 @@
             </form>
             </div>    
         </c:when>
-    </c:choose>           
-    <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/car/list/all"
-              role="button"> <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            Back</a> </p>        
+    </c:choose>       
 </jsp:attribute>
 </my:pagetemplate>

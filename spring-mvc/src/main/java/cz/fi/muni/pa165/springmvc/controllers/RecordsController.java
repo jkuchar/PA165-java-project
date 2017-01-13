@@ -101,7 +101,6 @@ public class RecordsController {
 
         model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
 
-
         switch(recordType) {
             case "rentApplication":
                 model.addAttribute("recordDTO", new RentApplicationDTO());
@@ -129,6 +128,39 @@ public class RecordsController {
 
         return "records/" + recordType;
     }
+    
+    @RequestMapping(value = "/view/{logItemId}", method = RequestMethod.GET)
+    public String detail(        
+            @PathVariable UUID logItemId,
+            Model model,
+            RedirectAttributes redirectAttributes,
+            UriComponentsBuilder uriBuilder
+    ) {
+        
+        CarAuditLogItemDTO log =  carAuditLogItemFacade.findById(logItemId);
+
+        switch(log.getType()) {
+            case "Rent application":
+                return "redirect:" + uriBuilder.path("/application/view/{logItemId}").buildAndExpand(logItemId).encode().toUriString();
+ 
+            case "Application approved record":
+                return "redirect:" + uriBuilder.path("/approved/view/{logItemId}").buildAndExpand(logItemId).encode().toUriString();
+            
+            case "Application rejected record":
+                return "redirect:" + uriBuilder.path("/rejected/view/{logItemId}").buildAndExpand(logItemId).encode().toUriString();
+
+            case "Return record":
+                return "redirect:" + uriBuilder.path("/return/view/{logItemId}").buildAndExpand(logItemId).encode().toUriString();
+
+            case "Rent record":
+                return "redirect:" + uriBuilder.path("/rent/view/{logItemId}").buildAndExpand(logItemId).encode().toUriString();
+
+            default:
+                throw new RuntimeException("Wrong record type");
+        }
+
+    }
+    
 
     @InitBinder
     public void initBinder(WebDataBinder binder){
