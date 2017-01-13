@@ -88,10 +88,10 @@ public class SampleDataLoadingFacadeImpl implements SampleDataLoadingFacade {
         RentApplication rent5 = null;
         
         try {
-            rent1 = new RentApplication(fiat,emma,"Bussines trip to Prague", parseDate("2016-12-15"), parseDate("2016-12-16"));
-            rent2 = new RentApplication(mazda,olivia,"Workshop in Olomouc", parseDate("2017-12-05"), parseDate("2016-12-07"));
+            rent1 = new RentApplication(octavia,emma,"Bussines trip to Prague", parseDate("2016-12-15"), parseDate("2016-12-16"));
+            rent2 = new RentApplication(mazda,olivia,"Workshop in Olomouc", parseDate("2016-12-05"), parseDate("2016-12-07"));
             rent3 = new RentApplication(fiat,david,"Delivery of office equipmnet to Brno", parseDate("2016-12-14"), parseDate("2016-12-17"));
-            rent4 = new RentApplication(octavia,sophia,"Bussines trip to Wien", parseDate("2016-01-05"), parseDate("2016-01-08"));
+            rent4 = new RentApplication(octavia,sophia,"Bussines trip to Wien", parseDate("2017-01-05"), parseDate("2017-01-08"));
             rent5 = new RentApplication(nissan,david,"trip", parseDate("2016-12-20"), parseDate("2016-12-22"));
 
         } catch (ParseException ex) {

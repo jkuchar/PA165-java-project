@@ -12,15 +12,45 @@ import java.util.UUID;
  */
 public interface RentApplicationFacade {
 
+    /**
+     * Find all rent applcation records
+     * @return list of all rent applcation records
+     */
     List<RentApplicationDTO> findAll();
 
+    /**
+     * Find certain rent application record by id
+     * @param id is id of rent application
+     * @return rent application record with certain id
+     */
     RentApplicationDTO findById(UUID id);
 
+    /**
+     * Find all rent applications records by car
+     * @param carId is id of car
+     * @return list of all rent applications records by car
+     */
     List<RentApplicationDTO> findByCar(UUID carId);
 
+    /**
+     * Find all rent applications records by user
+     * @param userId is user id
+     * @return list of all rent applications records by user
+     */
     List<RentApplicationDTO> findByUser(UUID userId);
 
+    /**
+     * Find all rent application records created between certain dates
+     * @param from start date
+     * @param to end date
+     * @return list of all rent application records created between certain dates
+     */
     List<RentApplicationDTO> getRecordsCreatedBetween(Date from, Date to);
 
+    /**
+     * Method to insert new rent application record into db.
+     * @param r is new rent application record
+     * @return id of created record
+     */
     UUID create(RentApplicationDTO r);
 }

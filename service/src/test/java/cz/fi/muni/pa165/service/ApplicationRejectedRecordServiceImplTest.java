@@ -1,37 +1,43 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cz.fi.muni.pa165.service;
 
 import cz.fi.muni.pa165.enums.Role;
 import cz.fi.muni.pa165.model.PersonName;
 import cz.fi.muni.pa165.model.dao.ApplicationApprovedRecordDao;
+import cz.fi.muni.pa165.model.dao.ApplicationRejectedRecordDao;
 import cz.fi.muni.pa165.model.entity.ApplicationApprovedRecord;
+import cz.fi.muni.pa165.model.entity.ApplicationRejectedRecord;
 import cz.fi.muni.pa165.model.entity.Car;
 import cz.fi.muni.pa165.model.entity.User;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
- * @author rtrembecky
+ *
+ * @author charlliz
  */
-public class ApplicationApprovedRecordServiceImplTest {
+public class ApplicationRejectedRecordServiceImplTest {
 
     @InjectMocks
-    private ApplicationApprovedRecordService service;
+    private ApplicationRejectedRecordService service;
 
     @Mock
-    private ApplicationApprovedRecordDao dao;
+    private ApplicationRejectedRecordDao dao;
 
     private UUID someUUID;
     private Car car;
@@ -39,8 +45,8 @@ public class ApplicationApprovedRecordServiceImplTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        dao = Mockito.mock(ApplicationApprovedRecordDao.class);
-        service = new ApplicationApprovedRecordServiceImpl(dao);
+        dao = Mockito.mock(ApplicationRejectedRecordDao.class);
+        service = new ApplicationRejectedRecordServiceImpl(dao);
         someUUID = UUID.randomUUID();
         Date created = new Date("2016/2/5");
         car = new Car("R2D2", "456", "Manufacturer", "H510Q", 5, created);
@@ -50,65 +56,65 @@ public class ApplicationApprovedRecordServiceImplTest {
     @Test
     public void testFindAll() {
         // Arrange
-        List<ApplicationApprovedRecord> collection = new LinkedList<>();
+        List<ApplicationRejectedRecord> collection = new LinkedList<>();
         when(dao.findAll()).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(service.findAll(), collection);
+        Assert.assertSame(service.findAllRecords(), collection);
     }
 
     @Test
     public void testFindById() {
         // Arrange
-        ApplicationApprovedRecord someItem = Mockito.mock(ApplicationApprovedRecord.class);
+        ApplicationRejectedRecord someItem = Mockito.mock(ApplicationRejectedRecord.class);
         when(dao.findById(someUUID)).thenReturn(someItem);
 
         // Act + Assert
-        Assert.assertSame(service.findById(someUUID), someItem);
+        Assert.assertSame(service.findRecordById(someUUID), someItem);
     }
 
     @Test
     public void testFindByCar() {
         // Arrange
-        List<ApplicationApprovedRecord> collection = new LinkedList<>();
+        List<ApplicationRejectedRecord> collection = new LinkedList<>();
         when(dao.findByCar(car)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(service.findByCar(car), collection);
+        Assert.assertSame(service.getAllRecordsByCar(car), collection);
     }
 
     @Test
     public void testFindByUser() {
         // Arrange
-        List<ApplicationApprovedRecord> collection = new LinkedList<>();
+        List<ApplicationRejectedRecord> collection = new LinkedList<>();
         when(dao.findByUser(user)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(service.findByUser(user), collection);
+        Assert.assertSame(service.getAllRecordsByUser(user), collection);
     }
 
     @Test
     public void testGetRecordsCreatedBetween() {
         // Arrange
-        List<ApplicationApprovedRecord> collection = new LinkedList<>();
+        List<ApplicationRejectedRecord> collection = new LinkedList<>();
         Date from = new Date("01/01/2016");
         Date to = new Date("01/02/2016");
         when(dao.getRecordsCreatedBetween(from, to)).thenReturn(collection);
 
         // Act + Assert
-        Assert.assertSame(service.getRecordsCreatedBetween(from, to), collection);
+        Assert.assertSame(service.getAllRecordsCreatedBetween(from, to), collection);
     }
 
     @Test
     public void testCreate() {
         // Arrange
-        ApplicationApprovedRecord approvedRecord = Mockito.mock(ApplicationApprovedRecord.class);
+        ApplicationRejectedRecord rejectedRecord = Mockito.mock(ApplicationRejectedRecord.class);
 
         // Act
-        service.create(approvedRecord);
+        service.create(rejectedRecord);
 
         // Assert
-        verify(dao, times(1)).create(approvedRecord);
+        verify(dao, times(1)).create(rejectedRecord);
     }
-
+    
 }

@@ -7,6 +7,8 @@ package cz.fi.muni.pa165.api.dto;
 
 import cz.fi.muni.pa165.enums.CarState;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -19,7 +21,33 @@ public class CarDTO {
 
     private UUID id;
 
+    @NotNull
+    @Size(min = 1)
     private String serialNumber;
+
+    @NotNull
+    @Size(min = 1)
+    private String regPlateNumber;
+
+    @NotNull
+    @Size(min = 1)
+    private String manufacturer;
+
+    @NotNull
+    @Size(min = 1)
+    private String type;
+
+    @NotNull
+    private int seats;
+
+    private CarState state;
+
+    @NotNull
+    private Date establishDate;
+
+    @NotNull
+    private Date discardDate;
+
 
     public void setEstablishDate(Date establishDate) {
         this.establishDate = establishDate;
@@ -28,20 +56,6 @@ public class CarDTO {
     public void setDiscardDate(Date discardDate) {
         this.discardDate = discardDate;
     }
-
-    private String regPlateNumber;
-
-    private String manufacturer;
-
-    private String type;
-
-    private int seats;
-
-    private CarState state;
-
-    private Date establishDate;
-
-    private Date discardDate;
 
     public void setState(CarState state){
         this.state = state;
