@@ -10,7 +10,7 @@
 <jsp:attribute name="body">
 
     <div class="jumbotron">
-        <h1>Welcome to Car Park!</h1>
+        <h1><fmt:message key="home.welcome"/></h1>
     </div>
 
 </jsp:attribute>
