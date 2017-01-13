@@ -72,7 +72,7 @@ public class User {
         return new User(personName, role, email, new Date());
     }
 
-    @org.jetbrains.annotations.Contract("!null, !null, !null, !null -> !null")
+    @Contract("!null, !null, !null, !null -> !null")
     public static User create(String firstName, String lastName, Role role, String email) {
         return User.create(new PersonName(firstName, lastName), role, email);
     }

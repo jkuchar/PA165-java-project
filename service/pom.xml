@@ -49,6 +49,10 @@
             <artifactId>logback-classic</artifactId>
             <scope>test</scope><!-- logging implementation should not be part of a library, but is needed for tests -->
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

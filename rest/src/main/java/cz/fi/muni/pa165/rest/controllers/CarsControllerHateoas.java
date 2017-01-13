@@ -16,6 +16,7 @@ import java.util.UUID;
 import org.dozer.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
@@ -41,15 +42,15 @@ public class CarsControllerHateoas {
 
     final static Logger logger = LoggerFactory.getLogger(CarsControllerHateoas.class);
 
-    @Inject
+    @Autowired
     private CarFacade carFacade;
 
-    @Inject
+    @Autowired
     private CarResourceAssembler carResourceAssembler;
 
     /**
      *
-     * Return list of cars - GET
+     * Return list of cars 
      * 
      * @return HttpEntity<Resources<Resource<CarDTO>>>
      */
@@ -61,14 +62,14 @@ public class CarsControllerHateoas {
         Collection<CarDTO> carDTO = carFacade.findAllCars();
         Collection<Resource<CarDTO>> carResourceCollection = new ArrayList();
 
-        for (CarDTO c : carDTO) {
+        carDTO.stream().forEach((c) -> {
             carResourceCollection.add(carResourceAssembler.toResource(c));
-        }
+        });
 
-        Resources<Resource<CarDTO>> carsResources = new Resources<Resource<CarDTO>>(carResourceCollection);
+        Resources<Resource<CarDTO>> carsResources = new Resources<>(carResourceCollection);
         carsResources.add(linkTo(CarsControllerHateoas.class).withSelfRel());
 
-        return new ResponseEntity<Resources<Resource<CarDTO>>>(carsResources, HttpStatus.OK);
+        return new ResponseEntity<>(carsResources, HttpStatus.OK);
 
     }
     
@@ -76,8 +77,7 @@ public class CarsControllerHateoas {
      *
      * Get list of cars  
      * 
-     * GET http://localhost:8080/carpark-rest/cars_hateoas/cached 
-     * 
+     * @param webRequest
      * @return HttpEntity<Resources<Resource<CarDTO>>>
      */
     @RequestMapping(value = "/cached", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -88,9 +88,9 @@ public class CarsControllerHateoas {
         final Collection<CarDTO> carsDTO = carFacade.findAllCars();
         final Collection<Resource<CarDTO>> carResourceCollection = new ArrayList();
 
-        for (CarDTO c : carsDTO) {
+        carsDTO.stream().forEach((c) -> {
             carResourceCollection.add(carResourceAssembler.toResource(c));
-        }
+        });
 
         Resources<Resource<CarDTO>> carsResources = new Resources(carResourceCollection);
         carsResources.add(linkTo(CarsControllerHateoas.class).withSelfRel());
@@ -112,6 +112,7 @@ public class CarsControllerHateoas {
      * 
      * @param id is id of car
      * @return HttpEntity<Resource<CarDTO>>
+     * @throws java.lang.Exception
      * @throws ResourceNotFoundException
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -122,7 +123,7 @@ public class CarsControllerHateoas {
         try {
         CarDTO carDTO = carFacade.findCarById(id);
             Resource<CarDTO> resource = carResourceAssembler.toResource(carDTO);
-            return new ResponseEntity<Resource<CarDTO>>(resource, HttpStatus.OK);    
+            return new ResponseEntity<>(resource, HttpStatus.OK);    
         } catch (Exception ex){
             throw new ResourceNotFoundException();
         }

@@ -2,6 +2,8 @@ package cz.fi.muni.pa165.api.facade;
 
 import java.util.List;
 import java.util.UUID;
+
+import cz.fi.muni.pa165.api.dto.UserAuthDTO;
 import cz.fi.muni.pa165.api.dto.UserDTO;
 
 /**
@@ -26,16 +28,31 @@ public interface UserFacade {
      * Retrieve user with corresponding name.
      * @param firstName is the first name of the user
      * @param secondName is the second name of the user
-     * @return return user with certain name
+     * @return user with certain name
      */
     UserDTO findByName(String firstName, String secondName);
+
+    /**
+     * Method to retrieve user with corresponding email.
+     * @param email is email of user
+     * @return user with certain email
+     */
+    UserDTO findByEmail(String email);
 
     /**
      * Register a new user.
      * @param u is new user
      * @param unencryptedPassword is new password
+     * @return newly generated ID
      */
     UUID register(UserDTO u, String unencryptedPassword);
+
+    /**
+     * Validates user credentials.
+     * @param auth user to be authenticated
+     * @return true if successful
+     */
+    boolean validate(UserAuthDTO auth);
 
     /**
      * Delete user from database.

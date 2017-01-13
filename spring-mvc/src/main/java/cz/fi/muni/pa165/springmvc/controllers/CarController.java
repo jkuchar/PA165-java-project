@@ -6,6 +6,7 @@
 package cz.fi.muni.pa165.springmvc.controllers;
 
 
+import cz.fi.muni.pa165.api.dto.CarCreateDTO;
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.api.facade.CarAuditLogItemFacade;
 import cz.fi.muni.pa165.api.facade.CarFacade;
@@ -100,12 +101,12 @@ public class CarController {
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newCar(Model model) {
         log.debug("new()");
-        model.addAttribute("createCar", new CarDTO());
+        model.addAttribute("createCar", new CarCreateDTO());
         return "car/new";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@Valid @ModelAttribute("createCar") CarDTO formBean, BindingResult bindingResult,
+    public String create(@Valid @ModelAttribute("createCar") CarCreateDTO formBean, BindingResult bindingResult,
                          Model model, RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder) {
         log.debug("create(formBean={})", formBean);
         //in case of validation error forward back to the the form
