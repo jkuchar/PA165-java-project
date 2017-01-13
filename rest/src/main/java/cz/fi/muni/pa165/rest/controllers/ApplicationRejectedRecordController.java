@@ -17,6 +17,7 @@ import java.util.UUID;
 import org.dozer.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,11 +35,11 @@ public class ApplicationRejectedRecordController {
 
     final static Logger logger = LoggerFactory.getLogger(ApplicationRejectedRecordController.class);
 
-    @Inject
+    @Autowired
     private ApplicationRejectedRecordFacade applicationRejectedRecordFacade;
 
     /**
-     * Get list of rejected records - GET
+     * Return list of all rejected records - GET
      * curl -i -X GET http://localhost:8080/carpark-rest/records/rejected
      *
      * @return ApplicationRejectedRecordDTO
@@ -51,7 +52,7 @@ public class ApplicationRejectedRecordController {
 
     /**
      *
-     * Get ApplicationRejectedRecord by id - GET
+     * Return specific ApplicationRejectedRecord by id - GET
      * curl -i -X GET http://localhost:8080/carpark-rest/records/rejected/f0f2d3b0-c3aa-11e6-a4a6-cec0c932ce01
      *
      * @param id is id of record

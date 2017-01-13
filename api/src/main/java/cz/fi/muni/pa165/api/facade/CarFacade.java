@@ -5,6 +5,7 @@
  */
 package cz.fi.muni.pa165.api.facade;
 
+import cz.fi.muni.pa165.api.dto.CarCreateDTO;
 import cz.fi.muni.pa165.api.dto.CarDTO;
 import cz.fi.muni.pa165.enums.CarState;
 
@@ -22,7 +23,7 @@ public interface CarFacade {
      * @param car is new created car.
      * @return id of created car
      */
-    UUID createCar(CarDTO car);
+    UUID createCar(CarCreateDTO car);
         
     /**
      * Find all existing cars.
