@@ -64,7 +64,7 @@ public class SampleDataLoadingFacadeImpl implements SampleDataLoadingFacade {
         User emma = User.create("Emma", "Johnson", Role.USER, "emma.johnson@gmail.com");
         User david = User.create("David", "Smith", Role.USER, "smith.david@outlook.com");
         User olivia = User.create("Olivia", "Jones", Role.MANAGER, "jones.olivia@gmail.com");
-        User sophia = User.create("Sophia", "Williams", Role.USER, "sophieee456@mail.com");
+        User sophia = User.create("Sophia", "Williams", Role.ADMIN, "sophieee456@mail.com");
         
         userService.register(emma, "password");
         userService.register(david, "password");
