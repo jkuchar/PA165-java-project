@@ -78,6 +78,12 @@ public class ApplicationApprovedRecordFacadeImpl implements ApplicationApprovedR
     }
 
     @Override
+    public List<ApplicationApprovedRecordDTO> findAllRecordsByUserEmail(String userEmail) {
+        User user = userService.findByEmail(userEmail);
+        return beanMappingService.mapTo(approvedRecordService.findByUser(user), ApplicationApprovedRecordDTO.class);
+    }
+
+    @Override
     public List<ApplicationApprovedRecordDTO> findAllRecordsCreatedBetween(Date from, Date to) {
         return beanMappingService.mapTo(approvedRecordService.getRecordsCreatedBetween(from, to),
                 ApplicationApprovedRecordDTO.class);

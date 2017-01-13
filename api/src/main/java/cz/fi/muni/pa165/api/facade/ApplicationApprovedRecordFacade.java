@@ -45,6 +45,13 @@ public interface ApplicationApprovedRecordFacade {
     List<ApplicationApprovedRecordDTO> findAllRecordsByUser(UUID userId);
 
     /**
+     * Retrieve all application approved records of certain user.
+     * @param userEmail email of certain user
+     * @return list of all application approved records of certain user
+     */
+    List<ApplicationApprovedRecordDTO> findAllRecordsByUserEmail(String userEmail);
+
+    /**
      * Retrieve all application approved records created between certain dates.
      * @param from start date
      * @param to end date
