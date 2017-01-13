@@ -27,9 +27,16 @@ public interface UserService {
     /**
      * Retrieve user with corresponding name.
      * @param name is name of user
-     * @return return user with certain name
+     * @return user with certain name
      */
     User findByName(PersonName name);
+
+    /**
+     * Method to retrieve user with corresponding email.
+     * @param email is email of user
+     * @return user with certain email
+     */
+    User findByEmail(String email);
 
     /**
      * Register a new user.
@@ -49,4 +56,12 @@ public interface UserService {
      * @param u is user to update
      */
     void update(User u);
+
+    /**
+     * Validates user credentials.
+     * @param email user to be authenticated
+     * @param password user password
+     * @return true is successful
+     */
+    boolean validate(String email, String password);
 }

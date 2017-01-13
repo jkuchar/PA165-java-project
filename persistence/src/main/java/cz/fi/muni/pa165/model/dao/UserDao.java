@@ -33,6 +33,13 @@ public interface UserDao {
     User findByName(PersonName name);
 
     /**
+     * Method to retrieve user with corresponding email.
+     * @param email is email of user
+     * @return return user with certain email
+     */
+    User findByEmail(String email);
+
+    /**
      * Method to insert new user into db.
      * @param c is new user
      */
