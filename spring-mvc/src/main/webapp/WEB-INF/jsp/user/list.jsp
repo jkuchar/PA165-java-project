@@ -10,7 +10,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Registration date</th>
@@ -24,9 +24,7 @@
                 <td><c:out value="${user.firstName} ${user.lastName}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><fmt:formatDate value="${user.created}" pattern="yyyy-MM-dd"/></td>
-                <td>
-                    <carpark:a href="/user/view/${user.id}" class="btn btn-primary">Detail</carpark:a>
-                </td>
+                <td><carpark:a href="/user/view/${user.id}" class="btn btn-primary">Detail</carpark:a></td>
             </tr>
         </c:forEach>
         </tbody>

@@ -11,7 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Application Rejected Records">
+<my:pagetemplate title="Rent records">
 <jsp:attribute name="body">
 
     <table class="table">
@@ -20,7 +20,7 @@
             <th>Id</th>
             <th>User</th>
             <th>Car</th>
-            <th>Date</th>
+            <th>Rented on</th>
         </tr>
         </thead>
         <tbody>
@@ -30,9 +30,7 @@
                 <td><c:out value="${record.user.email}"/></td>
                 <td><c:out value="${record.car.manufacturer} ${record.car.type}"/></td>
                 <td><fmt:formatDate value="${record.created}" pattern="yyyy-MM-dd"/></td>
-                <td>
-                    <my:a href="/rent/view/${record.id}" class="btn btn-primary">View</my:a>
-                </td>
+                <td><my:a href="/rent/view/${record.id}" class="btn btn-primary">View</my:a></td>
             </tr>
         </c:forEach>
         </tbody>

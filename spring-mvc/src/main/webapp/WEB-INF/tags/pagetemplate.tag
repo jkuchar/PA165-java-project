@@ -75,8 +75,6 @@
                         </ul>
                     </li>
 
-                    <li><carpark:a href="/user/view/${userAuth.id}"><f:message key="navigation.profile"/></carpark:a></li>
-
                     <li>
                         <form action="${pageContext.request.contextPath}/logout" method="post">
                             <f:message key="navigation.logout" var="logoutLabel"/>

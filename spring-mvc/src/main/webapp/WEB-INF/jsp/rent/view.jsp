@@ -11,7 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Rent Record Detail">
+<my:pagetemplate title="Rent detail">
 <jsp:attribute name="body">
 
 
@@ -24,11 +24,11 @@
         </thead>
         <tbody>
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${record.id}</td>
             </tr> 
             <tr>
-                <td>Date</td>
+                <td>Rented on</td>
                 <td><c:out value="${record.created}"/></td>                     
             </tr> 
             <tr>

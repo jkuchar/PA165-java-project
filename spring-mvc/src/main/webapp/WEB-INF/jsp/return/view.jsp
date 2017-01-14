@@ -11,7 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Return Record Detail">
+<my:pagetemplate title="Return detail">
 <jsp:attribute name="body">
 
 
@@ -24,11 +24,11 @@
         </thead>
         <tbody>
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${record.id}</td>
             </tr> 
             <tr>
-                <td>Date</td>
+                <td>Returned on</td>
                 <td><c:out value="${record.created}"/></td>                     
             </tr> 
             <tr>
@@ -36,11 +36,11 @@
                 <td><c:out value="${record.comment}"/></td>                     
             </tr>   
             <tr>
-                <td>Fuel State</td>
+                <td>Fuel state</td>
                 <td><c:out value="${record.fuelState}"/></td>                     
             </tr>  
             <tr>
-                <td>Odometer State</td>
+                <td>Odometer state</td>
                 <td><c:out value="${record.odometerState}"/></td>                     
             </tr> 
             <tr>

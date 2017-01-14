@@ -13,7 +13,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<carpark:pagetemplate title="Application Approved Records">
+<carpark:pagetemplate title="Approved rent applications">
 <jsp:attribute name="body">
 
     <div class="btn-group" role="group" aria-label="filter">
@@ -25,11 +25,11 @@
         <thead>
         <tr>
             <sec:authorize access="hasRole('ROLE_MANAGER')">
-            <th>ID</th>
+            <th>Id</th>
             </sec:authorize>
             <th>User</th>
             <th>Car</th>
-            <th>Creation date</th>
+            <th>Approved on</th>
         </tr>
         </thead>
         <tbody>

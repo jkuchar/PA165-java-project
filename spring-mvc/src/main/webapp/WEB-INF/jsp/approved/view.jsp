@@ -12,7 +12,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<carpark:pagetemplate title="Application Approved Record Detail">
+<carpark:pagetemplate title="Approved rent application detail">
 <jsp:attribute name="body">
 
     <table class="table">
@@ -24,11 +24,11 @@
         </thead>
         <tbody>
         <tr>
-            <td>ID</td>
+            <td>Id</td>
             <td>${record.id}</td>
         </tr>
         <tr>
-            <td>Date</td>
+            <td>Approved on</td>
             <td><c:out value="${record.created}"/></td>
         </tr>
         <tr>
@@ -56,6 +56,14 @@
         <tr>
             <td>Vehicle registration plate</td>
             <td><c:out value="${record.car.regPlateNumber}"/></td>
+        </tr>
+        <tr>
+            <td>Approved from</td>
+            <td><c:out value="${record.from}"/></td>
+        </tr>
+        <tr>
+            <td>Approved to</td>
+            <td><c:out value="${record.to}"/></td>
         </tr>
         </tbody>
     </table>

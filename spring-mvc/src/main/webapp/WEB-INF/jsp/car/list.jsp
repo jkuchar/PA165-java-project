@@ -29,11 +29,11 @@
     <table class="table">
         <thead>
         <tr>
-            <th>id</th>
-            <th>manufacturer</th>
-            <th>type</th>
-            <th>reg plate number</th>
-            <th>state</th>
+            <th>Id</th>
+            <th>Manufacturer</th>
+            <th>Type</th>
+            <th>Reg. plate number</th>
+            <th>State</th>
         </tr>
         </thead>
         <tbody>

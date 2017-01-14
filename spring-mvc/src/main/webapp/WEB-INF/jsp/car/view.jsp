@@ -36,7 +36,7 @@
                 <td><c:out value="${car.type}"/></td>
             </tr> 
             <tr>
-                <td>Reg plate number</td>
+                <td>Reg. plate number</td>
                 <td><c:out value="${car.regPlateNumber}"/></td>  
             </tr>  
             <tr>

@@ -5,7 +5,6 @@
  */
 package cz.fi.muni.pa165.springmvc.controllers;
 
-import cz.fi.muni.pa165.api.facade.RentRecordFacade;
 import cz.fi.muni.pa165.api.facade.ReturnRecordFacade;
 import java.util.UUID;
 import org.slf4j.Logger;
