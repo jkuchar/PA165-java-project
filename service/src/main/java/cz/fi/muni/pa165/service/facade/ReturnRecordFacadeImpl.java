@@ -63,6 +63,12 @@ public class ReturnRecordFacadeImpl implements ReturnRecordFacade{
     }
 
     @Override
+    public List<ReturnRecordDTO> findByUserEmail(String userEmail) {
+        User user = userService.findByEmail(userEmail);
+        return beanMappingService.mapTo(returnRecordService.findByUser(user.getId()), ReturnRecordDTO.class);
+    }
+
+    @Override
     public List<ReturnRecordDTO> getRecordsCreatedBetween(Date from, Date to) {
         return beanMappingService.mapTo(returnRecordService.getRecordsCreatedBetween(from, to), ReturnRecordDTO.class);
     }

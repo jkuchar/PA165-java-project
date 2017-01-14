@@ -134,7 +134,6 @@ public class RentApplicationFacadeImplTest extends AbstractTestNGSpringContextTe
         Assert.assertEquals(collection.get(0), new RentApplicationDTO());
     }
 
-    // todo: enable when other user and car facades will be available
     @Test
     public void testCreate() throws Exception {
         // Arrange

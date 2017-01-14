@@ -62,6 +62,12 @@ public class RentRecordFacadeImpl implements RentRecordFacade {
     }
 
     @Override
+    public List<RentRecordDTO> findByUserEmail(String userEmail) {
+        User user = userService.findByEmail(userEmail);
+        return beanMappingService.mapTo(rentRecordService.findByUser(user.getId()), RentRecordDTO.class);
+    }
+
+    @Override
     public List<RentRecordDTO> getRecordsCreatedBetween(Date from, Date to) {
         return beanMappingService.mapTo(rentRecordService.getRecordsCreatedBetween(from, to), RentRecordDTO.class);
     }
