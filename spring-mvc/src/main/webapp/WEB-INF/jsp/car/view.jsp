@@ -69,15 +69,18 @@
 
     <carpark:logitemlist logItems="${logItems}" />
 
+    <sec:authorize access="hasRole('ROLE_MANAGER')">
     <c:choose>
         <c:when test="${car.state=='OK'}">
             <div class="col-xs-2">
             <form method="post" action="${pageContext.request.contextPath}/car/service/${car.id}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button type="submit" class="btn btn-lg btn-info">Service car</button>
             </form>
             </div>
             <div class="col-xs-2">
             <form method="post" action="${pageContext.request.contextPath}/car/discard/${car.id}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button type="submit" class="btn btn-lg btn-warning">Discard car</button>
             </form>
             </div>
@@ -85,15 +88,18 @@
         <c:when test="${car.state=='SERVICING'}">
             <div class="col-xs-2">
             <form method="post" action="${pageContext.request.contextPath}/car/ok/${car.id}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button type="submit" class="btn btn-lg btn-primary">Finish service</button>
             </form>
             </div>
             <div class="col-xs-2">
             <form method="post" action="${pageContext.request.contextPath}/car/discard/${car.id}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button type="submit" class="btn btn-lg btn-warning">Discard car</button>
             </form>
-            </div>    
+            </div>
         </c:when>
-    </c:choose>       
+    </c:choose>
+    </sec:authorize>
 </jsp:attribute>
 </my:pagetemplate>
