@@ -5,7 +5,6 @@
  */
 package cz.fi.muni.pa165.springmvc.controllers;
 
-
 import cz.fi.muni.pa165.api.dto.*;
 import cz.fi.muni.pa165.api.facade.*;
 import cz.fi.muni.pa165.model.CarAuditLogItemType;
@@ -13,6 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,7 +38,6 @@ public class RecordsController {
 
     final static Logger log = LoggerFactory.getLogger(RecordsController.class);
 
-
     @Autowired
     private CarAuditLogItemFacade carAuditLogItemFacade;
 
@@ -47,7 +48,6 @@ public class RecordsController {
         model.addAttribute("logItems", logItemDTOs);
         return "records/list";
     }
-
 
     @RequestMapping(value = "/add/{carId}", method = RequestMethod.GET)
     public String create(
@@ -158,7 +158,6 @@ public class RecordsController {
         }
 
     }
-    
 
     private void addFormSubmitUrl(UUID carId, String recordType, Model model, String lastRecordId) {
         model.addAttribute("formSubmitUrl", "/records/create/" + recordType + "?carId=" + carId + "&lastRecordId=" + lastRecordId);
@@ -172,13 +171,6 @@ public class RecordsController {
 
     @Autowired
     private UserFacade userFacade;
-
-    private UUID getSomeUserId() {
-        // todo: remove when login is finished
-        final List<UserDTO> all = userFacade.findAll();
-        final UserDTO userDTO = all.get(all.size() - 1);
-        return userDTO.getId();
-    }
 
     @Autowired
     private RentApplicationFacade rentApplicationFacade;
@@ -205,9 +197,9 @@ public class RecordsController {
             return "records/rentApplication";
         }
 
-        // todo: remove this hack with DTOs
-        final UserDTO userDTO = new UserDTO();
-        userDTO.setId( getSomeUserId() );
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        final UserDTO userDTO = userFacade.findByEmail(user.getUsername());
         recordDTO.setUser(userDTO);
 
         final CarDTO carDTO = new CarDTO();
@@ -248,9 +240,9 @@ public class RecordsController {
             return "records/rentApplication";
         }
 
-        // todo: remove this hack with DTOs
-        final UserDTO userDTO = new UserDTO();
-        userDTO.setId( getSomeUserId() );
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        final UserDTO userDTO = userFacade.findByEmail(user.getUsername());
         recordDTO.setUser(userDTO);
 
         final CarDTO carDTO = new CarDTO();
@@ -269,7 +261,7 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("success", "Application rejected record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
-    
+
     @Autowired
     private ApplicationApprovedRecordFacade applicationApprovedRecordFacade;
     
@@ -296,8 +288,9 @@ public class RecordsController {
             return "records/applicationApproved";
         }
 
-        final UserDTO userDTO = new UserDTO();
-        userDTO.setId( getSomeUserId() );
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        final UserDTO userDTO = userFacade.findByEmail(user.getUsername());
         recordDTO.setUser(userDTO);
 
         final CarDTO carDTO = new CarDTO();
@@ -346,9 +339,9 @@ public class RecordsController {
             return "records/returnRecord";
         }
 
-        // todo: remove this hack with DTOs
-        final UserDTO userDTO = new UserDTO();
-        userDTO.setId( getSomeUserId() );
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        final UserDTO userDTO = userFacade.findByEmail(user.getUsername());
         recordDTO.setUser(userDTO);
 
         final CarDTO carDTO = new CarDTO();
@@ -367,26 +360,9 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("success", "Return record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
-
-
     
     @Autowired
     private RentRecordFacade rentRecordFacade;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @RequestMapping(value = "/create/rentRecord", method = RequestMethod.POST)
     public String createRentRecord(
@@ -410,9 +386,9 @@ public class RecordsController {
             return "records/rentRecord";
         }
 
-        // todo: remove this hack with DTOs
-        final UserDTO userDTO = new UserDTO();
-        userDTO.setId( getSomeUserId() );
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        final UserDTO userDTO = userFacade.findByEmail(user.getUsername());
         recordDTO.setUser(userDTO);
 
         final CarDTO carDTO = new CarDTO();
@@ -431,7 +407,6 @@ public class RecordsController {
         redirectAttributes.addFlashAttribute("success", "Rent record with ID " + id + " was created");
         return "redirect:" + uriBuilder.path("/car/list/all").toUriString(); // todo better URI
     }
-
 
     private static boolean validateRequestAndModel(BindingResult bindingResult, Model model, String[] validatedFields) {
         return ValidationTools.validateRequestAndModel(bindingResult, model, validatedFields, log);
