@@ -51,6 +51,12 @@ public interface ApplicationRejectedRecordFacade {
      */
     public List<ApplicationRejectedRecordDTO> getAllRecordsByUser(UUID userId);
 
+    /**
+     * Retrieve all application rejected records of certain user.
+     * @param userEmail email of certain user
+     * @return list of all application rejected records of certain user
+     */
+    List<ApplicationRejectedRecordDTO> findAllRecordsByUserEmail(String userEmail);
      /**
      * Get all application rejected records between certain dates.
      * @param from start date

@@ -27,7 +27,7 @@ import java.util.UUID;
 @RequestMapping("/approved")
 public class ApplicationApprovedRecordController {
 
-    final static Logger log = LoggerFactory.getLogger(ApplicationRejectedRecordController.class);
+    final static Logger log = LoggerFactory.getLogger(ApplicationApprovedRecordController.class);
 
     @Autowired
     private ApplicationApprovedRecordFacade approvedFacade;
@@ -35,12 +35,11 @@ public class ApplicationApprovedRecordController {
     /**
      * Shows a list of user's application approved records.
      *
-     * @param model data to display
      * @return JSP page name
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model, HttpServletRequest request) {
-        return list("my", model, request);
+    public String list() {
+        return "redirect:list/my";
     }
 
     /**
