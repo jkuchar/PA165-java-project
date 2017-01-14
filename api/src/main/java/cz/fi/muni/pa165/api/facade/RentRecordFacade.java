@@ -14,28 +14,35 @@ public interface RentRecordFacade {
      * Method to retrieve all rent records from db.
      * @return all rent records
      */
-    public List<RentRecordDTO> findAll();
+    List<RentRecordDTO> findAll();
 
     /**
      * Method to retrieve rent record with corresponding id.
      * @param id id of rent record
      * @return return rent record with certain id
      */
-    public RentRecordDTO findById(UUID id);
+    RentRecordDTO findById(UUID id);
 
     /**
      * Method to retrieve rent records with corresponding car.
      * @param carId certain car
      * @return list of all rent records with certain car
      */
-    public List<RentRecordDTO> findByCar(UUID carId);
+    List<RentRecordDTO> findByCar(UUID carId);
 
     /**
      * Method to find all rent records of certain user.
      * @param userId certain user
      * @return list of all rent records of certain user
      */
-    public List<RentRecordDTO> findByUser(UUID userId);
+    List<RentRecordDTO> findByUser(UUID userId);
+
+    /**
+     * Retrieve all rent records of certain user.
+     * @param userEmail email of certain user
+     * @return list of all rent records of certain user
+     */
+    List<RentRecordDTO> findByUserEmail(String userEmail);
 
     /**
      * Method to retrieve rent records between certain dates.
@@ -43,7 +50,7 @@ public interface RentRecordFacade {
      * @param to end date
      * @return list of all rent records which were created between certain dates
      */
-    public List<RentRecordDTO> getRecordsCreatedBetween(Date from, Date to);
+    List<RentRecordDTO> getRecordsCreatedBetween(Date from, Date to);
 
     /**
      * Method to insert new rent record into db.

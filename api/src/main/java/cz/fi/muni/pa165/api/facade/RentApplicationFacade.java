@@ -26,18 +26,25 @@ public interface RentApplicationFacade {
     RentApplicationDTO findById(UUID id);
 
     /**
-     * Find all rent applications records by car
+     * Find all rent application records by car
      * @param carId is id of car
      * @return list of all rent applications records by car
      */
     List<RentApplicationDTO> findByCar(UUID carId);
 
     /**
-     * Find all rent applications records by user
+     * Find all rent application records by user
      * @param userId is user id
      * @return list of all rent applications records by user
      */
     List<RentApplicationDTO> findByUser(UUID userId);
+
+    /**
+     * Retrieve all rent application records of certain user.
+     * @param userEmail email of certain user
+     * @return list of all rent applications records of certain user
+     */
+    List<RentApplicationDTO> findByUserEmail(String userEmail);
 
     /**
      * Find all rent application records created between certain dates

@@ -63,13 +63,18 @@ public class RentApplicationFacadeImpl implements RentApplicationFacade {
     }
 
     @Override
+    public List<RentApplicationDTO> findByUserEmail(String userEmail) {
+        User user = userService.findByEmail(userEmail);
+        return beanMappingService.mapTo(rentApplicationService.findByUser(user.getId()), RentApplicationDTO.class);
+    }
+
+    @Override
     public List<RentApplicationDTO> getRecordsCreatedBetween(Date from, Date to) {
         return beanMappingService.mapTo(rentApplicationService.getRecordsCreatedBetween(from, to), RentApplicationDTO.class);
     }
 
     @Override
     public UUID create(RentApplicationDTO r) {
-        // todo: DTO contains all values of referenced objects
         User user = userService.findById(r.getUser().getId());
         Car car = carService.findCarById(r.getCar().getId());
 
