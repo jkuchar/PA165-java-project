@@ -11,6 +11,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <carpark:pagetemplate title="Approved rent application detail">
 <jsp:attribute name="body">
@@ -23,10 +24,12 @@
         </tr>
         </thead>
         <tbody>
+        <sec:authorize access="hasRole('ROLE_MANAGER')">
         <tr>
             <td>Id</td>
             <td>${record.id}</td>
         </tr>
+        </sec:authorize>
         <tr>
             <td>Approved on</td>
             <td><c:out value="${record.created}"/></td>
@@ -52,10 +55,6 @@
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     View car detail</a>
             </td>
-        </tr>
-        <tr>
-            <td>Vehicle registration plate</td>
-            <td><c:out value="${record.car.regPlateNumber}"/></td>
         </tr>
         <tr>
             <td>Approved from</td>

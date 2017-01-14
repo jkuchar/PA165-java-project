@@ -7,7 +7,7 @@
 
 
 <table class="table">
-    <caption>Latest book records:</caption>
+    <caption></caption>
     <thead>
     <tr>
         <th>Recorded at</th>

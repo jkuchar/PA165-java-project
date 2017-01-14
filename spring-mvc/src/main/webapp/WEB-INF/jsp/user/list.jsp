@@ -4,13 +4,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <carpark:pagetemplate title="Users">
 <jsp:attribute name="body">
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                <th>Id</th>
+            </sec:authorize>
             <th>Name</th>
             <th>Email</th>
             <th>Registration date</th>
@@ -20,7 +23,9 @@
         <tbody>
         <c:forEach items="${users}" var="user">
             <tr>
-                <td>${user.id}</td>
+                <sec:authorize access="hasRole('ROLE_MANAGER')">
+                    <td>${user.id}</td>
+                </sec:authorize>
                 <td><c:out value="${user.firstName} ${user.lastName}"/></td>
                 <td><c:out value="${user.email}"/></td>
                 <td><fmt:formatDate value="${user.created}" pattern="yyyy-MM-dd"/></td>

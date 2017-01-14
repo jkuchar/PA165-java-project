@@ -11,6 +11,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="carpark" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <my:pagetemplate title="Car detail">
 <jsp:attribute name="body">
@@ -23,10 +24,12 @@
         </tr>
         </thead>
         <tbody>
+        <sec:authorize access="hasRole('ROLE_MANAGER')">
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${car.id}</td>
-            </tr> 
+            </tr>
+        </sec:authorize>
             <tr>
                 <td>Manufacturer</td>
                 <td><c:out value="${car.manufacturer}"/></td>
@@ -36,7 +39,7 @@
                 <td><c:out value="${car.type}"/></td>
             </tr> 
             <tr>
-                <td>Reg. plate number</td>
+                <td>Registration plate</td>
                 <td><c:out value="${car.regPlateNumber}"/></td>  
             </tr>  
             <tr>
