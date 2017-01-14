@@ -21,14 +21,14 @@
             </div>
         </div>
         <div class="form-group ${fuelState_error?'has-error':''}" >
-            <form:label path="fuelState" cssClass="col-sm-2 control-label">Fuel State</form:label>
+            <form:label path="fuelState" cssClass="col-sm-2 control-label">Fuel state</form:label>
             <div class="col-sm-10">
                 <form:input path="fuelState" cssClass="form-control"/>
                 <form:errors path="fuelState" cssClass="help-block"/>
             </div>
         </div>    
         <div class="form-group ${odometerState_error?'has-error':''}" >
-            <form:label path="fuelState" cssClass="col-sm-2 control-label">Odometer State</form:label>
+            <form:label path="fuelState" cssClass="col-sm-2 control-label">Odometer state</form:label>
             <div class="col-sm-10">
                 <form:input path="odometerState" cssClass="form-control"/>
                 <form:errors path="odometerState" cssClass="help-block"/>

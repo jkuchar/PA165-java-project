@@ -39,5 +39,42 @@
                    value="${_csrf.token}"/>
             <button type="submit" class="btn btn-primary"><fmt:message key="login.loginButton"/></button>
         </form>
+        <h3>Sample users</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Emma Johnson</td>
+                    <td>emma.johnson@gmail.com</td>
+                    <td>password</td>
+                    <td>USER</td>
+                </tr>
+                <tr>
+                    <td>David Smith</td>
+                    <td>smith.david@outlook.com</td>
+                    <td>password</td>
+                    <td>USER</td>
+                </tr>
+                <tr>
+                    <td>Olivia Jones</td>
+                    <td>jones.olivia@gmail.com</td>
+                    <td>password</td>
+                    <td>MANAGER</td>
+                </tr>
+                <tr>
+                    <td>Sophia Williams</td>
+                    <td>sophieee456@mail.com</td>
+                    <td>password</td>
+                    <td>ADMIN</td>
+                </tr>
+            </tbody>
+        </table>
     </jsp:attribute>
 </carpark:pagetemplate>

@@ -10,10 +10,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<my:pagetemplate title="Return Record Detail">
+<my:pagetemplate title="Return detail">
 <jsp:attribute name="body">
-
 
     <table class="table">
         <thead>
@@ -23,24 +23,26 @@
         </tr>
         </thead>
         <tbody>
+        <sec:authorize access="hasRole('ROLE_MANAGER')">
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${record.id}</td>
-            </tr> 
+            </tr>
+        </sec:authorize>
             <tr>
-                <td>Date</td>
+                <td>Returned on</td>
                 <td><c:out value="${record.created}"/></td>                     
-            </tr> 
+            </tr>
             <tr>
                 <td>Comment</td>
                 <td><c:out value="${record.comment}"/></td>                     
-            </tr>   
+            </tr>
             <tr>
-                <td>Fuel State</td>
+                <td>Fuel state</td>
                 <td><c:out value="${record.fuelState}"/></td>                     
             </tr>  
             <tr>
-                <td>Odometer State</td>
+                <td>Odometer state</td>
                 <td><c:out value="${record.odometerState}"/></td>                     
             </tr> 
             <tr>

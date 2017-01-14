@@ -14,7 +14,7 @@
 
     <form:form method="post" action="${pageContext.request.contextPath}${formSubmitUrl}"
                modelAttribute="recordDTO" cssClass="form-horizontal">
-        Dates should be in format "dd. mm. YYYY".
+        Dates should be in format "dd. mm. yyyy".
         <div class="form-group ${manufacturer_error?'has-error':''}">
             <form:label path="from" cssClass="col-sm-2 control-label">From date:</form:label>
             <div class="col-sm-10">
@@ -36,7 +36,6 @@
                 <form:errors path="comment" cssClass="help-block"/>
             </div>
         </div>
-        
 
         <button class="btn btn-primary" type="submit">Send rent applicaton form</button>
     </form:form>

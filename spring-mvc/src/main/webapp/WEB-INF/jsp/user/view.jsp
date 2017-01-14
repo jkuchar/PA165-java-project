@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <carpark:pagetemplate title="User detail">
 <jsp:attribute name="body">
@@ -16,10 +17,12 @@
             </tr>
         </thead>
         <tbody>
+        <sec:authorize access="hasRole('ROLE_MANAGER')">
             <tr>
-                <td>ID</td>
+                <td>Id</td>
                 <td>${user.id}</td>
             </tr>
+        </sec:authorize>
             <tr>
                 <td>Name</td>
                 <td><c:out value="${user.firstName} ${user.lastName}"/></td>
@@ -39,12 +42,10 @@
         </tbody>
     </table>
 
-    Latest records for user
+    <h3>Latest records for user</h3>
     <carpark:logitemlist logItems="${logItems}" />
     <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/user/list" role="button">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></p>
-
-	
 
 </jsp:attribute>
 </carpark:pagetemplate>

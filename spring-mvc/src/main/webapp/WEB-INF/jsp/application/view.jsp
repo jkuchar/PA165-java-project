@@ -11,9 +11,8 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<my:pagetemplate title="Rent Application Detail">
+<my:pagetemplate title="Rent application detail">
 <jsp:attribute name="body">
-
 
     <table class="table">
         <thead>
@@ -26,15 +25,15 @@
             <tr>
                 <td>Id</td>
                 <td>${record.id}</td>
-            </tr> 
+            </tr>
             <tr>
-                <td>Date</td>
-                <td><c:out value="${record.created}"/></td>                     
-            </tr> 
+                <td>Applied on</td>
+                <td><c:out value="${record.created}"/></td>
+            </tr>
             <tr>
                 <td>Comment</td>
-                <td><c:out value="${record.comment}"/></td>                     
-            </tr>             
+                <td><c:out value="${record.comment}"/></td>
+            </tr>
             <tr>
                 <td>User</td>
                 <td><c:out value="${record.user.email}"/>
@@ -52,7 +51,15 @@
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     View car detail</a>
                 </td>
-            </tr> 
+            </tr>
+            <tr>
+                <td>From</td>
+                <td><c:out value="${record.from}"/></td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td><c:out value="${record.to}"/></td>
+            </tr>
         </tbody>
     </table>
 </jsp:attribute>

@@ -10,10 +10,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<my:pagetemplate title="Application Rejected Record Detail">
+<my:pagetemplate title="Rejected rent application detail">
 <jsp:attribute name="body">
-
 
     <table class="table">
         <thead>
@@ -23,18 +23,20 @@
         </tr>
         </thead>
         <tbody>
+        <sec:authorize access="hasRole('ROLE_MANAGER')">
             <tr>
-                <td>id</td>
+                <td>Id</td>
                 <td>${record.id}</td>
-            </tr> 
+            </tr>
+        </sec:authorize>
             <tr>
-                <td>Date</td>
+                <td>Rejected on</td>
                 <td><c:out value="${record.created}"/></td>                     
-            </tr> 
+            </tr>
             <tr>
                 <td>Comment</td>
                 <td><c:out value="${record.comment}"/></td>                     
-            </tr>             
+            </tr>
             <tr>
                 <td>User</td>
                 <td><c:out value="${record.user.email}"/>

@@ -33,11 +33,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .mvcMatchers("/user/list", "/user/view/*",
                         "/car/new", "/car/create", "/car/service/*", "/car/ok/*", "/car/discard/*",
-                        "/rejected/**", "/application/**", "/rent/**", "/returned/**",
                         "/records/create**", "/records/add**"
-                        ).hasRole("MANAGER")
-                .mvcMatchers("/car/list", "/car/list/*", "/car/view/*", "/records/list**", "/approved/**").hasRole("USER")
+                    ).hasRole("MANAGER")
                 .mvcMatchers("/").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll();
     }

@@ -92,6 +92,12 @@ public class ApplicationRejectedRecordFacadeImpl implements ApplicationRejectedR
     }
 
     @Override
+    public List<ApplicationRejectedRecordDTO> findAllRecordsByUserEmail(String userEmail) {
+        User user = userService.findByEmail(userEmail);
+        return beanMappingService.mapTo(recordService.getAllRecordsByUser(user), ApplicationRejectedRecordDTO.class);
+    }
+
+    @Override
     public List<ApplicationRejectedRecordDTO> getAllRecordsCreatedBetween(Date from, Date to) {
         return beanMappingService.mapTo(recordService.getAllRecordsCreatedBetween(from, to), ApplicationRejectedRecordDTO.class);
     }
